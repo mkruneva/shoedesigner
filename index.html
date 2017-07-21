@@ -18,7 +18,7 @@
 				background-color: #eee;
 			}
 			.some-padding {
-				padding: 0 40px;
+				padding: 10px 40px;
 			}
 			.left {
 				background-color: #ddd;
@@ -27,10 +27,14 @@
 			.right {
 				min-height: 500px;
 			}
-			.btn {
+			.btn-block {
 				border: 1px solid #ccc;
 				border-radius: 0;
-
+				margin-top: 3px;
+				margin-bottom: 3px;
+			}
+			.btn-block:first-child {
+				margin-top: 0px;
 			}
 			.shoe-thumb {
 				box-sizing: border-box;
@@ -74,9 +78,9 @@
 				<div class="col-sm-4">
 					<div class="right">
 						<!-- CORE SHAPES -->
-						<button type="button" class="btn btn-secondary btn-lg btn-block">Shoe Style</button>
+						<button type="button" id="thumbCsBtn" class="btn btn-secondary btn-lg btn-block">Shoe Style</button>
 							<div class="row">
-								<div class="col-xs-12 thumb-container">
+								<div class="col-xs-12 thumb-container" id="thumbCsDiv">
 									<figure class="col-xs-3 col-sm-4 col-md-3 shoe-thumb"><img src="images/CS/CSPCPLA.jpg" alt=""></figure>
 									<figure class="col-xs-3 col-sm-4 col-md-3 shoe-thumb"><img src="images/CS/CSPHPLA2.jpg" alt=""></figure>
 									<figure class="col-xs-3 col-sm-4 col-md-3 shoe-thumb"><img src="images/CS/CSPOPLA.jpg" alt=""></figure>
@@ -265,7 +269,19 @@
 		</div>
 		</div>
 
+		<script>
+			var thumbCsDiv = document.getElementById('thumbCsDiv');
+			thumbCsDiv.style.display ='none';
+			document.getElementById('thumbCsBtn').onclick = function() {showHide(thumbCsDiv)}; 
 
+			function showHide(divId) {
+				if (divId.style.display === 'none') {
+					divId.style.display = 'block';
+				} else {
+					divId.style.display = 'none';
+				}
+			}
+		</script>
 
         <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
         <script>
