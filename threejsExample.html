@@ -1,0 +1,62 @@
+<html>
+	<head>
+		<title>THREE-JS Example</title>
+		<style>
+			body { margin: 0; }
+			canvas { width: 100%; height: 100% }
+		</style>
+	</head>
+	<body>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/86/three.js"></script>
+		<script src="https://threejs.org/examples/js/loaders/OBJLoader.js"></script>
+		<script>
+			var scene = new THREE.Scene();
+			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+
+			var directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
+			scene.add( directionalLight );
+
+			var light = new THREE.AmbientLight( 0xbfbfbf ); // soft white light
+			scene.add( light );
+
+			var renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			document.body.appendChild( renderer.domElement );
+
+			var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+			var material = new THREE.MeshStandardMaterial( { color: 0xdddddd } );
+			var cube = new THREE.Mesh( geometry, material );
+			scene.add( cube );
+
+			camera.position.z = 240;
+			camera.position.y = 75;
+
+			var loader = new THREE.OBJLoader();
+			loader.load( 'obj/PC300AHPLAPL.obj', function ( object ) {
+				object.rotation.y = (260 * Math.PI)/180;
+				object.translateZ( 80 );
+			    var material = new THREE.MeshStandardMaterial( { color: 0xdddddd, metalness: 0.5,  roughness: 0.5 } );
+			    object.traverse( function ( child ) {
+			        if ( child instanceof THREE.Mesh ) {
+			            child.material = material;
+			        }
+			    } );
+			    //animateShoe(object);
+			    scene.add( object );
+			} );
+
+
+
+			var animate = function () {
+				requestAnimationFrame( animate );
+
+				// cube.rotation.x += 0.01;
+				// cube.rotation.y += 0.01;
+
+				renderer.render(scene, camera);
+			};
+
+			animate();
+		</script>
+	</body>
+</html>
