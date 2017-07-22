@@ -35,7 +35,7 @@
 			loader.load( 'obj/PC300AHPLAPL.obj', function ( object ) {
 				object.rotation.y = (260 * Math.PI)/180;
 				object.translateZ( 80 );
-			    var material = new THREE.MeshStandardMaterial( { color: 0x111111, metalness: 0.5,  roughness: 0.5 } );
+			    var material = new THREE.MeshStandardMaterial( { color: 0xdddddd, metalness: 0.5,  roughness: 0.5 } );
 			    object.traverse( function ( child ) {
 			        if ( child instanceof THREE.Mesh ) {
 			            child.material = material;
