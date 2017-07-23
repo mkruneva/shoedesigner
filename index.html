@@ -76,7 +76,7 @@
 				</div>
 
 				<div class="col-sm-4">
-					<div class="right">
+					<div class="right" id="shoeMenu">
 						<!-- CORE SHAPES -->
 						<button type="button" id="thumbCsBtn" class="btn btn-secondary btn-lg btn-block">Shoe Style</button>
 							<div class="row">
@@ -274,6 +274,24 @@
 		</div>
 		</div>
 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+		<!-- JQuery script example  -->
+		<script>
+
+		
+
+		$(document).ready(function(){
+		    $("#thumbCsBtn").click(function(){
+		    	if (($("#thumbCsDiv")[0]).style.display === 'none') {
+		    		$("#thumbCsDiv").slideDown(600);
+		    	} else {
+		    		$("#thumbCsDiv").slideUp(600);
+		    	}    
+		    });
+		});
+		</script>
+<!-- 
 		<script>
 			document.getElementById('thumbCsDiv').style.display ='block'; // Shoe styles will be visible
 			document.getElementById('thumbHeelsDiv').style.display ='none';
@@ -304,7 +322,7 @@
 					divId.style.display = 'none';
 				}
 			}
-		</script>
+		</script> -->
 
         <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
         <script>
