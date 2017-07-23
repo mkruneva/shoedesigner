@@ -279,7 +279,15 @@
 		<!-- JQuery script example  -->
 		<script>
 
-		
+		// Objects constructor for shoe designer item Btn and Div ids
+		function ShoeItem(name, btnId, divId) {
+			this.name = name;
+		    this.btnId = btnId;
+		    this.divId = divId;
+		}
+		//Core shape Item
+		var CoreShapeItem = new ShoeItem('CoreShapeItem', 'thumbCsBtn', 'thumbCsDiv');
+		console.log(CoreShapeItem);
 
 		$(document).ready(function(){
 		    $("#thumbCsBtn").click(function(){
