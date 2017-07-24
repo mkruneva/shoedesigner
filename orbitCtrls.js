@@ -35,7 +35,7 @@ THREE.OrbitControls = function ( object, domElement ) {
 
 	// How far you can orbit vertically, upper and lower limits.
 	// Range is 0 to Math.PI radians.
-	this.minPolarAngle = 0; // radians
+	this.minPolarAngle = (15 * Math.PI)/180;; // radians
 	this.maxPolarAngle = (120 * Math.PI)/180; // radians
 
 	// How far you can orbit horizontally, upper and lower limits.
@@ -46,7 +46,7 @@ THREE.OrbitControls = function ( object, domElement ) {
 	// Set to true to enable damping (inertia)
 	// If damping is enabled, you must call controls.update() in your animation loop
 	this.enableDamping = true;
-	this.dampingFactor = 0.65;
+	this.dampingFactor = 0.7;
 
 	// This option actually enables dollying in and out; left as "zoom" for backwards compatibility.
 	// Set to false to disable zooming
