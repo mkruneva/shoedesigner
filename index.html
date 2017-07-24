@@ -305,22 +305,23 @@
 		var designerItems = [csItem, heItem, frItem, bcItem, stItem, emItem, clItem]
 		console.log(designerItems[1].btnId);
 
+
+
 		for (var i = designerItems.length - 1; i >= 0; i--) {
-			console.log(designerItems[i]);
+			console.log(designerItems[i].btnId);
 		}
 
-
 		// JQuery script example 
-
-		$(document).ready(function(){
-		    $("#thumbCsBtn").click(function(){
+		$(document).ready(showHide());
+		function showHide() {
+			$("#thumbCsBtn").click(function(){
 		    	if (($("#thumbCsDiv")[0]).style.display === 'none') {
 		    		$("#thumbCsDiv").slideDown(600);
 		    	} else {
 		    		$("#thumbCsDiv").slideUp(600);
 		    	}    
 		    });
-		});
+		}
 		</script>
 <!-- 
 		<script>
