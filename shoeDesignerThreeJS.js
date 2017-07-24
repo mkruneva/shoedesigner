@@ -16,11 +16,27 @@ renderer.setSize( window.innerWidth, window.innerHeight );
 document.getElementById('canvasContainer').appendChild(renderer.domElement);
 //document.body.appendChild( renderer.domElement );
 
-// Initail Cube Geometry
-// var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+// //Initail Cube Geometry
+// var geometry = new THREE.BoxGeometry( 100, 100, 100 );
 // var material = new THREE.MeshStandardMaterial( { color: 0xdddddd } );
 // var cube = new THREE.Mesh( geometry, material );
+// geometry.castShadow = true; 
 // scene.add( cube );
+
+//Shadow
+var planeGeometry = new THREE.PlaneGeometry( 2000, 2000 );
+planeGeometry.rotateX( - Math.PI / 2 );
+
+var planeMaterial = new THREE.MeshStandardMaterial( { color: 0xdddddd,  roughness: 0.9 } );
+//var planeMaterial = new THREE.ShadowMaterial();
+planeMaterial.opacity = 0.2;
+
+var plane = new THREE.Mesh( planeGeometry, planeMaterial );
+plane.position.y = -78;
+plane.receiveShadow = true;
+scene.add( plane );
+
+
 
 camera.position.z = 300;
 camera.position.y = 140;
@@ -37,6 +53,7 @@ loader.load( 'obj/PC300AHPLAPL.obj', function ( object ) {
             child.material = material;
         }
     } );
+    object.castShadow = true; 
     //animateShoe(object);
     scene.add( object );
 } );
