@@ -91,17 +91,16 @@
 								</div>
 							</div>
 						<!-- HEELS -->
-						<button type="button" id="thumbHeelsBtn" class="btn btn-secondary btn-lg btn-block">Heels</button>
+						<button type="button" id="thumbHeBtn" class="btn btn-secondary btn-lg btn-block">Heels</button>
 
 							<!-- PC PLA HEELS -->
 							<div class="row">
-								<div id="thumbHeelsDiv" class="col-xs-12 thumb-container">
+								<div id="thumbHeDiv" class="col-xs-12 thumb-container">
 									<figure class="col-xs-3 col-sm-4 col-md-3 shoe-thumb"><img src="images/HEPCPLA/HEPCPLA225KI.jpg" alt=""></figure>
 									<figure class="col-xs-3 col-sm-4 col-md-3 shoe-thumb"><img src="images/HEPCPLA/HEPCPLA300AH.jpg" alt=""></figure>
 									<figure class="col-xs-3 col-sm-4 col-md-3 shoe-thumb"><img src="images/HEPCPLA/HEPCPLA300CO.jpg" alt=""></figure>
 									<figure class="col-xs-3 col-sm-4 col-md-3 shoe-thumb"><img src="images/HEPCPLA/HEPCPLA375AH.jpg" alt=""></figure>
 									<figure class="col-xs-3 col-sm-4 col-md-3 shoe-thumb"><img src="images/HEPCPLA/HEPCPLA375BH.jpg" alt=""></figure>
-
 								</div>
 							</div>
 
@@ -182,10 +181,10 @@
 								</div>
 							</div> -->
 
-						<button type="button" id="thumbFrontsBtn" class="btn btn-secondary btn-lg btn-block">Fronts</button>
+						<button type="button" id="thumbFrBtn" class="btn btn-secondary btn-lg btn-block">Fronts</button>
 							<!-- PC PLA FRONTS -->
 							<div class="row">
-								<div id="thumbFrontsDiv" class="col-xs-12 thumb-container">
+								<div id="thumbFrDiv" class="col-xs-12 thumb-container">
 									<figure class="col-xs-3 col-sm-4 col-md-3 shoe-thumb"><img src="images/FRPC/FRPCPLA225KI.jpg" alt=""></figure>
 									<figure class="col-xs-3 col-sm-4 col-md-3 shoe-thumb"><img src="images/FRPC/FRPCPLA300AH.jpg" alt=""></figure>
 									<figure class="col-xs-3 col-sm-4 col-md-3 shoe-thumb"><img src="images/FRPC/FRPCPTO225KI.jpg" alt=""></figure>
@@ -207,10 +206,10 @@
 								</div>
 							</div> -->
 
-						<button type="button" id="thumbBacksBtn" class="btn btn-secondary btn-lg btn-block">Backs</button>
+						<button type="button" id="thumbBcBtn" class="btn btn-secondary btn-lg btn-block">Backs</button>
 							<!-- CLosed BACKS HEELS-->
 							<div class="row">
-								<div id="thumbBacksDiv" class="col-xs-12 thumb-container">
+								<div id="thumbBcDiv" class="col-xs-12 thumb-container">
 									<figure class="col-xs-3 col-sm-4 col-md-3 shoe-thumb"><img src="images/BACKS/BACBPH.jpg" alt=""></figure>
 									<figure class="col-xs-3 col-sm-4 col-md-3 shoe-thumb"><img src="images/BACKS/BACBPL.jpg" alt=""></figure>
 									<figure class="col-xs-3 col-sm-4 col-md-3 shoe-thumb"><img src="images/BACKS/BACBSH.jpg" alt=""></figure>
@@ -240,10 +239,10 @@
 
 
 
-						<button type="button" id="thumbStrapsBtn" class="btn btn-secondary btn-lg btn-block">Straps</button>
+						<button type="button" id="thumbStBtn" class="btn btn-secondary btn-lg btn-block">Straps</button>
 							<!-- STRAPS -->
 							<div class="row">
-								<div id="thumbStrapsDiv" class="col-xs-12 thumb-container">
+								<div id="thumbStDiv" class="col-xs-12 thumb-container">
 									<figure class="col-xs-3 col-sm-4 col-md-3 shoe-thumb"><img src="images/STEM/STBI300AH.jpg" alt=""></figure>
 									<figure class="col-xs-3 col-sm-4 col-md-3 shoe-thumb"><img src="images/STEM/STLS300AH.jpg" alt=""></figure>
 									<figure class="col-xs-3 col-sm-4 col-md-3 shoe-thumb"><img src="images/STEM/STMJ300AH.jpg" alt=""></figure>
@@ -253,18 +252,18 @@
 								</div>
 							</div>
 
-						<button type="button" id="thumbEmbBtn" class="btn btn-secondary btn-lg btn-block">Embellishments</button>
+						<button type="button" id="thumbEmBtn" class="btn btn-secondary btn-lg btn-block">Embellishments</button>
 						<!-- EMBELLISHMENTS -->
 							<div class="row">
-								<div id="thumbEmbDiv" class="col-xs-12 thumb-container">
+								<div id="thumbEmDiv" class="col-xs-12 thumb-container">
 									<figure class="col-xs-3 col-sm-4 col-md-3 shoe-thumb"><img src="images/STEM/EMBB.jpg" alt=""></figure>
 									<figure class="col-xs-3 col-sm-4 col-md-3 shoe-thumb"><img src="images/STEM/EMGE.jpg" alt=""></figure>
 								</div>
 							</div>
 
-						<button type="button" id="thumbColoursBtn" class="btn btn-secondary btn-lg btn-block">Colour</button>
+						<button type="button" id="thumbClBtn" class="btn btn-secondary btn-lg btn-block">Colour</button>
 							<div class="row">
-								<div id="thumbColoursDiv" class="col-xs-12 thumb-container">
+								<div id="thumbClDiv" class="col-xs-12 thumb-container">
 									<div>Something here</div>
 								</div>
 							</div>
@@ -276,8 +275,18 @@
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-		<!-- JQuery script example  -->
+		
 		<script>
+
+		document.getElementById('thumbCsDiv').style.display ='block'; // Shoe styles will be visible
+		document.getElementById('thumbHeDiv').style.display ='none';
+		document.getElementById('thumbFrDiv').style.display ='none';
+		document.getElementById('thumbBcDiv').style.display ='none';
+		document.getElementById('thumbStDiv').style.display ='none';
+		document.getElementById('thumbEmDiv').style.display ='none';
+		document.getElementById('thumbClDiv').style.display ='none';
+
+
 
 		// Objects constructor for shoe designer item Btn and Div ids
 		function ShoeItem(name, btnId, divId) {
@@ -286,8 +295,22 @@
 		    this.divId = divId;
 		}
 		//Core shape Item
-		var CoreShapeItem = new ShoeItem('CoreShapeItem', 'thumbCsBtn', 'thumbCsDiv');
-		console.log(CoreShapeItem);
+		var csItem = new ShoeItem('csItem', 'thumbCsBtn', 'thumbCsDiv');
+		var heItem = new ShoeItem('heItem', 'thumbHeBtn', 'thumbHeDiv');
+		var frItem = new ShoeItem('frItem', 'thumbFrBtn', 'thumbFrDiv');
+		var bcItem = new ShoeItem('bcItem', 'thumbBcBtn', 'thumbBcDiv');
+		var stItem = new ShoeItem('stItem', 'thumbStBtn', 'thumbStDiv');
+		var emItem = new ShoeItem('emItem', 'thumbEmBtn', 'thumbEmDiv');
+		var clItem = new ShoeItem('clItem', 'thumbClBtn', 'thumbClDiv');
+		var designerItems = [csItem, heItem, frItem, bcItem, stItem, emItem, clItem]
+		console.log(designerItems[1].btnId);
+
+		for (var i = designerItems.length - 1; i >= 0; i--) {
+			console.log(designerItems[i]);
+		}
+
+
+		// JQuery script example 
 
 		$(document).ready(function(){
 		    $("#thumbCsBtn").click(function(){
@@ -301,13 +324,7 @@
 		</script>
 <!-- 
 		<script>
-			document.getElementById('thumbCsDiv').style.display ='block'; // Shoe styles will be visible
-			document.getElementById('thumbHeelsDiv').style.display ='none';
-			document.getElementById('thumbFrontsDiv').style.display ='none';
-			document.getElementById('thumbBacksDiv').style.display ='none';
-			document.getElementById('thumbStrapsDiv').style.display ='none';
-			document.getElementById('thumbEmbDiv').style.display ='none';
-			document.getElementById('thumbColoursDiv').style.display ='none';
+			
 
 			document.getElementById('thumbCsBtn').onclick = function() {showHide(thumbCsDiv)}; 
 			document.getElementById('thumbHeelsBtn').onclick = function() {showHide(thumbHeelsDiv)};
