@@ -8,9 +8,6 @@ function init() {
 
 	scene.add( camera ); // adding camera as a child of the scene so that pont light can be attached to it
 
-	//GUI
-	var gui = new dat.GUI();
-
 	//Renderer
 	var renderer = new THREE.WebGLRenderer({ antialias: true });
 	renderer.setClearColor( 0xdddddd, 1 );
@@ -46,11 +43,16 @@ function init() {
 	scene.add( ambientLight );
 
 
-	//GUI Lights
-	gui.add(pointLight, 'intensity', 0, 3);
-	gui.add(pointLight.position, 'x', -500, 500);
-	gui.add(pointCamLight, 'intensity', 0, 3);
-	gui.add(ambientLight, 'intensity', 0, 1);
+
+	//GUI
+	var gui = new dat.GUI();
+	var pLight = gui.addFolder('point light');
+	pLight.add(pointLight, 'intensity', 0, 3);
+	pLight.add(pointLight.position, 'x', -500, 500);
+	var cLight = gui.addFolder('camera light');
+	cLight.add(pointCamLight, 'intensity', 0, 3);
+	var aLight = gui.addFolder('ambient light');
+	aLight.add(ambientLight, 'intensity', 0, 1);
 
 	//Geo
 
