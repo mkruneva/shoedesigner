@@ -6,6 +6,8 @@ function init() {
 	camera.position.z = 600;
 	camera.position.y = 140;
 
+	scene.add( camera ); // adding camera as a child of the scene so that pont light can be attached to it
+
 	//GUI
 	var gui = new dat.GUI();
 
@@ -25,21 +27,30 @@ function init() {
 	//scene.add( directionalLight);
 
 	//point Light
-	var pointLight = new THREE.PointLight( 0xffffff, 1 );
-	pointLight.translateY(100);
-	pointLight.translateX(100);
-	pointLight.translateZ(100);
+	var pointLight = new THREE.PointLight( 0xffffff, 0.8 );
+	pointLight.position.x = -120;
+	pointLight.position.y = 100;
+	pointLight.position.z = 100;;
 	scene.add( pointLight );
+
+
+	//point Light attached to Camera 
+	var pointCamLight = new THREE.PointLight( 0xffffff, 0.7 );
+	pointCamLight.position.x = 300;
+	pointCamLight.position.x = 200;
+	camera.add( pointCamLight );
 
 	//ambient Light
 	var ambientLight = new THREE.AmbientLight( 0x666666 ); // soft white light
+	ambientLight.intensity = 0;
 	scene.add( ambientLight );
 
 
 	//GUI Lights
-	gui.add(pointLight, 'intensity', 0, 10);
+	gui.add(pointLight, 'intensity', 0, 3);
 	gui.add(pointLight.position, 'x', -500, 500);
-	gui.add(ambientLight, 'intensity', 0, 2);
+	gui.add(pointCamLight, 'intensity', 0, 3);
+	gui.add(ambientLight, 'intensity', 0, 1);
 
 	//Geo
 
@@ -126,11 +137,6 @@ function init() {
 
 		return plane;
 	}
-
-
-	
-	
-
 
 
 	// //Hiding Box object in the scene 
