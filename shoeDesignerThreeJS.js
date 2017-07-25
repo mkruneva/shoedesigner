@@ -1,5 +1,5 @@
 function init() {
-	
+
 	//Scene and Camera
 	var scene = new THREE.Scene();
 	var camera = new THREE.PerspectiveCamera( 30, 4/3, 10, 1000 );	
@@ -20,15 +20,13 @@ function init() {
 	var light = new THREE.AmbientLight( 0xbfbfbf ); // soft white light
 	scene.add( light );
 
-	
-
 	//Initail Cube Geometry
 	var geometry = new THREE.BoxGeometry( 100, 100, 100 );
 	var material = new THREE.MeshStandardMaterial( { color: 0xdddddd } );
 	var cube = new THREE.Mesh( geometry, material );
 	geometry.castShadow = true; 
 	scene.add( cube );
-	cube.traverse( function ( object ) { object.visible = false; } );   // testing hiding object
+	
 
 
 	//Shadow Plane
@@ -46,24 +44,34 @@ function init() {
 
 
 	var loader = new THREE.OBJLoader();
-	loader.load( 'obj/PC300AHPLAPL.obj', function ( object ) {
+	loader.load( 'obj/PC300AHPLAPL-simple.obj', function ( object ) {
+		
+		//Assigning name to the object
+		object.name = "PC300AHPLAPL-simple";
+
+		// //Getting the mesh name
+		//console.log(object.children[10]);
+
 		object.rotation.y = (260 * Math.PI)/180;
 		object.translateZ(90);
 		object.translateY(-70);
 
+		//Assinging material to all meshes of the object
 	    var material = new THREE.MeshStandardMaterial( { color: 0xdddddd, metalness: 0.5,  roughness: 0.5 } );
 	    object.traverse( function ( child ) {
 	        if ( child instanceof THREE.Mesh ) {
 	            child.material = material;
 	        }
 	    } );
+
 	    //object.castShadow = true; 
 	    //animateShoe(object);
+
 	    scene.add( object );
 	} );
 
-	controls = new THREE.OrbitControls(camera, renderer.domElement);
 
+	controls = new THREE.OrbitControls(camera, renderer.domElement);
 
 
 	var animate = function () {
@@ -73,5 +81,18 @@ function init() {
 	};
 
 	animate();
+
+	// //Hiding Box object in the scene 
+	// cube.traverse( function ( object ) { object.visible = false; } );   // testing hiding object
+	cube.visible = 0;
+	// scene.children[2].visible = 0;
+
+
+	// //Console logging objects in the scene
+
+	console.log(scene);
+	// console.log(scene.children);
+	// console.log(scene.children[3]);
+	// console.log(plane);
 }
 
