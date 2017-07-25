@@ -20,19 +20,21 @@ function init() {
 	var light = new THREE.AmbientLight( 0xbfbfbf ); // soft white light
 	scene.add( light );
 
-	//Initail Cube Geometry
-	var geometry = new THREE.BoxGeometry( 100, 100, 100 );
-	var material = new THREE.MeshStandardMaterial( { color: 0xdddddd } );
-	var cube = new THREE.Mesh( geometry, material );
-	geometry.castShadow = true; 
-	scene.add( cube );
-	
 
+	
+	//Cube - with parametric function
+	function createCube(size) {
+		var geometry = new THREE.BoxGeometry( size, size, size );
+		var material = new THREE.MeshStandardMaterial( { color: 0xdddddd } );
+		var cube = new THREE.Mesh( geometry, material );
+		geometry.castShadow = true; 
+
+		return cube;
+	}
 
 	//Shadow Plane - with parametric function 
-
-	function createPlane (w) {
-		var planeGeometry = new THREE.PlaneGeometry(w, w );
+	function createPlane (size) {
+		var planeGeometry = new THREE.PlaneGeometry(size, size );
 		planeGeometry.rotateX( - Math.PI / 2 );
 
 		var planeMaterial = new THREE.MeshStandardMaterial( { color: 0xffffff,  roughness: 1 } );
@@ -45,6 +47,10 @@ function init() {
 
 		return plane;
 	}
+
+
+	var cube = createCube(100);
+	scene.add( cube );
 
 	var plane = createPlane(2000);
 	scene.add( plane );
