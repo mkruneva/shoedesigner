@@ -29,19 +29,28 @@ function init() {
 	
 
 
-	//Shadow Plane
-	var planeGeometry = new THREE.PlaneGeometry( 2000, 2000 );
-	planeGeometry.rotateX( - Math.PI / 2 );
+	//Shadow Plane - with parametric function 
 
-	var planeMaterial = new THREE.MeshStandardMaterial( { color: 0xffffff,  roughness: 1 } );
-	//var planeMaterial = new THREE.ShadowMaterial();
-	//planeMaterial.opacity = 0.2;
+	function createPlane (w) {
+		var planeGeometry = new THREE.PlaneGeometry(w, w );
+		planeGeometry.rotateX( - Math.PI / 2 );
 
-	var plane = new THREE.Mesh( planeGeometry, planeMaterial );
-	plane.position.y = -68;
-	plane.receiveShadow = true;
+		var planeMaterial = new THREE.MeshStandardMaterial( { color: 0xffffff,  roughness: 1 } );
+		//var planeMaterial = new THREE.ShadowMaterial();
+		//planeMaterial.opacity = 0.2;
+
+		var plane = new THREE.Mesh( planeGeometry, planeMaterial );
+		plane.position.y = -48;
+		plane.receiveShadow = true;
+
+		return plane;
+	}
+
+	var plane = createPlane(2000);
 	scene.add( plane );
 
+
+	//OBJ Loader
 
 	var loader = new THREE.OBJLoader();
 	loader.load( 'obj/PC300AHPLAPL-simple.obj', function ( object ) {
@@ -54,7 +63,7 @@ function init() {
 
 		object.rotation.y = (260 * Math.PI)/180;
 		object.translateZ(90);
-		object.translateY(-70);
+		object.translateY(-50);
 
 		//Assinging material to all meshes of the object
 	    var material = new THREE.MeshStandardMaterial( { color: 0xdddddd, metalness: 0.5,  roughness: 0.5 } );
