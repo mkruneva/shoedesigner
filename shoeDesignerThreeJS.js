@@ -6,6 +6,9 @@ function init() {
 	camera.position.z = 600;
 	camera.position.y = 140;
 
+	//GUI
+	var gui = new dat.GUI();
+
 	//Renderer
 	var renderer = new THREE.WebGLRenderer({ antialias: true });
 	renderer.setClearColor( 0xdddddd, 1 );
@@ -16,19 +19,27 @@ function init() {
 	//Controls
 	controls = new THREE.OrbitControls(camera, renderer.domElement);
 
-	//Lights
+	//LIGHTS
+	//directional Light
 	var directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
 	//scene.add( directionalLight);
 
+	//point Light
 	var pointLight = new THREE.PointLight( 0xffffff, 1 );
 	pointLight.translateY(100);
 	pointLight.translateX(100);
 	pointLight.translateZ(100);
 	scene.add( pointLight );
 
+	//ambient Light
 	var ambientLight = new THREE.AmbientLight( 0x666666 ); // soft white light
 	scene.add( ambientLight );
 
+
+	//GUI Lights
+	gui.add(pointLight, 'intensity', 0, 10);
+	gui.add(pointLight.position, 'x', -500, 500);
+	gui.add(ambientLight, 'intensity', 0, 2);
 
 	//Geo
 
@@ -78,7 +89,18 @@ function init() {
 	var redMaterial = new THREE.MeshStandardMaterial( { color: 0xff0000, metalness: 0,  roughness: 0.3 } );
 
 
-	//Functions for creating GEO 
+	//Functions for creating LIGHTS, GEO, etc.
+
+	//Light Sphere 
+	function createLightSphere (radius) {
+		var sphereGeometry = new THREE.SphereGeometry( radius );
+		var lightMaterial = new THREE.MeshBasicMaterial( 0xffffff);
+		var lightSphere = new THREE.Mesh( sphereGeometry, lightMaterial);
+
+		return lightSphere;
+	}
+
+
 	//Cube - with parametric function
 	function createCube(size) {
 		var geometry = new THREE.BoxGeometry( size, size, size );
@@ -106,14 +128,7 @@ function init() {
 	}
 
 
-	//Light Sphere 
-	function createLightSphere (radius) {
-		var sphereGeometry = new THREE.SphereGeometry( radius );
-		var lightMaterial = new THREE.MeshBasicMaterial( 0xffffff);
-		var lightSphere = new THREE.Mesh( sphereGeometry, lightMaterial);
-
-		return lightSphere;
-	}
+	
 	
 
 
