@@ -1,7 +1,9 @@
 function init() {
+	console.log(THREE);
+
 	var scene = new THREE.Scene();
-	var camera = new THREE.PerspectiveCamera( 50, 4/3, 0.1, 1000 );	
-	camera.position.z = 300;
+	var camera = new THREE.PerspectiveCamera( 30, 4/3, 1, 1000 );	
+	camera.position.z = 600;
 	camera.position.y = 140;
 
 	//Lights
@@ -38,7 +40,7 @@ function init() {
 	//planeMaterial.opacity = 0.2;
 
 	var plane = new THREE.Mesh( planeGeometry, planeMaterial );
-	plane.position.y = -78;
+	plane.position.y = -68;
 	plane.receiveShadow = true;
 	scene.add( plane );
 
@@ -47,7 +49,7 @@ function init() {
 	loader.load( 'obj/PC300AHPLAPL.obj', function ( object ) {
 		object.rotation.y = (260 * Math.PI)/180;
 		object.translateZ(90);
-		object.translateY(-80);
+		object.translateY(-70);
 
 	    var material = new THREE.MeshStandardMaterial( { color: 0xdddddd, metalness: 0.5,  roughness: 0.5 } );
 	    object.traverse( function ( child ) {
