@@ -60,15 +60,13 @@ function init() {
 	    //animateShoe(object);
 
 	    scene.add( object );
-	    console.log(object);
+	    //console.log(object);
 	} );
 
-	
-	// //Using getObjectByName method
 
-	// var newObject = scene.getObjectByName( "PC300AHPLAPL-simple" );
-	// console.log(newObject);
+	// Red Material 
 
+	var redMaterial = new THREE.MeshStandardMaterial( { color: 0xff0000, metalness: 0.5,  roughness: 0.5 } );
 
 
 	//Functions for creating GEO 
@@ -98,21 +96,29 @@ function init() {
 		return plane;
 	}
 
+	// //Hiding Box object in the scene 
+	// cube.traverse( function ( object ) { object.visible = false; } );   // testing hiding object
+	cube.visible = 0;
+	// scene.children[2].visible = 0;
+
 
 
 	// Updating the renderer 
 	var animate = function () {
 		requestAnimationFrame( animate );
-		renderer.render(scene, camera);
+
 		controls.update();
+		renderer.render(scene, camera);
+
+		var newObject = scene.getObjectByName( "PC300AHPLAPL-simple" );
+		//console.log(newObject.children[10]);
+		newObject.children[10].material = redMaterial;
+		
 	};
 
 	animate();
 
-	// //Hiding Box object in the scene 
-	// cube.traverse( function ( object ) { object.visible = false; } );   // testing hiding object
-	cube.visible = 0;
-	// scene.children[2].visible = 0;
+	
 
 
 	// //Console logging objects in the scene
