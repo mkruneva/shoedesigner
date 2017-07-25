@@ -13,6 +13,9 @@ function init() {
 	var parent = document.getElementById('canvasContainer');
 	parent.appendChild(renderer.domElement);
 
+	//Controls
+	controls = new THREE.OrbitControls(camera, renderer.domElement);
+
 	//Lights
 	var directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
 	scene.add( directionalLight);
@@ -21,33 +24,7 @@ function init() {
 	scene.add( light );
 
 
-	
-	//Cube - with parametric function
-	function createCube(size) {
-		var geometry = new THREE.BoxGeometry( size, size, size );
-		var material = new THREE.MeshStandardMaterial( { color: 0xdddddd } );
-		var cube = new THREE.Mesh( geometry, material );
-		geometry.castShadow = true; 
-
-		return cube;
-	}
-
-	//Shadow Plane - with parametric function 
-	function createPlane (size) {
-		var planeGeometry = new THREE.PlaneGeometry(size, size );
-		planeGeometry.rotateX( - Math.PI / 2 );
-
-		var planeMaterial = new THREE.MeshStandardMaterial( { color: 0xffffff,  roughness: 1 } );
-		//var planeMaterial = new THREE.ShadowMaterial();
-		//planeMaterial.opacity = 0.2;
-
-		var plane = new THREE.Mesh( planeGeometry, planeMaterial );
-		plane.position.y = -48;
-		plane.receiveShadow = true;
-
-		return plane;
-	}
-
+	//Geo
 
 	var cube = createCube(100);
 	scene.add( cube );
@@ -83,12 +60,47 @@ function init() {
 	    //animateShoe(object);
 
 	    scene.add( object );
+	    console.log(object);
 	} );
 
+	
+	// //Using getObjectByName method
 
-	controls = new THREE.OrbitControls(camera, renderer.domElement);
+	// var newObject = scene.getObjectByName( "PC300AHPLAPL-simple" );
+	// console.log(newObject);
 
 
+
+	//Functions for creating GEO 
+	//Cube - with parametric function
+	function createCube(size) {
+		var geometry = new THREE.BoxGeometry( size, size, size );
+		var material = new THREE.MeshStandardMaterial( { color: 0xdddddd } );
+		var cube = new THREE.Mesh( geometry, material );
+		geometry.castShadow = true; 
+
+		return cube;
+	}
+
+	//Shadow Plane - with parametric function 
+	function createPlane (size) {
+		var planeGeometry = new THREE.PlaneGeometry(size, size );
+		planeGeometry.rotateX( - Math.PI / 2 );
+
+		var planeMaterial = new THREE.MeshStandardMaterial( { color: 0xffffff,  roughness: 1 } );
+		//var planeMaterial = new THREE.ShadowMaterial();
+		//planeMaterial.opacity = 0.2;
+
+		var plane = new THREE.Mesh( planeGeometry, planeMaterial );
+		plane.position.y = -48;
+		plane.receiveShadow = true;
+
+		return plane;
+	}
+
+
+
+	// Updating the renderer 
 	var animate = function () {
 		requestAnimationFrame( animate );
 		renderer.render(scene, camera);
