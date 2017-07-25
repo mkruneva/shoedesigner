@@ -1,26 +1,26 @@
 function init() {
-	console.log(THREE);
-
+	
+	//Scene and Camera
 	var scene = new THREE.Scene();
-	var camera = new THREE.PerspectiveCamera( 30, 4/3, 1, 1000 );	
+	var camera = new THREE.PerspectiveCamera( 30, 4/3, 10, 1000 );	
 	camera.position.z = 600;
 	camera.position.y = 140;
 
-	//Lights
+	//Renderer
+	var renderer = new THREE.WebGLRenderer({ antialias: true });
+	renderer.setClearColor( 0xdddddd, 1 );
+	renderer.setSize( window.innerWidth, window.innerHeight );
+	var parent = document.getElementById('canvasContainer');
+	parent.appendChild(renderer.domElement);
 
+	//Lights
 	var directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
 	scene.add( directionalLight);
 
 	var light = new THREE.AmbientLight( 0xbfbfbf ); // soft white light
 	scene.add( light );
 
-	var renderer = new THREE.WebGLRenderer({ antialias: true });
-	renderer.setClearColor( 0xdddddd, 1 );
-	//var renderer = new THREE.WebGLRenderer({ antialias: true });
-	var parent = document.getElementById('canvasContainer');
-	renderer.setSize( window.innerWidth, window.innerHeight );
-	document.getElementById('canvasContainer').appendChild(renderer.domElement);
-	//document.body.appendChild( renderer.domElement );
+	
 
 	//Initail Cube Geometry
 	var geometry = new THREE.BoxGeometry( 100, 100, 100 );
