@@ -10,6 +10,8 @@ function init() {
 
 	//Renderer
 	var renderer = new THREE.WebGLRenderer({ antialias: true });
+	renderer.shadowMap.enabled = true; //enabling shadow maps in the renderer
+	renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 	renderer.setClearColor( 0xdddddd, 1 );
 	renderer.setSize( window.innerWidth, window.innerHeight );
 	var parent = document.getElementById('canvasContainer');
@@ -24,7 +26,11 @@ function init() {
 	//scene.add( directionalLight);
 
 	//point Light
-	var pointLight = new THREE.PointLight( 0xffffff, 0.8 );
+	var pointLight = new THREE.PointLight( 0xffffff, 0.6 );
+	//Shadows
+	pointLight.castShadow = true;
+	pointLight.shadow.radius = 6;
+
 	pointLight.position.x = -120;
 	pointLight.position.y = 100;
 	pointLight.position.z = 100;;
@@ -32,13 +38,15 @@ function init() {
 
 
 	//point Light attached to Camera 
-	var pointCamLight = new THREE.PointLight( 0xffffff, 0.7 );
+	var pointCamLight = new THREE.PointLight( 0xffffff, 0.9 );
+	pointCamLight.castShadow = false;
+	pointCamLight.shadow.radius = 6;
 	pointCamLight.position.x = 300;
 	pointCamLight.position.x = 200;
 	camera.add( pointCamLight );
 
 	//ambient Light
-	var ambientLight = new THREE.AmbientLight( 0x666666 ); // soft white light
+	var ambientLight = new THREE.AmbientLight( 0xffffff ); // soft white light
 	ambientLight.intensity = 0;
 	scene.add( ambientLight );
 
@@ -56,8 +64,8 @@ function init() {
 
 	//Geo
 
-	var cube = createCube(100);
-	scene.add( cube );
+	// var cube = createCube(100);
+	// scene.add( cube );
 
 	var plane = createPlane(2000);
 	scene.add( plane );
@@ -65,6 +73,10 @@ function init() {
 	var lightSphere = createLightSphere (5);
 	pointLight.add(lightSphere); //adding the lightSphere as a child of the pointLight
 
+
+	// Red Material 
+	var greyMaterial = new THREE.MeshStandardMaterial( { color: 0xdddddd, metalness: 0.5,  roughness: 0.5 } );
+	var redMaterial = new THREE.MeshStandardMaterial( { color: 0xff0000, metalness: 0, roughness: 0.3 } );
 
 	//OBJ Loader
 
@@ -82,14 +94,14 @@ function init() {
 		object.translateY(-50);
 
 		//Assinging material to all meshes of the object
-	    var material = new THREE.MeshStandardMaterial( { color: 0xdddddd, metalness: 0.5,  roughness: 0.5 } );
+
 	    object.traverse( function ( child ) {
 	        if ( child instanceof THREE.Mesh ) {
-	            child.material = material;
+	        	child.castShadow = true;
+	            child.material = greyMaterial;
 	        }
 	    } );
 
-	    //object.castShadow = true; 
 	    //animateShoe(object);
 
 	    scene.add( object );
@@ -97,9 +109,7 @@ function init() {
 	} );
 
 
-	// Red Material 
 
-	var redMaterial = new THREE.MeshStandardMaterial( { color: 0xff0000, metalness: 0,  roughness: 0.3 } );
 
 
 	//Functions for creating LIGHTS, GEO, etc.
@@ -119,7 +129,7 @@ function init() {
 		var geometry = new THREE.BoxGeometry( size, size, size );
 		var material = new THREE.MeshStandardMaterial( { color: 0xdddddd } );
 		var cube = new THREE.Mesh( geometry, material );
-		geometry.castShadow = true; 
+		cube.castShadow = true; 
 
 		return cube;
 	}
@@ -129,9 +139,10 @@ function init() {
 		var planeGeometry = new THREE.PlaneGeometry(size, size );
 		planeGeometry.rotateX( - Math.PI / 2 );
 
-		var planeMaterial = new THREE.MeshStandardMaterial( { color: 0xffffff,  roughness: 1 } );
-		//var planeMaterial = new THREE.ShadowMaterial();
-		//planeMaterial.opacity = 0.2;
+		//Shadow catcher Material
+		var planeMaterial = new THREE.ShadowMaterial();
+		planeMaterial.opacity = 0.5;
+		//change the opacity to a bit map
 
 		var plane = new THREE.Mesh( planeGeometry, planeMaterial );
 		plane.position.y = -48;
@@ -143,7 +154,7 @@ function init() {
 
 	// //Hiding Box object in the scene 
 	// cube.traverse( function ( object ) { object.visible = false; } );   // testing hiding object
-	cube.visible = 0;
+	// cube.visible = 0;
 	// scene.children[2].visible = 0;
 
 
@@ -155,6 +166,7 @@ function init() {
 		controls.update();
 		renderer.render(scene, camera);
 
+		// //assigning redMaterial to the FR shoe part 
 		var newObject = scene.getObjectByName( "PC300AHPLAPL-simple" );
 		//console.log(newObject.children[10]);
 		newObject.children[10].material = redMaterial;
