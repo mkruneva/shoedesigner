@@ -20,27 +20,27 @@ function init() {
 	document.getElementById('canvasContainer').appendChild(renderer.domElement);
 	//document.body.appendChild( renderer.domElement );
 
-	// //Initail Cube Geometry
-	// var geometry = new THREE.BoxGeometry( 100, 100, 100 );
-	// var material = new THREE.MeshStandardMaterial( { color: 0xdddddd } );
-	// var cube = new THREE.Mesh( geometry, material );
-	// geometry.castShadow = true; 
-	// scene.add( cube );
+	//Initail Cube Geometry
+	var geometry = new THREE.BoxGeometry( 100, 100, 100 );
+	var material = new THREE.MeshStandardMaterial( { color: 0xdddddd } );
+	var cube = new THREE.Mesh( geometry, material );
+	geometry.castShadow = true; 
+	scene.add( cube );
+	cube.traverse( function ( object ) { object.visible = false; } );   // testing hiding object
+
 
 	//Shadow Plane
 	var planeGeometry = new THREE.PlaneGeometry( 2000, 2000 );
 	planeGeometry.rotateX( - Math.PI / 2 );
 
-	var planeMaterial = new THREE.MeshStandardMaterial( { color: 0xdddddd,  roughness: 0.9 } );
+	var planeMaterial = new THREE.MeshStandardMaterial( { color: 0xffffff,  roughness: 1 } );
 	//var planeMaterial = new THREE.ShadowMaterial();
-	planeMaterial.opacity = 0.2;
+	//planeMaterial.opacity = 0.2;
 
 	var plane = new THREE.Mesh( planeGeometry, planeMaterial );
 	plane.position.y = -78;
 	plane.receiveShadow = true;
 	scene.add( plane );
-
-
 
 
 	var loader = new THREE.OBJLoader();
