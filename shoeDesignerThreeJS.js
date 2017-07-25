@@ -18,10 +18,16 @@ function init() {
 
 	//Lights
 	var directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
-	scene.add( directionalLight);
+	//scene.add( directionalLight);
 
-	var light = new THREE.AmbientLight( 0xbfbfbf ); // soft white light
-	scene.add( light );
+	var pointLight = new THREE.PointLight( 0xffffff, 1 );
+	pointLight.translateY(100);
+	pointLight.translateX(100);
+	pointLight.translateZ(100);
+	scene.add( pointLight );
+
+	var ambientLight = new THREE.AmbientLight( 0x666666 ); // soft white light
+	scene.add( ambientLight );
 
 
 	//Geo
@@ -31,6 +37,9 @@ function init() {
 
 	var plane = createPlane(2000);
 	scene.add( plane );
+
+	var lightSphere = createLightSphere (5);
+	pointLight.add(lightSphere); //adding the lightSphere as a child of the pointLight
 
 
 	//OBJ Loader
@@ -66,7 +75,7 @@ function init() {
 
 	// Red Material 
 
-	var redMaterial = new THREE.MeshStandardMaterial( { color: 0xff0000, metalness: 0.5,  roughness: 0.5 } );
+	var redMaterial = new THREE.MeshStandardMaterial( { color: 0xff0000, metalness: 0,  roughness: 0.3 } );
 
 
 	//Functions for creating GEO 
@@ -95,6 +104,19 @@ function init() {
 
 		return plane;
 	}
+
+
+	//Light Sphere 
+	function createLightSphere (radius) {
+		var sphereGeometry = new THREE.SphereGeometry( radius );
+		var lightMaterial = new THREE.MeshBasicMaterial( 0xffffff);
+		var lightSphere = new THREE.Mesh( sphereGeometry, lightMaterial);
+
+		return lightSphere;
+	}
+	
+
+
 
 	// //Hiding Box object in the scene 
 	// cube.traverse( function ( object ) { object.visible = false; } );   // testing hiding object
