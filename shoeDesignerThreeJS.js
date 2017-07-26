@@ -36,13 +36,28 @@ function init() {
 	//camera.add( spotLight);
 
 
-	//areaRectLight - it cannot cast shadows currently (under development)
+	//areaRectLights - cannot cast shadows currently (under development)
 	var rectLight = new THREE.RectAreaLight(0xffffff, 60000, 300, 300);
 	rectLight.rotation.x = (45 * Math.PI)/180;
 	rectLight.position.set(0,100,-165);
 	scene.add(rectLight);
 	// rectLightHelper = new THREE.RectAreaLightHelper( rectLight );
 	// scene.add( rectLightHelper );
+
+	var rectLight2 = new THREE.RectAreaLight(0xffffff, 60000, 300, 300);
+	rectLight2.rotation.x = (135 * Math.PI)/180;
+	rectLight2.position.set(0,100,165);
+	scene.add(rectLight2);
+	// rectLightHelper2 = new THREE.RectAreaLightHelper( rectLight2 );
+	// scene.add( rectLightHelper2 );
+
+	var rectLight3 = new THREE.RectAreaLight(0xffffff, 60000, 300, 300);
+	rectLight3.rotation.x = (90 * Math.PI)/180;
+	rectLight3.rotation.y = (45 * Math.PI)/180;
+	rectLight3.position.set(-200,100,0);
+	scene.add(rectLight3);
+	// rectLightHelper3 = new THREE.RectAreaLightHelper( rectLight3 );
+	// scene.add( rectLightHelper3 );
 
 
 	//point Light attached to Camera 
@@ -187,13 +202,13 @@ function init() {
 	sLight.add(spotLight, 'decay', 0, 2000);
 
 	var rLight = gui.addFolder('rect light');
-	rLight.add(rectLight, 'intensity', 0, 100000);
-	rLight.add(rectLight.position, 'x', -500, 500);
-	rLight.add(rectLight.position, 'y', -500, 500);
-	rLight.add(rectLight.position, 'z', -500, 500);
-	rLight.add(rectLight.rotation, 'x', 0, 1);
-	rLight.add(rectLight.rotation, 'y', 0, 1);
-	rLight.add(rectLight.rotation, 'z', 0, 1);
+	rLight.add(rectLight3, 'intensity', 0, 100000);
+	rLight.add(rectLight3.position, 'x', -500, 500);
+	rLight.add(rectLight3.position, 'y', -500, 500);
+	rLight.add(rectLight3.position, 'z', -500, 500);
+	rLight.add(rectLight3.rotation, 'x', -Math.PI, Math.PI);
+	rLight.add(rectLight3.rotation, 'y', -Math.PI, Math.PI);
+	rLight.add(rectLight3.rotation, 'z', -Math.PI, Math.PI);
 
 	var cLight = gui.addFolder('camera light');
 	cLight.add(pointCamLight, 'intensity', 0, 3);
