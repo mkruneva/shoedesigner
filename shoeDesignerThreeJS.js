@@ -169,6 +169,11 @@ function init() {
 
 	//GUI
 	var gui = new dat.GUI();
+	var props = {hideBars:false,
+		        depthZ_Fraction:0.015,
+		  		barColor: '#222222',
+		  		barDirection:'Vertical'};
+
 	var sLight = gui.addFolder('spot light');
 	sLight.add(spotLight, 'intensity', 0, 1);
 	sLight.add(spotLight.position, 'x', -500, 500);
@@ -195,6 +200,23 @@ function init() {
 	var goldMat = gui.addFolder('gold material');
 	goldMat.add(goldMaterial, 'roughness', 0, 1);
 	goldMat.add(goldMaterial, 'metalness', 0, 1);
+
+	var lhMat = gui.addFolder('leather material');
+	lhMat.add(LH1, 'roughness', 0, 1);
+	lhMat.add(LH1, 'metalness', 0, 1);
+	lhColorCtrl = 
+	    lhMat.addColor(props,'barColor')
+	           .name('Leather Color')
+	           .listen();
+	lhColorCtrl.onChange(
+	             function(colorValue) {
+	        	colorValue=colorValue.replace( '#','0x' );
+	      		//set the color in the object
+	      		LH1.color.setHex(colorValue);
+	      });
+
+
+
 
 
 
