@@ -71,6 +71,9 @@ function init() {
 	//  Materials 
 	var greyMaterial = new THREE.MeshStandardMaterial( { color: 0xdddddd, metalness: 0.5,  roughness: 0.5 } );
 	var redMaterial = new THREE.MeshStandardMaterial( { color: 0xff0000, metalness: 0, roughness: 0.3 } );
+	var goldMaterial = new THREE.MeshStandardMaterial( { color: 0xB4500F, metalness: 0.7, roughness: 0.5 } );
+
+
 
 	//OBJ Loader
 	var loader = new THREE.OBJLoader();
@@ -190,8 +193,18 @@ function init() {
 
 		// //assigning redMaterial to the FR shoe part 
 		var newObject = scene.getObjectByName( "PC300AHPLAPL-simple" );
-		//console.log(newObject.children[10]);
-		newObject.children[10].material = redMaterial;
+	
+		// // forEch method test to select all childrent of the  element 
+		newObject.children.forEach(function (child) {
+			if (child.name == 'FR1') {
+			child.material = goldMaterial;
+			} else 
+			if (child.name == 'HE1') {
+			child.material = redMaterial;
+			} 
+
+		});
+		//newObject.children[10].material = redMaterial;
 		
 	};
 
