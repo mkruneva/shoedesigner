@@ -67,17 +67,51 @@ function init() {
 	var lightSphere = createLightSphere (5);
 	spotLight.add(lightSphere); //adding the lightSphere as a child of the spotLight
 
+
+	//TEXTURE Loader
+	var texLoader = new THREE.TextureLoader();
+
+
+
 	//  Materials 
-	var greyMaterial = new THREE.MeshStandardMaterial( { color: 0xdddddd, metalness: 0.5,  roughness: 0.5 } );
+	var greyMaterial = new THREE.MeshStandardMaterial( { color: 0xdddddd, metalness: 0.1,  roughness: 0.9 } );
 	var redMaterial = new THREE.MeshStandardMaterial( { color: 0xff0000, metalness: 0, roughness: 0.3 } );
 	var greenMaterial = new THREE.MeshStandardMaterial( { color: 0x00ff00, metalness: 0, roughness: 0.3 } );
 	var goldMaterial = new THREE.MeshStandardMaterial( { color: 0xB4500F, metalness: 0.7, roughness: 0.5 } );
+	
+
+	//AP6
+	var diffAP6 = texLoader.load('tex/AP-06-diff.jpg');
+	diffAP6.wrapS = diffAP6.wrapT = THREE.RepeatWrapping;
+	diffAP6.repeat.set( 1.8, 1.8 );
+
+	var bumpAP = texLoader.load('tex/AP_bump.jpg');
+	bumpAP.wrapS = bumpAP.wrapT = THREE.RepeatWrapping;
+	bumpAP.repeat.set( 10, 10 );
+
+	var AP6 = new THREE.MeshStandardMaterial( {
+					bumpMap: bumpAP,
+					bumpScale: 0.1,
+					map: diffAP6, 
+					metalness: 0, 
+					roughness: 0.9 
+					} );
 
 
+	//LH1 
+	var bumpLH = texLoader.load('tex/LH-bump.jpg');
+	bumpLH.wrapS = bumpLH.wrapT = THREE.RepeatWrapping;
+	bumpLH.repeat.set( 1.4, 1.4 );
 
-	//OBJ Loader
-	// var objName = 'PE300SAPLAPL-simple.obj';
-	// var objPathName = 'obj/' + objName;   
+	var LH1 = new THREE.MeshStandardMaterial( { 
+					bumpMap: bumpLH,
+					bumpScale: 0.06,
+					color: 0x0222222, 
+					metalness: 0.04, 
+					roughness: 0.5 
+					} );
+
+	//OBJ Loader  
 	var loader = new THREE.OBJLoader();
 	loader.load( objPathName, function ( object ) {
 
@@ -105,11 +139,10 @@ function init() {
 	        		child.visible = false;
 	        	}
 
-	        	child.material.shading = THREE.FlatShading;
 	        	child.castShadow = true;
 
 	        	if (child.name == 'FR1') {
-				child.material = greenMaterial;
+				child.material = LH1;
 				} else 
 				if (child.name == 'HE1') {
 				child.material = goldMaterial;
