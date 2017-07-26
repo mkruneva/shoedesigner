@@ -32,54 +32,43 @@ function init() {
 	spotLight.shadow.mapSize.width = 1024*2;
 	spotLight.shadow.mapSize.height = 1024*2;
 	//spotLight.shadow.radius = 4;
+	spotLight.position.set(-140,100,-220);
+	//camera.add( spotLight);
 
-	spotLight.position.x = -140;
-	spotLight.position.y = 100;
-	spotLight.position.z = -220;
-	camera.add( spotLight);
+
+	//areaRectLight - it cannot cast shadows currently (under development)
+	var rectLight = new THREE.RectAreaLight(0xffffff, 60000, 300, 300);
+	rectLight.rotation.x = (45 * Math.PI)/180;
+	rectLight.position.set(0,100,-165);
+	scene.add(rectLight);
+
+	rectLightHelper = new THREE.RectAreaLightHelper( rectLight );
+	scene.add( rectLightHelper );
 
 
 	//point Light attached to Camera 
 	var pointCamLight = new THREE.PointLight( 0xffffff, 0.7 );
-	pointCamLight.position.x = 300;
-	pointCamLight.position.x = 200;
+	pointCamLight.position.set(300,200,0);
 	camera.add( pointCamLight );
+
 
 	//ambient Light
 	var ambientLight = new THREE.AmbientLight( 0xffffff ); // soft white light
 	ambientLight.intensity = 0;
 	scene.add( ambientLight );
 
-
-
-	//GUI
-	var gui = new dat.GUI();
-	var sLight = gui.addFolder('spot light');
-	sLight.add(spotLight, 'intensity', 0, 1);
-	sLight.add(spotLight.position, 'x', -500, 500);
-	sLight.add(spotLight.position, 'y', -500, 500);
-	sLight.add(spotLight.position, 'z', -500, 500);
-	sLight.add(spotLight, 'penumbra', 0, 1);
-	sLight.add(spotLight, 'distance', 0, 2000);
-	sLight.add(spotLight, 'decay', 0, 2000);
-	var cLight = gui.addFolder('camera light');
-	cLight.add(pointCamLight, 'intensity', 0, 3);
-	var aLight = gui.addFolder('ambient light');
-	aLight.add(ambientLight, 'intensity', 0, 1);
-
-	//Geo
+		//Geo
 
 	// var cube = createCube(100);
 	// scene.add( cube );
 
-	var plane = createPlane(4000);
+	var plane = createPlane(3000);
 	scene.add( plane );
 
 	var lightSphere = createLightSphere (5);
 	spotLight.add(lightSphere); //adding the lightSphere as a child of the spotLight
 
-
-	// Red Material 
+	//  Materials 
 	var greyMaterial = new THREE.MeshStandardMaterial( { color: 0xdddddd, metalness: 0.5,  roughness: 0.5 } );
 	var redMaterial = new THREE.MeshStandardMaterial( { color: 0xff0000, metalness: 0, roughness: 0.3 } );
 
@@ -93,7 +82,7 @@ function init() {
 		// //Getting the mesh name
 		//console.log(object.children[10]);
 
-		object.rotation.y = (260 * Math.PI)/180;
+		object.rotation.y = (270 * Math.PI)/180;
 		object.translateZ(90);
 		object.translateY(-50);
 
@@ -111,6 +100,35 @@ function init() {
 	    scene.add( object );
 	    //console.log(object);
 	} );
+
+
+
+	//GUI
+	var gui = new dat.GUI();
+	var sLight = gui.addFolder('spot light');
+	sLight.add(spotLight, 'intensity', 0, 1);
+	sLight.add(spotLight.position, 'x', -500, 500);
+	sLight.add(spotLight.position, 'y', -500, 500);
+	sLight.add(spotLight.position, 'z', -500, 500);
+	sLight.add(spotLight, 'penumbra', 0, 1);
+	sLight.add(spotLight, 'distance', 0, 2000);
+	sLight.add(spotLight, 'decay', 0, 2000);
+
+	var rLight = gui.addFolder('rect light');
+	rLight.add(rectLight, 'intensity', 0, 100000);
+	rLight.add(rectLight.position, 'x', -500, 500);
+	rLight.add(rectLight.position, 'y', -500, 500);
+	rLight.add(rectLight.position, 'z', -500, 500);
+	rLight.add(rectLight.rotation, 'x', 0, 1);
+	rLight.add(rectLight.rotation, 'y', 0, 1);
+	rLight.add(rectLight.rotation, 'z', 0, 1);
+
+	var cLight = gui.addFolder('camera light');
+	cLight.add(pointCamLight, 'intensity', 0, 3);
+	var aLight = gui.addFolder('ambient light');
+	aLight.add(ambientLight, 'intensity', 0, 1);
+
+
 
 
 
