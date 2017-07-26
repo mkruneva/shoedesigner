@@ -56,7 +56,7 @@ function init() {
 	ambientLight.intensity = 0.2;
 	scene.add( ambientLight );
 
-		//Geo
+	//Geo
 
 	// var cube = createCube(100);
 	// scene.add( cube );
@@ -70,13 +70,16 @@ function init() {
 	//  Materials 
 	var greyMaterial = new THREE.MeshStandardMaterial( { color: 0xdddddd, metalness: 0.5,  roughness: 0.5 } );
 	var redMaterial = new THREE.MeshStandardMaterial( { color: 0xff0000, metalness: 0, roughness: 0.3 } );
+	var greenMaterial = new THREE.MeshStandardMaterial( { color: 0x00ff00, metalness: 0, roughness: 0.3 } );
 	var goldMaterial = new THREE.MeshStandardMaterial( { color: 0xB4500F, metalness: 0.7, roughness: 0.5 } );
 
 
 
 	//OBJ Loader
+	var objName = 'PE300SAPLAPL-simple.obj';
+	var objPathName = 'obj/' + objName;
 	var loader = new THREE.OBJLoader();
-	loader.load( 'obj/PC300AHPLAPL-simple.obj', function ( object ) {
+	loader.load( objPathName, function ( object ) {
 		
 		//Assigning name to the object
 		object.name = "PC300AHPLAPL-simple";
@@ -93,8 +96,19 @@ function init() {
 	    object.traverse( function ( child ) {
 	        if ( child instanceof THREE.Mesh ) {
 	        	child.castShadow = true;
-	            child.material = greyMaterial;
-	        }
+	        	if (child.name == 'FR1') {
+				child.material = goldMaterial;
+				} else 
+				if (child.name == 'HE1') {
+				child.material = greenMaterial;
+				} 
+				else 
+				if (child.name == 'LO1') {
+				child.material = goldMaterial;
+				} else {
+		            child.material = greyMaterial;
+				}
+		        } 
 	    } );
 
 	    //animateShoe(object);
@@ -194,19 +208,18 @@ function init() {
 		var newObject = scene.getObjectByName( "PC300AHPLAPL-simple" );
 	
 		// // forEch method test to select all childrent of the  element 
-		newObject.children.forEach(function (child) {
-			if (child.name == 'FR1') {
-			child.material = goldMaterial;
-			} else 
-			if (child.name == 'HE1') {
-			child.material = redMaterial;
-			} 
-			else 
-			if (child.name == 'LO1') {
-			child.material = goldMaterial;
-			} 
-
-		});
+		// newObject.children.forEach(function (child) {
+		// 	if (child.name == 'FR1') {
+		// 	child.material = goldMaterial;
+		// 	} else 
+		// 	if (child.name == 'HE1') {
+		// 	child.material = redMaterial;
+		// 	} 
+		// 	else 
+		// 	if (child.name == 'LO1') {
+		// 	child.material = goldMaterial;
+		// 	} 
+		// });
 		//newObject.children[10].material = redMaterial;
 		
 	};
