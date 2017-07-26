@@ -21,9 +21,16 @@ function init() {
 	controls = new THREE.OrbitControls(camera, renderer.domElement);
 
 	//LIGHTS
-	//directional Light
-	var directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
-	//scene.add( directionalLight);
+
+	//TEST Light
+	//spotLight added to the camera
+	var spotLight = new THREE.SpotLight();
+	spotLight.castShadow = true;
+	spotLight.shadow.radius = 4;
+	spotLight.position.x = -180;
+	spotLight.position.y = 300;
+	spotLight.position.z = -20;
+	camera.add( spotLight);
 
 	//point Light
 	var pointLight = new THREE.PointLight( 0xffffff, 0.6 );
@@ -33,14 +40,12 @@ function init() {
 
 	pointLight.position.x = -120;
 	pointLight.position.y = 100;
-	pointLight.position.z = 100;;
-	scene.add( pointLight );
+	pointLight.position.z = 100;
+	//scene.add( pointLight );
 
 
 	//point Light attached to Camera 
 	var pointCamLight = new THREE.PointLight( 0xffffff, 0.9 );
-	pointCamLight.castShadow = false;
-	pointCamLight.shadow.radius = 6;
 	pointCamLight.position.x = 300;
 	pointCamLight.position.x = 200;
 	camera.add( pointCamLight );
@@ -54,9 +59,11 @@ function init() {
 
 	//GUI
 	var gui = new dat.GUI();
-	var pLight = gui.addFolder('point light');
-	pLight.add(pointLight, 'intensity', 0, 3);
-	pLight.add(pointLight.position, 'x', -500, 500);
+	var sLight = gui.addFolder('spot light');
+	sLight.add(spotLight, 'intensity', 0, 3);
+	sLight.add(spotLight.position, 'x', -500, 500);
+	sLight.add(spotLight.position, 'y', -500, 500);
+	sLight.add(spotLight.position, 'z', -500, 500);
 	var cLight = gui.addFolder('camera light');
 	cLight.add(pointCamLight, 'intensity', 0, 3);
 	var aLight = gui.addFolder('ambient light');
@@ -79,7 +86,6 @@ function init() {
 	var redMaterial = new THREE.MeshStandardMaterial( { color: 0xff0000, metalness: 0, roughness: 0.3 } );
 
 	//OBJ Loader
-
 	var loader = new THREE.OBJLoader();
 	loader.load( 'obj/PC300AHPLAPL-simple.obj', function ( object ) {
 		
