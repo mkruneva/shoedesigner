@@ -2,7 +2,7 @@ function init() {
 
 	//Scene and Camera
 	var scene = new THREE.Scene();
-	var camera = new THREE.PerspectiveCamera( 30, 4/3, 10, 1000 );	
+	var camera = new THREE.PerspectiveCamera( 30, 4/3, 10, 2000 );	
 	camera.position.z = 600;
 	camera.position.y = 140;
 
@@ -13,6 +13,7 @@ function init() {
 	renderer.shadowMap.enabled = true; //enabling shadow maps in the renderer
 	renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 	renderer.setClearColor( 0xdddddd, 1 );
+	//renderer.setClearColor( 0x000000, 1 );  //darker clear colour
 	renderer.setSize( window.innerWidth, window.innerHeight );
 	var parent = document.getElementById('canvasContainer');
 	parent.appendChild(renderer.domElement);
@@ -24,28 +25,22 @@ function init() {
 
 	//TEST Light
 	//spotLight added to the camera
-	var spotLight = new THREE.SpotLight();
+	var spotLight = new THREE.SpotLight(0xffffff, 0.4);
+
 	spotLight.castShadow = true;
-	spotLight.shadow.radius = 4;
-	spotLight.position.x = -180;
-	spotLight.position.y = 300;
-	spotLight.position.z = -20;
+	spotLight.distance = 1500;
+	spotLight.shadow.mapSize.width = 1024*2;
+	spotLight.shadow.mapSize.height = 1024*2;
+	//spotLight.shadow.radius = 4;
+
+	spotLight.position.x = -140;
+	spotLight.position.y = 100;
+	spotLight.position.z = -220;
 	camera.add( spotLight);
-
-	//point Light
-	var pointLight = new THREE.PointLight( 0xffffff, 0.6 );
-	//Shadows
-	pointLight.castShadow = true;
-	pointLight.shadow.radius = 6;
-
-	pointLight.position.x = -120;
-	pointLight.position.y = 100;
-	pointLight.position.z = 100;
-	//scene.add( pointLight );
 
 
 	//point Light attached to Camera 
-	var pointCamLight = new THREE.PointLight( 0xffffff, 0.9 );
+	var pointCamLight = new THREE.PointLight( 0xffffff, 0.7 );
 	pointCamLight.position.x = 300;
 	pointCamLight.position.x = 200;
 	camera.add( pointCamLight );
@@ -60,10 +55,13 @@ function init() {
 	//GUI
 	var gui = new dat.GUI();
 	var sLight = gui.addFolder('spot light');
-	sLight.add(spotLight, 'intensity', 0, 3);
+	sLight.add(spotLight, 'intensity', 0, 1);
 	sLight.add(spotLight.position, 'x', -500, 500);
 	sLight.add(spotLight.position, 'y', -500, 500);
 	sLight.add(spotLight.position, 'z', -500, 500);
+	sLight.add(spotLight, 'penumbra', 0, 1);
+	sLight.add(spotLight, 'distance', 0, 2000);
+	sLight.add(spotLight, 'decay', 0, 2000);
 	var cLight = gui.addFolder('camera light');
 	cLight.add(pointCamLight, 'intensity', 0, 3);
 	var aLight = gui.addFolder('ambient light');
@@ -74,11 +72,11 @@ function init() {
 	// var cube = createCube(100);
 	// scene.add( cube );
 
-	var plane = createPlane(2000);
+	var plane = createPlane(4000);
 	scene.add( plane );
 
 	var lightSphere = createLightSphere (5);
-	pointLight.add(lightSphere); //adding the lightSphere as a child of the pointLight
+	spotLight.add(lightSphere); //adding the lightSphere as a child of the spotLight
 
 
 	// Red Material 
@@ -144,9 +142,9 @@ function init() {
 		planeGeometry.rotateX( - Math.PI / 2 );
 
 		// //Shadow catcher Material
-		//var planeMaterial = new THREE.ShadowMaterial();
-		//planeMaterial.opacity = 0.7;
-		//change the opacity to a bit map
+		// var planeMaterial = new THREE.ShadowMaterial();
+		// planeMaterial.opacity = 0.3; //change the opacity to a bit map
+		
 
 		var planeMaterial = new THREE.MeshLambertMaterial( {color: 0xffffff} );
 
