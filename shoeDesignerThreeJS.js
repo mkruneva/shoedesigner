@@ -41,9 +41,8 @@ function init() {
 	rectLight.rotation.x = (45 * Math.PI)/180;
 	rectLight.position.set(0,100,-165);
 	scene.add(rectLight);
-
-	rectLightHelper = new THREE.RectAreaLightHelper( rectLight );
-	scene.add( rectLightHelper );
+	// rectLightHelper = new THREE.RectAreaLightHelper( rectLight );
+	// scene.add( rectLightHelper );
 
 
 	//point Light attached to Camera 
@@ -54,7 +53,7 @@ function init() {
 
 	//ambient Light
 	var ambientLight = new THREE.AmbientLight( 0xffffff ); // soft white light
-	ambientLight.intensity = 0;
+	ambientLight.intensity = 0.2;
 	scene.add( ambientLight );
 
 		//Geo
@@ -201,6 +200,10 @@ function init() {
 			} else 
 			if (child.name == 'HE1') {
 			child.material = redMaterial;
+			} 
+			else 
+			if (child.name == 'LO1') {
+			child.material = goldMaterial;
 			} 
 
 		});
