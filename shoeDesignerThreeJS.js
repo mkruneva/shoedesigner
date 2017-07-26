@@ -176,7 +176,10 @@ function init() {
 
 	    //animateShoe(object)
 	    scene.add( object );
-
+	    window.marty = {
+	    	scene: scene,
+	    	obj: object
+	    }
 
 	    //console.log(object);
 	} );
@@ -301,24 +304,10 @@ function init() {
 		// //assigning redMaterial to the FR shoe part 
 		var newObject = scene.getObjectByName( "PC300AHPLAPL-simple" );
 	
-		// // forEch method test to select all childrent of the  element 
-		// newObject.children.forEach(function (child) {
-		// 	if (child.name == 'FR1') {
-		// 	child.material = goldMaterial;
-		// 	} else 
-		// 	if (child.name == 'HE1') {
-		// 	child.material = redMaterial;
-		// 	} 
-		// 	else 
-		// 	if (child.name == 'LO1') {
-		// 	child.material = goldMaterial;
-		// 	} 
-		// });
-		//newObject.children[10].material = redMaterial;
-		
 	};
 
 	animate();
+	console.log('window is ' + window.marty);
 
 	
 
