@@ -76,8 +76,8 @@ function init() {
 
 
 	//OBJ Loader
-	var objName = 'PE300SAPLAPL-simple.obj';
-	var objPathName = 'obj/' + objName;
+	// var objName = 'PE300SAPLAPL-simple.obj';
+	// var objPathName = 'obj/' + objName;   
 	var loader = new THREE.OBJLoader();
 	loader.load( objPathName, function ( object ) {
 		
