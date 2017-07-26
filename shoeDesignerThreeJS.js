@@ -80,18 +80,22 @@ function init() {
 	var goldMaterial = new THREE.MeshStandardMaterial( { color: 0xB4500F, metalness: 0.7, roughness: 0.5 } );
 	
 
+	function repeatTex(mapName, repeat) {
+		mapName.wrapS = THREE.RepeatWrapping;
+		mapName.wrapT = THREE.RepeatWrapping;
+		mapName.repeat.set( repeat, repeat );
+	};
+
 	//AP6
 	var diffAP6 = texLoader.load('tex/AP-06-diff.jpg');
-	diffAP6.wrapS = diffAP6.wrapT = THREE.RepeatWrapping;
-	diffAP6.repeat.set( 1.8, 1.8 );
+	repeatTex(diffAP6, 1.8);
 
 	var bumpAP = texLoader.load('tex/AP_bump.jpg');
-	bumpAP.wrapS = bumpAP.wrapT = THREE.RepeatWrapping;
-	bumpAP.repeat.set( 10, 10 );
+	repeatTex(bumpAP, 8);
 
 	var AP6 = new THREE.MeshStandardMaterial( {
 					bumpMap: bumpAP,
-					bumpScale: 0.1,
+					bumpScale: 0.15,
 					map: diffAP6, 
 					metalness: 0, 
 					roughness: 0.9 
@@ -100,15 +104,14 @@ function init() {
 
 	//LH1 
 	var bumpLH = texLoader.load('tex/LH-bump.jpg');
-	bumpLH.wrapS = bumpLH.wrapT = THREE.RepeatWrapping;
-	bumpLH.repeat.set( 1.4, 1.4 );
+	repeatTex(bumpLH, 1.4);
 
 	var LH1 = new THREE.MeshStandardMaterial( { 
 					bumpMap: bumpLH,
 					bumpScale: 0.06,
 					color: 0x0222222, 
-					metalness: 0.04, 
-					roughness: 0.5 
+					metalness: 0, 
+					roughness: 0.4 
 					} );
 
 	//OBJ Loader  
