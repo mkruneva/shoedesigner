@@ -80,12 +80,13 @@ function init() {
 	// var objPathName = 'obj/' + objName;   
 	var loader = new THREE.OBJLoader();
 	loader.load( objPathName, function ( object ) {
+
+		//trying to create geometry from buffer geometry, not working currently
+		//this will also allow smoothShading using mergeVertices(); and geometry.computeVertexNormals(); 
+    	//var geometry = new THREE.Geometry().fromBufferGeometry( object );
 		
 		//Assigning name to the object
 		object.name = "PC300AHPLAPL-simple";
-
-		// //Getting the mesh name
-		//console.log(object.children[10]);
 
 		object.rotation.y = (270 * Math.PI)/180;
 		object.translateZ(90);
@@ -96,7 +97,6 @@ function init() {
 	    object.traverse( function ( child ) {
 	        if ( child instanceof THREE.Mesh ) {
 
-
 	        	// all meshes except for the default ones are hidden
 	        	var startMeshes = (child.name == 'FR1')||(child.name == 'FR2')||(child.name == 'HE1')||(child.name == 'HG1')||(child.name == 'HT1')||(child.name == 'IB1')||(child.name == 'IL1')||(child.name == 'IN1')||(child.name == 'LI1')||(child.name == 'LO1')||(child.name == 'SO1');
 	        	if (startMeshes) {
@@ -105,13 +105,14 @@ function init() {
 	        		child.visible = false;
 	        	}
 
+	        	child.material.shading = THREE.FlatShading;
 	        	child.castShadow = true;
 
 	        	if (child.name == 'FR1') {
-				child.material = goldMaterial;
+				child.material = greenMaterial;
 				} else 
 				if (child.name == 'HE1') {
-				child.material = greenMaterial;
+				child.material = goldMaterial;
 				} 
 				else 
 				if (child.name == 'LO1') {
@@ -122,11 +123,14 @@ function init() {
 		        } 
 	    } );
 
-	    //animateShoe(object);
-
+	    //animateShoe(object)
 	    scene.add( object );
+
+
 	    //console.log(object);
 	} );
+
+
 
 
 
@@ -154,6 +158,12 @@ function init() {
 	cLight.add(pointCamLight, 'intensity', 0, 3);
 	var aLight = gui.addFolder('ambient light');
 	aLight.add(ambientLight, 'intensity', 0, 1);
+
+	var goldMat = gui.addFolder('gold material');
+	goldMat.add(goldMaterial, 'roughness', 0, 1);
+	goldMat.add(goldMaterial, 'metalness', 0, 1);
+
+
 
 
 
