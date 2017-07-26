@@ -110,9 +110,7 @@ function init() {
 
 
 
-
-
-	//Functions for creating LIGHTS, GEO, etc.
+	//Parametric Functions for creating GEO
 
 	//Light Sphere 
 	function createLightSphere (radius) {
@@ -124,7 +122,7 @@ function init() {
 	}
 
 
-	//Cube - with parametric function
+	//Cube 
 	function createCube(size) {
 		var geometry = new THREE.BoxGeometry( size, size, size );
 		var material = new THREE.MeshStandardMaterial( { color: 0xdddddd } );
@@ -134,15 +132,17 @@ function init() {
 		return cube;
 	}
 
-	//Shadow Plane - with parametric function 
+	//Shadow Plane 
 	function createPlane (size) {
 		var planeGeometry = new THREE.PlaneGeometry(size, size );
 		planeGeometry.rotateX( - Math.PI / 2 );
 
-		//Shadow catcher Material
-		var planeMaterial = new THREE.ShadowMaterial();
-		planeMaterial.opacity = 0.5;
+		// //Shadow catcher Material
+		//var planeMaterial = new THREE.ShadowMaterial();
+		//planeMaterial.opacity = 0.7;
 		//change the opacity to a bit map
+
+		var planeMaterial = new THREE.MeshLambertMaterial( {color: 0xffffff} );
 
 		var plane = new THREE.Mesh( planeGeometry, planeMaterial );
 		plane.position.y = -48;
