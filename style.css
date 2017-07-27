@@ -30,10 +30,23 @@ body {
     padding-right: 0px;
 } */
 .shoe-thumb > img {
+	box-sizing: border-box;
 	display: block;
 	width: 100%;
 	margin: auto;
+}
 
+.shoe-thumb > img:hover {
+	cursor:pointer;
+	border: 1px solid #ccc;
+}
+
+.shoe-thumb > img:visited, .shoe-thumb > img:active {
+	border: 2px solid #aaa;
+}
+
+.shoe-thumb > img.off{
+	opacity: 0.2;
 }
 .thumb-container {
 	padding-top: 2px;
