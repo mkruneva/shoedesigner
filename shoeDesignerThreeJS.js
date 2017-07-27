@@ -129,9 +129,10 @@ function init() {
 					roughness: 0.4 
 					} );
 
-	//OBJ Loader  
+	//OBJ Loader
 	var loader = new THREE.OBJLoader();
-	loader.load( objPathName, function ( object ) {
+	var loadObject = function (objPath) {
+		loader.load( objPath, function ( object ) {
 
 		//trying to create geometry from buffer geometry, not working currently
 		//this will also allow smoothShading using mergeVertices(); and geometry.computeVertexNormals(); 
@@ -171,18 +172,25 @@ function init() {
 				} else {
 		            child.material = greyMaterial;
 				}
-		        } 
+		    } 
 	    } );
 
 	    //animateShoe(object)
 	    scene.add( object );
-	    window.marty = {
-	    	scene: scene,
-	    	obj: object
-	    }
+	    window.marty.scene = scene;
+		window.marty.obj = object;
 
 	    //console.log(object);
 	} );
+	}
+
+	window.marty = {
+		loadObject: loadObject
+	};
+	
+
+	loadObject(objPathName);
+
 
 
 

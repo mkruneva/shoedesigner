@@ -7,6 +7,10 @@ function loadPC300AH() {
 	objName = 'PC300AHPLAPL-simple.obj';
 	console.log(window.marty.scene);
 	objPathName = 'obj/' + objName;
+	console.log(window.marty.obj);
+	window.marty.scene.remove(window.marty.obj);
+	objPathName = 'obj/' + objName;
+	window.marty.loadObject(objPathName);
 }
 
 function loadPE300SA() {
@@ -15,6 +19,8 @@ function loadPE300SA() {
 	console.log(window.marty.obj);
 	window.marty.scene.remove(window.marty.obj);
 	objPathName = 'obj/' + objName;
+	window.marty.loadObject(objPathName);
+
 }
 
  
