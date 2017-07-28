@@ -8,11 +8,19 @@ function init() {
 
 	scene.add( camera ); // adding camera as a child of the scene so that pont light can be attached to it
 
+
+
+	// Cube map loader
+	scene.background = new THREE.CubeTextureLoader()
+					.setPath( 'cubemap/' )
+					.load( [ 'posx.jpg', 'negx.jpg', 'posy.jpg', 'negy.jpg', 'posz.jpg', 'negz.jpg' ] );
+					
+	
 	//Renderer
 	var renderer = new THREE.WebGLRenderer({ antialias: true });
 	renderer.shadowMap.enabled = true; //enabling shadow maps in the renderer
 	renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-	renderer.setClearColor( 0xdddddd, 1 );
+	//renderer.setClearColor( 0xdddddd, 1 );
 	//renderer.setClearColor( 0x000000, 1 );  //darker clear colour
 	renderer.setSize( window.innerWidth, window.innerHeight );
 	var parent = document.getElementById('canvasContainer');
@@ -83,17 +91,24 @@ function init() {
 	spotLight.add(lightSphere); //adding the lightSphere as a child of the spotLight
 
 
-	//TEXTURE Loader
-	var texLoader = new THREE.TextureLoader();
-
-
 
 	//  Materials 
 	var greyMaterial = new THREE.MeshStandardMaterial( { color: 0xdddddd, metalness: 0.1,  roughness: 0.9 } );
 	var redMaterial = new THREE.MeshStandardMaterial( { color: 0xff0000, metalness: 0, roughness: 0.3 } );
 	var greenMaterial = new THREE.MeshStandardMaterial( { color: 0x00ff00, metalness: 0, roughness: 0.3 } );
-	var goldMaterial = new THREE.MeshStandardMaterial( { color: 0xB4500F, metalness: 0.7, roughness: 0.5 } );
+
+	var goldMaterial = new THREE.MeshStandardMaterial( { 
+								color: 0xB4500F, 
+								envMap: scene.background,
+								metalness: 0.7,
+								roughness: 0.5 
+							} );
+
+	var chromeMaterial = new THREE.MeshBasicMaterial( { color: 0xffffff, envMap: scene.background } );
 	
+
+	//TEXTURE Loader
+	var texLoader = new THREE.TextureLoader();
 
 	function repeatTex(mapName, repeat) {
 		mapName.wrapS = THREE.RepeatWrapping;
@@ -104,7 +119,6 @@ function init() {
 	//AP6
 	var diffAP6 = texLoader.load('tex/AP-06-diff.jpg');
 	repeatTex(diffAP6, 1.8);
-
 	var bumpAP = texLoader.load('tex/AP_bump.jpg');
 	repeatTex(bumpAP, 8);
 
@@ -161,14 +175,14 @@ function init() {
 	        	child.castShadow = true;
 
 	        	if (child.name == 'FR1') {
-				child.material = LH1;
+				child.material = chromeMaterial;
 				} else 
 				if (child.name == 'HE1') {
-				child.material = goldMaterial;
+				child.material = chromeMaterial;
 				} 
 				else 
 				if (child.name == 'LO1') {
-				child.material = goldMaterial;
+				child.material = chromeMaterial;
 				} else {
 		            child.material = greyMaterial;
 				}
@@ -243,12 +257,6 @@ function init() {
 	      		//set the color in the object
 	      		LH1.color.setHex(colorValue);
 	      });
-
-
-
-
-
-
 
 
 
