@@ -231,89 +231,15 @@
 		</div>
 		</div>
 
+		
+		<script src="designerMenus.js"></script>
+
 		<script src="myScript.js"></script>
 		<script src="dat.gui.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/86/three.js"></script>
 		<script src="https://threejs.org/examples/js/loaders/OBJLoader.js"></script>
 		<script src="orbitCtrls.js"></script>
-		<script src="shoeDesignerThreeJS.js"></script>
-
-		
-
-		
-		<script>
-
-		document.getElementById('thumbCsDiv').style.display ='block'; // Shoe styles will be visible
-		document.getElementById('thumbHeDiv').style.display ='block';
-		document.getElementById('thumbFrDiv').style.display ='block';
-		document.getElementById('thumbBcDiv').style.display ='block';
-		document.getElementById('thumbStDiv').style.display ='block';
-		document.getElementById('thumbEmDiv').style.display ='block';
-		document.getElementById('thumbClDiv').style.display ='block';
-
-
-
-		// Objects constructor for shoe designer item Btn and Div ids
-		function ShoeItem(name, btnId, divId) {
-			this.name = name;
-		    this.btnId = btnId;
-		    this.divId = divId;
-		}
-		//Core shape Item
-		var csItem = new ShoeItem('csItem', 'thumbCsBtn', 'thumbCsDiv');
-		var heItem = new ShoeItem('heItem', 'thumbHeBtn', 'thumbHeDiv');
-		var frItem = new ShoeItem('frItem', 'thumbFrBtn', 'thumbFrDiv');
-		var bcItem = new ShoeItem('bcItem', 'thumbBcBtn', 'thumbBcDiv');
-		var stItem = new ShoeItem('stItem', 'thumbStBtn', 'thumbStDiv');
-		var emItem = new ShoeItem('emItem', 'thumbEmBtn', 'thumbEmDiv');
-		var clItem = new ShoeItem('clItem', 'thumbClBtn', 'thumbClDiv');
-		var designerItems = [csItem, heItem, frItem, bcItem, stItem, emItem, clItem]
-		console.log(designerItems[1].btnId);
-
-
-
-		for (var i = designerItems.length - 1; i >= 0; i--) {
-			console.log(designerItems[i].btnId);
-		}
-
-		// JQuery script example 
-		$(document).ready(showHide());
-		function showHide() {
-			$("#thumbCsBtn").click(function(){
-		    	if (($("#thumbCsDiv")[0]).style.display === 'none') {
-		    		$("#thumbCsDiv").slideDown(600);
-		    	} else {
-		    		$("#thumbCsDiv").slideUp(600);
-		    	}    
-		    });
-		}
-		</script>
-<!-- 
-		<script>
-			
-
-			document.getElementById('thumbCsBtn').onclick = function() {showHide(thumbCsDiv)}; 
-			document.getElementById('thumbHeelsBtn').onclick = function() {showHide(thumbHeelsDiv)};
-			document.getElementById('thumbFrontsBtn').onclick = function() {showHide(thumbFrontsDiv)};
-			document.getElementById('thumbBacksBtn').onclick = function() {showHide(thumbBacksDiv)};
-			document.getElementById('thumbStrapsBtn').onclick = function() {showHide(thumbStrapsDiv)};
-			document.getElementById('thumbEmbBtn').onclick = function() {showHide(thumbEmbDiv)};
-			document.getElementById('thumbColoursBtn').onclick = function() {showHide(thumbColoursDiv)};
-
-			// function noStyle(nameDiv) {
-			// 	var nameDiv = document.getElementById('nameDiv');
-			// 	nameDiv.style.display = 'none';
-			// }
-			//noStyle(thumbHeelsDiv);
-
-			function showHide(divId) {
-				if (divId.style.display === 'none') {
-					divId.style.display = 'block';
-				} else {
-					divId.style.display = 'none';
-				}
-			}
-		</script> -->
+		<script src="shoeDesignerThreeJS.js"></script>	
 
         <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
         <script>

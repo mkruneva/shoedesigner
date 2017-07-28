@@ -7,17 +7,41 @@ function hideAllMenuDivs(namesArray) {
 	}
 }
 
-hideAllMenuDivs(menuNames);
-
-// JQuery script example 
-$(document).ready(showHide());
-
-function showHide() {
-	$("#thumbCsBtn").click(function(){
-    	if (($("#thumbCsDiv")[0]).style.display === 'none') {
-    		$("#thumbCsDiv").slideDown(600);
-    	} else {
-    		$("#thumbCsDiv").slideUp(600);
-    	}    
-    });
+function showHideMany(namesArray) {
+	for (var i = 0; i < namesArray.length; i++) {
+	var btnName = namesArray[i] + 'Btn';
+	var divName = namesArray[i] + 'Div';
+	btnName = document.getElementById(btnName);
+	divName = document.getElementById(divName);
+	showHideSingle(btnName, divName);
+	}
 }
+
+function showHideSingle(btnName, divName) {
+	console.log('Inside showHideSingle fun btnName is' , btnName);
+	console.log('Inside showHideSingle fun divName is' , divName);
+	btnName.onclick = function () {
+		console.log('btnName = ', btnName);
+		if (divName.style.display === 'none') {
+				divName.style.display = 'block';
+		} else {
+			divName.style.display = 'none';
+		}
+	};	   
+}
+
+hideAllMenuDivs(menuNames);
+showHideMany(menuNames);
+
+
+// // JQuery script example 
+// $(document).ready(showHide());
+// function showHide() {
+// 	$("#thumbCsBtn").click(function(){
+//     	if (($("#thumbCsDiv")[0]).style.display === 'none') {
+//     		$("#thumbCsDiv").slideDown(600);
+//     	} else {
+//     		$("#thumbCsDiv").slideUp(600);
+//     	}    
+//     });
+// }
