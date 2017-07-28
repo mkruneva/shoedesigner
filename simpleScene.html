@@ -16,7 +16,7 @@
 					.setPath( 'cubemap/' )
 					.load( [ 'posx.jpg', 'negx.jpg', 'posy.jpg', 'negy.jpg', 'posz.jpg', 'negz.jpg' ] );
 
-			//scene.background = cubeMap;
+			scene.background = cubeMap;
 
 			var renderer = new THREE.WebGLRenderer();
 			renderer.setSize( window.innerWidth, window.innerHeight );
@@ -33,7 +33,8 @@
 								metalness: 0.7,
 								roughness: 0.5 
 							} );
-			var geometry = new THREE.SphereGeometry( 1, 24, 24 );
+			//var geometry = new THREE.SphereGeometry( 1, 24, 24 );
+			var geometry = new THREE.CubeGeometry( 1, 1, 1 );
 			var cube = new THREE.Mesh( geometry, goldMaterial );
 			scene.add( cube );
 
