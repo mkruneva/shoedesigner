@@ -23,6 +23,16 @@ function loadPE300SA() {
 
 }
 
+function loadFL025FL() {
+	objName = 'FL025FLPLAPL.obj';
+	console.log(window.marty.scene);
+	console.log(window.marty.obj);
+	window.marty.scene.remove(window.marty.obj);
+	objPathName = 'obj/' + objName;
+	window.marty.loadObject(objPathName);
+
+}
+
  
 
 
