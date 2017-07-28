@@ -1,3 +1,5 @@
+init();
+
 function init() {
 
 	//Scene and Camera

@@ -18,8 +18,6 @@ function showHideMany(namesArray) {
 }
 
 function showHideSingle(btnName, divName) {
-	console.log('Inside showHideSingle fun btnName is' , btnName);
-	console.log('Inside showHideSingle fun divName is' , divName);
 	btnName.onclick = function () {
 		console.log('btnName = ', btnName);
 		if (divName.style.display === 'none') {
@@ -32,6 +30,10 @@ function showHideSingle(btnName, divName) {
 
 hideAllMenuDivs(menuNames);
 showHideMany(menuNames);
+
+//JQ tests
+
+$("#CS_PC300AH").hide()
 
 
 // // JQuery script example 
