@@ -9,10 +9,10 @@ function hideAllMenuDivs(namesArray) {
 
 function showHideMany(namesArray) {
 	for (var i = 0; i < namesArray.length; i++) {
-	var btnName = namesArray[i] + 'Btn';
-	var divName = namesArray[i] + 'Div';
-	btnName = document.getElementById(btnName);
-	divName = document.getElementById(divName);
+	var btnNameString = namesArray[i] + 'Btn';
+	var divNameString = namesArray[i] + 'Div';
+	btnName = document.getElementById(btnNameString);
+	divName = document.getElementById(divNameString);
 	showHideSingle(btnName, divName);
 	}
 }
@@ -33,8 +33,22 @@ showHideMany(menuNames);
 
 //JQ tests
 
-$("#CS_PC300AH").hide()
+// $(document).ready(showHide(thumbCsBtn));
+// function showHide(nameOfButton) {
+// 	var idButton = nameOfButton.id;
+// 	console.log(idButton);
+// 	console.log(typeof(idButton));
+// 	console.log($("#idButton"));
+// 	console.log($("#thumbCsBtn"));
 
+// 	$("#thumbCsBtn").click(function(){
+//     	if (($("#thumbCsDiv")[0]).style.display === 'none') {
+//     		$("#thumbCsDiv").slideDown(600);
+//     	} else {
+//     		$("#thumbCsDiv").slideUp(600);
+//     	}    
+//     });
+// }
 
 // // JQuery script example 
 // $(document).ready(showHide());
