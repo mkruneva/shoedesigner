@@ -1,13 +1,13 @@
 // //JS only
 
-var menuNames = ['thumbCs', 'thumbHe', 'thumbFr', 'thumbBc', 'thumbSt', 'thumbEm', 'thumbCl'];
+// var menuNames = ['thumbCs', 'thumbHe', 'thumbFr', 'thumbBc', 'thumbSt', 'thumbEm', 'thumbCl'];
 
-function hideAllMenuDivs(namesArray) {
-	for (var i = 0; i < namesArray.length; i++) {
-	var divName = namesArray[i] + 'Div';
-	document.getElementById(divName).style.display ='none'; 
-	}
-}
+// function hideAllMenuDivs(namesArray) {
+// 	for (var i = 0; i < namesArray.length; i++) {
+// 	var divName = namesArray[i] + 'Div';
+// 	document.getElementById(divName).style.display ='none'; 
+// 	}
+// }
 
 // function showHideMany(namesArray) {
 // 	for (var i = 0; i < namesArray.length; i++) {
@@ -30,29 +30,48 @@ function hideAllMenuDivs(namesArray) {
 // 	};	   
 // }
 
-hideAllMenuDivs(menuNames);
+//hideAllMenuDivs(menuNames);
 // showHideMany(menuNames);
 
 //JQuery 
 
-// $(document).ready(showHide(thumbCsBtn));
-// function showHide(nameOfButton) {
-// 	var idButton = nameOfButton.id;
-// 	console.log(idButton);
-// 	console.log(typeof(idButton));
-// 	console.log($("#idButton"));
-// 	console.log($("#thumbCsBtn"));
 
-// 	$("#thumbCsBtn").click(function(){
-//     	if (($("#thumbCsDiv")[0]).style.display === 'none') {
-//     		$("#thumbCsDiv").slideDown(600);
-//     	} else {
-//     		$("#thumbCsDiv").slideUp(600);
-//     	}    
+//jQ creating arrays 
+
+var btns = $('#shoeMenu .btn');
+var divs = $('.thumb-container');
+
+for (var i = 0; i < divs.length; i++) {
+	divs.eq(i).hide();
+}
+
+// for (var i = 0; i < btns.length; i++) {
+// 	console.log('(divs.eq(i)) is', (divs.eq(i)));
+// 	(btns.eq(i)).show();
+// 	(btns.eq(i)).click(function(){
+// 		console.log('(divs.eq(i)) is', (divs.eq(i)));
 //     });
 // }
 
-// JQuery script example 
+
+$(document).ready(showHide(thumbCsBtn));
+function showHide(nameOfButton) {
+	var idButton = nameOfButton.id;
+	console.log(idButton);
+	console.log(typeof(idButton));
+	console.log($("#idButton"));
+	console.log($("#thumbCsBtn"));
+
+	$("#thumbCsBtn").click(function(){
+    	if (($("#thumbCsDiv")[0]).style.display === 'none') {
+    		$("#thumbCsDiv").slideDown(600);
+    	} else {
+    		$("#thumbCsDiv").slideUp(600);
+    	}    
+    });
+}
+
+//JQuery script example 
 $(document).ready(showHideCs());
 function showHideCs() {
 	$("#thumbCsBtn").click(function(){
