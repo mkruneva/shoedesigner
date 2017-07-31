@@ -27,79 +27,125 @@ var cs = [
  	new ThumbObject('PO', 'images/CS/CSPOPLA.jpg', 'obj/PC/PO300AHPLACB.obj', 'Pointed Open', true),
 	new ThumbObject('AC', 'images/CS/CSACPLA.jpg', 'obj/PC/AC300AHPLAPL.obj', 'Rounded Toe', true),
 	new ThumbObject('PE', 'images/CS/CSACPEE.jpg', 'obj/PC/PE300SAPLAPL.obj', 'Peep Toe', true),
-	new ThumbObject('SA', 'images/CS/CSSASTR.jpg', 'obj/PC/SA300SAPLAOB.obj', 'Sandals', true),
+	new ThumbObject('SA', 'images/CS/CSSASTR.jpg', 'obj/PC/SA300SAPLAOB.obj', 'Sandals', false),
 	new ThumbObject('FL', 'images/CS/CSFLPLA.jpg', 'obj/PC/FL025FLPLAPL.obj', 'Ballet Flats', true)
  ];
 
-//Heels
+//HEELS
+
+//function for creating obj name after steps cs, he
+function heObjName(csAbr, heAbr) {
+	var objName = csAbr + heAbr + 'PLA' + 'PL.obj';
+	var objPath = csAbr + '/' + objName;
+	return(objPath);
+}
+
+var newObjPath = heObjName();
+
+
+
 var he_pc = [
-	new ThumbObject('HEPC', 'images/HEPCPLA/HEPCPLA225KI.jpg', 'obj/PC/PC225KIPLAPL.obj', '2.25&quot; Kitten Heel', true),
-	new ThumbObject('HEPC', 'images/HEPCPLA/HEPCPLA300AH.jpg', 'obj/PC/PC300AHPLAPL.obj', '3&quot; Stiletto Heel', true),
-	new ThumbObject('HEPC', 'images/HEPCPLA/HEPCPLA300CO.jpg', 'obj/PC/PC300COPLAPL.obj', '3&quot; Cone Heel', true),
-	new ThumbObject('HEPC', 'images/HEPCPLA/HEPCPLA375AH.jpg', 'obj/PC/PC375AHPLAPL.obj', '3.75&quot; Stiletto Heel', true),
-	new ThumbObject('HEPC', 'images/HEPCPLA/HEPCPLA375BH.jpg', 'obj/PC/PC375BHPLAPL.obj', '3.75&quot; Block Heel', true)
+	new ThumbObject('225KI', 'images/HEPCPLA/HEPCPLA225KI.jpg', 'obj/PC/PC225KIPLAPL.obj', '2.25&quot; Kitten Heel', true),
+	new ThumbObject('300AH', 'images/HEPCPLA/HEPCPLA300AH.jpg', 'obj/PC/PC300AHPLAPL.obj', '3&quot; Stiletto Heel', true),
+	new ThumbObject('300CO', 'images/HEPCPLA/HEPCPLA300CO.jpg', 'obj/PC/PC300COPLAPL.obj', '3&quot; Cone Heel', true),
+	new ThumbObject('375AH', 'images/HEPCPLA/HEPCPLA375AH.jpg', 'obj/PC/PC375AHPLAPL.obj', '3.75&quot; Stiletto Heel', true),
+	new ThumbObject('375BH', 'images/HEPCPLA/HEPCPLA375BH.jpg', 'obj/PC/PC375BHPLAPL.obj', '3.75&quot; Block Heel', true)
 ];
 
 var he_ph = [
-	new ThumbObject('HEPH', 'images/HEPHPLA/HEPHPLA225KI.jpg', 'obj/PH/PH225KIPLAPL.obj', '2.25&quot; Kitten Heel', true),
-	new ThumbObject('HEPH', 'images/HEPHPLA/HEPHPLA300AH.jpg', 'obj/PH/PH300AHPLAPL.obj', '3&quot; Stiletto Heel', true),
-	new ThumbObject('HEPH', 'images/HEPHPLA/HEPHPLA300CO.jpg', 'obj/PH/PH300COPLAPL.obj', '3&quot; Cone Heel', true),
-	new ThumbObject('HEPH', 'images/HEPHPLA/HEPHPLA375AH.jpg', 'obj/PH/PH375AHPLAPL.obj', '3.75&quot; Stiletto Heel', true),
-	new ThumbObject('HEPH', 'images/HEPHPLA/HEPHPLA375BH.jpg', 'obj/PH/PH375BHPLAPL.obj', '3.75&quot; Block Heel', true)
+	new ThumbObject('225KI', 'images/HEPHPLA/HEPHPLA225KI.jpg', 'obj/PH/PH225KIPLAPL.obj', '2.25&quot; Kitten Heel', true),
+	new ThumbObject('300AH', 'images/HEPHPLA/HEPHPLA300AH.jpg', 'obj/PH/PH300AHPLAPL.obj', '3&quot; Stiletto Heel', true),
+	new ThumbObject('300CO', 'images/HEPHPLA/HEPHPLA300CO.jpg', 'obj/PH/PH300COPLAPL.obj', '3&quot; Cone Heel', true),
+	new ThumbObject('375AH', 'images/HEPHPLA/HEPHPLA375AH.jpg', 'obj/PH/PH375AHPLAPL.obj', '3.75&quot; Stiletto Heel', true),
+	new ThumbObject('375BH', 'images/HEPHPLA/HEPHPLA375BH.jpg', 'obj/PH/PH375BHPLAPL.obj', '3.75&quot; Block Heel', true)
 ];
 
 var he_po = [
-	new ThumbObject('HEPO', 'images/HEPOPLA/HEPOPLA225KI.jpg', 'obj/PO/PO225KIPLAPL.obj', '2.25&quot; Kitten Heel', true),
-	new ThumbObject('HEPO', 'images/HEPOPLA/HEPOPLA300AH.jpg', 'obj/PO/PO300AHPLAPL.obj', '3&quot; Stiletto Heel', true),
-	new ThumbObject('HEPO', 'images/HEPOPLA/HEPOPLA300CO.jpg', 'obj/PO/PO300COPLAPL.obj', '3&quot; Cone Heel', true),
-	new ThumbObject('HEPO', 'images/HEPOPLA/HEPOPLA375AH.jpg', 'obj/PO/PO375AHPLAPL.obj', '3.75&quot; Stiletto Heel', true),
-	new ThumbObject('HEPO', 'images/HEPOPLA/HEPOPLA375BH.jpg', 'obj/PO/PO375BHPLAPL.obj', '3.75&quot; Block Heel', true)
+	new ThumbObject('225KI', 'images/HEPOPLA/HEPOPLA225KI.jpg', 'obj/PO/PO225KIPLAPL.obj', '2.25&quot; Kitten Heel', true),
+	new ThumbObject('300AH', 'images/HEPOPLA/HEPOPLA300AH.jpg', 'obj/PO/PO300AHPLAPL.obj', '3&quot; Stiletto Heel', true),
+	new ThumbObject('300CO', 'images/HEPOPLA/HEPOPLA300CO.jpg', 'obj/PO/PO300COPLAPL.obj', '3&quot; Cone Heel', true),
+	new ThumbObject('375AH', 'images/HEPOPLA/HEPOPLA375AH.jpg', 'obj/PO/PO375AHPLAPL.obj', '3.75&quot; Stiletto Heel', true),
+	new ThumbObject('375BH', 'images/HEPOPLA/HEPOPLA375BH.jpg', 'obj/PO/PO375BHPLAPL.obj', '3.75&quot; Block Heel', true)
 ];
 
 var he_ac = [
-	new ThumbObject('HEAC', 'images/HEACPLA/HEACPLA225KI.jpg', 'obj/AC/AC225KIPLAPL.obj', '2.25&quot; Kitten Heel', true),
-	new ThumbObject('HEAC', 'images/HEACPLA/HEACPLA300AH.jpg', 'obj/AC/AC300AHPLAPL.obj', '3&quot; Stiletto Heel', true),
-	new ThumbObject('HEAC', 'images/HEACPLA/HEACPLA300CO.jpg', 'obj/AC/AC300COPLAPL.obj', '3&quot; Cone Heel', true),
-	new ThumbObject('HEAC', 'images/HEACPLA/HEACPLA350AH.jpg', 'obj/AC/AC350AHPLAPL.obj', '3.5&quot; Platform Stiletto Heel', true),
-	new ThumbObject('HEAC', 'images/HEACPLA/HEACPLA350BH.jpg', 'obj/AC/AC350BHPLAPL.obj', '3.5&quot; Platform Block Heel', true),
-	new ThumbObject('HEAC', 'images/HEACPLA/HEACPLA375AH.jpg', 'obj/AC/AC375AHPLAPL.obj', '3.75&quot; Stiletto Heel', true),
-	new ThumbObject('HEAC', 'images/HEACPLA/HEACPLA375BH.jpg', 'obj/AC/AC375BHPLAPL.obj', '3.75&quot; Block Heel', true),
-	new ThumbObject('HEAC', 'images/HEACPLA/HEACPLA450AH.jpg', 'obj/AC/AC450AHPLAPL.obj', '4.5&quot; Platform Stiletto Heel', true),
-	new ThumbObject('HEAC', 'images/HEACPLA/HEACPLA450BH.jpg', 'obj/AC/AC450BHPLAPL.obj', '4.5&quot; Platform Block Heel', true)
+	new ThumbObject('225KI', 'images/HEACPLA/HEACPLA225KI.jpg', 'obj/AC/AC225KIPLAPL.obj', '2.25&quot; Kitten Heel', true),
+	new ThumbObject('300AH', 'images/HEACPLA/HEACPLA300AH.jpg', 'obj/AC/AC300AHPLAPL.obj', '3&quot; Stiletto Heel', true),
+	new ThumbObject('300CO', 'images/HEACPLA/HEACPLA300CO.jpg', 'obj/AC/AC300COPLAPL.obj', '3&quot; Cone Heel', true),
+	new ThumbObject('350AH', 'images/HEACPLA/HEACPLA350AH.jpg', 'obj/AC/AC350AHPLAPL.obj', '3.5&quot; Platform Stiletto Heel', true),
+	new ThumbObject('350BH', 'images/HEACPLA/HEACPLA350BH.jpg', 'obj/AC/AC350BHPLAPL.obj', '3.5&quot; Platform Block Heel', true),
+	new ThumbObject('375AH', 'images/HEACPLA/HEACPLA375AH.jpg', 'obj/AC/AC375AHPLAPL.obj', '3.75&quot; Stiletto Heel', true),
+	new ThumbObject('375BH', 'images/HEACPLA/HEACPLA375BH.jpg', 'obj/AC/AC375BHPLAPL.obj', '3.75&quot; Block Heel', true),
+	new ThumbObject('450AH', 'images/HEACPLA/HEACPLA450AH.jpg', 'obj/AC/AC450AHPLAPL.obj', '4.5&quot; Platform Stiletto Heel', true),
+	new ThumbObject('450BH', 'images/HEACPLA/HEACPLA450BH.jpg', 'obj/AC/AC450BHPLAPL.obj', '4.5&quot; Platform Block Heel', true)
 ];
 
 var he_pe = [
-	new ThumbObject('HEPE', 'images/HEACPEE/HEACPEE225KI.jpg', 'obj/PE/PE225KIPLAPL.obj', '2.25&quot; Kitten Heel', true),
-	new ThumbObject('HEPE', 'images/HEACPEE/HEACPEE300AH.jpg', 'obj/PE/PE300SAPLAPL.obj', '3&quot; Stiletto Heel', true),
-	new ThumbObject('HEPE', 'images/HEACPEE/HEACPEE300CO.jpg', 'obj/PE/PE300COPLAPL.obj', '3&quot; Cone Heel', true),
-	new ThumbObject('HEPE', 'images/HEACPEE/HEACPEE350AH.jpg', 'obj/PE/PE350SAPLAPL.obj', '3.5&quot; Platform Stiletto Heel', true),
-	new ThumbObject('HEPE', 'images/HEACPEE/HEACPEE350BH.jpg', 'obj/PE/PE350BHPLAPL.obj', '3.5&quot; Platform Block Heel', true),
-	new ThumbObject('HEPE', 'images/HEACPEE/HEACPEE375AH.jpg', 'obj/PE/PE375SAPLAPL.obj', '3.75&quot; Stiletto Heel', true),
-	new ThumbObject('HEPE', 'images/HEACPEE/HEACPEE375BH.jpg', 'obj/PE/PE375BHPLAPL.obj', '3.75&quot; Block Heel', true),
-	new ThumbObject('HEPE', 'images/HEACPEE/HEACPEE450AH.jpg', 'obj/PE/PE450SAPLAPL.obj', '4.5&quot; Platform Stiletto Heel', true),
-	new ThumbObject('HEPE', 'images/HEACPEE/HEACPEE450BH.jpg', 'obj/PE/PE450BHPLAPL.obj', '4.5&quot; Platform Block Heel', true)
+	new ThumbObject('225KI', 'images/HEACPEE/HEACPEE225KI.jpg', 'obj/PE/PE225KIPLAPL.obj', '2.25&quot; Kitten Heel', true),
+	new ThumbObject('300AH', 'images/HEACPEE/HEACPEE300AH.jpg', 'obj/PE/PE300SAPLAPL.obj', '3&quot; Stiletto Heel', true),
+	new ThumbObject('300CO', 'images/HEACPEE/HEACPEE300CO.jpg', 'obj/PE/PE300COPLAPL.obj', '3&quot; Cone Heel', true),
+	new ThumbObject('350AH', 'images/HEACPEE/HEACPEE350AH.jpg', 'obj/PE/PE350SAPLAPL.obj', '3.5&quot; Platform Stiletto Heel', true),
+	new ThumbObject('350AH', 'images/HEACPEE/HEACPEE350BH.jpg', 'obj/PE/PE350BHPLAPL.obj', '3.5&quot; Platform Block Heel', true),
+	new ThumbObject('375BH', 'images/HEACPEE/HEACPEE375AH.jpg', 'obj/PE/PE375SAPLAPL.obj', '3.75&quot; Stiletto Heel', true),
+	new ThumbObject('375BH', 'images/HEACPEE/HEACPEE375BH.jpg', 'obj/PE/PE375BHPLAPL.obj', '3.75&quot; Block Heel', true),
+	new ThumbObject('450AH', 'images/HEACPEE/HEACPEE450AH.jpg', 'obj/PE/PE450SAPLAPL.obj', '4.5&quot; Platform Stiletto Heel', true),
+	new ThumbObject('450BH', 'images/HEACPEE/HEACPEE450BH.jpg', 'obj/PE/PE450BHPLAPL.obj', '4.5&quot; Platform Block Heel', true)
 ];
 
 var he_sa = [
-	new ThumbObject('HESA', 'images/HESASTR/HEACPEE225KI.jpg', 'obj/SA/SA225KIPLAOB.obj', '2.25&quot; Kitten Heel', true),
-	new ThumbObject('HESA', 'images/HESASTR/HESASTR300AH.jpg', 'obj/SA/SA300SAPLAOB.obj', '3&quot; Stiletto Heel', true),
-	new ThumbObject('HESA', 'images/HESASTR/HESASTR300CO.jpg', 'obj/SA/SA300COPLAOB.obj', '3&quot; Cone Heel', true),
-	new ThumbObject('HESA', 'images/HESASTR/HESASTR350AH.jpg', 'obj/SA/SA350SAPLAOB.obj', '3.5&quot; Platform Stiletto Heel', true),
-	new ThumbObject('HESA', 'images/HESASTR/HESASTR350BH.jpg', 'obj/SA/SA350BHPLAOB.obj', '3.5&quot; Platform Block Heel', true),
-	new ThumbObject('HESA', 'images/HESASTR/HESASTR375AH.jpg', 'obj/SA/SA375SAPLAOB.obj', '3.75&quot; Stiletto Heel', true),
-	new ThumbObject('HESA', 'images/HESASTR/HESASTR375BH.jpg', 'obj/SA/SA375BHPLAOB.obj', '3.75&quot; Block Heel', true),
-	new ThumbObject('HESA', 'images/HESASTR/HESASTR450AH.jpg', 'obj/SA/SA450SAPLAOB.obj', '4.5&quot; Platform Stiletto Heel', true),
-	new ThumbObject('HESA', 'images/HESASTR/HESASTR450BH.jpg', 'obj/SA/SA450BHPLAOB.obj', '4.5&quot; Platform Block Heel', true)
+	new ThumbObject('225KI', 'images/HESASTR/HEACPEE225KI.jpg', 'obj/SA/SA225KIPLAOB.obj', '2.25&quot; Kitten Heel', true),
+	new ThumbObject('300AH', 'images/HESASTR/HESASTR300AH.jpg', 'obj/SA/SA300SAPLAOB.obj', '3&quot; Stiletto Heel', true),
+	new ThumbObject('300CO', 'images/HESASTR/HESASTR300CO.jpg', 'obj/SA/SA300COPLAOB.obj', '3&quot; Cone Heel', true),
+	new ThumbObject('350AH', 'images/HESASTR/HESASTR350AH.jpg', 'obj/SA/SA350SAPLAOB.obj', '3.5&quot; Platform Stiletto Heel', true),
+	new ThumbObject('350BH', 'images/HESASTR/HESASTR350BH.jpg', 'obj/SA/SA350BHPLAOB.obj', '3.5&quot; Platform Block Heel', true),
+	new ThumbObject('375AH', 'images/HESASTR/HESASTR375AH.jpg', 'obj/SA/SA375SAPLAOB.obj', '3.75&quot; Stiletto Heel', true),
+	new ThumbObject('375BH', 'images/HESASTR/HESASTR375BH.jpg', 'obj/SA/SA375BHPLAOB.obj', '3.75&quot; Block Heel', true),
+	new ThumbObject('450AH', 'images/HESASTR/HESASTR450AH.jpg', 'obj/SA/SA450SAPLAOB.obj', '4.5&quot; Platform Stiletto Heel', true),
+	new ThumbObject('450BH', 'images/HESASTR/HESASTR450BH.jpg', 'obj/SA/SA450BHPLAOB.obj', '4.5&quot; Platform Block Heel', true)
 ];
 
 var he_fl = [
-	new ThumbObject('HEFL', 'images/HEFLPLA/HEFLPLA.jpg', 'obj/FL/FL025FLPLAPL.obj', '2.25&quot; Kitten Heel', true),
+	new ThumbObject('025FL', 'images/HEFLPLA/HEFLPLA.jpg', 'obj/FL/FL025FLPLAPL.obj', '0.25&quot; Flat Heel', true)
 ];
 
 var he = [he_pc, he_ph, he_po, he_ac, he_pe, he_sa, he_fl];
-console.log(he);
 
 
+//FRONTS
+
+//function for creating obj name after steps cs, he, fr
+function frObjName(csAbr, heAbr, frAbr) {
+	var objName = csAbr + heAbr + frAbr + 'PL.obj';
+	var objPath = csAbr + '/' + objName;
+	return(objPath);
+}
+
+//function for compositing the image name / path ?
+
+
+var fr_pc = [
+	new ThumbObject('FRPC', 'images/FRPC/FRPCPLA300AH.jpg', 'null', 'Plain', true),
+	new ThumbObject('FRPC', 'images/FRPC/FRPCPTO300AH.jpg', 'null', 'Pointed Toe Cap', true),
+	new ThumbObject('FRPC', 'images/FRPC/FRPCTOE300AH.jpg', 'null', 'Toe Cap', true),
+	new ThumbObject('FRPC', 'images/FRPC/FRPCPAN300AH.jpg', 'null', 'Panneled', true),
+	new ThumbObject('FRPC', 'images/FRPC/FRPCPPT300AH.jpg', 'null', 'Panneled Pointed Toe Cap', true),
+	new ThumbObject('FRPC', 'images/FRPC/FRPCPTC300AH.jpg', 'null', 'Panneled Toe Cap', true)
+];
+
+var fr_pc = [
+	new ThumbObject('FRAC', 'images/FRAC/FRACPLA300AH.jpg', 'null', 'Plain', true),
+	new ThumbObject('FRAC', 'images/FRAC/FRACPAN300AH.jpg', 'null', 'Panneled', true),
+	new ThumbObject('FRAC', 'images/FRAC/FRACPPT300AH.jpg', 'null', 'Panneled Pointed Toe Cap', true),
+	new ThumbObject('FRAC', 'images/FRAC/FRACPTO300AH.jpg', 'null', 'Panneled Pointed Toe Cap', true),
+	new ThumbObject('FRAC', 'images/FRAC/FRACPTC300AH.jpg', 'null', 'Panneled Toe Cap', true),
+	new ThumbObject('FRAC', 'images/FRAC/FRACTOE300AH.jpg', 'null', 'Toe Cap', true)
+];
+
+
+//BACKS
+var bc_cl = [
+	new ThumbObject('FR', 'images/FRPC/FRPCPLA300AH.jpg', 'null', 'Plain', true),
+];
 
 
 
