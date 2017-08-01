@@ -11,14 +11,8 @@ btns.click(function() {
 	}
 });
 
-//Menu objects and arrays
-function ThumbObject(abr, img, obj, tooltip, on) {
-	this.abreviation = abr;
-	this.imgSrc = img;
-	this.objSrc = obj;
-	this.toolTipText = tooltip;
-	this.enabled = on;
-}
+
+
 
 //Initial values for OBJ path constructing functions
 var csAbr, heAbr, frAbr, baArb;
@@ -44,6 +38,8 @@ function objPathFun(coreShapeAbr, heelAbr, frontArb, backAbr) {
 }
 // var newObjPath = objPathFun(csAbr, heAbr, frAbr, baArb);
 // console.log('newObjPath = ', newObjPath);
+
+
 
 //Thmbnails Path
 function thumbPathFunCs(menuStep, coreShapeAbr, heelAbr, frontArb, backAbr) {
@@ -81,16 +77,17 @@ var newPathBa = thumbPathFunBa('BA', 'SA', heAbr, frAbr, baArb);
 console.log('newPathBa = ', newPathBa);
 
 
-//Core Shapes
-var cs = [
-	new ThumbObject('PC', 'images/CS/CSPCPLA.jpg', 'obj/PC/PC300AHPLAPL.obj', 'Pointed Toe', true),
-	new ThumbObject('PH', 'images/CS/CSPHPLA.jpg', 'obj/PC/PH300AHPLAPL.obj', "Pointed Half D'Orsay", true),
- 	new ThumbObject('PO', 'images/CS/CSPOPLA.jpg', 'obj/PC/PO300AHPLACB.obj', 'Pointed Open', true),
-	new ThumbObject('AC', 'images/CS/CSACPLA.jpg', 'obj/PC/AC300AHPLAPL.obj', 'Rounded Toe', true),
-	new ThumbObject('PE', 'images/CS/CSACPEE.jpg', 'obj/PC/PE300SAPLAPL.obj', 'Peep Toe', true),
-	new ThumbObject('SA', 'images/CS/CSSASTR.jpg', 'obj/PC/SA300SAPLAOB.obj', 'Sandals', false),
-	new ThumbObject('FL', 'images/CS/CSFLPLA.jpg', 'obj/PC/FL025FLPLAPL.obj', 'Ballet Flats', true)
- ];
+
+
+//Menu objects and arrays
+function ThumbObject(abr, img, obj, tooltip, enabled, children) {
+	this.abreviation = abr;
+	this.imgSrc = img;
+	this.objSrc = obj;
+	this.toolTipText = tooltip;
+	this.enabled = enabled;
+	this.children = children;
+}
 
 //HEELS
 var he_pc = [
@@ -157,7 +154,16 @@ var he_fl = [
 	new ThumbObject('025FL', 'images/HEFL/HEFLPLA.jpg', 'obj/FL/FL025FLPLAPL.obj', '0.25&quot; Flat Heel', true)
 ];
 
-var he = [he_pc, he_ph, he_po, he_ac, he_pe, he_sa, he_fl];
+//Core Shapes
+var cs = [
+	new ThumbObject('PC', 'images/CS/CSPCPLA.jpg', 'obj/PC/PC300AHPLAPL.obj', 'Pointed Toe', true, he_pc),
+	new ThumbObject('PH', 'images/CS/CSPHPLA.jpg', 'obj/PC/PH300AHPLAPL.obj', "Pointed Half D'Orsay", true, he_ph),
+ 	new ThumbObject('PO', 'images/CS/CSPOPLA.jpg', 'obj/PC/PO300AHPLACB.obj', 'Pointed Open', true, he_po),
+	new ThumbObject('AC', 'images/CS/CSACPLA.jpg', 'obj/PC/AC300AHPLAPL.obj', 'Rounded Toe', true, he_ac),
+	new ThumbObject('PE', 'images/CS/CSACPEE.jpg', 'obj/PC/PE300SAPLAPL.obj', 'Peep Toe', true, he_pe),
+	new ThumbObject('SA', 'images/CS/CSSASTR.jpg', 'obj/PC/SA300SAPLAOB.obj', 'Sandals', false, he_sa),
+	new ThumbObject('FL', 'images/CS/CSFLPLA.jpg', 'obj/PC/FL025FLPLAPL.obj', 'Ballet Flats', true, he_f;)
+ ];
 
 
 //FRONTS
