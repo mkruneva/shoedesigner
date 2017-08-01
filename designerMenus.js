@@ -20,6 +20,30 @@ function ThumbObject(abr, img, obj, tooltip, on) {
 	this.enabled = on;
 }
 
+//Initial values for OBJ path constructing functions
+var csAbr, heAbr, frAbr, bcAbr;
+csAbr = 'PC'; 
+heAbr = '300AH';
+frAbr = 'PLA';
+bcAbr = 'PL';
+
+//function for creating obj name after steps cs, he
+function heObjPath(coreShapeAbr, heelAbr, frontArb, backAbr) {
+	if (coreShapeAbr === 'SA') {
+		backAbr = 'CB';
+	}
+	if ((frAbr=='PAN')||(frAbr=='PPT')||(frAbr=='PTC')) {
+		frontArb = 'PAN';
+	}
+	var objName = coreShapeAbr + heelAbr + frontArb + backAbr + '.obj';
+	var objPath = coreShapeAbr + '/' + objName;
+	return(objPath);
+}
+
+var newObjPath = heObjPath(csAbr, heAbr, frAbr, bcAbr);
+console.log(newObjPath);
+
+
 //Core Shapes
 var cs = [
 	new ThumbObject('PC', 'images/CS/CSPCPLA.jpg', 'obj/PC/PC300AHPLAPL.obj', 'Pointed Toe', true),
@@ -32,16 +56,6 @@ var cs = [
  ];
 
 //HEELS
-
-//function for creating obj name after steps cs, he
-function heObjName(csAbr, heAbr) {
-	var objName = csAbr + heAbr + 'PLA' + 'PL.obj';
-	var objPath = csAbr + '/' + objName;
-	return(objPath);
-}
-
-var newObjPath = heObjName();
-
 
 
 var he_pc = [
@@ -82,26 +96,26 @@ var he_ac = [
 
 var he_pe = [
 	new ThumbObject('225KI', 'images/HEACPEE/HEACPEE225KI.jpg', 'obj/PE/PE225KIPLAPL.obj', '2.25&quot; Kitten Heel', true),
-	new ThumbObject('300AH', 'images/HEACPEE/HEACPEE300AH.jpg', 'obj/PE/PE300SAPLAPL.obj', '3&quot; Stiletto Heel', true),
+	new ThumbObject('300AH', 'images/HEACPEE/HEACPEE300AH.jpg', 'obj/PE/PE300AHPLAPL.obj', '3&quot; Stiletto Heel', true),
 	new ThumbObject('300CO', 'images/HEACPEE/HEACPEE300CO.jpg', 'obj/PE/PE300COPLAPL.obj', '3&quot; Cone Heel', true),
-	new ThumbObject('350AH', 'images/HEACPEE/HEACPEE350AH.jpg', 'obj/PE/PE350SAPLAPL.obj', '3.5&quot; Platform Stiletto Heel', true),
+	new ThumbObject('350AH', 'images/HEACPEE/HEACPEE350AH.jpg', 'obj/PE/PE350AHPLAPL.obj', '3.5&quot; Platform Stiletto Heel', true),
 	new ThumbObject('350AH', 'images/HEACPEE/HEACPEE350BH.jpg', 'obj/PE/PE350BHPLAPL.obj', '3.5&quot; Platform Block Heel', true),
-	new ThumbObject('375BH', 'images/HEACPEE/HEACPEE375AH.jpg', 'obj/PE/PE375SAPLAPL.obj', '3.75&quot; Stiletto Heel', true),
+	new ThumbObject('375BH', 'images/HEACPEE/HEACPEE375AH.jpg', 'obj/PE/PE375AHPLAPL.obj', '3.75&quot; Stiletto Heel', true),
 	new ThumbObject('375BH', 'images/HEACPEE/HEACPEE375BH.jpg', 'obj/PE/PE375BHPLAPL.obj', '3.75&quot; Block Heel', true),
-	new ThumbObject('450AH', 'images/HEACPEE/HEACPEE450AH.jpg', 'obj/PE/PE450SAPLAPL.obj', '4.5&quot; Platform Stiletto Heel', true),
+	new ThumbObject('450AH', 'images/HEACPEE/HEACPEE450AH.jpg', 'obj/PE/PE450AHPLAPL.obj', '4.5&quot; Platform Stiletto Heel', true),
 	new ThumbObject('450BH', 'images/HEACPEE/HEACPEE450BH.jpg', 'obj/PE/PE450BHPLAPL.obj', '4.5&quot; Platform Block Heel', true)
 ];
 
 var he_sa = [
-	new ThumbObject('225KI', 'images/HESASTR/HEACPEE225KI.jpg', 'obj/SA/SA225KIPLAOB.obj', '2.25&quot; Kitten Heel', true),
-	new ThumbObject('300AH', 'images/HESASTR/HESASTR300AH.jpg', 'obj/SA/SA300SAPLAOB.obj', '3&quot; Stiletto Heel', true),
-	new ThumbObject('300CO', 'images/HESASTR/HESASTR300CO.jpg', 'obj/SA/SA300COPLAOB.obj', '3&quot; Cone Heel', true),
-	new ThumbObject('350AH', 'images/HESASTR/HESASTR350AH.jpg', 'obj/SA/SA350SAPLAOB.obj', '3.5&quot; Platform Stiletto Heel', true),
-	new ThumbObject('350BH', 'images/HESASTR/HESASTR350BH.jpg', 'obj/SA/SA350BHPLAOB.obj', '3.5&quot; Platform Block Heel', true),
-	new ThumbObject('375AH', 'images/HESASTR/HESASTR375AH.jpg', 'obj/SA/SA375SAPLAOB.obj', '3.75&quot; Stiletto Heel', true),
-	new ThumbObject('375BH', 'images/HESASTR/HESASTR375BH.jpg', 'obj/SA/SA375BHPLAOB.obj', '3.75&quot; Block Heel', true),
-	new ThumbObject('450AH', 'images/HESASTR/HESASTR450AH.jpg', 'obj/SA/SA450SAPLAOB.obj', '4.5&quot; Platform Stiletto Heel', true),
-	new ThumbObject('450BH', 'images/HESASTR/HESASTR450BH.jpg', 'obj/SA/SA450BHPLAOB.obj', '4.5&quot; Platform Block Heel', true)
+	new ThumbObject('225KI', 'images/HESASTR/HESASTR225KI.jpg', 'obj/SA/SA225KIPLACB.obj', '2.25&quot; Kitten Heel', true),
+	new ThumbObject('300AH', 'images/HESASTR/HESASTR300AH.jpg', 'obj/SA/SA300AHPLACB.obj', '3&quot; Stiletto Heel', true),
+	new ThumbObject('300CO', 'images/HESASTR/HESASTR300CO.jpg', 'obj/SA/SA300COPLACB.obj', '3&quot; Cone Heel', true),
+	new ThumbObject('350AH', 'images/HESASTR/HESASTR350AH.jpg', 'obj/SA/SA350AHPLACB.obj', '3.5&quot; Platform Stiletto Heel', true),
+	new ThumbObject('350BH', 'images/HESASTR/HESASTR350BH.jpg', 'obj/SA/SA350BHPLACB.obj', '3.5&quot; Platform Block Heel', true),
+	new ThumbObject('375AH', 'images/HESASTR/HESASTR375AH.jpg', 'obj/SA/SA375AHPLACB.obj', '3.75&quot; Stiletto Heel', true),
+	new ThumbObject('375BH', 'images/HESASTR/HESASTR375BH.jpg', 'obj/SA/SA375BHPLACB.obj', '3.75&quot; Block Heel', true),
+	new ThumbObject('450AH', 'images/HESASTR/HESASTR450AH.jpg', 'obj/SA/SA450AHPLACB.obj', '4.5&quot; Platform Stiletto Heel', true),
+	new ThumbObject('450BH', 'images/HESASTR/HESASTR450BH.jpg', 'obj/SA/SA450BHPLACB.obj', '4.5&quot; Platform Block Heel', true)
 ];
 
 var he_fl = [
@@ -113,40 +127,36 @@ var he = [he_pc, he_ph, he_po, he_ac, he_pe, he_sa, he_fl];
 
 //FRONTS
 
-//function for creating obj name after steps cs, he, fr
-function frObjName(csAbr, heAbr, frAbr) {
-	var objName = csAbr + heAbr + frAbr + 'PL.obj';
-	var objPath = csAbr + '/' + objName;
-	return(objPath);
-}
-
-//function for compositing the image name / path ?
-
-
 var fr_pc = [
-	new ThumbObject('FRPC', 'images/FRPC/FRPCPLA300AH.jpg', 'null', 'Plain', true),
-	new ThumbObject('FRPC', 'images/FRPC/FRPCPTO300AH.jpg', 'null', 'Pointed Toe Cap', true),
-	new ThumbObject('FRPC', 'images/FRPC/FRPCTOE300AH.jpg', 'null', 'Toe Cap', true),
-	new ThumbObject('FRPC', 'images/FRPC/FRPCPAN300AH.jpg', 'null', 'Panneled', true),
-	new ThumbObject('FRPC', 'images/FRPC/FRPCPPT300AH.jpg', 'null', 'Panneled Pointed Toe Cap', true),
-	new ThumbObject('FRPC', 'images/FRPC/FRPCPTC300AH.jpg', 'null', 'Panneled Toe Cap', true)
+	new ThumbObject('PLA', 'images/FRPC/FRPCPLA300AH.jpg', 'null', 'Plain', true),
+	new ThumbObject('PTO', 'images/FRPC/FRPCPTO300AH.jpg', 'null', 'Pointed Toe Cap', true),
+	new ThumbObject('TOE', 'images/FRPC/FRPCTOE300AH.jpg', 'null', 'Toe Cap', true),
+	new ThumbObject('PAN', 'images/FRPC/FRPCPAN300AH.jpg', 'null', 'Panneled', true),
+	new ThumbObject('PPT', 'images/FRPC/FRPCPPT300AH.jpg', 'null', 'Panneled Pointed Toe Cap', true),
+	new ThumbObject('PTC', 'images/FRPC/FRPCPTC300AH.jpg', 'null', 'Panneled Toe Cap', true)
 ];
 
-var fr_pc = [
-	new ThumbObject('FRAC', 'images/FRAC/FRACPLA300AH.jpg', 'null', 'Plain', true),
-	new ThumbObject('FRAC', 'images/FRAC/FRACPAN300AH.jpg', 'null', 'Panneled', true),
-	new ThumbObject('FRAC', 'images/FRAC/FRACPPT300AH.jpg', 'null', 'Panneled Pointed Toe Cap', true),
-	new ThumbObject('FRAC', 'images/FRAC/FRACPTO300AH.jpg', 'null', 'Panneled Pointed Toe Cap', true),
-	new ThumbObject('FRAC', 'images/FRAC/FRACPTC300AH.jpg', 'null', 'Panneled Toe Cap', true),
-	new ThumbObject('FRAC', 'images/FRAC/FRACTOE300AH.jpg', 'null', 'Toe Cap', true)
+var fr_ac = [
+	new ThumbObject('PLA', 'images/FRAC/FRACPLA300AH.jpg', 'null', 'Plain', true),
+	new ThumbObject('PTO', 'images/FRAC/FRACPTO300AH.jpg', 'null', 'Pointed Toe Cap', true),
+	new ThumbObject('TOE', 'images/FRAC/FRACTOE300AH.jpg', 'null', 'Toe Cap', true),
+	new ThumbObject('PAN', 'images/FRAC/FRACPAN300AH.jpg', 'null', 'Panneled', true),
+	new ThumbObject('PPT', 'images/FRAC/FRACPPT300AH.jpg', 'null', 'Panneled Pointed Toe Cap', true),
+	new ThumbObject('PTC', 'images/FRAC/FRACPTC300AH.jpg', 'null', 'Panneled Toe Cap', true)
 ];
 
+var fr_sa = [
+	new ThumbObject('STR', 'images/FRSA/FRSASTR300AH.jpg', 'null', 'Toe Cap', true),
+	new ThumbObject('PSA', 'images/FRSA/FRSAPSA300AH.jpg', 'null', 'Toe Cap', true),
+	new ThumbObject('COP', 'images/FRSA/FRSACOP300AH.jpg', 'null', 'Plain', true),
+	new ThumbObject('GLA', 'images/FRSA/FRSAGLA300AH.jpg', 'null', 'Pointed Toe Cap', true)
+];
+
+// FL - the same as PC and AC
+//.PH - only PLA
+// PO - only PLA Plain
 
 //BACKS
-var bc_cl = [
-	new ThumbObject('FR', 'images/FRPC/FRPCPLA300AH.jpg', 'null', 'Plain', true),
-];
-
 
 
 
