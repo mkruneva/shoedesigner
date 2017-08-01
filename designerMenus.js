@@ -27,8 +27,11 @@ heAbr = '300AH';
 frAbr = 'PLA';
 baArb = 'PL';
 
+//Inital value for thumbnail parh constructing functions
+var step = 'CS';
+
 //function for creating obj name after steps cs, he
-function heObjPath(coreShapeAbr, heelAbr, frontArb, backAbr) {
+function objPathFun(coreShapeAbr, heelAbr, frontArb, backAbr) {
 	if (coreShapeAbr === 'SA') {
 		backAbr = 'CB';
 	}
@@ -39,9 +42,43 @@ function heObjPath(coreShapeAbr, heelAbr, frontArb, backAbr) {
 	var objPath = coreShapeAbr + '/' + objName;
 	return(objPath);
 }
+// var newObjPath = objPathFun(csAbr, heAbr, frAbr, baArb);
+// console.log('newObjPath = ', newObjPath);
 
-var newObjPath = heObjPath(csAbr, heAbr, frAbr, baArb);
-console.log(newObjPath);
+//Thmbnails Path
+function thumbPathFunCs(menuStep, coreShapeAbr, heelAbr, frontArb, backAbr) {
+	var thumbName = menuStep + coreShapeAbr + frontArb + '.jpg';
+	var thumbPath = 'images/' + coreShapeAbr + '/' + thumbName;
+	return thumbPath;
+}
+
+function thumbPathFunHe(menuStep, coreShapeAbr, heelAbr, frontArb, backAbr) {
+	var thumbName = menuStep + coreShapeAbr + frontArb + heelAbr + '.jpg';
+	var thumbPath = 'images/' + menuStep + coreShapeAbr + '/' + thumbName;
+	return thumbPath;
+}
+
+function thumbPathFunFr(menuStep, coreShapeAbr, heelAbr, frontArb, backAbr) {
+	var thumbName = menuStep + coreShapeAbr + frontArb + '300AH' + '.jpg';
+	var thumbPath = 'images/' + menuStep + coreShapeAbr + '/' + thumbName;
+	return thumbPath;
+}
+
+function thumbPathFunBa(menuStep, coreShapeAbr, heelAbr, frontArb, backAbr) {
+	var backType;
+	if ((coreShapeAbr === 'PC')||(coreShapeAbr === 'PH')||(coreShapeAbr === 'PE')||(coreShapeAbr === 'AC')) {
+		backType = 'CB';
+	} else if ((coreShapeAbr === 'SA')||(coreShapeAbr === 'PO')) {
+		backType = 'OB';
+	} else if (coreShapeAbr === 'FL') {
+		backType = 'FL';
+	}
+	var thumbName = menuStep + backType + backAbr + '.jpg';
+	var thumbPath = 'images/' + menuStep + '/' + thumbName;
+	return thumbPath;
+}
+var newPathBa = thumbPathFunBa('BA', 'SA', heAbr, frAbr, baArb);
+console.log('newPathBa = ', newPathBa);
 
 
 //Core Shapes
@@ -160,7 +197,7 @@ var ba_cb = [
 	new ThumbObject('PH', 'images/BA/BACBPH.jpg', 'null', 'Pointed Heel Counter', true),
 	new ThumbObject('SH', 'images/BA/BACBSH.jpg', 'null', 'Strip Heel Counter', true)
 ];
-//CB backs for PC, PH, PO, AC core shape
+//CB backs for PC, PH, PE, AC core shape
 
 var ba_fl = [
 	new ThumbObject('PL', 'images/BA/BAFLPL.jpg', 'null', 'Plain Back', true),
