@@ -162,7 +162,7 @@ var cs = [
 	new ThumbObject('AC', 'images/CS/CSACPLA.jpg', 'obj/PC/AC300AHPLAPL.obj', 'Rounded Toe', true, he_ac),
 	new ThumbObject('PE', 'images/CS/CSACPEE.jpg', 'obj/PC/PE300SAPLAPL.obj', 'Peep Toe', true, he_pe),
 	new ThumbObject('SA', 'images/CS/CSSASTR.jpg', 'obj/PC/SA300SAPLAOB.obj', 'Sandals', false, he_sa),
-	new ThumbObject('FL', 'images/CS/CSFLPLA.jpg', 'obj/PC/FL025FLPLAPL.obj', 'Ballet Flats', true, he_f;)
+	new ThumbObject('FL', 'images/CS/CSFLPLA.jpg', 'obj/PC/FL025FLPLAPL.obj', 'Ballet Flats', true, he_fl)
  ];
 
 
@@ -237,6 +237,10 @@ var em = [
 	new ThumbObject('GE', 'images/STEM/EMGE.jpg', 'null', "Gem", true)
 ];
 //not available for SA Core shape
+
+
+
+//Generate HTML function 
 
 
 
