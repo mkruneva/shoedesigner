@@ -28,11 +28,12 @@ function thumbMany(thumbArray, menuText) {
 // }
 
 $(document).ready(function() {
-	var selection = [4, 0, 0];
+	var selection = [2, 0, 0];
     $('#shoeMenu').html(
     	thumbMany(cs, 'Core Shape') + 
     	thumbMany(cs[selection[0]].children, "Heels") +
-    	thumbMany(cs[selection[0]].children[selection[1]].children, "Fronts") 
+    	thumbMany(cs[selection[0]].children[selection[1]].children, "Fronts") +
+    	thumbMany(cs[selection[0]].children[selection[1]].children[selection[2]].children, "Backs")
     	// thumbMany(cs[selection[0]].children[3].children[2].children, "Backs")
     );
 

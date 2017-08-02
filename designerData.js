@@ -9,54 +9,81 @@ function ThumbObject(abr, imgSrc, objSrc, tooltip, enabled, children, selection)
     this.selection = selection;
 }
 
-//FRONTS
+//BACKS
+//The obj file doesn't change - only meshes are show/hidden
+var ba_cb = [
+    new ThumbObject('PL', 'images/BA/BACBPL.jpg', 'null', 'Plain Back', true),
+    new ThumbObject('SH', 'images/BA/BACBSH.jpg', 'null', 'Strip Heel Counter', true),
+    new ThumbObject('PH', 'images/BA/BACBPH.jpg', 'null', 'Pointed Heel Counter', true),
+    
+];
+//CB backs for PC, PH, PE, AC core shape
+
+var ba_fl = [
+    new ThumbObject('PL', 'images/BA/BAFLPL.jpg', 'null', 'Plain Back', true),
+    new ThumbObject('PH', 'images/BA/BAFLPH.jpg', 'null', 'Pointed Heel Counter', true),
+    new ThumbObject('SH', 'images/BA/BAFLSH.jpg', 'null', 'Strip Heel Counter', true)
+];
+//FL backs for FL core shape
+
+var ba_ob = [
+    new ThumbObject('DO', 'images/BA/BAOBDO.jpg', 'null', "D'Orsay Counter", true),
+    new ThumbObject('LC', 'images/BA/BAOBLC.jpg', 'null', 'Long Counter', true),
+    new ThumbObject('TN', 'images/BA/BAOBTN.jpg', 'null', 'High Back (Thin Strap)', true),
+    new ThumbObject('TT', 'images/BA/BAOBTT.jpg', 'null', 'High Back (Double Strap)', true),
+    new ThumbObject('TK', 'images/BA/BAOBTK.jpg', 'null', 'High Back (Thick Strap)', true)
+];
+// OB backs available for SA and PO core shape
+
+
+//FRONTS WITH CHILDREN
 var fr_pc = [
-    new ThumbObject('PLA', 'images/FRPC/FRPCPLA300AH.jpg', 'null', 'Plain', true),
-    new ThumbObject('PTO', 'images/FRPC/FRPCPTO300AH.jpg', 'null', 'Pointed Toe Cap', true),
-    new ThumbObject('TOE', 'images/FRPC/FRPCTOE300AH.jpg', 'null', 'Toe Cap', true),
-    new ThumbObject('PAN', 'images/FRPC/FRPCPAN300AH.jpg', 'null', 'Panneled', true),
-    new ThumbObject('PPT', 'images/FRPC/FRPCPPT300AH.jpg', 'null', 'Panneled Pointed Toe Cap', true),
-    new ThumbObject('PTC', 'images/FRPC/FRPCPTC300AH.jpg', 'null', 'Panneled Toe Cap', true)
+    new ThumbObject('PLA', 'images/FRPC/FRPCPLA300AH.jpg', 'null', 'Plain', true, ba_cb, [0, 0, 0]),
+    new ThumbObject('PTO', 'images/FRPC/FRPCPTO300AH.jpg', 'null', 'Pointed Toe Cap', true, ba_cb, [0, 0, 1]),
+    new ThumbObject('TOE', 'images/FRPC/FRPCTOE300AH.jpg', 'null', 'Toe Cap', true, ba_cb, [0, 0, 2]),
+    new ThumbObject('PAN', 'images/FRPC/FRPCPAN300AH.jpg', 'null', 'Panneled', true, ba_cb, [0, 0, 3]),
+    new ThumbObject('PPT', 'images/FRPC/FRPCPPT300AH.jpg', 'null', 'Panneled Pointed Toe Cap', true, ba_cb, [0, 0, 4]),
+    new ThumbObject('PTC', 'images/FRPC/FRPCPTC300AH.jpg', 'null', 'Panneled Toe Cap', true, ba_cb, [0, 0, 5])
 ];
 
 var fr_ph = [
-    new ThumbObject('PLA', 'images/FRPH/FRPHPLA300AH.jpg', 'null', 'Plain', true),
-    new ThumbObject('PTO', 'images/FRPH/FRPHPTO300AH.jpg', 'null', 'Pointed Toe Cap', true),
-    new ThumbObject('TOE', 'images/FRPH/FRPHTOE300AH.jpg', 'null', 'Toe Cap', true)
+    new ThumbObject('PLA', 'images/FRPH/FRPHPLA300AH.jpg', 'null', 'Plain', true, ba_cb, [1, 0, 0]),
+    new ThumbObject('PTO', 'images/FRPH/FRPHPTO300AH.jpg', 'null', 'Pointed Toe Cap', true, ba_cb, [1, 0, 1]),
+    new ThumbObject('TOE', 'images/FRPH/FRPHTOE300AH.jpg', 'null', 'Toe Cap', true, ba_cb, [1, 0, 2])
 ];
 
 var fr_po = [
-    new ThumbObject('PLA', 'images/FRPO/FRPOPLA300AH.jpg', 'null', 'Plain', true)
+    new ThumbObject('PLA', 'images/FRPO/FRPOPLA300AH.jpg', 'null', 'Plain', true, ba_ob, [2, 0, 0])
 ];
 
 var fr_ac = [
-    new ThumbObject('PLA', 'images/FRAC/FRACPLA300AH.jpg', 'null', 'Plain', true),
-    new ThumbObject('PTO', 'images/FRAC/FRACPTO300AH.jpg', 'null', 'Pointed Toe Cap', true),
-    new ThumbObject('TOE', 'images/FRAC/FRACTOE300AH.jpg', 'null', 'Toe Cap', true),
-    new ThumbObject('PAN', 'images/FRAC/FRACPAN300AH.jpg', 'null', 'Panneled', true),
-    new ThumbObject('PPT', 'images/FRAC/FRACPPT300AH.jpg', 'null', 'Panneled Pointed Toe Cap', true),
-    new ThumbObject('PTC', 'images/FRAC/FRACPTC300AH.jpg', 'null', 'Panneled Toe Cap', true)
+    new ThumbObject('PLA', 'images/FRAC/FRACPLA300AH.jpg', 'null', 'Plain', true, ba_cb, [3, 0, 0]),
+    new ThumbObject('PTO', 'images/FRAC/FRACPTO300AH.jpg', 'null', 'Pointed Toe Cap', true, ba_cb, [0, 0, 1]),
+    new ThumbObject('TOE', 'images/FRAC/FRACTOE300AH.jpg', 'null', 'Toe Cap', true, ba_cb, [3, 0, 2]),
+    new ThumbObject('PAN', 'images/FRAC/FRACPAN300AH.jpg', 'null', 'Panneled', true, ba_cb, [3, 0, 3]),
+    new ThumbObject('PPT', 'images/FRAC/FRACPPT300AH.jpg', 'null', 'Panneled Pointed Toe Cap', true, ba_cb, [0, 0, 4]),
+    new ThumbObject('PTC', 'images/FRAC/FRACPTC300AH.jpg', 'null', 'Panneled Toe Cap', true, ba_cb, [3, 0, 5])
 ];
 
 var fr_pe = [
-    new ThumbObject('PLA', 'images/FRPE/FRPEPLA300AH.jpg', 'null', 'Plain', true),
-    new ThumbObject('PAN', 'images/FRPE/FRPEPAN300AH.jpg', 'null', 'Panneled', true)
+    new ThumbObject('PLA', 'images/FRPE/FRPEPLA300AH.jpg', 'null', 'Plain', true, ba_cb, [4, 0, 0]),
+    new ThumbObject('PAN', 'images/FRPE/FRPEPAN300AH.jpg', 'null', 'Panneled', true, ba_cb, [4, 0, 1])
 ];
 
 var fr_sa = [
-    new ThumbObject('STR', 'images/FRSA/FRSASTR300AH.jpg', 'null', 'Toe Cap', true),
-    new ThumbObject('PSA', 'images/FRSA/FRSAPSA300AH.jpg', 'null', 'Toe Cap', true),
-    new ThumbObject('COP', 'images/FRSA/FRSACOP300AH.jpg', 'null', 'Plain', true),
-    new ThumbObject('GLA', 'images/FRSA/FRSAGLA300AH.jpg', 'null', 'Pointed Toe Cap', true)
+    new ThumbObject('STR', 'images/FRSA/FRSASTR300AH.jpg', 'null', 'Toe Cap', true, ba_ob, [5, 0, 0]),
+    new ThumbObject('PSA', 'images/FRSA/FRSAPSA300AH.jpg', 'null', 'Toe Cap', true, ba_ob, [5, 0, 1]),
+    new ThumbObject('COP', 'images/FRSA/FRSACOP300AH.jpg', 'null', 'Plain', true, ba_ob, [5, 0, 2]),
+    new ThumbObject('GLA', 'images/FRSA/FRSAGLA300AH.jpg', 'null', 'Pointed Toe Cap', true, ba_ob, [5, 0, 3])
 ];
 
 var fr_fl = [
-    new ThumbObject('PLA', 'images/FRFL/FRFLPLA.jpg', 'null', 'Plain', true),
-    new ThumbObject('PTO', 'images/FRFL/FRFLPTO.jpg', 'null', 'Pointed Toe Cap', true),
-    new ThumbObject('TOE', 'images/FRFL/FRFLTOE.jpg', 'null', 'Toe Cap', true),
-    new ThumbObject('PAN', 'images/FRFL/FRFLPAN.jpg', 'null', 'Panneled', true),
-    new ThumbObject('PPT', 'images/FRFL/FRFLPPT.jpg', 'null', 'Panneled Pointed Toe Cap', true),
-    new ThumbObject('PTC', 'images/FRFL/FRFLPTC.jpg', 'null', 'Panneled Toe Cap', true)
+    new ThumbObject('PLA', 'images/FRFL/FRFLPLA.jpg', 'null', 'Plain', true, ba_fl, [6, 0, 0]),
+    new ThumbObject('PTO', 'images/FRFL/FRFLPTO.jpg', 'null', 'Pointed Toe Cap', true, ba_fl, [6, 0, 1]),
+    new ThumbObject('TOE', 'images/FRFL/FRFLTOE.jpg', 'null', 'Toe Cap', true, ba_fl, [6, 0, 2]),
+    new ThumbObject('PAN', 'images/FRFL/FRFLPAN.jpg', 'null', 'Panneled', true, ba_fl, [6, 0, 3]),
+    new ThumbObject('PPT', 'images/FRFL/FRFLPPT.jpg', 'null', 'Panneled Pointed Toe Cap', true, ba_fl, [6, 0, 4]),
+    new ThumbObject('PTC', 'images/FRFL/FRFLPTC.jpg', 'null', 'Panneled Toe Cap', true, ba_fl, [6, 0, 5])
 ]
 
 
@@ -135,32 +162,6 @@ var cs = [
     new ThumbObject('SA', 'images/CS/CSSASTR.jpg', 'obj/PC/SA300SAPLAOB.obj', 'Sandals', false, he_sa, [5, 0, 0]),
     new ThumbObject('FL', 'images/CS/CSFLPLA.jpg', 'obj/PC/FL025FLPLAPL.obj', 'Ballet Flats', true, he_fl, [6, 0, 0])
 ];
-
-
-//BACKS
-//The obj file doesn't change - only meshes are show/hidden
-var ba_cb = [
-    new ThumbObject('PL', 'images/BA/BACBPL.jpg', 'null', 'Plain Back', true),
-    new ThumbObject('PH', 'images/BA/BACBPH.jpg', 'null', 'Pointed Heel Counter', true),
-    new ThumbObject('SH', 'images/BA/BACBSH.jpg', 'null', 'Strip Heel Counter', true)
-];
-//CB backs for PC, PH, PE, AC core shape
-
-var ba_fl = [
-    new ThumbObject('PL', 'images/BA/BAFLPL.jpg', 'null', 'Plain Back', true),
-    new ThumbObject('PH', 'images/BA/BAFLPH.jpg', 'null', 'Pointed Heel Counter', true),
-    new ThumbObject('SH', 'images/BA/BAFLSH.jpg', 'null', 'Strip Heel Counter', true)
-];
-//FL backs for FL core shape
-
-var ba_ob = [
-    new ThumbObject('DO', 'images/BA/BAOBDO.jpg', 'null', "D'Orsay Counter", true),
-    new ThumbObject('LC', 'images/BA/BAOBLC.jpg', 'null', 'Long Counter', true),
-    new ThumbObject('TK', 'images/BA/BAOBTK.jpg', 'null', 'High Back (Thick Strap)', true),
-    new ThumbObject('TN', 'images/BA/BAOBTN.jpg', 'null', 'High Back (Thin Strap)', true),
-    new ThumbObject('TT', 'images/BA/BAOBTT.jpg', 'null', 'High Back (Double Strap)', true)
-];
-// OB backs available for SA and PO core shape
 
 //STRAPS
 var st = [
