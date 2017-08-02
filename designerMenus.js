@@ -28,20 +28,20 @@ function thumbMany(thumbArray, menuText) {
 // }
 
 $(document).ready(function() {
-	var selection = [1, 0, 0, 0, 0];
+	var selection = [5, 0, 0, 0, 0];
     $('#shoeMenu').html(
     	thumbMany(cs, 'Core Shape') + 
     	thumbMany(cs[selection[0]].children, "Heels") +
     	thumbMany(cs[selection[0]].children[selection[1]].children, "Fronts") +
     	thumbMany(cs[selection[0]].children[selection[1]].children[selection[2]].children, "Backs") + 
-    	thumbMany(cs[selection[0]].children[selection[1]].children[selection[2]].children[selection[3]].children, "Straps")
-    	// thumbMany(cs[selection[0]].children[3].children[2].children, "Backs")
+    	thumbMany(cs[selection[0]].children[selection[1]].children[selection[2]].children[selection[3]].children, "Straps") + 
+    	thumbMany(cs[selection[0]].children[selection[1]].children[selection[2]].children[selection[3]].children[selection[4]].children, "Embellishments")
     );
 
 
     //jQ anim menu
     var btns = $('#shoeMenu .btn');
-    //$('.thumb-container:gt(0)').hide();
+    $('.thumb-container:gt(0)').hide();
 
     btns.click(function() {
         var div = $(this).parent().find('.thumb-container');

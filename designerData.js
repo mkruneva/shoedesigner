@@ -12,12 +12,13 @@ function ThumbObject(abr, imgSrc, objSrc, tooltip, enabled, children, selection)
 //EMBELLISHMENTS
 var em = [
     new ThumbObject('NO', 'images/EM/EMNO.jpg', 'null', "No Embelli", true),
-    new ThumbObject('BB', 'images/EM/EMBB.jpg', 'null', "Big Bow", true),
-    new ThumbObject('GE', 'images/EM/EMGE.jpg', 'null', "Gem", true)
+    new ThumbObject('GE', 'images/EM/EMGE.jpg', 'null', "Gem", true),
+    new ThumbObject('BB', 'images/EM/EMBB.jpg', 'null', "Big Bow", true)
+   
 ];
 
-var emno = [
-    new ThumbObject('NO', 'images/EM/EMNO.jpg', 'null', "No Embelli", true)
+var emsa = [
+    new ThumbObject('NO', 'images/EMSA/EMNO.jpg', 'null', "No Embelli", true)
 ];
 
 
@@ -58,7 +59,7 @@ var st_pe = [
 ];
 
 var st_sa = [
-    new ThumbObject('NO', 'images/STSA/STNO.jpg', 'null', "No strap", true, emno, [5, 0, 0, 0, 0]),
+    new ThumbObject('NO', 'images/STSA/STNO.jpg', 'null', "No strap", true, emsa, [5, 0, 0, 0, 0]),
 ];
 
 var st_fl = [
