@@ -112,15 +112,15 @@ var he_ac = [
 ];
 
 var he_pe = [
-    new ThumbObject('225KI', 'images/HEAC/HEACPEE225KI.jpg', 'obj/PE/PE225KIPLAPL.obj', '2.25&quot; Kitten Heel', true),
-    new ThumbObject('300AH', 'images/HEAC/HEACPEE300AH.jpg', 'obj/PE/PE300AHPLAPL.obj', '3&quot; Stiletto Heel', true),
-    new ThumbObject('300CO', 'images/HEAC/HEACPEE300CO.jpg', 'obj/PE/PE300COPLAPL.obj', '3&quot; Cone Heel', true),
-    new ThumbObject('350AH', 'images/HEAC/HEACPEE350AH.jpg', 'obj/PE/PE350AHPLAPL.obj', '3.5&quot; Platform Stiletto Heel', true),
-    new ThumbObject('350AH', 'images/HEAC/HEACPEE350BH.jpg', 'obj/PE/PE350BHPLAPL.obj', '3.5&quot; Platform Block Heel', true),
-    new ThumbObject('375BH', 'images/HEAC/HEACPEE375AH.jpg', 'obj/PE/PE375AHPLAPL.obj', '3.75&quot; Stiletto Heel', true),
-    new ThumbObject('375BH', 'images/HEAC/HEACPEE375BH.jpg', 'obj/PE/PE375BHPLAPL.obj', '3.75&quot; Block Heel', true),
-    new ThumbObject('450AH', 'images/HEAC/HEACPEE450AH.jpg', 'obj/PE/PE450AHPLAPL.obj', '4.5&quot; Platform Stiletto Heel', true),
-    new ThumbObject('450BH', 'images/HEAC/HEACPEE450BH.jpg', 'obj/PE/PE450BHPLAPL.obj', '4.5&quot; Platform Block Heel', true)
+    new ThumbObject('225KI', 'images/HEPE/HEPEPEE225KI.jpg', 'obj/PE/PE225KIPLAPL.obj', '2.25&quot; Kitten Heel', true),
+    new ThumbObject('300AH', 'images/HEPE/HEPEPEE300AH.jpg', 'obj/PE/PE300AHPLAPL.obj', '3&quot; Stiletto Heel', true),
+    new ThumbObject('300CO', 'images/HEPE/HEPEPEE300CO.jpg', 'obj/PE/PE300COPLAPL.obj', '3&quot; Cone Heel', true),
+    new ThumbObject('350AH', 'images/HEPE/HEPEPEE350AH.jpg', 'obj/PE/PE350AHPLAPL.obj', '3.5&quot; Platform Stiletto Heel', true),
+    new ThumbObject('350AH', 'images/HEPE/HEPEPEE350BH.jpg', 'obj/PE/PE350BHPLAPL.obj', '3.5&quot; Platform Block Heel', true),
+    new ThumbObject('375BH', 'images/HEPE/HEPEPEE375AH.jpg', 'obj/PE/PE375AHPLAPL.obj', '3.75&quot; Stiletto Heel', true),
+    new ThumbObject('375BH', 'images/HEPE/HEPEPEE375BH.jpg', 'obj/PE/PE375BHPLAPL.obj', '3.75&quot; Block Heel', true),
+    new ThumbObject('450AH', 'images/HEPE/HEPEPEE450AH.jpg', 'obj/PE/PE450AHPLAPL.obj', '4.5&quot; Platform Stiletto Heel', true),
+    new ThumbObject('450BH', 'images/HEPE/HEPEPEE450BH.jpg', 'obj/PE/PE450BHPLAPL.obj', '4.5&quot; Platform Block Heel', true)
 ];
 
 var he_sa = [
@@ -159,6 +159,12 @@ var fr_pc = [
     new ThumbObject('PAN', 'images/FRPC/FRPCPAN300AH.jpg', 'null', 'Panneled', true),
     new ThumbObject('PPT', 'images/FRPC/FRPCPPT300AH.jpg', 'null', 'Panneled Pointed Toe Cap', true),
     new ThumbObject('PTC', 'images/FRPC/FRPCPTC300AH.jpg', 'null', 'Panneled Toe Cap', true)
+];
+
+var fr_ph = [
+    new ThumbObject('PLA', 'images/FRPH/FRPHPLA300AH.jpg', 'null', 'Plain', true),
+    new ThumbObject('PTO', 'images/FRPH/FRPHPTO300AH.jpg', 'null', 'Pointed Toe Cap', true),
+    new ThumbObject('TOE', 'images/FRPH/FRPHTOE300AH.jpg', 'null', 'Toe Cap', true),
 ];
 
 var fr_ac = [
@@ -245,17 +251,17 @@ function thumbMany(thumbArray, menuText) {
     return wholeText;
 }
 
-function redrawMenu(selection) {
-	$('#shoeMenu').html(
-    	thumbMany(cs, 'Core Shape') + 
-    	thumbMany(cs[selection[0]].children, "Heels") 
-    	// thumbMany(cs[selection[0]].children[selection[1]].children, "Fronts") 
-    	// thumbMany(cs[selection[0]].children[3].children[2].children, "Backs")
-    );
-}
+// function redrawMenu(selection) {
+// 	$('#shoeMenu').html(
+//     	thumbMany(cs, 'Core Shape') + 
+//     	thumbMany(cs[selection[0]].children, "Heels") 
+//     	// thumbMany(cs[selection[0]].children[selection[1]].children, "Fronts") 
+//     	// thumbMany(cs[selection[0]].children[3].children[2].children, "Backs")
+//     );
+// }
 
 $(document).ready(function() {
-	var selection = [0, 1, 0];
+	var selection = [6, 1, 0];
     $('#shoeMenu').html(
     	thumbMany(cs, 'Core Shape') + 
     	thumbMany(cs[selection[0]].children, "Heels") 
@@ -266,7 +272,7 @@ $(document).ready(function() {
 
     //jQ anim menu
     var btns = $('#shoeMenu .btn');
-    $('.thumb-container:gt(0)').hide();
+    //$('.thumb-container:gt(0)').hide();
 
     btns.click(function() {
         var div = $(this).parent().find('.thumb-container');
