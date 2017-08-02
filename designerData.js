@@ -10,7 +10,17 @@ function ThumbObject(abr, imgSrc, objSrc, tooltip, enabled, children, selection)
 }
 
 //STRAPS
-var st_hi = [
+var st_pc = [
+    new ThumbObject('NO', 'images/STHI/STNO.jpg', 'null', "No strap", true),
+    new ThumbObject('BI', 'images/STHI/STBI.jpg', 'null', "Bib", true),
+    new ThumbObject('LS', 'images/STHI/STLS.jpg', 'null', "Low Strap", true),
+    new ThumbObject('MJ', 'images/STHI/STMJ.jpg', 'null', "Mary Jane", true),
+    new ThumbObject('TB', 'images/STHI/STTB.jpg', 'null', "T bar", true),
+    new ThumbObject('TK', 'images/STHI/STTK.jpg', 'null', "Ankle Strap Thick", true),
+    new ThumbObject('TN', 'images/STHI/STTN.jpg', 'null', "Ankle Strap Thin", true)
+];
+
+var st_ac = [
     new ThumbObject('NO', 'images/STHI/STNO.jpg', 'null', "No strap", true),
     new ThumbObject('BI', 'images/STHI/STBI.jpg', 'null', "Bib", true),
     new ThumbObject('LS', 'images/STHI/STLS.jpg', 'null', "Low Strap", true),
@@ -26,8 +36,19 @@ var st_fl = [
     new ThumbObject('LS', 'images/STFL/STLS.jpg', 'null', "Low Strap", true),
     new ThumbObject('MJ', 'images/STFL/STMJ.jpg', 'null', "Mary Jane", true)
 ];
+// available for FL core shape only 
 
-var st_ls = [
+var st_ph = [
+    new ThumbObject('NO', 'images/STHI/STNO.jpg', 'null', "No strap", true),
+    new ThumbObject('LS', 'images/STHI/STLS.jpg', 'null', "Low Strap", true)
+];
+
+var st_po = [
+    new ThumbObject('NO', 'images/STHI/STNO.jpg', 'null', "No strap", true),
+    new ThumbObject('LS', 'images/STHI/STLS.jpg', 'null', "Low Strap", true)
+];
+
+var st_pe = [
     new ThumbObject('NO', 'images/STHI/STNO.jpg', 'null', "No strap", true),
     new ThumbObject('LS', 'images/STHI/STLS.jpg', 'null', "Low Strap", true)
 ];
