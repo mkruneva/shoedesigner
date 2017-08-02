@@ -9,6 +9,35 @@ function ThumbObject(abr, imgSrc, objSrc, tooltip, enabled, children, selection)
     this.selection = selection;
 }
 
+//STRAPS
+var st_hi = [
+    new ThumbObject('NO', 'images/STHI/STNO.jpg', 'null', "No strap", true),
+    new ThumbObject('BI', 'images/STHI/STBI.jpg', 'null', "Bib", true),
+    new ThumbObject('LS', 'images/STHI/STLS.jpg', 'null', "Low Strap", true),
+    new ThumbObject('MJ', 'images/STHI/STMJ.jpg', 'null', "Mary Jane", true),
+    new ThumbObject('TB', 'images/STHI/STTB.jpg', 'null', "T bar", true),
+    new ThumbObject('TK', 'images/STHI/STTK.jpg', 'null', "Ankle Strap Thick", true),
+    new ThumbObject('TN', 'images/STHI/STTN.jpg', 'null', "Ankle Strap Thin", true)
+];
+// available for PC, AC core shape only 
+
+var st_fl = [
+    new ThumbObject('NO', 'images/STFL/STNO.jpg', 'null', "No strap", true),
+    new ThumbObject('LS', 'images/STFL/STLS.jpg', 'null', "Low Strap", true),
+    new ThumbObject('MJ', 'images/STFL/STMJ.jpg', 'null', "Mary Jane", true)
+];
+
+var st_ls = [
+    new ThumbObject('NO', 'images/STHI/STNO.jpg', 'null', "No strap", true),
+    new ThumbObject('LS', 'images/STHI/STLS.jpg', 'null', "Low Strap", true)
+];
+// available for PH, PO PE core shape only 
+
+var st_sa = [
+    new ThumbObject('NO', 'images/STSA/STNO.jpg', 'null', "No strap", true),
+];
+// available fo SA only
+
 //BACKS
 //The obj file doesn't change - only meshes are show/hidden
 var ba_cb = [
@@ -163,16 +192,7 @@ var cs = [
     new ThumbObject('FL', 'images/CS/CSFLPLA.jpg', 'obj/PC/FL025FLPLAPL.obj', 'Ballet Flats', true, he_fl, [6, 0, 0])
 ];
 
-//STRAPS
-var st = [
-    new ThumbObject('BI', 'images/STEM/STBI.jpg', 'null', "Bib", true),
-    new ThumbObject('LS', 'images/STEM/STLS.jpg', 'null', "Low Strap", true),
-    new ThumbObject('MJ', 'images/STEM/STMJ.jpg', 'null', "Mary Jane", true),
-    new ThumbObject('TB', 'images/STEM/STTB.jpg', 'null', "T bar", true),
-    new ThumbObject('TK', 'images/STEM/STTK.jpg', 'null', "Ankle Strap Thick", true),
-    new ThumbObject('TN', 'images/STEM/STTN.jpg', 'null', "Ankle Strap Thin", true)
-];
-// available for PC, PH, PO, AC core shape only 
+
 
 var em = [
     new ThumbObject('BB', 'images/STEM/EMBB.jpg', 'null', "Big Bow", true),
