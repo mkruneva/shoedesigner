@@ -275,12 +275,12 @@ function thumbMany(thumbArray, menuText) {
 // }
 
 $(document).ready(function() {
-	var selection = [6, 1, 0];
+	var selection = [0, 1, 0];
     $('#shoeMenu').html(
     	thumbMany(cs, 'Core Shape') + 
     	thumbMany(cs[selection[0]].children, "Heels") 
-    	// thumbMany(cs[selection[0]].children[3].children, "Heels") + 
-    	// thumbMany(cs[selection[0]].children[3].children[2].children, "Heels")
+    	// thumbMany(cs[selection[0]].children[3].children, "Fronts") + 
+    	// thumbMany(cs[selection[0]].children[3].children[2].children, "Backs")
     );
 
 
