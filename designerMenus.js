@@ -164,7 +164,11 @@ var fr_pc = [
 var fr_ph = [
     new ThumbObject('PLA', 'images/FRPH/FRPHPLA300AH.jpg', 'null', 'Plain', true),
     new ThumbObject('PTO', 'images/FRPH/FRPHPTO300AH.jpg', 'null', 'Pointed Toe Cap', true),
-    new ThumbObject('TOE', 'images/FRPH/FRPHTOE300AH.jpg', 'null', 'Toe Cap', true),
+    new ThumbObject('TOE', 'images/FRPH/FRPHTOE300AH.jpg', 'null', 'Toe Cap', true)
+];
+
+var fr_po = [
+    new ThumbObject('PLA', 'images/FRPO/FRPOPLA300AH.jpg', 'null', 'Plain', true)
 ];
 
 var fr_ac = [
@@ -176,6 +180,11 @@ var fr_ac = [
     new ThumbObject('PTC', 'images/FRAC/FRACPTC300AH.jpg', 'null', 'Panneled Toe Cap', true)
 ];
 
+var fr_pe = [
+    new ThumbObject('PLA', 'images/FRPE/FRPEPLA300AH.jpg', 'null', 'Plain', true),
+    new ThumbObject('PAN', 'images/FRPE/FRPEPAN300AH.jpg', 'null', 'Panneled', true)
+];
+
 var fr_sa = [
     new ThumbObject('STR', 'images/FRSA/FRSASTR300AH.jpg', 'null', 'Toe Cap', true),
     new ThumbObject('PSA', 'images/FRSA/FRSAPSA300AH.jpg', 'null', 'Toe Cap', true),
@@ -183,9 +192,14 @@ var fr_sa = [
     new ThumbObject('GLA', 'images/FRSA/FRSAGLA300AH.jpg', 'null', 'Pointed Toe Cap', true)
 ];
 
-// FL - the same as PC and AC
-//.PH - only PLA
-// PO - only PLA Plain
+var fr_fl = [
+    new ThumbObject('PLA', 'images/FRFL/FRFLPLA300AH.jpg', 'null', 'Plain', true),
+    new ThumbObject('PTO', 'images/FRFL/FRFLPTO300AH.jpg', 'null', 'Pointed Toe Cap', true),
+    new ThumbObject('TOE', 'images/FRFL/FRFLTOE300AH.jpg', 'null', 'Toe Cap', true),
+    new ThumbObject('PAN', 'images/FRFL/FRFLPAN300AH.jpg', 'null', 'Panneled', true),
+    new ThumbObject('PPT', 'images/FRFL/FRFLPPT300AH.jpg', 'null', 'Panneled Pointed Toe Cap', true),
+    new ThumbObject('PTC', 'images/FRFL/FRFLPTC300AH.jpg', 'null', 'Panneled Toe Cap', true)
+]
 
 //BACKS
 //The obj file doesn't change - only meshes are show/hidden
