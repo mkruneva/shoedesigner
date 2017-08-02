@@ -9,55 +9,63 @@ function ThumbObject(abr, imgSrc, objSrc, tooltip, enabled, children, selection)
     this.selection = selection;
 }
 
+//EMBELLISHMENTS
+var em = [
+    new ThumbObject('NO', 'images/EM/EMNO.jpg', 'null', "No Embelli", true),
+    new ThumbObject('BB', 'images/EM/EMBB.jpg', 'null', "Big Bow", true),
+    new ThumbObject('GE', 'images/EM/EMGE.jpg', 'null', "Gem", true)
+];
+
+var emno = [
+    new ThumbObject('NO', 'images/EM/EMNO.jpg', 'null', "No Embelli", true)
+];
+
+
 //STRAPS
 var st_pc = [
-    new ThumbObject('NO', 'images/STHI/STNO.jpg', 'null', "No strap", true),
-    new ThumbObject('BI', 'images/STHI/STBI.jpg', 'null', "Bib", true),
-    new ThumbObject('LS', 'images/STHI/STLS.jpg', 'null', "Low Strap", true),
-    new ThumbObject('MJ', 'images/STHI/STMJ.jpg', 'null', "Mary Jane", true),
-    new ThumbObject('TB', 'images/STHI/STTB.jpg', 'null', "T bar", true),
-    new ThumbObject('TK', 'images/STHI/STTK.jpg', 'null', "Ankle Strap Thick", true),
-    new ThumbObject('TN', 'images/STHI/STTN.jpg', 'null', "Ankle Strap Thin", true)
+    new ThumbObject('NO', 'images/STHI/STNO.jpg', 'null', "No strap", true, em, [0, 0, 0, 0, 0]),
+    new ThumbObject('BI', 'images/STHI/STBI.jpg', 'null', "Bib", true, em, [0, 0, 0, 0, 1]),
+    new ThumbObject('LS', 'images/STHI/STLS.jpg', 'null', "Low Strap", true, em, [0, 0, 0, 0, 2]),
+    new ThumbObject('MJ', 'images/STHI/STMJ.jpg', 'null', "Mary Jane", true, em, [0, 0, 0, 0, 3]),
+    new ThumbObject('TB', 'images/STHI/STTB.jpg', 'null', "T bar", true, em, [0, 0, 0, 0, 4]),
+    new ThumbObject('TK', 'images/STHI/STTK.jpg', 'null', "Ankle Strap Thick", true, em, [0, 0, 0, 0, 5]),
+    new ThumbObject('TN', 'images/STHI/STTN.jpg', 'null', "Ankle Strap Thin", true,em, [0, 0, 0, 0, 6])
 ];
-
-var st_ac = [
-    new ThumbObject('NO', 'images/STHI/STNO.jpg', 'null', "No strap", true),
-    new ThumbObject('BI', 'images/STHI/STBI.jpg', 'null', "Bib", true),
-    new ThumbObject('LS', 'images/STHI/STLS.jpg', 'null', "Low Strap", true),
-    new ThumbObject('MJ', 'images/STHI/STMJ.jpg', 'null', "Mary Jane", true),
-    new ThumbObject('TB', 'images/STHI/STTB.jpg', 'null', "T bar", true),
-    new ThumbObject('TK', 'images/STHI/STTK.jpg', 'null', "Ankle Strap Thick", true),
-    new ThumbObject('TN', 'images/STHI/STTN.jpg', 'null', "Ankle Strap Thin", true)
-];
-// available for PC, AC core shape only 
-
-var st_fl = [
-    new ThumbObject('NO', 'images/STFL/STNO.jpg', 'null', "No strap", true),
-    new ThumbObject('LS', 'images/STFL/STLS.jpg', 'null', "Low Strap", true),
-    new ThumbObject('MJ', 'images/STFL/STMJ.jpg', 'null', "Mary Jane", true)
-];
-// available for FL core shape only 
 
 var st_ph = [
-    new ThumbObject('NO', 'images/STHI/STNO.jpg', 'null', "No strap", true),
-    new ThumbObject('LS', 'images/STHI/STLS.jpg', 'null', "Low Strap", true)
+    new ThumbObject('NO', 'images/STHI/STNO.jpg', 'null', "No strap", true, em, [1, 0, 0, 0, 0]),
+    new ThumbObject('LS', 'images/STHI/STLS.jpg', 'null', "Low Strap", true, em, [1, 0, 0, 0, 1])
 ];
 
 var st_po = [
-    new ThumbObject('NO', 'images/STHI/STNO.jpg', 'null', "No strap", true),
-    new ThumbObject('LS', 'images/STHI/STLS.jpg', 'null', "Low Strap", true)
+    new ThumbObject('NO', 'images/STHI/STNO.jpg', 'null', "No strap", true, em, [2, 0, 0, 0, 0]),
+    new ThumbObject('LS', 'images/STHI/STLS.jpg', 'null', "Low Strap", true, em, [2, 0, 0, 0, 1])
+];
+
+var st_ac = [
+    new ThumbObject('NO', 'images/STHI/STNO.jpg', 'null', "No strap", true, em, [3, 0, 0, 0, 0]),
+    new ThumbObject('BI', 'images/STHI/STBI.jpg', 'null', "Bib", true, em, [3, 0, 0, 0, 1]),
+    new ThumbObject('LS', 'images/STHI/STLS.jpg', 'null', "Low Strap", true, em, [3, 0, 0, 0, 2]),
+    new ThumbObject('MJ', 'images/STHI/STMJ.jpg', 'null', "Mary Jane", true, em, [3, 0, 0, 0, 3]),
+    new ThumbObject('TB', 'images/STHI/STTB.jpg', 'null', "T bar", true, em, [3, 0, 0, 0, 4]),
+    new ThumbObject('TK', 'images/STHI/STTK.jpg', 'null', "Ankle Strap Thick", true, em, [3, 0, 0, 0, 5]),
+    new ThumbObject('TN', 'images/STHI/STTN.jpg', 'null', "Ankle Strap Thin", true, em, [3, 0, 0, 0, 6])
 ];
 
 var st_pe = [
-    new ThumbObject('NO', 'images/STHI/STNO.jpg', 'null', "No strap", true),
-    new ThumbObject('LS', 'images/STHI/STLS.jpg', 'null', "Low Strap", true)
+    new ThumbObject('NO', 'images/STHI/STNO.jpg', 'null', "No strap", true, em, [4, 0, 0, 0, 0]),
+    new ThumbObject('LS', 'images/STHI/STLS.jpg', 'null', "Low Strap", true, em, [4, 0, 0, 0, 1])
 ];
-// available for PH, PO PE core shape only 
 
 var st_sa = [
-    new ThumbObject('NO', 'images/STSA/STNO.jpg', 'null', "No strap", true),
+    new ThumbObject('NO', 'images/STSA/STNO.jpg', 'null', "No strap", true, emno, [5, 0, 0, 0, 0]),
 ];
-// available fo SA only
+
+var st_fl = [
+    new ThumbObject('NO', 'images/STFL/STNO.jpg', 'null', "No strap", true, em, [6, 0, 0, 0, 0]),
+    new ThumbObject('LS', 'images/STFL/STLS.jpg', 'null', "Low Strap", true, em, [6, 0, 0, 0, 1]),
+    new ThumbObject('MJ', 'images/STFL/STMJ.jpg', 'null', "Mary Jane", true, em, [6, 0, 0, 0, 2])
+]; 
 
 //BACKS
 //The obj file doesn't change - only meshes are show/hidden
@@ -241,11 +249,3 @@ var cs = [
     new ThumbObject('SA', 'images/CS/CSSASTR.jpg', 'obj/PC/SA300SAPLAOB.obj', 'Sandals', false, he_sa, [5, 0, 0, 0, 0]),
     new ThumbObject('FL', 'images/CS/CSFLPLA.jpg', 'obj/PC/FL025FLPLAPL.obj', 'Ballet Flats', true, he_fl, [6, 0, 0, 0, 0])
 ];
-
-
-
-var em = [
-    new ThumbObject('BB', 'images/STEM/EMBB.jpg', 'null', "Big Bow", true),
-    new ThumbObject('GE', 'images/STEM/EMGE.jpg', 'null', "Gem", true)
-];
-//not available for SA Core shape
