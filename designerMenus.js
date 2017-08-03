@@ -14,7 +14,6 @@ function thumbMany(thumbArray, menuText) {
         wholeText += thumbSingle(thumbArray[i]);
     }
     wholeText += "</div></div></div>"
-    console.log(wholeText);
     return wholeText;
 }
 
@@ -28,27 +27,37 @@ function thumbMany(thumbArray, menuText) {
 // }
 
 $(document).ready(function() {
-	var selection = [5, 0, 0, 0, 0];
-    $('#shoeMenu').html(
-    	thumbMany(cs, 'Core Shape') + 
-    	thumbMany(cs[selection[0]].children, "Heels") +
-    	thumbMany(cs[selection[0]].children[selection[1]].children, "Fronts") +
-    	thumbMany(cs[selection[0]].children[selection[1]].children[selection[2]].children, "Backs") + 
-    	thumbMany(cs[selection[0]].children[selection[1]].children[selection[2]].children[selection[3]].children, "Straps") + 
-    	thumbMany(cs[selection[0]].children[selection[1]].children[selection[2]].children[selection[3]].children[selection[4]].children, "Embellishments")
-    );
+    var redrawMenu = function(selection) {
+    	//$('.thumb-container') //ARRAY WITH THE DISPLAY VALUES
+        $('#shoeMenu').html(
+            thumbMany(cs, 'Core Shape') +
+            thumbMany(cs[selection[0]].children, "Heels") +
+            thumbMany(cs[selection[0]].children[selection[1]].children, "Fronts") +
+            thumbMany(cs[selection[0]].children[selection[1]].children[selection[2]].children, "Backs") +
+            thumbMany(cs[selection[0]].children[selection[1]].children[selection[2]].children[selection[3]].children, "Straps") +
+            thumbMany(cs[selection[0]].children[selection[1]].children[selection[2]].children[selection[3]].children[selection[4]].children, "Embellishments")
+        );
 
+        var thumb = $('#shoeMenu').find('img');
+        thumb.click(function() {
+            var selection = $(this).attr("selection");
+            var selectionArray = selection.split(',').map(function(n) { return parseInt(n); });
+            redrawMenu(selectionArray);
+        });
 
-    //jQ anim menu
-    var btns = $('#shoeMenu .btn');
+        //jQ anim menu
+        var btns = $('#shoeMenu .btn');
+        btns.click(function() {
+            var div = $(this).parent().find('.thumb-container');
+            if ((div[0]).style.display === 'none') {
+                div.slideDown(500);
+            } else {
+                div.slideUp(500);
+            }
+        });
+    }
+
+    redrawMenu([0, 0, 0, 0, 0]);
     $('.thumb-container:gt(0)').hide();
 
-    btns.click(function() {
-        var div = $(this).parent().find('.thumb-container');
-        if ((div[0]).style.display === 'none') {
-            div.slideDown(500);
-        } else {
-            div.slideUp(500);
-        }
-    });
 });
