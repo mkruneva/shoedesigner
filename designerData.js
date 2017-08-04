@@ -10,61 +10,91 @@ function ThumbObject(abr, imgSrc, objSrc, tooltip, enabled, children, selection)
 }
 
 //EMBELLISHMENTS
-var em = [
+var em_pc = [
     new ThumbObject('null', 'images/EM/EMNO.jpg', 'null', "No Embelli", true, null, [0, 0, 0, 0, 0]),
     new ThumbObject('GE1', 'images/EM/EMGE.jpg', 'null', "Gem", true, null, [0, 0, 0, 0, 0]),
     new ThumbObject('BB1', 'images/EM/EMBB.jpg', 'null', "Big Bow", true, null, [0, 0, 0, 0, 0])  
 ];
 
-var emsa = [
-    new ThumbObject('null', 'images/EMSA/EMNO.jpg', 'null', "No Embelli", true, 'null', 'null')
+var em_ph = [
+    new ThumbObject('null', 'images/EM/EMNO.jpg', 'null', "No Embelli", true, null, [1, 0, 0, 0, 0]),
+    new ThumbObject('GE1', 'images/EM/EMGE.jpg', 'null', "Gem", true, null, [1, 0, 0, 0, 0]),
+    new ThumbObject('BB1', 'images/EM/EMBB.jpg', 'null', "Big Bow", true, null, [1, 0, 0, 0, 0])  
+];
+
+var em_po = [
+    new ThumbObject('null', 'images/EM/EMNO.jpg', 'null', "No Embelli", true, null, [2, 0, 0, 0, 0]),
+    new ThumbObject('GE1', 'images/EM/EMGE.jpg', 'null', "Gem", true, null, [2, 0, 0, 0, 0]),
+    new ThumbObject('BB1', 'images/EM/EMBB.jpg', 'null', "Big Bow", true, null, [2, 0, 0, 0, 0])  
+];
+
+var em_ac = [
+    new ThumbObject('null', 'images/EM/EMNO.jpg', 'null', "No Embelli", true, null, [3, 0, 0, 0, 0]),
+    new ThumbObject('GE1', 'images/EM/EMGE.jpg', 'null', "Gem", true, null, [3, 0, 0, 0, 0]),
+    new ThumbObject('BB1', 'images/EM/EMBB.jpg', 'null', "Big Bow", true, null, [3, 0, 0, 0, 0])  
+];
+
+var em_pe = [
+    new ThumbObject('null', 'images/EM/EMNO.jpg', 'null', "No Embelli", true, null, [4, 0, 0, 0, 0]),
+    new ThumbObject('GE1', 'images/EM/EMGE.jpg', 'null', "Gem", true, null, [4, 0, 0, 0, 0]),
+    new ThumbObject('BB1', 'images/EM/EMBB.jpg', 'null', "Big Bow", true, null, [4, 0, 0, 0, 0])  
+];
+
+var em_sa = [
+    new ThumbObject('null', 'images/EMSA/EMNO.jpg', 'null', "No Embelli", true, 'null', [5, 0, 0, 0, 0])
+];
+
+var em_fl = [
+    new ThumbObject('null', 'images/EM/EMNO.jpg', 'null', "No Embelli", true, null, [6, 0, 0, 0, 0]),
+    new ThumbObject('GE1', 'images/EM/EMGE.jpg', 'null', "Gem", true, null, [6, 0, 0, 0, 0]),
+    new ThumbObject('BB1', 'images/EM/EMBB.jpg', 'null', "Big Bow", true, null, [6, 0, 0, 0, 0])  
 ];
 
 
 //STRAPS
 var st_pc = [
-    new ThumbObject('null', 'images/STHI/STNO.jpg', 'null', "No strap", true, em, [0, 0, 0, 0, 0]),
-    new ThumbObject('BI1', 'images/STHI/STBI.jpg', 'null', "Bib", true, em, [0, 0, 0, 0, 1]),
-    new ThumbObject('LS1', 'images/STHI/STLS.jpg', 'null', "Low Strap", true, em, [0, 0, 0, 0, 2]),
-    new ThumbObject('MJ1', 'images/STHI/STMJ.jpg', 'null', "Mary Jane", true, em, [0, 0, 0, 0, 3]),
-    new ThumbObject('TB1', 'images/STHI/STTB.jpg', 'null', "T bar", true, em, [0, 0, 0, 0, 4]),
-    new ThumbObject('TK1', 'images/STHI/STTK.jpg', 'null', "Ankle Strap Thick", true, em, [0, 0, 0, 0, 5]),
-    new ThumbObject('TN1', 'images/STHI/STTN.jpg', 'null', "Ankle Strap Thin", true,em, [0, 0, 0, 0, 6])
+    new ThumbObject('null', 'images/STHI/STNO.jpg', 'null', "No strap", true, em_pc, [0, 0, 0, 0, 0]),
+    new ThumbObject('BI1', 'images/STHI/STBI.jpg', 'null', "Bib", true, em_pc, [0, 0, 0, 0, 1]),
+    new ThumbObject('LS1', 'images/STHI/STLS.jpg', 'null', "Low Strap", true, em_pc, [0, 0, 0, 0, 2]),
+    new ThumbObject('MJ1', 'images/STHI/STMJ.jpg', 'null', "Mary Jane", true, em_pc, [0, 0, 0, 0, 3]),
+    new ThumbObject('TB1', 'images/STHI/STTB.jpg', 'null', "T bar", true, em_pc, [0, 0, 0, 0, 4]),
+    new ThumbObject('TK1', 'images/STHI/STTK.jpg', 'null', "Ankle Strap Thick", true, em_pc, [0, 0, 0, 0, 5]),
+    new ThumbObject('TN1', 'images/STHI/STTN.jpg', 'null', "Ankle Strap Thin", true,em_pc, [0, 0, 0, 0, 6])
 ];
 
 var st_ph = [
-    new ThumbObject('null', 'images/STHI/STNO.jpg', 'null', "No strap", true, em, [1, 0, 0, 0, 0]),
-    new ThumbObject('LS1', 'images/STHI/STLS.jpg', 'null', "Low Strap", true, em, [1, 0, 0, 0, 1])
+    new ThumbObject('null', 'images/STHI/STNO.jpg', 'null', "No strap", true, em_ph, [1, 0, 0, 0, 0]),
+    new ThumbObject('LS1', 'images/STHI/STLS.jpg', 'null', "Low Strap", true, em_ph, [1, 0, 0, 0, 1])
 ];
 
 var st_po = [
-    new ThumbObject('null', 'images/STHI/STNO.jpg', 'null', "No strap", true, em, [2, 0, 0, 0, 0]),
-    new ThumbObject('LS1', 'images/STHI/STLS.jpg', 'null', "Low Strap", true, em, [2, 0, 0, 0, 1])
+    new ThumbObject('null', 'images/STHI/STNO.jpg', 'null', "No strap", true, em_po, [2, 0, 0, 0, 0]),
+    new ThumbObject('LS1', 'images/STHI/STLS.jpg', 'null', "Low Strap", true, em_po, [2, 0, 0, 0, 1])
 ];
 
 var st_ac = [
-    new ThumbObject('null', 'images/STHI/STNO.jpg', 'null', "No strap", true, em, [3, 0, 0, 0, 0]),
-    new ThumbObject('BI1', 'images/STHI/STBI.jpg', 'null', "Bib", true, em, [3, 0, 0, 0, 1]),
-    new ThumbObject('LS1', 'images/STHI/STLS.jpg', 'null', "Low Strap", true, em, [3, 0, 0, 0, 2]),
-    new ThumbObject('MJ1', 'images/STHI/STMJ.jpg', 'null', "Mary Jane", true, em, [3, 0, 0, 0, 3]),
-    new ThumbObject('TB1', 'images/STHI/STTB.jpg', 'null', "T bar", true, em, [3, 0, 0, 0, 4]),
-    new ThumbObject('TK1', 'images/STHI/STTK.jpg', 'null', "Ankle Strap Thick", true, em, [3, 0, 0, 0, 5]),
-    new ThumbObject('TN1', 'images/STHI/STTN.jpg', 'null', "Ankle Strap Thin", true, em, [3, 0, 0, 0, 6])
+    new ThumbObject('null', 'images/STHI/STNO.jpg', 'null', "No strap", true, em_ac, [3, 0, 0, 0, 0]),
+    new ThumbObject('BI1', 'images/STHI/STBI.jpg', 'null', "Bib", true, em_ac, [3, 0, 0, 0, 1]),
+    new ThumbObject('LS1', 'images/STHI/STLS.jpg', 'null', "Low Strap", true, em_ac, [3, 0, 0, 0, 2]),
+    new ThumbObject('MJ1', 'images/STHI/STMJ.jpg', 'null', "Mary Jane", true, em_ac, [3, 0, 0, 0, 3]),
+    new ThumbObject('TB1', 'images/STHI/STTB.jpg', 'null', "T bar", true, em_ac, [3, 0, 0, 0, 4]),
+    new ThumbObject('TK1', 'images/STHI/STTK.jpg', 'null', "Ankle Strap Thick", true, em_ac, [3, 0, 0, 0, 5]),
+    new ThumbObject('TN1', 'images/STHI/STTN.jpg', 'null', "Ankle Strap Thin", true, em_ac, [3, 0, 0, 0, 6])
 ];
 
 var st_pe = [
-    new ThumbObject('null', 'images/STHI/STNO.jpg', 'null', "No strap", true, em, [4, 0, 0, 0, 0]),
-    new ThumbObject('LS1', 'images/STHI/STLS.jpg', 'null', "Low Strap", true, em, [4, 0, 0, 0, 1])
+    new ThumbObject('null', 'images/STHI/STNO.jpg', 'null', "No strap", true, em_pe, [4, 0, 0, 0, 0]),
+    new ThumbObject('LS1', 'images/STHI/STLS.jpg', 'null', "Low Strap", true, em_pe, [4, 0, 0, 0, 1])
 ];
 
 var st_sa = [
-    new ThumbObject('null', 'images/STSA/STNO.jpg', 'null', "No strap", true, emsa, [5, 0, 0, 0, 0]),
+    new ThumbObject('null', 'images/STSA/STNO.jpg', 'null', "No strap", true, em_sa, [5, 0, 0, 0, 0]),
 ];
 
 var st_fl = [
-    new ThumbObject('null', 'images/STFL/STNO.jpg', 'null', "No strap", true, em, [6, 0, 0, 0, 0]),
-    new ThumbObject('LS1', 'images/STFL/STLS.jpg', 'null', "Low Strap", true, em, [6, 0, 0, 0, 1]),
-    new ThumbObject('MJ1', 'images/STFL/STMJ.jpg', 'null', "Mary Jane", true, em, [6, 0, 0, 0, 2])
+    new ThumbObject('null', 'images/STFL/STNO.jpg', 'null', "No strap", true, em_fl, [6, 0, 0, 0, 0]),
+    new ThumbObject('LS1', 'images/STFL/STLS.jpg', 'null', "Low Strap", true, em_fl, [6, 0, 0, 0, 1]),
+    new ThumbObject('MJ1', 'images/STFL/STMJ.jpg', 'null', "Mary Jane", true, em_fl, [6, 0, 0, 0, 2])
 ]; 
 
 //BACKS
