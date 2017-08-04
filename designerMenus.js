@@ -3,7 +3,7 @@ var figureStart = '<figure class="col-xs-3 col-sm-4 col-md-3 shoe-thumb">';
 var figureEnd = '</figure>';
 
 function thumbSingle(object) {
-    var imgText = "<img src='" + object.imgSrc + "' alt='" + object.tooltip + "' obj='" + object.objSrc + "' selection='" + object.selection + "'>";
+    var imgText = "<img src='" + object.imgSrc + "' abr = '" + object.abr + "'' alt='" + object.tooltip + "' obj='" + object.objSrc + "' selection='" + object.selection + "'>";
     var text = figureStart + imgText + figureEnd;
     return text;
 }
@@ -23,8 +23,8 @@ var objPathName = 'obj/PC/PC300AHPLAPL.obj';
 $(document).ready(function() {
     var redrawMenu = function(selection) {
 
-    	var displ = $('.thumb-container').map((i, e) => e.style.display).toArray(); //display style to be redrawn each time
-  
+        var displ = $('.thumb-container').map((i, e) => e.style.display).toArray(); //display style to be redrawn each time
+
         $('#shoeMenu').html(
             thumbMany(cs, 'Core Shape') +
             thumbMany(cs[selection[0]].children, "Heels") +
@@ -34,17 +34,33 @@ $(document).ready(function() {
             thumbMany(cs[selection[0]].children[selection[1]].children[selection[2]].children[selection[3]].children[selection[4]].children, "Embellishments")
         );
 
-        $('.thumb-container').each((i, e) => e.style.display = displ[i]);  //display style to be redrawn each time
+        $('.thumb-container').each((i, e) => e.style.display = displ[i]); //display style to be redrawn each time
 
         var thumb = $('#shoeMenu').find('img');
         thumb.click(function() {
             var selection = $(this).attr("selection");
             var selectionArray = selection.split(',').map(function(n) { return parseInt(n); });
             redrawMenu(selectionArray);
-            console.log(window.marty.obj);
-            window.marty.scene.remove(window.marty.obj);
-			objPathName = $(this).attr("obj");
-			window.marty.loadObject(objPathName);
+            if (($(this).attr("obj") !== 'null')) {
+                window.marty.scene.remove(window.marty.obj);
+                objPathName = $(this).attr("obj");
+                window.marty.loadObject(objPathName);
+            } else {
+            	objAbr = $(this).attr("abr");
+            	console.log('objAbr is ', objAbr);
+                var object = window.marty.obj;
+
+                object.traverse(function(child) {
+                    if (child instanceof THREE.Mesh) {
+                            if (child.name == objAbr) {
+                            	child.visible = true;
+                            }
+                            // the previously added mesh should be removed before loading new one
+                        child.castShadow = true;
+                    }
+                });
+            }
+
         });
 
         //jQ anim menu
