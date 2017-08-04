@@ -243,10 +243,10 @@ var he_fl = [
 //Core Shapes
 var cs = [
     new ThumbObject('PC', 'images/CS/CSPCPLA.jpg', 'obj/PC/PC300AHPLAPL.obj', 'Pointed Court', true, he_pc, [0, 0, 0, 0, 0]),
-    new ThumbObject('PH', 'images/CS/CSPHPLA.jpg', 'obj/PC/PH300AHPLAPL.obj', "Pointed Half D'Orsay", true, he_ph, [1, 0, 0, 0, 0]),
-    new ThumbObject('PO', 'images/CS/CSPOPLA.jpg', 'obj/PC/PO300AHPLACB.obj', 'Pointed Court Open', true, he_po, [2, 0, 0, 0, 0]),
-    new ThumbObject('AC', 'images/CS/CSACPLA.jpg', 'obj/PC/AC300AHPLAPL.obj', 'Round Toe Court', true, he_ac, [3, 0, 0, 0, 0]),
-    new ThumbObject('PE', 'images/CS/CSACPEE.jpg', 'obj/PC/PE300SAPLAPL.obj', 'Peep Toe Court', true, he_pe, [4, 0, 0, 0, 0]),
-    new ThumbObject('SA', 'images/CS/CSSASTR.jpg', 'obj/PC/SA300SAPLAOB.obj', 'Sandals', false, he_sa, [5, 0, 0, 0, 0]),
-    new ThumbObject('FL', 'images/CS/CSFLPLA.jpg', 'obj/PC/FL025FLPLAPL.obj', 'Ballet Flats', true, he_fl, [6, 0, 0, 0, 0])
+    new ThumbObject('PH', 'images/CS/CSPHPLA.jpg', 'obj/PH/PH300AHPLAPL.obj', "Pointed Half D'Orsay", true, he_ph, [1, 0, 0, 0, 0]),
+    new ThumbObject('PO', 'images/CS/CSPOPLA.jpg', 'obj/PO/PO300AHPLAPL.obj', 'Pointed Court Open', true, he_po, [2, 0, 0, 0, 0]),
+    new ThumbObject('AC', 'images/CS/CSACPLA.jpg', 'obj/AC/AC300AHPLAPL.obj', 'Round Toe Court', true, he_ac, [3, 0, 0, 0, 0]),
+    new ThumbObject('PE', 'images/CS/CSACPEE.jpg', 'obj/PE/PE300AHPLAPL.obj', 'Peep Toe Court', true, he_pe, [4, 0, 0, 0, 0]),
+    new ThumbObject('SA', 'images/CS/CSSASTR.jpg', 'obj/SA/SA300AHPLAOB.obj', 'Sandals', false, he_sa, [5, 0, 0, 0, 0]),
+    new ThumbObject('FL', 'images/CS/CSFLPLA.jpg', 'obj/FL/FL025FLPLAPL.obj', 'Ballet Flats', true, he_fl, [6, 0, 0, 0, 0])
 ];

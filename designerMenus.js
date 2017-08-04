@@ -17,14 +17,8 @@ function thumbMany(thumbArray, menuText) {
     return wholeText;
 }
 
-// function redrawMenu(selection) {
-// 	$('#shoeMenu').html(
-//     	thumbMany(cs, 'Core Shape') + 
-//     	thumbMany(cs[selection[0]].children, "Heels") 
-//     	// thumbMany(cs[selection[0]].children[selection[1]].children, "Fronts") 
-//     	// thumbMany(cs[selection[0]].children[3].children[2].children, "Backs")
-//     );
-// }
+// Initial obj file
+var objPathName = 'obj/PC/PC300AHPLAPL.obj';
 
 $(document).ready(function() {
     var redrawMenu = function(selection) {
@@ -47,6 +41,10 @@ $(document).ready(function() {
             var selection = $(this).attr("selection");
             var selectionArray = selection.split(',').map(function(n) { return parseInt(n); });
             redrawMenu(selectionArray);
+            console.log(window.marty.obj);
+            window.marty.scene.remove(window.marty.obj);
+			objPathName = $(this).attr("obj");
+			window.marty.loadObject(objPathName);
         });
 
         //jQ anim menu
