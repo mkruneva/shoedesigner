@@ -2,16 +2,20 @@
 var figureStart = '<figure class="col-xs-3 col-sm-4 col-md-3 shoe-thumb">';
 var figureEnd = '</figure>';
 
-function thumbSingle(object) {
-    var imgText = "<img src='" + object.imgSrc + "' abr = '" + object.abr + "'' alt='" + object.tooltip + "' obj='" + object.objSrc + "' selection='" + object.selection + "'>";
+function thumbSingle(object, selected) {
+	var selectedClass = '';
+	if (selected) {
+		selectedClass = 'selected';
+	}
+    var imgText = "<img src='" + object.imgSrc + "' abr = '" + object.abr + "'' alt='" + object.tooltip + "' obj='" + object.objSrc + "' selection='" + object.selection + "' class='" + selectedClass + "'>";
     var text = figureStart + imgText + figureEnd;
     return text;
 }
 
-function thumbMany(thumbArray, menuText) {
+function thumbMany(thumbArray, menuText, selectedIndex) {
     var wholeText = "<div><button type='button' class='btn btn-secondary btn-lg btn-block'>" + menuText + "</button><div class='row'><div id='thumbCsDiv' class='col-xs-12 thumb-container'>"
     for (var i = 0; i < thumbArray.length; i++) {
-        wholeText += thumbSingle(thumbArray[i]);
+        wholeText += thumbSingle(thumbArray[i], i === selectedIndex);
     }
     wholeText += "</div></div></div>"
     return wholeText;
@@ -26,11 +30,11 @@ $(document).ready(function() {
         var displ = $('.thumb-container').map((i, e) => e.style.display).toArray(); //display style to be redrawn each time
 
         $('#shoeMenu').html(
-            thumbMany(cs, 'Core Shape') +
-            thumbMany(cs[selection[0]].children, "Heels") +
-            thumbMany(cs[selection[0]].children[selection[1]].children, "Fronts") +
-            thumbMany(cs[selection[0]].children[selection[1]].children[selection[2]].children, "Backs") +
-            thumbMany(cs[selection[0]].children[selection[1]].children[selection[2]].children[selection[3]].children, "Straps") +
+            thumbMany(cs, 'Core Shape', selection[0]) +
+            thumbMany(cs[selection[0]].children, "Heels", selection[1]) +
+            thumbMany(cs[selection[0]].children[selection[1]].children, "Fronts", selection[2]) +
+            thumbMany(cs[selection[0]].children[selection[1]].children[selection[2]].children, "Backs",  selection[3]) +
+            thumbMany(cs[selection[0]].children[selection[1]].children[selection[2]].children[selection[3]].children, "Straps",  selection[4]) +
             thumbMany(cs[selection[0]].children[selection[1]].children[selection[2]].children[selection[3]].children[selection[4]].children, "Embellishments")
         );
 

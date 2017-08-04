@@ -45,6 +45,15 @@ body {
 .shoe-thumb > img.off{
 	opacity: 0.2;
 }
+img.selected  {
+	outline: 5px auto -webkit-focus-ring-color;
+  	outline-offset: -2px;
+}
+img.selected:hover, img.selected:active {
+	outline: 5px auto -webkit-focus-ring-color;
+  	outline-offset: -2px;
+}
+
 .thumb-container {
 	padding-top: 2px;
 	padding-bottom: 7px;
