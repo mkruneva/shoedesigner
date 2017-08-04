@@ -116,7 +116,7 @@ var ba_po = [
     new ThumbObject('DO1,DO1HG', 'images/BA/BAOBDO.jpg', 'null', "D'Orsay Counter", true, st_po, [2, 0, 0, 0, 0]),
     new ThumbObject('LC1,LC1LI', 'images/BA/BAOBLC.jpg', 'null', 'Long Counter', true, st_po, [2, 0, 0, 1, 0]),
     new ThumbObject('TN1,TN1LI,TN1HG,TN1BK,TN2,TN3', 'images/BA/BAOBTN.jpg', 'null', 'High Back (Thin Strap)', true, st_po, [2, 0, 0, 2, 0]),
-    new ThumbObject('TT1,TT2,TT3,TT4,TT5,TT1LI,TT1HG,TT1BK', 'images/BA/BAOBTT.jpg', 'null', 'High Back (Double Strap)', true, st_po, [2, 0, 0, 3, 0]),
+    new ThumbObject('TT1,TT2,TT3,TT4,TT5,TT1LI,TT1HG,TT1BK,TT2BK', 'images/BA/BAOBTT.jpg', 'null', 'High Back (Double Strap)', true, st_po, [2, 0, 0, 3, 0]),
     new ThumbObject('TK1,TK1LI,TK1HG,TK1BK,TK2,TK3', 'images/BA/BAOBTK.jpg', 'null', 'High Back (Thick Strap)', true, st_po, [2, 0, 0, 4, 0])
 ];
 
@@ -135,10 +135,10 @@ var ba_pe = [
 ];
 
 var ba_sa = [
-    new ThumbObject('LC1,LC1LI', 'images/BA/BAOBLC.jpg', 'null', 'Long Counter', true, st_sa, [5, 0, 0, 1, 0]),
-    new ThumbObject('TN1,TN1LI,TN1HG,TN1BK,TN2,TN3', 'images/BA/BAOBTN.jpg', 'null', 'High Back (Thin Strap)', true, st_sa, [5, 0, 0, 2, 0]),
-    new ThumbObject('TT1,TT2,TT3,TT4,TT5,TT1LI,TT1HG,TT1BK', 'images/BA/BAOBTT.jpg', 'null', 'High Back (Double Strap)', true, st_sa, [5, 0, 0, 3, 0]),
-    new ThumbObject('TK1,TK1LI,TK1HG,TK1BK,TK2,TK3', 'images/BA/BAOBTK.jpg', 'null', 'High Back (Thick Strap)', true, st_sa, [5, 0, 0, 4, 0])
+    new ThumbObject('LC1,LC1LI', 'images/BA/BAOBLC.jpg', 'null', 'Long Counter', true, st_sa, [5, 0, 0, 0, 0]),
+    new ThumbObject('TN1,TN1LI,TN1HG,TN1BK,TN2,TN3', 'images/BA/BAOBTN.jpg', 'null', 'High Back (Thin Strap)', true, st_sa, [5, 0, 0, 1, 0]),
+    new ThumbObject('TT1,TT2,TT3,TT4,TT5,TT1LI,TT1HG,TT1BK,TT2BK', 'images/BA/BAOBTT.jpg', 'null', 'High Back (Double Strap)', true, st_sa, [5, 0, 0, 2, 0]),
+    new ThumbObject('TK1,TK1LI,TK1HG,TK1BK,TK2,TK3', 'images/BA/BAOBTK.jpg', 'null', 'High Back (Thick Strap)', true, st_sa, [5, 0, 0, 3, 0])
 ];
 
 var ba_fl = [
