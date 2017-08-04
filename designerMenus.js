@@ -75,9 +75,9 @@ $(document).ready(function() {
         btns.click(function() {
             var div = $(this).parent().find('.thumb-container');
             if ((div[0]).style.display === 'none') {
-                div.slideDown(500);
+                div.slideDown(400);
             } else {
-                div.slideUp(500);
+                div.slideUp(400);
             }
         });
     }
