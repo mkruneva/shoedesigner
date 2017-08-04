@@ -56,10 +56,13 @@ $(document).ready(function() {
                         if (child instanceof THREE.Mesh) {
                             for (var i = 0; i < objAbr.length; i++) {
                                 if (child.name == objAbr[i]) {
-                                    child.visible = true;
+                                    if (child.visible) {
+                                        child.visible = false;
+                                    } else {
+                                        child.visible = true;
+                                    }
                                 }
                             }
-
                             // the previously added mesh should be removed before loading new one
                             child.castShadow = true;
                         }
