@@ -42,27 +42,30 @@ $(document).ready(function() {
             var selectionArray = selection.split(',').map(function(n) { return parseInt(n); });
             redrawMenu(selectionArray);
 
-            if (($(this).attr("obj") !== 'null')) {
-                window.marty.scene.remove(window.marty.obj);
-                objPathName = $(this).attr("obj");
-                window.marty.loadObject(objPathName);
-            } else {
-                objAbr = $(this).attr("abr").split(',');
-                console.log('objAbr is ', objAbr);
-                var object = window.marty.obj;
+            if ($(this).attr("obj") != window.marty.obj.name) {
+                if ($(this).attr("obj") !== 'null') {
+                    objPathName = $(this).attr("obj");
+                    window.marty.scene.remove(window.marty.obj);
+                    window.marty.loadObject(objPathName);
+                } else {
+                    objAbr = $(this).attr("abr").split(',');
+                    console.log('objAbr is ', objAbr);
+                    var object = window.marty.obj;
 
-                object.traverse(function(child) {
-                    if (child instanceof THREE.Mesh) {
-                        for (var i = 0; i < objAbr.length; i++) {
-                            if (child.name == objAbr[i]) {
-                                child.visible = true;
+                    object.traverse(function(child) {
+                        if (child instanceof THREE.Mesh) {
+                            for (var i = 0; i < objAbr.length; i++) {
+                                if (child.name == objAbr[i]) {
+                                    child.visible = true;
+                                }
                             }
-                        }
 
-                        // the previously added mesh should be removed before loading new one
-                        child.castShadow = true;
-                    }
-                });
+                            // the previously added mesh should be removed before loading new one
+                            child.castShadow = true;
+                        }
+                    });
+                }
+
             }
 
         });
