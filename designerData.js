@@ -54,37 +54,37 @@ var em_fl = [
 //STRAPS
 var st_pc = [
     new ThumbObject('null', 'images/STHI/STNO.jpg', 'null', "No strap", true, em_pc, [0, 0, 0, 0, 0]),
-    new ThumbObject('BI1', 'images/STHI/STBI.jpg', 'null', "Bib", true, em_pc, [0, 0, 0, 0, 1]),
-    new ThumbObject('LS1', 'images/STHI/STLS.jpg', 'null', "Low Strap", true, em_pc, [0, 0, 0, 0, 2]),
-    new ThumbObject('MJ1', 'images/STHI/STMJ.jpg', 'null', "Mary Jane", true, em_pc, [0, 0, 0, 0, 3]),
-    new ThumbObject('TB1', 'images/STHI/STTB.jpg', 'null', "T bar", true, em_pc, [0, 0, 0, 0, 4]),
-    new ThumbObject('TK1', 'images/STHI/STTK.jpg', 'null', "Ankle Strap Thick", true, em_pc, [0, 0, 0, 0, 5]),
-    new ThumbObject('TN1', 'images/STHI/STTN.jpg', 'null', "Ankle Strap Thin", true,em_pc, [0, 0, 0, 0, 6])
+    new ThumbObject('BI1,BI1BK,BI1LI,BI2,BI2BK,BI2LI,BI3,BI4', 'images/STHI/STBI.jpg', 'null', "Bib", true, em_pc, [0, 0, 0, 0, 1]),
+    new ThumbObject('LS1,LS1LI', 'images/STHI/STLS.jpg', 'null', "Low Strap", true, em_pc, [0, 0, 0, 0, 2]),
+    new ThumbObject('MJ1,MJ1LI,MJ1BK,MJ2', 'images/STHI/STMJ.jpg', 'null', "Mary Jane", true, em_pc, [0, 0, 0, 0, 3]),
+    new ThumbObject('TB1,TB1LI,TB1BK,TB2', 'images/STHI/STTB.jpg', 'null', "T bar", true, em_pc, [0, 0, 0, 0, 4]),
+    new ThumbObject('TK1,TK1LI,TK1BK,TK2', 'images/STHI/STTK.jpg', 'null', "Ankle Strap Thick", true, em_pc, [0, 0, 0, 0, 5]),
+    new ThumbObject('TN1,TN1LI,TN1BK,TN2', 'images/STHI/STTN.jpg', 'null', "Ankle Strap Thin", true,em_pc, [0, 0, 0, 0, 6])
 ];
 
 var st_ph = [
     new ThumbObject('null', 'images/STHI/STNO.jpg', 'null', "No strap", true, em_ph, [1, 0, 0, 0, 0]),
-    new ThumbObject('LS1', 'images/STHI/STLS.jpg', 'null', "Low Strap", true, em_ph, [1, 0, 0, 0, 1])
+    new ThumbObject('LS1,LS1LI', 'images/STHI/STLS.jpg', 'null', "Low Strap", true, em_ph, [1, 0, 0, 0, 1])
 ];
 
 var st_po = [
     new ThumbObject('null', 'images/STHI/STNO.jpg', 'null', "No strap", true, em_po, [2, 0, 0, 0, 0]),
-    new ThumbObject('LS1', 'images/STHI/STLS.jpg', 'null', "Low Strap", true, em_po, [2, 0, 0, 0, 1])
+    new ThumbObject('LS1,LS1LI', 'images/STHI/STLS.jpg', 'null', "Low Strap", true, em_po, [2, 0, 0, 0, 1])
 ];
 
 var st_ac = [
     new ThumbObject('null', 'images/STHI/STNO.jpg', 'null', "No strap", true, em_ac, [3, 0, 0, 0, 0]),
-    new ThumbObject('BI1', 'images/STHI/STBI.jpg', 'null', "Bib", true, em_ac, [3, 0, 0, 0, 1]),
-    new ThumbObject('LS1', 'images/STHI/STLS.jpg', 'null', "Low Strap", true, em_ac, [3, 0, 0, 0, 2]),
-    new ThumbObject('MJ1', 'images/STHI/STMJ.jpg', 'null', "Mary Jane", true, em_ac, [3, 0, 0, 0, 3]),
-    new ThumbObject('TB1', 'images/STHI/STTB.jpg', 'null', "T bar", true, em_ac, [3, 0, 0, 0, 4]),
+    new ThumbObject('BI1,BI1BK,BI1LI,BI2,BI2BK,BI2LI,BI3,BI4', 'images/STHI/STBI.jpg', 'null', "Bib", true, em_ac, [3, 0, 0, 0, 1]),
+    new ThumbObject('LS1,LS1LI', 'images/STHI/STLS.jpg', 'null', "Low Strap", true, em_ac, [3, 0, 0, 0, 2]),
+    new ThumbObject('MJ1,MJ1LI,MJ1BK,MJ2', 'images/STHI/STMJ.jpg', 'null', "Mary Jane", true, em_ac, [3, 0, 0, 0, 3]),
+    new ThumbObject('TB1,TB1BK,TB1BK,TB2', 'images/STHI/STTB.jpg', 'null', "T bar", true, em_ac, [3, 0, 0, 0, 4]),
     new ThumbObject('TK1', 'images/STHI/STTK.jpg', 'null', "Ankle Strap Thick", true, em_ac, [3, 0, 0, 0, 5]),
     new ThumbObject('TN1', 'images/STHI/STTN.jpg', 'null', "Ankle Strap Thin", true, em_ac, [3, 0, 0, 0, 6])
 ];
 
 var st_pe = [
     new ThumbObject('null', 'images/STHI/STNO.jpg', 'null', "No strap", true, em_pe, [4, 0, 0, 0, 0]),
-    new ThumbObject('LS1', 'images/STHI/STLS.jpg', 'null', "Low Strap", true, em_pe, [4, 0, 0, 0, 1])
+    new ThumbObject('LS1,LS1LI', 'images/STHI/STLS.jpg', 'null', "Low Strap", true, em_pe, [4, 0, 0, 0, 1])
 ];
 
 var st_sa = [
@@ -93,8 +93,8 @@ var st_sa = [
 
 var st_fl = [
     new ThumbObject('null', 'images/STFL/STNO.jpg', 'null', "No strap", true, em_fl, [6, 0, 0, 0, 0]),
-    new ThumbObject('LS1', 'images/STFL/STLS.jpg', 'null', "Low Strap", true, em_fl, [6, 0, 0, 0, 1]),
-    new ThumbObject('MJ1', 'images/STFL/STMJ.jpg', 'null', "Mary Jane", true, em_fl, [6, 0, 0, 0, 2])
+    new ThumbObject('LS1,LS1LI', 'images/STFL/STLS.jpg', 'null', "Low Strap", true, em_fl, [6, 0, 0, 0, 1]),
+    new ThumbObject('MJ1,MJ1LI,MJ1BK,MJ2', 'images/STFL/STMJ.jpg', 'null', "Mary Jane", true, em_fl, [6, 0, 0, 0, 2])
 ]; 
 
 //BACKS

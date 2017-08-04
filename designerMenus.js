@@ -41,22 +41,25 @@ $(document).ready(function() {
             var selection = $(this).attr("selection");
             var selectionArray = selection.split(',').map(function(n) { return parseInt(n); });
             redrawMenu(selectionArray);
+
             if (($(this).attr("obj") !== 'null')) {
                 window.marty.scene.remove(window.marty.obj);
                 objPathName = $(this).attr("obj");
                 window.marty.loadObject(objPathName);
-            } 
-            else {
-            	objAbr = $(this).attr("abr");
-            	console.log('objAbr is ', objAbr);
+            } else {
+                objAbr = $(this).attr("abr").split(',');
+                console.log('objAbr is ', objAbr);
                 var object = window.marty.obj;
 
                 object.traverse(function(child) {
                     if (child instanceof THREE.Mesh) {
-                            if (child.name == objAbr) {
-                            	child.visible = true;
+                        for (var i = 0; i < objAbr.length; i++) {
+                            if (child.name == objAbr[i]) {
+                                child.visible = true;
                             }
-                            // the previously added mesh should be removed before loading new one
+                        }
+
+                        // the previously added mesh should be removed before loading new one
                         child.castShadow = true;
                     }
                 });
