@@ -23,7 +23,7 @@ var objPathName = 'obj/PC/PC300AHPLAPL.obj';
 $(document).ready(function() {
     var redrawMenu = function(selection) {
 
-        //var displ = $('.thumb-container').map((i, e) => e.style.display).toArray(); //display style to be redrawn each time
+        var displ = $('.thumb-container').map((i, e) => e.style.display).toArray(); //display style to be redrawn each time
 
         $('#shoeMenu').html(
             thumbMany(cs, 'Core Shape') +
@@ -34,7 +34,7 @@ $(document).ready(function() {
             thumbMany(cs[selection[0]].children[selection[1]].children[selection[2]].children[selection[3]].children[selection[4]].children, "Embellishments")
         );
 
-        //$('.thumb-container').each((i, e) => e.style.display = displ[i]); //display style to be redrawn each time
+        $('.thumb-container').each((i, e) => e.style.display = displ[i]); //display style to be redrawn each time
 
         var thumb = $('#shoeMenu').find('img');
         thumb.click(function() {
