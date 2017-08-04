@@ -28,7 +28,9 @@ function thumbMany(thumbArray, menuText) {
 
 $(document).ready(function() {
     var redrawMenu = function(selection) {
-    	//$('.thumb-container') //ARRAY WITH THE DISPLAY VALUES
+
+    	var displ = $('.thumb-container').map((i, e) => e.style.display).toArray(); //display style to be redrawn each time
+  
         $('#shoeMenu').html(
             thumbMany(cs, 'Core Shape') +
             thumbMany(cs[selection[0]].children, "Heels") +
@@ -37,6 +39,8 @@ $(document).ready(function() {
             thumbMany(cs[selection[0]].children[selection[1]].children[selection[2]].children[selection[3]].children, "Straps") +
             thumbMany(cs[selection[0]].children[selection[1]].children[selection[2]].children[selection[3]].children[selection[4]].children, "Embellishments")
         );
+
+        $('.thumb-container').each((i, e) => e.style.display = displ[i]);  //display style to be redrawn each time
 
         var thumb = $('#shoeMenu').find('img');
         thumb.click(function() {
