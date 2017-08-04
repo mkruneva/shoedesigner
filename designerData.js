@@ -12,32 +12,32 @@ function ThumbObject(abr, imgSrc, objSrc, tooltip, enabled, children, selection)
 //EMBELLISHMENTS
 var em_pc = [
     new ThumbObject('null', 'images/EM/EMNO.jpg', 'null', "No Embelli", true, null, [0, 0, 0, 0, 0]),
-    new ThumbObject('GE1', 'images/EM/EMGE.jpg', 'null', "Gem", true, null, [0, 0, 0, 0, 0]),
-    new ThumbObject('BB1', 'images/EM/EMBB.jpg', 'null', "Big Bow", true, null, [0, 0, 0, 0, 0])  
+    new ThumbObject('GE1,GE2,GE3,GC1', 'images/EM/EMGE.jpg', 'null', "Gem", true, null, [0, 0, 0, 0, 0]),
+    new ThumbObject('BB1,BB2', 'images/EM/EMBB.jpg', 'null', "Big Bow", true, null, [0, 0, 0, 0, 0])  
 ];
 
 var em_ph = [
     new ThumbObject('null', 'images/EM/EMNO.jpg', 'null', "No Embelli", true, null, [1, 0, 0, 0, 0]),
-    new ThumbObject('GE1', 'images/EM/EMGE.jpg', 'null', "Gem", true, null, [1, 0, 0, 0, 0]),
-    new ThumbObject('BB1', 'images/EM/EMBB.jpg', 'null', "Big Bow", true, null, [1, 0, 0, 0, 0])  
+    new ThumbObject('GE1,GE2,GE3,GC1', 'images/EM/EMGE.jpg', 'null', "Gem", true, null, [1, 0, 0, 0, 0]),
+    new ThumbObject('BB1,BB2', 'images/EM/EMBB.jpg', 'null', "Big Bow", true, null, [1, 0, 0, 0, 0])  
 ];
 
 var em_po = [
     new ThumbObject('null', 'images/EM/EMNO.jpg', 'null', "No Embelli", true, null, [2, 0, 0, 0, 0]),
-    new ThumbObject('GE1', 'images/EM/EMGE.jpg', 'null', "Gem", true, null, [2, 0, 0, 0, 0]),
-    new ThumbObject('BB1', 'images/EM/EMBB.jpg', 'null', "Big Bow", true, null, [2, 0, 0, 0, 0])  
+    new ThumbObject('GE1,GE2,GE3,GC1', 'images/EM/EMGE.jpg', 'null', "Gem", true, null, [2, 0, 0, 0, 0]),
+    new ThumbObject('BB1,BB2', 'images/EM/EMBB.jpg', 'null', "Big Bow", true, null, [2, 0, 0, 0, 0])  
 ];
 
 var em_ac = [
     new ThumbObject('null', 'images/EM/EMNO.jpg', 'null', "No Embelli", true, null, [3, 0, 0, 0, 0]),
-    new ThumbObject('GE1', 'images/EM/EMGE.jpg', 'null', "Gem", true, null, [3, 0, 0, 0, 0]),
-    new ThumbObject('BB1', 'images/EM/EMBB.jpg', 'null', "Big Bow", true, null, [3, 0, 0, 0, 0])  
+    new ThumbObject('GE1,GE2,GE3,GC1', 'images/EM/EMGE.jpg', 'null', "Gem", true, null, [3, 0, 0, 0, 0]),
+    new ThumbObject('BB1,BB2', 'images/EM/EMBB.jpg', 'null', "Big Bow", true, null, [3, 0, 0, 0, 0])  
 ];
 
 var em_pe = [
     new ThumbObject('null', 'images/EM/EMNO.jpg', 'null', "No Embelli", true, null, [4, 0, 0, 0, 0]),
-    new ThumbObject('GE1', 'images/EM/EMGE.jpg', 'null', "Gem", true, null, [4, 0, 0, 0, 0]),
-    new ThumbObject('BB1', 'images/EM/EMBB.jpg', 'null', "Big Bow", true, null, [4, 0, 0, 0, 0])  
+    new ThumbObject('GE1,GE2,GE3,GC1', 'images/EM/EMGE.jpg', 'null', "Gem", true, null, [4, 0, 0, 0, 0]),
+    new ThumbObject('BB1,BB2', 'images/EM/EMBB.jpg', 'null', "Big Bow", true, null, [4, 0, 0, 0, 0])  
 ];
 
 var em_sa = [
@@ -46,8 +46,8 @@ var em_sa = [
 
 var em_fl = [
     new ThumbObject('null', 'images/EM/EMNO.jpg', 'null', "No Embelli", true, null, [6, 0, 0, 0, 0]),
-    new ThumbObject('GE1', 'images/EM/EMGE.jpg', 'null', "Gem", true, null, [6, 0, 0, 0, 0]),
-    new ThumbObject('BB1', 'images/EM/EMBB.jpg', 'null', "Big Bow", true, null, [6, 0, 0, 0, 0])  
+    new ThumbObject('GE1,GE2,GE3,GC1', 'images/EM/EMGE.jpg', 'null', "Gem", true, null, [6, 0, 0, 0, 0]),
+    new ThumbObject('BB1,BB2', 'images/EM/EMBB.jpg', 'null', "Big Bow", true, null, [6, 0, 0, 0, 0])  
 ];
 
 

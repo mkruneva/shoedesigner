@@ -167,7 +167,6 @@ function init() {
 	        	} else {
 	        		child.visible = false;
 	        	}
-
 	        	child.castShadow = true;
 
 	        	if (child.name == 'FR1') {
