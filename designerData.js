@@ -71,55 +71,55 @@ var st_fl = [
 //BACKS
 //The obj file doesn't change - only meshes are show/hidden
 var ba_pc = [
-    new ThumbObject('PL', 'images/BA/BACBPL.jpg', 'null', 'Plain Back', true, st_pc, [0, 0, 0, 0, 0]),
-    new ThumbObject('SH', 'images/BA/BACBSH.jpg', 'null', 'Strip Heel Counter', true, st_pc, [0, 0, 0, 1, 0]),
-    new ThumbObject('PH', 'images/BA/BACBPH.jpg', 'null', 'Pointed Heel Counter', true, st_pc, [0, 0, 0, 2, 0]),
+    new ThumbObject('null', 'images/BA/BACBPL.jpg', 'null', 'Plain Back', true, st_pc, [0, 0, 0, 0, 0]),
+    new ThumbObject('SH1', 'images/BA/BACBSH.jpg', 'null', 'Strip Heel Counter', true, st_pc, [0, 0, 0, 1, 0]),
+    new ThumbObject('PH1', 'images/BA/BACBPH.jpg', 'null', 'Pointed Heel Counter', true, st_pc, [0, 0, 0, 2, 0]),
     
 ];
 
 var ba_ph = [
-    new ThumbObject('PL', 'images/BA/BACBPL.jpg', 'null', 'Plain Back', true, st_ph, [0, 0, 0, 0, 0]),
-    new ThumbObject('SH', 'images/BA/BACBSH.jpg', 'null', 'Strip Heel Counter', true, st_ph, [0, 0, 0, 1, 0]),
-    new ThumbObject('PH', 'images/BA/BACBPH.jpg', 'null', 'Pointed Heel Counter', true, st_ph, [0, 0, 0, 2, 0]),
+    new ThumbObject('null', 'images/BA/BACBPL.jpg', 'null', 'Plain Back', true, st_ph, [0, 0, 0, 0, 0]),
+    new ThumbObject('SH1', 'images/BA/BACBSH.jpg', 'null', 'Strip Heel Counter', true, st_ph, [0, 0, 0, 1, 0]),
+    new ThumbObject('PH1', 'images/BA/BACBPH.jpg', 'null', 'Pointed Heel Counter', true, st_ph, [0, 0, 0, 2, 0]),
     
 ];
 
 var ba_pe = [
-    new ThumbObject('PL', 'images/BA/BACBPL.jpg', 'null', 'Plain Back', true, st_pe, [0, 0, 0, 0, 0]),
-    new ThumbObject('SH', 'images/BA/BACBSH.jpg', 'null', 'Strip Heel Counter', true, st_pe, [0, 0, 0, 1, 0]),
-    new ThumbObject('PH', 'images/BA/BACBPH.jpg', 'null', 'Pointed Heel Counter', true, st_pe, [0, 0, 0, 2, 0]),
+    new ThumbObject('null', 'images/BA/BACBPL.jpg', 'null', 'Plain Back', true, st_pe, [0, 0, 0, 0, 0]),
+    new ThumbObject('SH1', 'images/BA/BACBSH.jpg', 'null', 'Strip Heel Counter', true, st_pe, [0, 0, 0, 1, 0]),
+    new ThumbObject('PH1', 'images/BA/BACBPH.jpg', 'null', 'Pointed Heel Counter', true, st_pe, [0, 0, 0, 2, 0]),
     
 ];
 
 var ba_ac = [
-    new ThumbObject('PL', 'images/BA/BACBPL.jpg', 'null', 'Plain Back', true, st_ac, [0, 0, 0, 0, 0]),
-    new ThumbObject('SH', 'images/BA/BACBSH.jpg', 'null', 'Strip Heel Counter', true, st_ac, [0, 0, 0, 1, 0]),
-    new ThumbObject('PH', 'images/BA/BACBPH.jpg', 'null', 'Pointed Heel Counter', true, st_ac, [0, 0, 0, 2, 0]),
+    new ThumbObject('null', 'images/BA/BACBPL.jpg', 'null', 'Plain Back', true, st_ac, [0, 0, 0, 0, 0]),
+    new ThumbObject('SH1', 'images/BA/BACBSH.jpg', 'null', 'Strip Heel Counter', true, st_ac, [0, 0, 0, 1, 0]),
+    new ThumbObject('PH1', 'images/BA/BACBPH.jpg', 'null', 'Pointed Heel Counter', true, st_ac, [0, 0, 0, 2, 0]),
     
 ];
 //CB backs for PC, PH, PE, AC core shape
 
 var ba_fl = [
-    new ThumbObject('PL', 'images/BA/BAFLPL.jpg', 'null', 'Plain Back', true, st_fl, [0, 0, 0, 0, 0]),
-    new ThumbObject('PH', 'images/BA/BAFLPH.jpg', 'null', 'Pointed Heel Counter', true, st_fl, [0, 0, 0, 1, 0]),
-    new ThumbObject('SH', 'images/BA/BAFLSH.jpg', 'null', 'Strip Heel Counter', true, st_fl, [0, 0, 0, 2, 0])
+    new ThumbObject('null', 'images/BA/BAFLPL.jpg', 'null', 'Plain Back', true, st_fl, [0, 0, 0, 0, 0]),
+    new ThumbObject('PH1', 'images/BA/BAFLPH.jpg', 'null', 'Pointed Heel Counter', true, st_fl, [0, 0, 0, 1, 0]),
+    new ThumbObject('SH1', 'images/BA/BAFLSH.jpg', 'null', 'Strip Heel Counter', true, st_fl, [0, 0, 0, 2, 0])
 ];
 //FL backs for FL core shape
 
 var ba_po = [
-    new ThumbObject('DO', 'images/BA/BAOBDO.jpg', 'null', "D'Orsay Counter", true, st_po, [0, 0, 0, 0, 0]),
-    new ThumbObject('LC', 'images/BA/BAOBLC.jpg', 'null', 'Long Counter', true, st_po, [0, 0, 0, 1, 0]),
-    new ThumbObject('TN', 'images/BA/BAOBTN.jpg', 'null', 'High Back (Thin Strap)', true, st_po, [0, 0, 0, 2, 0]),
-    new ThumbObject('TT', 'images/BA/BAOBTT.jpg', 'null', 'High Back (Double Strap)', true, st_po, [0, 0, 0, 3, 0]),
-    new ThumbObject('TK', 'images/BA/BAOBTK.jpg', 'null', 'High Back (Thick Strap)', true, st_po, [0, 0, 0, 4, 0])
+    new ThumbObject('DO1', 'images/BA/BAOBDO.jpg', 'null', "D'Orsay Counter", true, st_po, [0, 0, 0, 0, 0]),
+    new ThumbObject('LC1', 'images/BA/BAOBLC.jpg', 'null', 'Long Counter', true, st_po, [0, 0, 0, 1, 0]),
+    new ThumbObject('TN1', 'images/BA/BAOBTN.jpg', 'null', 'High Back (Thin Strap)', true, st_po, [0, 0, 0, 2, 0]),
+    new ThumbObject('TT1', 'images/BA/BAOBTT.jpg', 'null', 'High Back (Double Strap)', true, st_po, [0, 0, 0, 3, 0]),
+    new ThumbObject('TK1', 'images/BA/BAOBTK.jpg', 'null', 'High Back (Thick Strap)', true, st_po, [0, 0, 0, 4, 0])
 ];
 
 var ba_sa = [
-    new ThumbObject('DO', 'images/BA/BAOBDO.jpg', 'null', "D'Orsay Counter", true, st_sa, [0, 0, 0, 0, 0]),
-    new ThumbObject('LC', 'images/BA/BAOBLC.jpg', 'null', 'Long Counter', true, st_sa, [0, 0, 0, 1, 0]),
-    new ThumbObject('TN', 'images/BA/BAOBTN.jpg', 'null', 'High Back (Thin Strap)', true, st_sa, [0, 0, 0, 2, 0]),
-    new ThumbObject('TT', 'images/BA/BAOBTT.jpg', 'null', 'High Back (Double Strap)', true, st_sa, [0, 0, 0, 3, 0]),
-    new ThumbObject('TK', 'images/BA/BAOBTK.jpg', 'null', 'High Back (Thick Strap)', true, st_sa, [0, 0, 0, 4, 0])
+    new ThumbObject('DO1', 'images/BA/BAOBDO.jpg', 'null', "D'Orsay Counter", true, st_sa, [0, 0, 0, 0, 0]),
+    new ThumbObject('LC1', 'images/BA/BAOBLC.jpg', 'null', 'Long Counter', true, st_sa, [0, 0, 0, 1, 0]),
+    new ThumbObject('TN1', 'images/BA/BAOBTN.jpg', 'null', 'High Back (Thin Strap)', true, st_sa, [0, 0, 0, 2, 0]),
+    new ThumbObject('TT1', 'images/BA/BAOBTT.jpg', 'null', 'High Back (Double Strap)', true, st_sa, [0, 0, 0, 3, 0]),
+    new ThumbObject('TK1', 'images/BA/BAOBTK.jpg', 'null', 'High Back (Thick Strap)', true, st_sa, [0, 0, 0, 4, 0])
 ];
 // OB backs available for SA and PO core shape
 

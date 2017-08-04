@@ -45,7 +45,8 @@ $(document).ready(function() {
                 window.marty.scene.remove(window.marty.obj);
                 objPathName = $(this).attr("obj");
                 window.marty.loadObject(objPathName);
-            } else {
+            } 
+            else {
             	objAbr = $(this).attr("abr");
             	console.log('objAbr is ', objAbr);
                 var object = window.marty.obj;
