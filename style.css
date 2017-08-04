@@ -26,9 +26,6 @@ body {
 	padding: 5px 5px 0px 0px;
 
 }
-/* .shoe-thumb:nth-child(4n+0) {
-    padding-right: 0px;
-} */
 .shoe-thumb > img {
 	box-sizing: border-box;
 	display: block;
