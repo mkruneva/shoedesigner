@@ -11,191 +11,191 @@ function ThumbObject(abr, imgSrc, objSrc, tooltip, enabled, children, selection)
 
 //EMBELLISHMENTS
 var em_pc = [
-    new ThumbObject('null', 'images/EM/EMNO.jpg', 'null', "No Embelli", true, null, [0, 0, 0, 0, 0]),
-    new ThumbObject('GE1,GE2,GE3,GC1', 'images/EM/EMGE.jpg', 'null', "Gem", true, null, [0, 0, 0, 0, 0]),
-    new ThumbObject('BB1,BB2', 'images/EM/EMBB.jpg', 'null', "Big Bow", true, null, [0, 0, 0, 0, 0])  
+    new ThumbObject(null, 'images/EM/EMNO.jpg', null, "No Embelli", true, null, [0, 0, 0, 0, 0]),
+    new ThumbObject('GE1,GE2,GE3,GC1', 'images/EM/EMGE.jpg', null, "Gem", true, null, [0, 0, 0, 0, 0]),
+    new ThumbObject('BB1,BB2', 'images/EM/EMBB.jpg', null, "Big Bow", true, null, [0, 0, 0, 0, 0])  
 ];
 
 var em_ph = [
-    new ThumbObject('null', 'images/EM/EMNO.jpg', 'null', "No Embelli", true, null, [1, 0, 0, 0, 0]),
-    new ThumbObject('GE1,GE2,GE3,GC1', 'images/EM/EMGE.jpg', 'null', "Gem", true, null, [1, 0, 0, 0, 0]),
-    new ThumbObject('BB1,BB2', 'images/EM/EMBB.jpg', 'null', "Big Bow", true, null, [1, 0, 0, 0, 0])  
+    new ThumbObject(null, 'images/EM/EMNO.jpg', null, "No Embelli", true, null, [1, 0, 0, 0, 0]),
+    new ThumbObject('GE1,GE2,GE3,GC1', 'images/EM/EMGE.jpg', null, "Gem", true, null, [1, 0, 0, 0, 0]),
+    new ThumbObject('BB1,BB2', 'images/EM/EMBB.jpg', null, "Big Bow", true, null, [1, 0, 0, 0, 0])  
 ];
 
 var em_po = [
-    new ThumbObject('null', 'images/EM/EMNO.jpg', 'null', "No Embelli", true, null, [2, 0, 0, 0, 0]),
-    new ThumbObject('GE1,GE2,GE3,GC1', 'images/EM/EMGE.jpg', 'null', "Gem", true, null, [2, 0, 0, 0, 0]),
-    new ThumbObject('BB1,BB2', 'images/EM/EMBB.jpg', 'null', "Big Bow", true, null, [2, 0, 0, 0, 0])  
+    new ThumbObject(null, 'images/EM/EMNO.jpg', null, "No Embelli", true, null, [2, 0, 0, 0, 0]),
+    new ThumbObject('GE1,GE2,GE3,GC1', 'images/EM/EMGE.jpg', null, "Gem", true, null, [2, 0, 0, 0, 0]),
+    new ThumbObject('BB1,BB2', 'images/EM/EMBB.jpg', null, "Big Bow", true, null, [2, 0, 0, 0, 0])  
 ];
 
 var em_ac = [
-    new ThumbObject('null', 'images/EM/EMNO.jpg', 'null', "No Embelli", true, null, [3, 0, 0, 0, 0]),
-    new ThumbObject('GE1,GE2,GE3,GC1', 'images/EM/EMGE.jpg', 'null', "Gem", true, null, [3, 0, 0, 0, 0]),
-    new ThumbObject('BB1,BB2', 'images/EM/EMBB.jpg', 'null', "Big Bow", true, null, [3, 0, 0, 0, 0])  
+    new ThumbObject(null, 'images/EM/EMNO.jpg', null, "No Embelli", true, null, [3, 0, 0, 0, 0]),
+    new ThumbObject('GE1,GE2,GE3,GC1', 'images/EM/EMGE.jpg', null, "Gem", true, null, [3, 0, 0, 0, 0]),
+    new ThumbObject('BB1,BB2', 'images/EM/EMBB.jpg', null, "Big Bow", true, null, [3, 0, 0, 0, 0])  
 ];
 
 var em_pe = [
-    new ThumbObject('null', 'images/EM/EMNO.jpg', 'null', "No Embelli", true, null, [4, 0, 0, 0, 0]),
-    new ThumbObject('GE1,GE2,GE3,GC1', 'images/EM/EMGE.jpg', 'null', "Gem", true, null, [4, 0, 0, 0, 0]),
-    new ThumbObject('BB1,BB2', 'images/EM/EMBB.jpg', 'null', "Big Bow", true, null, [4, 0, 0, 0, 0])  
+    new ThumbObject(null, 'images/EM/EMNO.jpg', null, "No Embelli", true, null, [4, 0, 0, 0, 0]),
+    new ThumbObject('GE1,GE2,GE3,GC1', 'images/EM/EMGE.jpg', null, "Gem", true, null, [4, 0, 0, 0, 0]),
+    new ThumbObject('BB1,BB2', 'images/EM/EMBB.jpg', null, "Big Bow", true, null, [4, 0, 0, 0, 0])  
 ];
 
 var em_sa = [
-    new ThumbObject('null', 'images/EMSA/EMNO.jpg', 'null', "No Embelli", true, 'null', [5, 0, 0, 0, 0])
+    new ThumbObject(null, 'images/EMSA/EMNO.jpg', null, "No Embelli", true, null, [5, 0, 0, 0, 0])
 ];
 
 var em_fl = [
-    new ThumbObject('null', 'images/EM/EMNO.jpg', 'null', "No Embelli", true, null, [6, 0, 0, 0, 0]),
-    new ThumbObject('GE1,GE2,GE3,GC1', 'images/EM/EMGE.jpg', 'null', "Gem", true, null, [6, 0, 0, 0, 0]),
-    new ThumbObject('BB1,BB2', 'images/EM/EMBB.jpg', 'null', "Big Bow", true, null, [6, 0, 0, 0, 0])  
+    new ThumbObject(null, 'images/EM/EMNO.jpg', null, "No Embelli", true, null, [6, 0, 0, 0, 0]),
+    new ThumbObject('GE1,GE2,GE3,GC1', 'images/EM/EMGE.jpg', null, "Gem", true, null, [6, 0, 0, 0, 0]),
+    new ThumbObject('BB1,BB2', 'images/EM/EMBB.jpg', null, "Big Bow", true, null, [6, 0, 0, 0, 0])  
 ];
 
 
 //STRAPS
 var st_pc = [
-    new ThumbObject('null', 'images/STHI/STNO.jpg', 'null', "No strap", true, em_pc, [0, 0, 0, 0, 0]),
-    new ThumbObject('LS1,LS1LI', 'images/STHI/STLS.jpg', 'null', "Low Strap", true, em_pc, [0, 0, 0, 0, 1]),
-    new ThumbObject('MJ1,MJ1LI,MJ1BK,MJ2', 'images/STHI/STMJ.jpg', 'null', "Mary Jane", true, em_pc, [0, 0, 0, 0, 2]),
-    new ThumbObject('TB1,TB1LI,TB1BK,TB2', 'images/STHI/STTB.jpg', 'null', "T bar", true, em_pc, [0, 0, 0, 0, 3]),
-    new ThumbObject('BI1,BI1BK,BI1LI,BI2,BI2BK,BI2LI,BI3,BI4', 'images/STHI/STBI.jpg', 'null', "Bib", true, em_pc, [0, 0, 0, 0, 4]), 
-    new ThumbObject('TN1,TN1LI,TN1BK,TN2', 'images/STHI/STTN.jpg', 'null', "Ankle Strap Thin", true,em_pc, [0, 0, 0, 0, 5]),
-    new ThumbObject('TK1,TK1LI,TK1BK,TK2', 'images/STHI/STTK.jpg', 'null', "Ankle Strap Thick", true, em_pc, [0, 0, 0, 0, 6]),
+    new ThumbObject(null, 'images/STHI/STNO.jpg', null, "No strap", true, em_pc, [0, 0, 0, 0, 0]),
+    new ThumbObject('LS1,LS1LI', 'images/STHI/STLS.jpg', null, "Low Strap", true, em_pc, [0, 0, 0, 0, 1]),
+    new ThumbObject('MJ1,MJ1LI,MJ1BK,MJ2', 'images/STHI/STMJ.jpg', null, "Mary Jane", true, em_pc, [0, 0, 0, 0, 2]),
+    new ThumbObject('TB1,TB1LI,TB1BK,TB2', 'images/STHI/STTB.jpg', null, "T bar", true, em_pc, [0, 0, 0, 0, 3]),
+    new ThumbObject('BI1,BI1BK,BI1LI,BI2,BI2BK,BI2LI,BI3,BI4', 'images/STHI/STBI.jpg', null, "Bib", true, em_pc, [0, 0, 0, 0, 4]), 
+    new ThumbObject('TN1,TN1LI,TN1BK,TN2', 'images/STHI/STTN.jpg', null, "Ankle Strap Thin", true,em_pc, [0, 0, 0, 0, 5]),
+    new ThumbObject('TK1,TK1LI,TK1BK,TK2', 'images/STHI/STTK.jpg', null, "Ankle Strap Thick", true, em_pc, [0, 0, 0, 0, 6]),
 ];
 
 var st_ph = [
-    new ThumbObject('null', 'images/STHI/STNO.jpg', 'null', "No strap", true, em_ph, [1, 0, 0, 0, 0]),
-    new ThumbObject('LS1,LS1LI', 'images/STHI/STLS.jpg', 'null', "Low Strap", true, em_ph, [1, 0, 0, 0, 1])
+    new ThumbObject(null, 'images/STHI/STNO.jpg', null, "No strap", true, em_ph, [1, 0, 0, 0, 0]),
+    new ThumbObject('LS1,LS1LI', 'images/STHI/STLS.jpg', null, "Low Strap", true, em_ph, [1, 0, 0, 0, 1])
 ];
 
 var st_po = [
-    new ThumbObject('null', 'images/STHI/STNO.jpg', 'null', "No strap", true, em_po, [2, 0, 0, 0, 0]),
-    new ThumbObject('LS1,LS1LI', 'images/STHI/STLS.jpg', 'null', "Low Strap", true, em_po, [2, 0, 0, 0, 1])
+    new ThumbObject(null, 'images/STHI/STNO.jpg', null, "No strap", true, em_po, [2, 0, 0, 0, 0]),
+    new ThumbObject('LS1,LS1LI', 'images/STHI/STLS.jpg', null, "Low Strap", true, em_po, [2, 0, 0, 0, 1])
 ];
 
 var st_ac = [
-    new ThumbObject('null', 'images/STHI/STNO.jpg', 'null', "No strap", true, em_ac, [3, 0, 0, 0, 0]),
-    new ThumbObject('LS1,LS1LI', 'images/STHI/STLS.jpg', 'null', "Low Strap", true, em_ac, [3, 0, 0, 0, 1]),
-    new ThumbObject('MJ1,MJ1LI,MJ1BK,MJ2', 'images/STHI/STMJ.jpg', 'null', "Mary Jane", true, em_ac, [3, 0, 0, 0, 2]),
-    new ThumbObject('TB1,TB1BK,TB1BK,TB2', 'images/STHI/STTB.jpg', 'null', "T bar", true, em_ac, [3, 0, 0, 0, 3]),
-    new ThumbObject('BI1,BI1BK,BI1LI,BI2,BI2BK,BI2LI,BI3,BI4', 'images/STHI/STBI.jpg', 'null', "Bib", true, em_ac, [3, 0, 0, 0, 4]),
-    new ThumbObject('TN1,TN1LI,TN1BK,TN2', 'images/STHI/STTN.jpg', 'null', "Ankle Strap Thin", true, em_ac, [3, 0, 0, 0, 5]),
-    new ThumbObject('TK1,TK1LI,TK1BK,TK2', 'images/STHI/STTK.jpg', 'null', "Ankle Strap Thick", true, em_ac, [3, 0, 0, 0, 6]),
+    new ThumbObject(null, 'images/STHI/STNO.jpg', null, "No strap", true, em_ac, [3, 0, 0, 0, 0]),
+    new ThumbObject('LS1,LS1LI', 'images/STHI/STLS.jpg', null, "Low Strap", true, em_ac, [3, 0, 0, 0, 1]),
+    new ThumbObject('MJ1,MJ1LI,MJ1BK,MJ2', 'images/STHI/STMJ.jpg', null, "Mary Jane", true, em_ac, [3, 0, 0, 0, 2]),
+    new ThumbObject('TB1,TB1BK,TB1BK,TB2', 'images/STHI/STTB.jpg', null, "T bar", true, em_ac, [3, 0, 0, 0, 3]),
+    new ThumbObject('BI1,BI1BK,BI1LI,BI2,BI2BK,BI2LI,BI3,BI4', 'images/STHI/STBI.jpg', null, "Bib", true, em_ac, [3, 0, 0, 0, 4]),
+    new ThumbObject('TN1,TN1LI,TN1BK,TN2', 'images/STHI/STTN.jpg', null, "Ankle Strap Thin", true, em_ac, [3, 0, 0, 0, 5]),
+    new ThumbObject('TK1,TK1LI,TK1BK,TK2', 'images/STHI/STTK.jpg', null, "Ankle Strap Thick", true, em_ac, [3, 0, 0, 0, 6]),
 ];
 
 var st_pe = [
-    new ThumbObject('null', 'images/STHI/STNO.jpg', 'null', "No strap", true, em_pe, [4, 0, 0, 0, 0]),
-    new ThumbObject('LS1,LS1LI', 'images/STHI/STLS.jpg', 'null', "Low Strap", true, em_pe, [4, 0, 0, 0, 1])
+    new ThumbObject(null, 'images/STHI/STNO.jpg', null, "No strap", true, em_pe, [4, 0, 0, 0, 0]),
+    new ThumbObject('LS1,LS1LI', 'images/STHI/STLS.jpg', null, "Low Strap", true, em_pe, [4, 0, 0, 0, 1])
 ];
 
 var st_sa = [
-    new ThumbObject('null', 'images/STSA/STNO.jpg', 'null', "No strap", true, em_sa, [5, 0, 0, 0, 0]),
+    new ThumbObject(null, 'images/STSA/STNO.jpg', null, "No strap", true, em_sa, [5, 0, 0, 0, 0]),
 ];
 
 var st_fl = [
-    new ThumbObject('null', 'images/STFL/STNO.jpg', 'null', "No strap", true, em_fl, [6, 0, 0, 0, 0]),
-    new ThumbObject('LS1,LS1LI', 'images/STFL/STLS.jpg', 'null', "Low Strap", true, em_fl, [6, 0, 0, 0, 1]),
-    new ThumbObject('MJ1,MJ1LI,MJ1BK,MJ2', 'images/STFL/STMJ.jpg', 'null', "Mary Jane", true, em_fl, [6, 0, 0, 0, 2])
+    new ThumbObject(null, 'images/STFL/STNO.jpg', null, "No strap", true, em_fl, [6, 0, 0, 0, 0]),
+    new ThumbObject('LS1,LS1LI', 'images/STFL/STLS.jpg', null, "Low Strap", true, em_fl, [6, 0, 0, 0, 1]),
+    new ThumbObject('MJ1,MJ1LI,MJ1BK,MJ2', 'images/STFL/STMJ.jpg', null, "Mary Jane", true, em_fl, [6, 0, 0, 0, 2])
 ]; 
 
 //BACKS
 //The obj file doesn't change - only meshes are show/hidden
 var ba_pc = [
-    new ThumbObject('null', 'images/BA/BACBPL.jpg', 'null', 'Plain Back', true, st_pc, [0, 0, 0, 0, 0]),
-    new ThumbObject('SH1', 'images/BA/BACBSH.jpg', 'null', 'Strip Heel Counter', true, st_pc, [0, 0, 0, 1, 0]),
-    new ThumbObject('PH1', 'images/BA/BACBPH.jpg', 'null', 'Pointed Heel Counter', true, st_pc, [0, 0, 0, 2, 0]),
+    new ThumbObject(null, 'images/BA/BACBPL.jpg', null, 'Plain Back', true, st_pc, [0, 0, 0, 0, 0]),
+    new ThumbObject('SH1', 'images/BA/BACBSH.jpg', null, 'Strip Heel Counter', true, st_pc, [0, 0, 0, 1, 0]),
+    new ThumbObject('PH1', 'images/BA/BACBPH.jpg', null, 'Pointed Heel Counter', true, st_pc, [0, 0, 0, 2, 0]),
     
 ];
 
 var ba_ph = [
-    new ThumbObject('null', 'images/BA/BACBPL.jpg', 'null', 'Plain Back', true, st_ph, [1, 0, 0, 0, 0]),
-    new ThumbObject('SH1', 'images/BA/BACBSH.jpg', 'null', 'Strip Heel Counter', true, st_ph, [1, 0, 0, 1, 0])  
+    new ThumbObject(null, 'images/BA/BACBPL.jpg', null, 'Plain Back', true, st_ph, [1, 0, 0, 0, 0]),
+    new ThumbObject('SH1', 'images/BA/BACBSH.jpg', null, 'Strip Heel Counter', true, st_ph, [1, 0, 0, 1, 0])  
 ];
 
 
 var ba_po = [
-    new ThumbObject('DO1,DO1HG', 'images/BA/BAOBDO.jpg', 'null', "D'Orsay Counter", true, st_po, [2, 0, 0, 0, 0]),
-    new ThumbObject('LC1,LC1LI', 'images/BA/BAOBLC.jpg', 'null', 'Long Counter', true, st_po, [2, 0, 0, 1, 0]),
-    new ThumbObject('TN1,TN1LI,TN1HG,TN1BK,TN2,TN3', 'images/BA/BAOBTN.jpg', 'null', 'High Back (Thin Strap)', true, st_po, [2, 0, 0, 2, 0]),
-    new ThumbObject('TT1,TT2,TT3,TT4,TT5,TT1LI,TT1HG,TT1BK,TT2BK', 'images/BA/BAOBTT.jpg', 'null', 'High Back (Double Strap)', true, st_po, [2, 0, 0, 3, 0]),
-    new ThumbObject('TK1,TK1LI,TK1HG,TK1BK,TK2,TK3', 'images/BA/BAOBTK.jpg', 'null', 'High Back (Thick Strap)', true, st_po, [2, 0, 0, 4, 0])
+    new ThumbObject('DO1,DO1HG', 'images/BA/BAOBDO.jpg', null, "D'Orsay Counter", true, st_po, [2, 0, 0, 0, 0]),
+    new ThumbObject('LC1,LC1LI', 'images/BA/BAOBLC.jpg', null, 'Long Counter', true, st_po, [2, 0, 0, 1, 0]),
+    new ThumbObject('TN1,TN1LI,TN1HG,TN1BK,TN2,TN3', 'images/BA/BAOBTN.jpg', null, 'High Back (Thin Strap)', true, st_po, [2, 0, 0, 2, 0]),
+    new ThumbObject('TT1,TT2,TT3,TT4,TT5,TT1LI,TT1HG,TT1BK,TT2BK', 'images/BA/BAOBTT.jpg', null, 'High Back (Double Strap)', true, st_po, [2, 0, 0, 3, 0]),
+    new ThumbObject('TK1,TK1LI,TK1HG,TK1BK,TK2,TK3', 'images/BA/BAOBTK.jpg', null, 'High Back (Thick Strap)', true, st_po, [2, 0, 0, 4, 0])
 ];
 
 var ba_ac = [
-    new ThumbObject('null', 'images/BA/BACBPL.jpg', 'null', 'Plain Back', true, st_ac, [3, 0, 0, 0, 0]),
-    new ThumbObject('SH1', 'images/BA/BACBSH.jpg', 'null', 'Strip Heel Counter', true, st_ac, [3, 0, 0, 1, 0]),
-    new ThumbObject('PH1', 'images/BA/BACBPH.jpg', 'null', 'Pointed Heel Counter', true, st_ac, [3, 0, 0, 2, 0]),
+    new ThumbObject(null, 'images/BA/BACBPL.jpg', null, 'Plain Back', true, st_ac, [3, 0, 0, 0, 0]),
+    new ThumbObject('SH1', 'images/BA/BACBSH.jpg', null, 'Strip Heel Counter', true, st_ac, [3, 0, 0, 1, 0]),
+    new ThumbObject('PH1', 'images/BA/BACBPH.jpg', null, 'Pointed Heel Counter', true, st_ac, [3, 0, 0, 2, 0]),
     
 ];
 
 var ba_pe = [
-    new ThumbObject('null', 'images/BA/BACBPL.jpg', 'null', 'Plain Back', true, st_pe, [4, 0, 0, 0, 0]),
-    new ThumbObject('SH1', 'images/BA/BACBSH.jpg', 'null', 'Strip Heel Counter', true, st_pe, [4, 0, 0, 1, 0]),
-    new ThumbObject('PH1', 'images/BA/BACBPH.jpg', 'null', 'Pointed Heel Counter', true, st_pe, [4, 0, 0, 2, 0]),
+    new ThumbObject(null, 'images/BA/BACBPL.jpg', null, 'Plain Back', true, st_pe, [4, 0, 0, 0, 0]),
+    new ThumbObject('SH1', 'images/BA/BACBSH.jpg', null, 'Strip Heel Counter', true, st_pe, [4, 0, 0, 1, 0]),
+    new ThumbObject('PH1', 'images/BA/BACBPH.jpg', null, 'Pointed Heel Counter', true, st_pe, [4, 0, 0, 2, 0]),
     
 ];
 
 var ba_sa = [
-    new ThumbObject('LC1,LC1LI', 'images/BA/BAOBLC.jpg', 'null', 'Long Counter', true, st_sa, [5, 0, 0, 0, 0]),
-    new ThumbObject('TN1,TN1LI,TN1HG,TN1BK,TN2,TN3', 'images/BA/BAOBTN.jpg', 'null', 'High Back (Thin Strap)', true, st_sa, [5, 0, 0, 1, 0]),
-    new ThumbObject('TT1,TT2,TT3,TT4,TT5,TT1LI,TT1HG,TT1BK,TT2BK', 'images/BA/BAOBTT.jpg', 'null', 'High Back (Double Strap)', true, st_sa, [5, 0, 0, 2, 0]),
-    new ThumbObject('TK1,TK1LI,TK1HG,TK1BK,TK2,TK3', 'images/BA/BAOBTK.jpg', 'null', 'High Back (Thick Strap)', true, st_sa, [5, 0, 0, 3, 0])
+    new ThumbObject('LC1,LC1LI', 'images/BA/BAOBLC.jpg', null, 'Long Counter', true, st_sa, [5, 0, 0, 0, 0]),
+    new ThumbObject('TN1,TN1LI,TN1HG,TN1BK,TN2,TN3', 'images/BA/BAOBTN.jpg', null, 'High Back (Thin Strap)', true, st_sa, [5, 0, 0, 1, 0]),
+    new ThumbObject('TT1,TT2,TT3,TT4,TT5,TT1LI,TT1HG,TT1BK,TT2BK', 'images/BA/BAOBTT.jpg', null, 'High Back (Double Strap)', true, st_sa, [5, 0, 0, 2, 0]),
+    new ThumbObject('TK1,TK1LI,TK1HG,TK1BK,TK2,TK3', 'images/BA/BAOBTK.jpg', null, 'High Back (Thick Strap)', true, st_sa, [5, 0, 0, 3, 0])
 ];
 
 var ba_fl = [
-    new ThumbObject('null', 'images/BA/BAFLPL.jpg', 'null', 'Plain Back', true, st_fl, [, 0, 0, 0, 0]),
-    new ThumbObject('PH1', 'images/BA/BAFLPH.jpg', 'null', 'Pointed Heel Counter', true, st_fl, [, 0, 0, 1, 0]),
-    new ThumbObject('SH1', 'images/BA/BAFLSH.jpg', 'null', 'Strip Heel Counter', true, st_fl, [, 0, 0, 2, 0])
+    new ThumbObject(null, 'images/BA/BAFLPL.jpg', null, 'Plain Back', true, st_fl, [, 0, 0, 0, 0]),
+    new ThumbObject('PH1', 'images/BA/BAFLPH.jpg', null, 'Pointed Heel Counter', true, st_fl, [, 0, 0, 1, 0]),
+    new ThumbObject('SH1', 'images/BA/BAFLSH.jpg', null, 'Strip Heel Counter', true, st_fl, [, 0, 0, 2, 0])
 ];
 
 
 //FRONTS WITH CHILDREN
 var fr_pc = [
-    new ThumbObject('null', 'images/FRPC/FRPCPLA300AH.jpg', 'null', 'Plain', true, ba_pc, [0, 0, 0, 0, 0]),
-    new ThumbObject('PT1', 'images/FRPC/FRPCPTO300AH.jpg', 'null', 'Pointed Toe Cap', true, ba_pc, [0, 0, 1, 0, 0]),
-    new ThumbObject('TO1', 'images/FRPC/FRPCTOE300AH.jpg', 'null', 'Toe Cap', true, ba_pc, [0, 0, 2, 0, 0]),
-    new ThumbObject('null', 'images/FRPC/FRPCPAN300AH.jpg', 'null', 'Panneled', true, ba_pc, [0, 0, 3, 0, 0]),
-    new ThumbObject('PT1', 'images/FRPC/FRPCPPT300AH.jpg', 'null', 'Panneled Pointed Toe Cap', true, ba_pc, [0, 0, 4, 0, 0]),
-    new ThumbObject('TO1', 'images/FRPC/FRPCPTC300AH.jpg', 'null', 'Panneled Toe Cap', true, ba_pc, [0, 0, 5, 0, 0])
+    new ThumbObject(null, 'images/FRPC/FRPCPLA300AH.jpg', null, 'Plain', true, ba_pc, [0, 0, 0, 0, 0]),
+    new ThumbObject('PT1', 'images/FRPC/FRPCPTO300AH.jpg', null, 'Pointed Toe Cap', true, ba_pc, [0, 0, 1, 0, 0]),
+    new ThumbObject('TO1', 'images/FRPC/FRPCTOE300AH.jpg', null, 'Toe Cap', true, ba_pc, [0, 0, 2, 0, 0]),
+    new ThumbObject(null, 'images/FRPC/FRPCPAN300AH.jpg', null, 'Panneled', true, ba_pc, [0, 0, 3, 0, 0]),
+    new ThumbObject('PT1', 'images/FRPC/FRPCPPT300AH.jpg', null, 'Panneled Pointed Toe Cap', true, ba_pc, [0, 0, 4, 0, 0]),
+    new ThumbObject('TO1', 'images/FRPC/FRPCPTC300AH.jpg', null, 'Panneled Toe Cap', true, ba_pc, [0, 0, 5, 0, 0])
 ];
 
 var fr_ph = [
-    new ThumbObject('null', 'images/FRPH/FRPHPLA300AH.jpg', 'null', 'Plain', true, ba_ph, [1, 0, 0, 0, 0]),
-    new ThumbObject('PT1', 'images/FRPH/FRPHPTO300AH.jpg', 'null', 'Pointed Toe Cap', true, ba_ph, [1, 0, 1, 0, 0]),
-    new ThumbObject('TO1', 'images/FRPH/FRPHTOE300AH.jpg', 'null', 'Toe Cap', true, ba_ph, [1, 0, 2, 0, 0])
+    new ThumbObject(null, 'images/FRPH/FRPHPLA300AH.jpg', null, 'Plain', true, ba_ph, [1, 0, 0, 0, 0]),
+    new ThumbObject('PT1', 'images/FRPH/FRPHPTO300AH.jpg', null, 'Pointed Toe Cap', true, ba_ph, [1, 0, 1, 0, 0]),
+    new ThumbObject('TO1', 'images/FRPH/FRPHTOE300AH.jpg', null, 'Toe Cap', true, ba_ph, [1, 0, 2, 0, 0])
 ];
 
 var fr_po = [
-    new ThumbObject('null', 'images/FRPO/FRPOPLA300AH.jpg', 'null', 'Plain', true, ba_po, [2, 0, 0, 0, 0])
+    new ThumbObject(null, 'images/FRPO/FRPOPLA300AH.jpg', null, 'Plain', true, ba_po, [2, 0, 0, 0, 0])
 ];
 
 var fr_ac = [
-    new ThumbObject('null', 'images/FRAC/FRACPLA300AH.jpg', 'null', 'Plain', true, ba_ac, [3, 0, 0, 0, 0]),
-    new ThumbObject('PT1', 'images/FRAC/FRACPTO300AH.jpg', 'null', 'Pointed Toe Cap', true, ba_ac, [0, 0, 1, 0, 0]),
-    new ThumbObject('TO1', 'images/FRAC/FRACTOE300AH.jpg', 'null', 'Toe Cap', true, ba_ac, [3, 0, 2, 0, 0]),
-    new ThumbObject('null', 'images/FRAC/FRACPAN300AH.jpg', 'null', 'Panneled', true, ba_ac, [3, 0, 3, 0, 0]),
-    new ThumbObject('PT1', 'images/FRAC/FRACPPT300AH.jpg', 'null', 'Panneled Pointed Toe Cap', true, ba_ac, [0, 0, 4, 0, 0]),
-    new ThumbObject('TO1', 'images/FRAC/FRACPTC300AH.jpg', 'null', 'Panneled Toe Cap', true, ba_ac, [3, 0, 5, 0, 0])
+    new ThumbObject(null, 'images/FRAC/FRACPLA300AH.jpg', null, 'Plain', true, ba_ac, [3, 0, 0, 0, 0]),
+    new ThumbObject('PT1', 'images/FRAC/FRACPTO300AH.jpg', null, 'Pointed Toe Cap', true, ba_ac, [0, 0, 1, 0, 0]),
+    new ThumbObject('TO1', 'images/FRAC/FRACTOE300AH.jpg', null, 'Toe Cap', true, ba_ac, [3, 0, 2, 0, 0]),
+    new ThumbObject(null, 'images/FRAC/FRACPAN300AH.jpg', null, 'Panneled', true, ba_ac, [3, 0, 3, 0, 0]),
+    new ThumbObject('PT1', 'images/FRAC/FRACPPT300AH.jpg', null, 'Panneled Pointed Toe Cap', true, ba_ac, [0, 0, 4, 0, 0]),
+    new ThumbObject('TO1', 'images/FRAC/FRACPTC300AH.jpg', null, 'Panneled Toe Cap', true, ba_ac, [3, 0, 5, 0, 0])
 ];
 
 var fr_pe = [
-    new ThumbObject('null', 'images/FRPE/FRPEPLA300AH.jpg', 'null', 'Plain', true, ba_pe, [4, 0, 0, 0, 0]),
-    new ThumbObject('null', 'images/FRPE/FRPEPAN300AH.jpg', 'null', 'Panneled', true, ba_pe, [4, 0, 1, 0, 0])
+    new ThumbObject(null, 'images/FRPE/FRPEPLA300AH.jpg', null, 'Plain', true, ba_pe, [4, 0, 0, 0, 0]),
+    new ThumbObject(null, 'images/FRPE/FRPEPAN300AH.jpg', null, 'Panneled', true, ba_pe, [4, 0, 1, 0, 0])
 ];
 
 var fr_sa = [
-    new ThumbObject('ST1,ST1LI', 'images/FRSA/FRSASTR300AH.jpg', 'null', 'Straight', true, ba_sa, [5, 0, 0, 0, 0]),
-    new ThumbObject('PS1,PS1L,PS2,PS3', 'images/FRSA/FRSAPSA300AH.jpg', 'null', 'Panelled Sandal', true, ba_sa, [5, 0, 1, 0, 0]),
-    new ThumbObject('CO1,CO2,CO1LI,CO2LI', 'images/FRSA/FRSACOP300AH.jpg', 'null', 'Cross Over Peep', true, ba_sa, [5, 0, 2, 0, 0]),
-    new ThumbObject('GLA', 'images/FRSA/FRSAGLA300AH.jpg', 'null', 'Gl', true, ba_sa, [5, 0, 3, 0, 0])
+    new ThumbObject('ST1,ST1LI', 'images/FRSA/FRSASTR300AH.jpg', null, 'Straight', true, ba_sa, [5, 0, 0, 0, 0]),
+    new ThumbObject('PS1,PS1L,PS2,PS3', 'images/FRSA/FRSAPSA300AH.jpg', null, 'Panelled Sandal', true, ba_sa, [5, 0, 1, 0, 0]),
+    new ThumbObject('CO1,CO2,CO1LI,CO2LI', 'images/FRSA/FRSACOP300AH.jpg', null, 'Cross Over Peep', true, ba_sa, [5, 0, 2, 0, 0]),
+    new ThumbObject('GLA', 'images/FRSA/FRSAGLA300AH.jpg', null, 'Gl', true, ba_sa, [5, 0, 3, 0, 0])
 ];
 
 var fr_fl = [
-    new ThumbObject('null', 'images/FRFL/FRFLPLA.jpg', 'null', 'Plain', true, ba_fl, [6, 0, 0, 0, 0]),
-    new ThumbObject('PT1', 'images/FRFL/FRFLPTO.jpg', 'null', 'Pointed Toe Cap', true, ba_fl, [6, 0, 1, 0, 0]),
-    new ThumbObject('TO1', 'images/FRFL/FRFLTOE.jpg', 'null', 'Toe Cap', true, ba_fl, [6, 0, 2, 0, 0]),
-    new ThumbObject('null', 'images/FRFL/FRFLPAN.jpg', 'null', 'Panneled', true, ba_fl, [6, 0, 3, 0, 0]),
-    new ThumbObject('PT1', 'images/FRFL/FRFLPPT.jpg', 'null', 'Panneled Pointed Toe Cap', true, ba_fl, [6, 0, 4, 0, 0]),
-    new ThumbObject('TO1', 'images/FRFL/FRFLPTC.jpg', 'null', 'Panneled Toe Cap', true, ba_fl, [6, 0, 5, 0, 0])
+    new ThumbObject(null, 'images/FRFL/FRFLPLA.jpg', null, 'Plain', true, ba_fl, [6, 0, 0, 0, 0]),
+    new ThumbObject('PT1', 'images/FRFL/FRFLPTO.jpg', null, 'Pointed Toe Cap', true, ba_fl, [6, 0, 1, 0, 0]),
+    new ThumbObject('TO1', 'images/FRFL/FRFLTOE.jpg', null, 'Toe Cap', true, ba_fl, [6, 0, 2, 0, 0]),
+    new ThumbObject(null, 'images/FRFL/FRFLPAN.jpg', null, 'Panneled', true, ba_fl, [6, 0, 3, 0, 0]),
+    new ThumbObject('PT1', 'images/FRFL/FRFLPPT.jpg', null, 'Panneled Pointed Toe Cap', true, ba_fl, [6, 0, 4, 0, 0]),
+    new ThumbObject('TO1', 'images/FRFL/FRFLPTC.jpg', null, 'Panneled Toe Cap', true, ba_fl, [6, 0, 5, 0, 0])
 ]
 
 
