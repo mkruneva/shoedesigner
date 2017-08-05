@@ -13,9 +13,9 @@ function init() {
 
 
     // Cube map loader
-    scene.background = new THREE.CubeTextureLoader()
-        .setPath('cubemap/')
-        .load(['posx.jpg', 'negx.jpg', 'posy.jpg', 'negy.jpg', 'posz.jpg', 'negz.jpg']);
+    // scene.background = new THREE.CubeTextureLoader()
+    //     .setPath('cubemap/')
+    //     .load(['posx.jpg', 'negx.jpg', 'posy.jpg', 'negy.jpg', 'posz.jpg', 'negz.jpg']);
 
 
     //Renderer
@@ -23,7 +23,7 @@ function init() {
     renderer.shadowMap.enabled = true; //enabling shadow maps in the renderer
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     //renderer.setClearColor( 0xdddddd, 1 );
-    //renderer.setClearColor( 0x000000, 1 );  //darker clear colour
+    renderer.setClearColor( 0x000000, 1 );  //darker clear colour
     renderer.setSize(window.innerWidth, window.innerHeight);
     var parent = document.getElementById('canvasContainer');
     parent.appendChild(renderer.domElement);
@@ -43,21 +43,21 @@ function init() {
     spotLight.shadow.mapSize.height = 1024 * 2;
     //spotLight.shadow.radius = 4;
     spotLight.position.set(-140, 100, -220);
-    //camera.add( spotLight);
+    camera.add( spotLight);
 
 
     //areaRectLights - cannot cast shadows currently (under development)
     var rectLight = new THREE.RectAreaLight(0xffffff, 60000, 300, 300);
     rectLight.rotation.x = (45 * Math.PI) / 180;
     rectLight.position.set(0, 100, -165);
-    scene.add(rectLight);
+    //scene.add(rectLight);
     // rectLightHelper = new THREE.RectAreaLightHelper( rectLight );
     // scene.add( rectLightHelper );
 
     var rectLight2 = new THREE.RectAreaLight(0xffffff, 60000, 300, 300);
     rectLight2.rotation.x = (135 * Math.PI) / 180;
     rectLight2.position.set(0, 100, 165);
-    scene.add(rectLight2);
+    //scene.add(rectLight2);
     // rectLightHelper2 = new THREE.RectAreaLightHelper( rectLight2 );
     // scene.add( rectLightHelper2 );
 
@@ -65,7 +65,7 @@ function init() {
     rectLight3.rotation.x = (90 * Math.PI) / 180;
     rectLight3.rotation.y = (45 * Math.PI) / 180;
     rectLight3.position.set(-200, 100, 0);
-    scene.add(rectLight3);
+    //scene.add(rectLight3);
     // rectLightHelper3 = new THREE.RectAreaLightHelper( rectLight3 );
     // scene.add( rectLightHelper3 );
 
@@ -171,7 +171,7 @@ function init() {
                     child.castShadow = true;
 
                     if ((child.name == 'FR1')||(child.name == 'FR2')||(child.name == 'CO1')||(child.name == 'CO2')||(child.name == 'LC1')) {
-                        child.material = chromeMaterial;
+                        child.material = LH1;
                     }
                     else {
                         child.material = greyMaterial;
@@ -279,11 +279,11 @@ function init() {
         planeGeometry.rotateX(-Math.PI / 2);
 
         // //Shadow catcher Material
-        // var planeMaterial = new THREE.ShadowMaterial();
-        // planeMaterial.opacity = 0.3; //change the opacity to a bit map
+        var planeMaterial = new THREE.ShadowMaterial();
+        planeMaterial.opacity = 0.3; //change the opacity to a bit map
 
 
-        var planeMaterial = new THREE.MeshLambertMaterial({ color: 0xffffff });
+        //var planeMaterial = new THREE.MeshLambertMaterial({ color: 0xffffff });
 
         var plane = new THREE.Mesh(planeGeometry, planeMaterial);
         plane.position.y = -48;
