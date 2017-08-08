@@ -81,9 +81,9 @@ function createELMat(diffuse, bump, intensity) {
 function createLFSMat(color) {
     var bump = texLoader.load('tex/LFS-bump.jpg');
     repeatTex(bump, 15);
+    var normal = texLoader.load('tex/LFS-normal.png');
+    repeatTex(normal, 15);
     var metalnessM = texLoader.load('tex/LFS-lines-inv.jpg');
-    repeatTex(metalnessM, 15);
-    var roughnessM = texLoader.load('tex/LFS-lines.jpg');
     repeatTex(metalnessM, 15);
     var mat = new THREE.MeshStandardMaterial({
         bumpMap: bump,
@@ -92,8 +92,8 @@ function createLFSMat(color) {
         envMap: background,
         metalness: 0.5,
         metalnessMap : metalnessM,
-        roughness: 0.74,
-        roughnessMap : roughnessM
+        normalMap: normal,
+        roughness: 0.64,
     });
 
     return mat;
