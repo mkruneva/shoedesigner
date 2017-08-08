@@ -28,6 +28,7 @@ createELmany();
 createLFSmany();
 createLGSmany();
 createLLHmany();
+createLSNmany();
 
 //Basic Mat
 function createBasicStandardMat(matColor, matMetalness, matRoughness, matEnvMap) {
@@ -137,6 +138,25 @@ function createLLHMat() {
     return mat;
 }
 
+//LSN Mat
+function createLSNMat(diffuse, bump, repeat) {
+    var diff = texLoader.load(diffuse);
+    repeatTex(diff, repeat);
+    var bump = texLoader.load(bump);
+    repeatTex(bump, repeat);
+    var mat = new THREE.MeshStandardMaterial({
+        bumpMap: bump,
+        bumpScale: -0.3,
+        map: diff,
+        // metalness: 0.5,
+        // metalnessMap : bump,
+        // roughness: 0.8,
+        // roughnessMap : bump,
+    });
+
+    return mat;
+}
+
 //Leather Mat
 function createLHmat(color) {
     var bump = texLoader.load('tex/LH-bump.jpg');
@@ -200,6 +220,16 @@ function createLGSmany() {
 function createLLHmany() {
     matLLH01 = createLLHMat();
 }
+
+function createLSNmany() {
+    matLSN01 = createLSNMat('tex/LSN-01-main.jpg', 'tex/LSN-01-stencil.jpg', 2.8); 
+    matLSN02 = createLSNMat('tex/LSN-02-main.jpg', 'tex/LSN-01-stencil.jpg', 2.8);
+    matLSN03 = createLSNMat('tex/LSN-03-main.jpg', 'tex/LSN-01-stencil.jpg', 2.8);
+    matLSN04 = createLSNMat('tex/LSN-04-diffuse.jpg', 'tex/LSN-04 bump.jpg', 4.5);
+    matLSN08 = createLSNMat('tex/LSN-08-DIFF.jpg', 'tex/LSN-08 bump.jpg', 4.5);
+}
+
+
 
 function createMLmany() {
     matML01 = createMLmat(0x807B73);

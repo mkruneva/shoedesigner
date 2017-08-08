@@ -73,7 +73,7 @@ function init() {
         loadObject: loadObject
     };
 
-    loadObject(objPathName, matLLH01);
+    loadObject(objPathName, matLSN01);
 
 
     //GEOMETRY
