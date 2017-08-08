@@ -1,4 +1,9 @@
-//Materials 
+var texLoader = new THREE.TextureLoader(); //global
+createLHmany();
+createMLmany();
+createAPmany();
+createELmany();
+
 //Basic Mat
 function createBasicStandardMat(matColor, matMetalness, matRoughness, matEnvMap) {
     var basicMaterial = new THREE.MeshStandardMaterial({ color: matColor, metalness: matMetalness, roughness: matRoughness });
@@ -14,57 +19,83 @@ function repeatTex(mapName, repeat) {
     mapName.repeat.set(repeat, repeat);
 };
 
+
+//Animal Prints Mat
+function createAPMat(diffuse, repeat) {
+    var diff = texLoader.load(diffuse);
+    repeatTex(diff, repeat);
+    var bump = texLoader.load('tex/AP-bump.jpg');
+    repeatTex(bump, 8);
+    var mat = new THREE.MeshStandardMaterial({
+        bumpMap: bump,
+        bumpScale: 0.15,
+        map: diff,
+        metalness: 0,
+        roughness: 0.9
+    });
+
+    return mat;
+}
+
+//El Mat
+function createELMat(diffuse, bump, intensity) {
+    var diff = texLoader.load(diffuse);
+    repeatTex(diff, 8);
+    var bump = texLoader.load(bump);
+    repeatTex(bump, 8);
+    var mat = new THREE.MeshStandardMaterial({
+        bumpMap: bump,
+        bumpScale: intensity,
+        map: diff,
+        metalness: 0,
+        roughness: 0.8
+    });
+
+    return mat;
+}
+
 //Leather Mat
 function createLHmat(color) {
-    var bumpTex = texLoader.load('tex/LH-bump.jpg');
-    repeatTex(bumpTex, 1.2);
-    var LHmat = new THREE.MeshStandardMaterial({
-        bumpMap: bumpTex,
+    var bump = texLoader.load('tex/LH-bump.jpg');
+    repeatTex(bump, 1.2);
+    var mat = new THREE.MeshStandardMaterial({
+        bumpMap: bump,
         bumpScale: 0.08,
         color: color,
         metalness: 0.05,
         roughness: 0.46,
     });
 
-    return LHmat;
+    return mat;
 }
 
 //Metallic Leather Mat
 function createMLmat(color) {
-    var bumpTex = texLoader.load('tex/LH-bump.jpg');
-    repeatTex(bumpTex, 1.2);
-    var MLmat = new THREE.MeshStandardMaterial({
-        bumpMap: bumpTex,
+    var bump = texLoader.load('tex/LH-bump.jpg');
+    repeatTex(bump, 1.2);
+    var mat = new THREE.MeshStandardMaterial({
+        bumpMap: bump,
         bumpScale: 0.08,
         color: color,
         metalness: 0.48,
         roughness: 0.52,
     });
 
-    return MLmat;
+    return mat;
 }
 
-function createAPMat(diffuse, repeat) {
-    var diffAP = texLoader.load(diffuse);
-    repeatTex(diffAP, repeat);
-    var bumpAP = texLoader.load('tex/AP_bump.jpg');
-    repeatTex(bumpAP, 8);
-    var APmat = new THREE.MeshStandardMaterial({
-        bumpMap: bumpAP,
-        bumpScale: 0.15,
-        map: diffAP,
-        metalness: 0,
-        roughness: 0.9
-    });
-
-    return APmat;
-}
 
 function createAPmany() {
-	matAP03 = createAPMat('tex/AP-03-diff.jpg', 2.2);
-	matAP05 = createAPMat('tex/AP-05-diff.jpg', 2.4);
-	matAP06 = createAPMat('tex/AP-06-diff.jpg', 1.8);
-	matAP09 = createAPMat('tex/AP-09-diff.jpg', 2.8);
+    matAP03 = createAPMat('tex/AP-03-diff.jpg', 2.2);
+    matAP05 = createAPMat('tex/AP-05-diff.jpg', 2.4);
+    matAP06 = createAPMat('tex/AP-06-diff.jpg', 1.8);
+    matAP09 = createAPMat('tex/AP-09-diff.jpg', 2.8);
+}
+
+function createELmany() {
+    matEL01 = createELMat('tex/EL-01-diff.jpg', 'tex/EL-01-bump.jpg', -0.4);
+    matEL02 = createELMat('tex/EL-02-diff.jpg', 'tex/EL-01-bump.jpg', -0.4);
+    matEL03 = createELMat('tex/EL-03-diff.jpg', 'tex/EL-03-bump.jpg', 0.4);
 }
 
 function createMLmany() {
@@ -105,4 +136,3 @@ function createLHmany() {
     matLH36 = createLHmat(0x4A8A77);
     matLH37 = createLHmat(0x92D1C1);
 }
-

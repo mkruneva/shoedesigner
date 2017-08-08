@@ -4,7 +4,7 @@ var camera, scene, renderer;
 var controls;
 var background;
 var loader = new THREE.OBJLoader(); //global 
-var texLoader = new THREE.TextureLoader(); //global
+
 var objY = -65;
 var objPathName = 'obj/PC/PC300AHPLAPL.obj'; //temporary assigning path
 var cube; // has to be declared as global var 
@@ -75,10 +75,8 @@ function init() {
     var shadowMaterial = new THREE.ShadowMaterial();
     shadowMaterial.opacity = 0.36; //change the opacity to a bit map
 
-    //Many Mat 
-    createLHmany();
-    createMLmany();
-    createAPmany();
+    //Materials loaded in threeMaterials.js 
+
 
 
     //RENDERER DESCRIPTION
@@ -97,7 +95,7 @@ function init() {
         loadObject: loadObject
     };
 
-    loadObject(objPathName, matAP09);
+    loadObject(objPathName, matEL03);
 
 
     //GEOMETRY
