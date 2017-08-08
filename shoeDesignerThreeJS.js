@@ -22,8 +22,7 @@ function init() {
     var renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.shadowMap.enabled = true; //enabling shadow maps in the renderer
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-    //renderer.setClearColor( 0xdddddd, 1 );
-    renderer.setClearColor( 0x000000, 1 );  //darker clear colour
+    renderer.setClearColor( 0xdddddd, 1 );
     renderer.setSize(window.innerWidth, window.innerHeight);
     var parent = document.getElementById('canvasContainer');
     parent.appendChild(renderer.domElement);
@@ -194,61 +193,6 @@ function init() {
 
 
     loadObject(objPathName);
-
-
-
-
-
-
-    // //GUI
-    // var gui = new dat.GUI();
-    // var props = {hideBars:false,
-    // 	        depthZ_Fraction:0.015,
-    // 	  		barColor: '#222222',
-    // 	  		barDirection:'Vertical'};
-
-    // var sLight = gui.addFolder('spot light');
-    // sLight.add(spotLight, 'intensity', 0, 1);
-    // sLight.add(spotLight.position, 'x', -500, 500);
-    // sLight.add(spotLight.position, 'y', -500, 500);
-    // sLight.add(spotLight.position, 'z', -500, 500);
-    // sLight.add(spotLight, 'penumbra', 0, 1);
-    // sLight.add(spotLight, 'distance', 0, 2000);
-    // sLight.add(spotLight, 'decay', 0, 2000);
-
-    // var rLight = gui.addFolder('rect light');
-    // rLight.add(rectLight3, 'intensity', 0, 100000);
-    // rLight.add(rectLight3.position, 'x', -500, 500);
-    // rLight.add(rectLight3.position, 'y', -500, 500);
-    // rLight.add(rectLight3.position, 'z', -500, 500);
-    // rLight.add(rectLight3.rotation, 'x', -Math.PI, Math.PI);
-    // rLight.add(rectLight3.rotation, 'y', -Math.PI, Math.PI);
-    // rLight.add(rectLight3.rotation, 'z', -Math.PI, Math.PI);
-
-    // var cLight = gui.addFolder('camera light');
-    // cLight.add(pointCamLight, 'intensity', 0, 3);
-    // var aLight = gui.addFolder('ambient light');
-    // aLight.add(ambientLight, 'intensity', 0, 1);
-
-    // var goldMat = gui.addFolder('gold material');
-    // goldMat.add(goldMaterial, 'roughness', 0, 1);
-    // goldMat.add(goldMaterial, 'metalness', 0, 1);
-
-    // var lhMat = gui.addFolder('leather material');
-    // lhMat.add(LH1, 'roughness', 0, 1);
-    // lhMat.add(LH1, 'metalness', 0, 1);
-    // lhColorCtrl = 
-    //     lhMat.addColor(props,'barColor')
-    //            .name('Leather Color')
-    //            .listen();
-    // lhColorCtrl.onChange(
-    //              function(colorValue) {
-    //         	colorValue=colorValue.replace( '#','0x' );
-    //       		//set the color in the object
-    //       		LH1.color.setHex(colorValue);
-    //       });
-
-
 
 
     //Parametric Functions for creating GEO
