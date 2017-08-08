@@ -3,7 +3,9 @@ if (!Detector.webgl) Detector.addGetWebGLMessage();
 var camera, scene, renderer;
 var controls;
 var background;
-var loader;
+var loader = new THREE.OBJLoader(); //global 
+var texLoader = new THREE.TextureLoader(); //global
+var objY = -65;
 var objPathName = 'obj/PC/PC300AHPLAPL.obj'; //temporary assigning path
 var cube; // has to be declared as global var 
 
@@ -20,7 +22,7 @@ function init() {
     //My camera
     camera = new THREE.PerspectiveCamera(30, 4 / 3, 2, 5000);
     camera.position.z = 600;
-    //camera.position.y = 140;
+    camera.position.y = 140;
     scene.add(camera); // adding camera as a child of the scene so that pont light can be attached to it
 
 
@@ -46,44 +48,41 @@ function init() {
     // refractionCube.format = THREE.RGBFormat;
 
 
-
-
     //LIGHTS
-    var ambientLight = createAmbientLight(0.3);
+    var ambientLight = createAmbientLight(0.5);
     scene.add(ambientLight);
 
-    var spotLight = createSpotLight(0xffffff, 0.4, 4);
-    scene.add(spotLight);
+    var spotLightFront = createSpotLight(0xffffff, 0.4);
+    spotLightFront.position.set(40, 100, 220);
+    scene.add(spotLightFront);
 
-    var pointCamLight = createPointCameraLight(0xffffff, 0.5);
-    //camera.add(pointCamLight);
+    var spotLightBack = createSpotLight(0xffffff, 0.6);
+    spotLightBack.position.set(-140, 100, -220);
+    scene.add(spotLightBack);
 
+    var shadowSpotLight = createShadowSpotLight(0xffffff, 0.6, 4, 2);
+    scene.add(shadowSpotLight);
 
-
-
-
+    var pointCamLight = createPointCameraLight(0xffffff, 1);
 
 
     //MY MATERIALS DESCRIPTIONS
-    var chromeMaterial = new THREE.MeshStandardMaterial({
-        color: 0xffffff,
-        envMap: background,
-        metalness: 1,
-        roughness: 0.4
-    });
-
-    var greyMaterial = new THREE.MeshStandardMaterial({ color: 0xcccccc, metalness: 0.1, roughness: 0.4 });
-    var redMaterial = new THREE.MeshStandardMaterial({ color: 0xff0000, metalness: 0, roughness: 0.3 });
-    var greenMaterial = new THREE.MeshStandardMaterial({ color: 0x00ff00, metalness: 0, roughness: 0.3 });
+    var chromeMaterial = createBasicStandardMat(0xffffff, 1, 0.4, background);
+    var greyMaterial = createBasicStandardMat(0xcccccc, 0.1, 0.4);
+    var redMaterial = createBasicStandardMat(0xff0000, 0, 0.3);
 
     //Shadow catcher Material
     var shadowMaterial = new THREE.ShadowMaterial();
-    shadowMaterial.opacity = 0.3; //change the opacity to a bit map
+    shadowMaterial.opacity = 0.36; //change the opacity to a bit map
+
+    //Many Mat 
+    createLHmany();
+    createMLmany();
+
+    var matAP6 = createAPMat();
 
 
     //RENDERER DESCRIPTION
-
-    //My Renderer 
     renderer = createRenderer(0xdddddd);
     var parent = document.getElementById('canvasContainer');
     parent.appendChild(renderer.domElement);
@@ -92,69 +91,50 @@ function init() {
     controls = new THREE.OrbitControls(camera, renderer.domElement);
 
 
-    //GEOMETRY
-
-    //My cube
-    cube = createCube(50, chromeMaterial);
-    scene.add(cube);
-
-    //My plane
-    var plane = createPlane(3000, shadowMaterial);
-    scene.add(plane);
-
-
-
     //OBJ LOADER
 
     //Loading obj
-    loader = new THREE.OBJLoader();
-
     window.objectContainer = {
         loadObject: loadObject
     };
 
-    loadObject(objPathName, greyMaterial);
+    loadObject(objPathName, matAP6);
+
+
+    //GEOMETRY
+    var plane = createPlane(3000, shadowMaterial);
+    scene.add(plane);
 
 
     // //GUI
     var gui = new dat.GUI();
-    // var props = {hideBars:false,
-    // 	        depthZ_Fraction:0.015,
-    // 	  		barColor: '#222222',
-    // 	  		barDirection:'Vertical'};
+    var props = {
+        hideBars: false,
+        depthZ_Fraction: 0.015,
+        barColor: '#222222',
+        barDirection: 'Vertical'
+    };
 
     var sLight = gui.addFolder('spot light');
-    sLight.add(spotLight, 'intensity', 0, 1);
-    sLight.add(spotLight.position, 'x', -500, 500);
-    sLight.add(spotLight.position, 'y', -500, 500);
-    sLight.add(spotLight.position, 'z', -500, 500);
-    sLight.add(spotLight, 'penumbra', 0, 1);
-    sLight.add(spotLight, 'distance', 0, 2000);
-    sLight.add(spotLight, 'decay', 0, 2000);
+    sLight.add(spotLightFront, 'intensity', 0, 3);
+    sLight.add(spotLightFront.position, 'x', -500, 500);
+    sLight.add(spotLightFront.position, 'y', -500, 500);
+    sLight.add(spotLightFront.position, 'z', -500, 500);
+    sLight.add(spotLightFront, 'penumbra', 0, 1);
 
-
-    // var cLight = gui.addFolder('camera light');
-    // cLight.add(pointCamLight, 'intensity', 0, 3);
-    // var aLight = gui.addFolder('ambient light');
-    // aLight.add(ambientLight, 'intensity', 0, 1);
-
-    // var goldMat = gui.addFolder('gold material');
-    // goldMat.add(goldMaterial, 'roughness', 0, 1);
-    // goldMat.add(goldMaterial, 'metalness', 0, 1);
-
-    // var lhMat = gui.addFolder('leather material');
-    // lhMat.add(LH1, 'roughness', 0, 1);
-    // lhMat.add(LH1, 'metalness', 0, 1);
-    // lhColorCtrl = 
-    //     lhMat.addColor(props,'barColor')
-    //            .name('Leather Color')
-    //            .listen();
-    // lhColorCtrl.onChange(
-    //              function(colorValue) {
-    //         	colorValue=colorValue.replace( '#','0x' );
-    //       		//set the color in the object
-    //       		LH1.color.setHex(colorValue);
-    //       });
+    var lhMat = gui.addFolder('leather material');
+    lhMat.add(matML01, 'roughness', 0, 1);
+    lhMat.add(matML01, 'metalness', 0, 1);
+    lhColorCtrl =
+        lhMat.addColor(props, 'barColor')
+        .name('Leather Color')
+        .listen();
+    lhColorCtrl.onChange(
+        function(colorValue) {
+            colorValue = colorValue.replace('#', '0x');
+            //set the color in the object
+            matML01.color.setHex(colorValue);
+        });
 
 
 
@@ -189,18 +169,38 @@ function createAmbientLight(intensity) {
 }
 
 //spotLight added to the camera
-function createSpotLight(color, intensity, radius) {
+function createSpotLight(color, intensity) {
     var spotL = new THREE.SpotLight(color, intensity);
-
-    spotL.castShadow = true;
-    spotL.shadow.radius = radius;
-    spotL.distance = 1500;
-    spotL.shadow.mapSize.width = 1024 * 2;
-    spotL.shadow.mapSize.height = 1024 * 2;
-    spotL.position.set(-140, 100, -220);
 
     return spotL;
 }
+
+//Shadow spotLight added to the camera
+function createShadowSpotLight(color, intensity, radius, mapsize) {
+    var shadowSpotL = new THREE.SpotLight(color, intensity);
+
+    shadowSpotL.castShadow = true;
+    shadowSpotL.shadow.radius = radius;
+    shadowSpotL.distance = 1500;
+    shadowSpotL.shadow.mapSize.width = 1024 * mapsize;
+    shadowSpotL.shadow.mapSize.height = 1024 * mapsize;
+    shadowSpotL.position.set(0, 500, 0);
+
+    return shadowSpotL;
+}
+
+function createRectLightBack(argument) {
+    //areaRectLights - cannot cast shadows currently (under development)
+    var rectLight3 = new THREE.RectAreaLight(0xffffff, 90000, 300, 300);
+    rectLight3.rotation.x = (90 * Math.PI) / 180;
+    rectLight3.rotation.y = (45 * Math.PI) / 180;
+    rectLight3.position.set(-200, 100, 0);
+    scene.add(rectLight3);
+    rectLightHelper3 = new THREE.RectAreaLightHelper(rectLight3);
+    scene.add(rectLightHelper3);
+}
+
+
 
 //point Light attached to Camera 
 function createPointCameraLight(color, intensity) {
@@ -211,11 +211,112 @@ function createPointCameraLight(color, intensity) {
 }
 
 
+//Materials 
+//Basic Mat
+function createBasicStandardMat(matColor, matMetalness, matRoughness, matEnvMap) {
+    var basicMaterial = new THREE.MeshStandardMaterial({ color: matColor, metalness: matMetalness, roughness: matRoughness });
+    basicMaterial.envMap = matEnvMap;
+
+    return basicMaterial;
+}
+
+//Complex Materials
+function repeatTex(mapName, repeat) {
+    mapName.wrapS = THREE.RepeatWrapping;
+    mapName.wrapT = THREE.RepeatWrapping;
+    mapName.repeat.set(repeat, repeat);
+};
+
+//Leather Mat
+function createLHmat(color) {
+    var bumpTex = texLoader.load('tex/LH-bump.jpg');
+    repeatTex(bumpTex, 1.2);
+    var LHmat = new THREE.MeshStandardMaterial({
+        bumpMap: bumpTex,
+        bumpScale: 0.08,
+        color: color,
+        metalness: 0.05,
+        roughness: 0.46,
+    });
+
+    return LHmat;
+}
+
+//Metallic Leather Mat
+function createMLmat(color) {
+    var bumpTex = texLoader.load('tex/LH-bump.jpg');
+    repeatTex(bumpTex, 1.2);
+    var MLmat = new THREE.MeshStandardMaterial({
+        bumpMap: bumpTex,
+        bumpScale: 0.08,
+        color: color,
+        metalness: 0.48,
+        roughness: 0.52,
+    });
+
+    return MLmat;
+}
+
+function createAPMat() {
+    var diffAP6 = texLoader.load('tex/AP-06-diff.jpg');
+    repeatTex(diffAP6, 1.8);
+    var bumpAP = texLoader.load('tex/AP_bump.jpg');
+    repeatTex(bumpAP, 8);
+    var AP6mat = new THREE.MeshStandardMaterial({
+        bumpMap: bumpAP,
+        bumpScale: 0.15,
+        map: diffAP6,
+        metalness: 0,
+        roughness: 0.9
+    });
+
+    return AP6mat;
+}
 
 
 
 
-//MY FUNCTIONS FOR CREATING GEO
+function createMLmany() {
+    matML01 = createMLmat(0x807B73);
+    matML02 = createMLmat(0xBDBCBC);
+    matML03 = createMLmat(0xCCBA95);
+    matML05 = createMLmat(0x73593F);
+    matML06 = createMLmat(0x3B1B12);
+    matML08 = createMLmat(0xC9178C);
+    matML09 = createMLmat(0x591434);
+    matML10 = createMLmat(0x1C5061);
+    matML11 = createMLmat(0x008F85);
+    matML12 = createMLmat(0x197A0A);
+}
+
+//create many global LH variables 
+function createLHmany() {
+    matLH01 = createLHmat(0x0222222);
+    matLH02 = createLHmat(0x3B3B3B);
+    matLH03 = createLHmat(0xD0CCCA);
+    matLH04 = createLHmat(0x9E7854);
+    matLH05 = createLHmat(0x803B1C);
+    matLH06 = createLHmat(0x33211B);
+    matLH07 = createLHmat(0x611522);
+    matLH08 = createLHmat(0x8A141A);
+    matLH09 = createLHmat(0x28223D);
+    matLH10 = createLHmat(0x4D1F40);
+    matLH12 = createLHmat(0xD74A3D);
+    matLH13 = createLHmat(0xC74828);
+    matLH16 = createLHmat(0x17212E);
+    matLH17 = createLHmat(0x008C89);
+    matLH21 = createLHmat(0xC2B3A3);
+    matLH22 = createLHmat(0xBFA093);
+    matLH23 = createLHmat(0xFA3E88);
+    matLH24 = createLHmat(0xE3C658);
+    matLH25 = createLHmat(0xA4B8BD);
+    matLH35 = createLHmat(0x2A855F);
+    matLH36 = createLHmat(0x4A8A77);
+    matLH37 = createLHmat(0x92D1C1);
+}
+
+
+//FUNCTIONS FOR CREATING GEO
 
 //Test Cube
 function createCube(size, material) {
@@ -230,9 +331,8 @@ function createCube(size, material) {
 function createPlane(size, material) {
     var planeGeometry = new THREE.PlaneGeometry(size, size);
     planeGeometry.rotateX(-Math.PI / 2);
-
     var plane = new THREE.Mesh(planeGeometry, material);
-    plane.position.y = -48;
+    plane.position.y = objY + 1;
     plane.receiveShadow = true;
 
     return plane;
@@ -242,12 +342,11 @@ function createPlane(size, material) {
 function loadObject(objPath, material) {
     loader.load(objPath, function(object) {
         object.name = objPath;
-        console.log(object);
 
         //Assigning name to the object
         object.rotation.y = (270 * Math.PI) / 180;
         object.translateZ(90);
-        object.translateY(-50);
+        object.translateY(objY);
 
         //Assinging material to all meshes of the object
         // object.traverse(function(child) {
