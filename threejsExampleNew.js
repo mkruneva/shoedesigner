@@ -1,16 +1,25 @@
+if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+
+var camera, scene, renderer;
+
 init();
 animate();
 
 function init() {
 
-    container = document.createElement('div');
-    document.body.appendChild(container);
 
-    camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 5000);
-    camera.position.z = 2000;
 
-    //
+	//Origin Camera 
+    // camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 5000);
+    // camera.position.z = 2000;
 
+    //My camera
+    camera = new THREE.PerspectiveCamera(30, 4 / 3, 2, 5000);
+    camera.position.z = 600;
+    //camera.position.y = 140;
+
+
+    //My CubeMap
     var path = "cubemap/";
     var format = '.jpg';
     var urls = [
@@ -22,8 +31,10 @@ function init() {
     var reflectionCube = new THREE.CubeTextureLoader().load(urls);
     reflectionCube.format = THREE.RGBFormat;
 
+
     scene = new THREE.Scene();
     scene.background = reflectionCube;
+
 
     // LIGHTS
 
@@ -35,6 +46,7 @@ function init() {
 
     // light representation
 
+    //My Gold Materia 
     var goldMaterial = new THREE.MeshStandardMaterial({
         color: 0xffffff,
         envMap: scene.background,
@@ -42,11 +54,25 @@ function init() {
         roughness: 0.4
     });
 
-    var sphere = new THREE.SphereGeometry(100, 16, 8);
 
-    var mesh = new THREE.Mesh(sphere, goldMaterial);
-    mesh.scale.set(0.5, 0.5, 0.5);
-    pointLight.add(mesh);
+    // //Initial Sphere
+    // var sphere = new THREE.SphereGeometry(100, 16, 8);
+    // var mesh = new THREE.Mesh(sphere, goldMaterial);
+    // mesh.scale.set(0.5, 0.5, 0.5);
+    // pointLight.add(mesh);
+
+    //My cube
+    var cube = createCube(100);
+    scene.add( cube );
+
+    function createCube(size) {
+        var geometry = new THREE.BoxGeometry(size, size, size);
+        var cube = new THREE.Mesh(geometry, goldMaterial);
+        cube.castShadow = true;
+
+        return cube;
+    }
+
 
     var refractionCube = new THREE.CubeTextureLoader().load(urls);
     refractionCube.mapping = THREE.CubeRefractionMapping;
@@ -59,12 +85,24 @@ function init() {
 
     //
 
-    renderer = new THREE.WebGLRenderer();
-    renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    container.appendChild(renderer.domElement);
+    // renderer = new THREE.WebGLRenderer();
+    // renderer.setPixelRatio(window.devicePixelRatio);
+    // renderer.setSize(window.innerWidth, window.innerHeight);
+    // container.appendChild(renderer.domElement);
 
     //
+
+    //My Renderer 
+    renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.shadowMap.enabled = true; //enabling shadow maps in the renderer
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    //renderer.setClearColor( 0xdddddd, 1 );
+    renderer.setClearColor( 0x000000, 1 );  //darker clear colour
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    var parent = document.getElementById('canvasContainer');
+    parent.appendChild(renderer.domElement);
+
+
 
     // loader = new THREE.BinaryLoader();
     // loader.load("obj/walt/WaltHead_bin.js", function(geometry) { createScene(geometry, cubeMaterial1, cubeMaterial2, cubeMaterial3) });
@@ -107,6 +145,7 @@ function createScene(geometry, m1, m2, m3) {
     mesh.position.z = -100;
     mesh.scale.x = mesh.scale.y = mesh.scale.z = s;
     scene.add(mesh);
+
 
 }
 
