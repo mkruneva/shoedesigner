@@ -26,7 +26,8 @@ createMLmany();
 createAPmany();
 createELmany();
 createLFSmany();
-createLGSmany()
+createLGSmany();
+createLLHmany();
 
 //Basic Mat
 function createBasicStandardMat(matColor, matMetalness, matRoughness, matEnvMap) {
@@ -120,6 +121,22 @@ function createLGSMat(color) {
     return mat;
 }
 
+//Glitter Suede Mat
+function createLLHMat() {
+    var diff = texLoader.load('tex/LLH-01_diff.jpg');
+    repeatTex(diff, 1.2);
+    var mat = new THREE.MeshStandardMaterial({
+        bumpMap: diff,
+        bumpScale: 0.3,
+        envMap: background,
+        map: diff,
+        metalness: 0,
+        roughness: 0.8
+    });
+
+    return mat;
+}
+
 //Leather Mat
 function createLHmat(color) {
     var bump = texLoader.load('tex/LH-bump.jpg');
@@ -178,6 +195,10 @@ function createLGSmany() {
     matLGS06 = createLGSMat(0x300C0D);
     matLGS10 = createLGSMat(0x151F34);
     matLGS11 = createLGSMat(0x061F1F);
+}
+
+function createLLHmany() {
+    matLLH01 = createLLHMat();
 }
 
 function createMLmany() {
