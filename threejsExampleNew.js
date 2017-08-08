@@ -26,37 +26,15 @@ function init() {
     scene.add(camera); // adding camera as a child of the scene so that pont light can be attached to it
 
 
-    //CUBEMAP DESCRIPTION 
-    //My CubeMap
-    var path = "cubemap/";
-    var format = '.jpg';
-    var urls = [
-        path + 'posx' + format, path + 'negx' + format,
-        path + 'posy' + format, path + 'negy' + format,
-        path + 'posz' + format, path + 'negz' + format
-    ];
-
-    var reflectionCube = new THREE.CubeTextureLoader().load(urls);
-    reflectionCube.format = THREE.RGBFormat;
-
-    background = reflectionCube;
-    //scene.background = reflectionCube;
-
-    // REFRACTION CUBE
-    // var refractionCube = new THREE.CubeTextureLoader().load(urls);
-    // refractionCube.mapping = THREE.CubeRefractionMapping;
-    // refractionCube.format = THREE.RGBFormat;
-
-
     //LIGHTS
-    var ambientLight = createAmbientLight(0.5);
+    var ambientLight = createAmbientLight(0.7);
     scene.add(ambientLight);
 
-    var spotLightFront = createSpotLight(0xffffff, 0.4);
+    var spotLightFront = createSpotLight(0xffffff, 0.7);
     spotLightFront.position.set(40, 100, 220);
     scene.add(spotLightFront);
 
-    var spotLightBack = createSpotLight(0xffffff, 0.6);
+    var spotLightBack = createSpotLight(0xffffff, 0.8);
     spotLightBack.position.set(-140, 100, -220);
     scene.add(spotLightBack);
 
@@ -95,7 +73,7 @@ function init() {
         loadObject: loadObject
     };
 
-    loadObject(objPathName, matEL03);
+    loadObject(objPathName, matLFS03);
 
 
     //GEOMETRY

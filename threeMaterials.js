@@ -1,8 +1,31 @@
+//CUBEMAP DESCRIPTION 
+//My CubeMap
+var path = "cubemap/";
+var format = '.jpg';
+var urls = [
+    path + 'posx' + format, path + 'negx' + format,
+    path + 'posy' + format, path + 'negy' + format,
+    path + 'posz' + format, path + 'negz' + format
+];
+
+var reflectionCube = new THREE.CubeTextureLoader().load(urls);
+reflectionCube.format = THREE.RGBFormat;
+
+background = reflectionCube;
+//scene.background = reflectionCube;
+
+// REFRACTION CUBE
+// var refractionCube = new THREE.CubeTextureLoader().load(urls);
+// refractionCube.mapping = THREE.CubeRefractionMapping;
+// refractionCube.format = THREE.RGBFormat;
+
+
 var texLoader = new THREE.TextureLoader(); //global
 createLHmany();
 createMLmany();
 createAPmany();
 createELmany();
+createLFSmany();
 
 //Basic Mat
 function createBasicStandardMat(matColor, matMetalness, matRoughness, matEnvMap) {
@@ -54,6 +77,28 @@ function createELMat(diffuse, bump, intensity) {
     return mat;
 }
 
+//Fish Mat
+function createLFSMat(color) {
+    var bump = texLoader.load('tex/LFS-bump.jpg');
+    repeatTex(bump, 15);
+    var metalnessM = texLoader.load('tex/LFS-lines-inv.jpg');
+    repeatTex(metalnessM, 15);
+    var roughnessM = texLoader.load('tex/LFS-lines.jpg');
+    repeatTex(metalnessM, 15);
+    var mat = new THREE.MeshStandardMaterial({
+        bumpMap: bump,
+        bumpScale: 0.3,
+        color: color,
+        envMap: background,
+        metalness: 0.5,
+        metalnessMap : metalnessM,
+        roughness: 0.74,
+        roughnessMap : roughnessM
+    });
+
+    return mat;
+}
+
 //Leather Mat
 function createLHmat(color) {
     var bump = texLoader.load('tex/LH-bump.jpg');
@@ -96,6 +141,12 @@ function createELmany() {
     matEL01 = createELMat('tex/EL-01-diff.jpg', 'tex/EL-01-bump.jpg', -0.4);
     matEL02 = createELMat('tex/EL-02-diff.jpg', 'tex/EL-01-bump.jpg', -0.4);
     matEL03 = createELMat('tex/EL-03-diff.jpg', 'tex/EL-03-bump.jpg', 0.4);
+}
+
+function createLFSmany() {
+    matLFS01 = createLFSMat(0x202957);
+    matLFS02 = createLFSMat(0x0C6C74);
+    matLFS03 = createLFSMat(0xB87B98);
 }
 
 function createMLmany() {
