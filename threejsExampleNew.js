@@ -49,11 +49,16 @@ function init() {
 
 
     //LIGHTS
-    var ambientLight = createAmbient(0.2);
+    var ambientLight = createAmbientLight(0.3);
     scene.add(ambientLight);
 
-    var spotCameraLight = createSpotCamera(0xffffff, 0.4);
-    camera.add(spotCameraLight);
+    var spotCameraLight = createSpotLight(0xffffff, 0.4, 4);
+    scene.add(spotCameraLight);
+
+    var pointCamLight = createPointCameraLight(0xffffff, 0.5);
+    //camera.add(pointCamLight);
+
+
 
 
 
@@ -70,6 +75,10 @@ function init() {
     var greyMaterial = new THREE.MeshStandardMaterial({ color: 0xcccccc, metalness: 0.1, roughness: 0.4 });
     var redMaterial = new THREE.MeshStandardMaterial({ color: 0xff0000, metalness: 0, roughness: 0.3 });
     var greenMaterial = new THREE.MeshStandardMaterial({ color: 0x00ff00, metalness: 0, roughness: 0.3 });
+
+    //Shadow catcher Material
+    var shadowMaterial = new THREE.ShadowMaterial();
+    shadowMaterial.opacity = 0.3; //change the opacity to a bit map
 
 
     //RENDERER DESCRIPTION
@@ -90,7 +99,7 @@ function init() {
     scene.add(cube);
 
     //My plane
-    var plane = createPlane(3000);
+    var plane = createPlane(3000, shadowMaterial);
     scene.add(plane);
 
 
@@ -130,7 +139,7 @@ function createRenderer(clearColour) {
 
 //MY FUNCTIONS FOR CREATING LIGHTS
 //ambient Light
-function createAmbient(intensity) {
+function createAmbientLight(intensity) {
     var ambientL = new THREE.AmbientLight(0xffffff); // soft white light
     ambientL.intensity = intensity;
 
@@ -138,16 +147,25 @@ function createAmbient(intensity) {
 }
 
 //spotLight added to the camera
-function createSpotCamera(color, intensity) {
+function createSpotLight(color, intensity, radius) {
     var spotL = new THREE.SpotLight(color, intensity);
 
-    //spotL.castShadow = true;
+    spotL.castShadow = true;
+    spotL.shadow.radius = radius;
     spotL.distance = 1500;
     spotL.shadow.mapSize.width = 1024 * 2;
     spotL.shadow.mapSize.height = 1024 * 2;
     spotL.position.set(-140, 100, -220);
 
     return spotL;
+}
+
+//point Light attached to Camera 
+function createPointCameraLight(color, intensity) {
+    var pointL = new THREE.PointLight(color, intensity);
+    pointL.position.set(300, 200, 0);
+
+    return pointL;
 }
 
 
@@ -167,17 +185,11 @@ function createCube(size, material) {
 }
 
 //Shadow Plane 
-function createPlane(size) {
+function createPlane(size, material) {
     var planeGeometry = new THREE.PlaneGeometry(size, size);
     planeGeometry.rotateX(-Math.PI / 2);
 
-    // //Shadow catcher Material
-    // var planeMaterial = new THREE.ShadowMaterial();
-    // planeMaterial.opacity = 0.3; //change the opacity to a bit map
-
-    var planeMaterial = new THREE.MeshLambertMaterial({ color: 0xdddddd });
-
-    var plane = new THREE.Mesh(planeGeometry, planeMaterial);
+    var plane = new THREE.Mesh(planeGeometry, material);
     plane.position.y = -48;
     plane.receiveShadow = true;
 
@@ -220,6 +232,7 @@ function loadObject(objPath, material) {
         object.traverse(function(child) {
             if (child instanceof THREE.Mesh) {
                 child.material = material;
+                child.castShadow = true;
             }
         });
 
