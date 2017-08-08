@@ -1,6 +1,9 @@
 if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
 var camera, scene, renderer;
+var controls;
+var background;
+var cube; // has to be declared as global var 
 
 init();
 animate();
@@ -8,17 +11,14 @@ animate();
 function init() {
 
 
-
-	//Origin Camera 
-    // camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 5000);
-    // camera.position.z = 2000;
-
+	// CAMERA DESCRIPTION
     //My camera
     camera = new THREE.PerspectiveCamera(30, 4 / 3, 2, 5000);
     camera.position.z = 600;
     //camera.position.y = 140;
 
 
+    //CUBEMAP DESCRIPTION 
     //My CubeMap
     var path = "cubemap/";
     var format = '.jpg';
@@ -33,10 +33,11 @@ function init() {
 
 
     scene = new THREE.Scene();
-    scene.background = reflectionCube;
+    //scene.background = reflectionCube;
+    background = reflectionCube;
 
 
-    // LIGHTS
+    // LIGHTS DESCRIPTION
 
     var ambient = new THREE.AmbientLight(0xffffff);
     scene.add(ambient);
@@ -44,25 +45,9 @@ function init() {
     pointLight = new THREE.PointLight(0xffffff, 2);
     scene.add(pointLight);
 
-    // light representation
-
-    //My Gold Materia 
-    var goldMaterial = new THREE.MeshStandardMaterial({
-        color: 0xffffff,
-        envMap: scene.background,
-        metalness: 1,
-        roughness: 0.4
-    });
-
-
-    // //Initial Sphere
-    // var sphere = new THREE.SphereGeometry(100, 16, 8);
-    // var mesh = new THREE.Mesh(sphere, goldMaterial);
-    // mesh.scale.set(0.5, 0.5, 0.5);
-    // pointLight.add(mesh);
 
     //My cube
-    var cube = createCube(100);
+    cube = createCube(50);
     scene.add( cube );
 
     function createCube(size) {
@@ -74,56 +59,46 @@ function init() {
     }
 
 
-    var refractionCube = new THREE.CubeTextureLoader().load(urls);
-    refractionCube.mapping = THREE.CubeRefractionMapping;
-    refractionCube.format = THREE.RGBFormat;
+    // REFRACTION CUBE
+    // var refractionCube = new THREE.CubeTextureLoader().load(urls);
+    // refractionCube.mapping = THREE.CubeRefractionMapping;
+    // refractionCube.format = THREE.RGBFormat;
 
-    //var cubeMaterial3 = new THREE.MeshPhongMaterial( { color: 0x000000, specular:0xaa0000, envMap: reflectionCube, combine: THREE.MixOperation, reflectivity: 0.25 } );
-    var cubeMaterial3 = new THREE.MeshLambertMaterial({ color: 0xff6600, envMap: reflectionCube, combine: THREE.MixOperation, reflectivity: 0.3 });
-    var cubeMaterial2 = new THREE.MeshLambertMaterial({ color: 0xffee00, envMap: refractionCube, refractionRatio: 0.95 });
-    var cubeMaterial1 = new THREE.MeshLambertMaterial({ color: 0xffffff, envMap: reflectionCube });
 
-    //
+    //MATERIALS DESCRIPTIONS
 
-    // renderer = new THREE.WebGLRenderer();
-    // renderer.setPixelRatio(window.devicePixelRatio);
-    // renderer.setSize(window.innerWidth, window.innerHeight);
-    // container.appendChild(renderer.domElement);
+    //My Gold Materia 
+    var goldMaterial = new THREE.MeshStandardMaterial({
+        color: 0xffffff,
+        envMap: background,
+        metalness: 1,
+        roughness: 0.4
+    });
 
-    //
+
+    //RENDERER DESCRIPTION
 
     //My Renderer 
     renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.shadowMap.enabled = true; //enabling shadow maps in the renderer
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-    //renderer.setClearColor( 0xdddddd, 1 );
-    renderer.setClearColor( 0x000000, 1 );  //darker clear colour
+    renderer.setClearColor( 0xdddddd, 1 );
+    //renderer.setClearColor( 0x000000, 1 );  //darker clear colour
     renderer.setSize(window.innerWidth, window.innerHeight);
     var parent = document.getElementById('canvasContainer');
     parent.appendChild(renderer.domElement);
+
+    //Controls
+    controls = new THREE.OrbitControls(camera, renderer.domElement);
 
 
 
     // loader = new THREE.BinaryLoader();
     // loader.load("obj/walt/WaltHead_bin.js", function(geometry) { createScene(geometry, cubeMaterial1, cubeMaterial2, cubeMaterial3) });
 
-    //
-
-    window.addEventListener('resize', onWindowResize, false);
-
 }
 
-function onWindowResize() {
 
-    windowHalfX = window.innerWidth / 2;
-    windowHalfY = window.innerHeight / 2;
-
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-
-    renderer.setSize(window.innerWidth, window.innerHeight);
-
-}
 
 function createScene(geometry, m1, m2, m3) {
 
@@ -149,18 +124,12 @@ function createScene(geometry, m1, m2, m3) {
 
 }
 
-function onDocumentMouseMove(event) {
-
-    mouseX = (event.clientX - windowHalfX) * 4;
-    mouseY = (event.clientY - windowHalfY) * 4;
-
-}
-
-//
-
 function animate() {
 
     requestAnimationFrame(animate);
+
+    cube.rotation.x += 0.01;
+	cube.rotation.y += 0.01;
 
     render();
 
@@ -172,11 +141,6 @@ function render() {
 
     pointLight.position.x = 1500 * Math.cos(timer);
     pointLight.position.z = 1500 * Math.sin(timer);
-
-    // camera.position.x += (mouseX - camera.position.x) * .05;
-    // camera.position.y += (-mouseY - camera.position.y) * .05;
-
-    camera.lookAt(scene.position);
 
     renderer.render(scene, camera);
 
