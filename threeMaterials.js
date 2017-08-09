@@ -33,6 +33,7 @@ var loadMaterials = function() {
     createLSNmany(materials);
     createLSUmany(materials);
     createMLmany(materials);
+    createMRmany(materials);
 
     return materials;
 }
@@ -191,7 +192,7 @@ function createLSNMat(diffuse, bump, repeat) {
 }
 
 
-//LSN Mat
+//LSU Mat
 function createLSUMat(diffuse) {
     var diff = texLoader.load(diffuse);
     var bump = texLoader.load('tex/LSU-metalness.jpg');
@@ -220,6 +221,22 @@ function createMLmat(color) {
         color: color,
         metalness: 0.48,
         roughness: 0.52,
+    });
+
+    return mat;
+}
+
+//MIRROR Leather Mat
+function createMRmat(color) {
+    var bump = texLoader.load('tex/ML-bump.jpg');
+    repeatTex(bump, 1.2);
+    var mat = new THREE.MeshStandardMaterial({
+        bumpMap: bump,
+        bumpScale: 0.1,
+        color: color,
+        envMap: background,
+        metalness: 0.7,
+        roughness: 0.3,
     });
 
     return mat;
@@ -327,4 +344,10 @@ function createLHmany(materials) {
     materials.matLH35 = createLHmat(0x2A855F);
     materials.matLH36 = createLHmat(0x4A8A77);
     materials.matLH37 = createLHmat(0x92D1C1);
+}
+
+function createMRmany(materials) {
+    materials.matMR01 = createMRmat(0xCCCCCC);
+    materials.matMR02 = createMRmat(0xdfcd77);
+    materials.matMR03 = createMRmat(0xf4b196);
 }
