@@ -34,6 +34,7 @@ var loadMaterials = function() {
     createLSUmany(materials);
     createMLmany(materials);
     createMRmany(materials);
+    createMSmany(materials)
 
     return materials;
 }
@@ -243,6 +244,22 @@ function createMRmat(color) {
 }
 
 
+//Metallic Snake Mat
+function createMSmat(color) {
+    var bump = texLoader.load('tex/SN-bump.jpg');
+    repeatTex(bump, 6);
+    var mat = new THREE.MeshStandardMaterial({
+        bumpMap: bump,
+        bumpScale: 0.3,
+        color: color,
+        metalness: 0.48,
+        roughness: 0.52,
+    });
+
+    return mat;
+}
+
+
 
 
 
@@ -306,21 +323,6 @@ function createLSUmany(materials) {
 }
 
 
-
-function createMLmany(materials) {
-    materials.matML01 = createMLmat(0x807B73);
-    materials.matML02 = createMLmat(0xBDBCBC);
-    materials.matML03 = createMLmat(0xCCBA95);
-    materials.matML05 = createMLmat(0x73593F);
-    materials.matML06 = createMLmat(0x3B1B12);
-    materials.matML08 = createMLmat(0xC9178C);
-    materials.matML09 = createMLmat(0x591434);
-    materials.matML10 = createMLmat(0x1C5061);
-    materials.matML11 = createMLmat(0x008F85);
-    materials.matML12 = createMLmat(0x197A0A);
-}
-
-//create many global LH variables 
 function createLHmany(materials) {
     materials.matLH01 = createLHmat(0x0222222);
     materials.matLH02 = createLHmat(0x3B3B3B);
@@ -346,8 +348,34 @@ function createLHmany(materials) {
     materials.matLH37 = createLHmat(0x92D1C1);
 }
 
+function createMLmany(materials) {
+    materials.matML01 = createMLmat(0x807B73);
+    materials.matML02 = createMLmat(0xBDBCBC);
+    materials.matML03 = createMLmat(0xCCBA95);
+    materials.matML05 = createMLmat(0x73593F);
+    materials.matML06 = createMLmat(0x3B1B12);
+    materials.matML08 = createMLmat(0xC9178C);
+    materials.matML09 = createMLmat(0x591434);
+    materials.matML10 = createMLmat(0x1C5061);
+    materials.matML11 = createMLmat(0x008F85);
+    materials.matML12 = createMLmat(0x197A0A);
+}
+
 function createMRmany(materials) {
     materials.matMR01 = createMRmat(0xCCCCCC);
     materials.matMR02 = createMRmat(0xdfcd77);
     materials.matMR03 = createMRmat(0xf4b196);
+}
+
+function createMSmany(materials) {
+    materials.matMS01 = createMSmat(0x807B73);
+    materials.matMS02 = createMSmat(0xBDBCBC);
+    materials.matMS03 = createMSmat(0xCCBA95);
+    materials.matMS05 = createMSmat(0x73593F);
+    materials.matMS06 = createMSmat(0x3B1B12);
+    materials.matMS08 = createMSmat(0xC9178C);
+    materials.matMS09 = createMSmat(0x591434);
+    materials.matMS10 = createMSmat(0x1C5061);
+    materials.matMS11 = createMSmat(0x008F85);
+    materials.matMS12 = createMSmat(0x197A0A);
 }
