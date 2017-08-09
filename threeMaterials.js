@@ -34,7 +34,8 @@ var loadMaterials = function() {
     createLSUmany(materials);
     createMLmany(materials);
     createMRmany(materials);
-    createMSmany(materials)
+    createMSmany(materials);
+    createLSUmany(materials);
 
     return materials;
 }
@@ -259,6 +260,25 @@ function createMSmat(color) {
     return mat;
 }
 
+//PSU Mat
+function createLSUmat() {
+    var diff = texLoader.load('tex/PSU-01-diffuse.jpg');
+    repeatTex(diff, 2.5);  
+    var bump = texLoader.load('tex/PSU-spec.jpg');
+    repeatTex(bump, 2.5);
+    var roughnessM = texLoader.load('tex/PSU-roughness.jpg');
+    repeatTex(roughnessM, 2.5);
+    var mat = new THREE.MeshStandardMaterial({
+        bumpMap: bump,
+        bumpScale: -0.2,
+        map: diff,
+        roughness: 0.9,
+        roughnessMap : roughnessM,
+    });
+
+    return mat;
+}
+
 
 
 
@@ -378,4 +398,8 @@ function createMSmany(materials) {
     materials.matMS10 = createMSmat(0x1C5061);
     materials.matMS11 = createMSmat(0x008F85);
     materials.matMS12 = createMSmat(0x197A0A);
+}
+
+function createLSUmany(materials) {
+    materials.matLSU01 = createLSUmat();
 }
