@@ -37,15 +37,16 @@ var loadMaterials = function() {
     createMSmany(materials);
     createLSUmany(materials);
     createPTmany(materials);
+    createSNmany(materials)
 
     return materials;
 }
 
-console.log(loadMaterials());
+console.log(loadmaterials());
 
 
 
-//Complex Materials
+//Complex materials
 function repeatTex(mapName, repeat) {
     mapName.wrapS = THREE.RepeatWrapping;
     mapName.wrapT = THREE.RepeatWrapping;
@@ -53,7 +54,7 @@ function repeatTex(mapName, repeat) {
 };
 
 
-//Basic Mat
+//Basic mat
 function createBASICmat(color, metalness, roughness, matEnvMap) {
     var mat = new THREE.MeshStandardMaterial({ 
         color: color, 
@@ -65,8 +66,8 @@ function createBASICmat(color, metalness, roughness, matEnvMap) {
     return mat;
 }
 
-//Animal Prints Mat
-function createAPMat(diffuse, repeat) {
+//Animal Prints mat
+function createAPmat(diffuse, repeat) {
     var diff = texLoader.load(diffuse);
     repeatTex(diff, repeat);
     var bump = texLoader.load('tex/AP-bump.jpg');
@@ -82,8 +83,8 @@ function createAPMat(diffuse, repeat) {
     return mat;
 }
 
-//El Mat
-function createELMat(diffuse, bump, intensity) {
+//El mat
+function createELmat(diffuse, bump, intensity) {
     var diff = texLoader.load(diffuse);
     repeatTex(diff, 8);
     var bump = texLoader.load(bump);
@@ -99,8 +100,8 @@ function createELMat(diffuse, bump, intensity) {
     return mat;
 }
 
-//Fish Mat
-function createLFSMat(color) {
+//Fish mat
+function createLFSmat(color) {
     var bump = texLoader.load('tex/LFS-bump.jpg');
     repeatTex(bump, 15);
     var normal = texLoader.load('tex/LFS-normal.png');
@@ -121,8 +122,8 @@ function createLFSMat(color) {
     return mat;
 }
 
-//Glitter Suede Mat
-function createLGSMat(color) {
+//Glitter Suede mat
+function createLGSmat(color) {
     var bump = texLoader.load('tex/SU-bump.jpg');
     repeatTex(bump, 24);
     var metalnessM = texLoader.load('tex/LGS-reflection.jpg');
@@ -141,8 +142,8 @@ function createLGSMat(color) {
     return mat;
 }
 
-//LLH Mat
-function createLLHMat() {
+//LLH mat
+function createLLHmat() {
     var diff = texLoader.load('tex/LLH-01_diff.jpg');
     repeatTex(diff, 1.2);
     var mat = new THREE.MeshStandardMaterial({
@@ -158,7 +159,7 @@ function createLLHMat() {
 }
 
 
-//Leather Mat
+//Leather mat
 function createLHmat(color) {
     var bump = texLoader.load('tex/LH-bump.jpg');
     repeatTex(bump, 1);
@@ -173,8 +174,8 @@ function createLHmat(color) {
     return mat;
 }
 
-//LSN Mat
-function createLSNMat(diffuse, bump, repeat) {
+//LSN mat
+function createLSNmat(diffuse, bump, repeat) {
     var diff = texLoader.load(diffuse);
     repeatTex(diff, repeat);
     var bump = texLoader.load(bump);
@@ -195,8 +196,8 @@ function createLSNMat(diffuse, bump, repeat) {
 }
 
 
-//LSU Mat
-function createLSUMat(diffuse) {
+//LSU mat
+function createLSUmat(diffuse) {
     var diff = texLoader.load(diffuse);
     var bump = texLoader.load('tex/LSU-metalness.jpg');
     var roughnessM = texLoader.load('tex/LSU-roughness.jpg');
@@ -214,7 +215,7 @@ function createLSUMat(diffuse) {
     return mat;
 }
 
-//Metallic Leather Mat
+//Metallic Leather mat
 function createMLmat(color) {
     var bump = texLoader.load('tex/ML-bump.jpg');
     repeatTex(bump, 1.2);
@@ -229,7 +230,7 @@ function createMLmat(color) {
     return mat;
 }
 
-//MIRROR Leather Mat
+//MIRROR Leather mat
 function createMRmat(color) {
     var bump = texLoader.load('tex/ML-bump.jpg');
     repeatTex(bump, 1.2);
@@ -246,7 +247,7 @@ function createMRmat(color) {
 }
 
 
-//Metallic Snake Mat
+//Metallic Snake mat
 function createMSmat(color) {
     var bump = texLoader.load('tex/SN-bump.jpg');
     repeatTex(bump, 6);
@@ -261,7 +262,7 @@ function createMSmat(color) {
     return mat;
 }
 
-//PSU Mat
+//PSU mat
 function createLSUmat() {
     var diff = texLoader.load('tex/PSU-01-diffuse.jpg');
     repeatTex(diff, 2.5);  
@@ -280,7 +281,7 @@ function createLSUmat() {
     return mat;
 }
 
-//Patent Mat
+//Patent mat
 function createPTmat(color) {
     var bump = texLoader.load('tex/PT-bump.jpg');
     repeatTex(bump, 2.5);
@@ -296,7 +297,21 @@ function createPTmat(color) {
     return mat;
 }
 
+//SN mat
+function createSNmat(diffuse, bump, repeatD, repeatB) {
+    var diff = texLoader.load(diffuse);
+    repeatTex(diff, repeatD);  
+    var bump = texLoader.load(bump);
+    repeatTex(bump, repeatB);
+    var mat = new THREE.MeshStandardMaterial({
+        bumpMap: bump,
+        bumpScale: 0.2,
+        map: diff,
+        roughness: 0.6,
+    });
 
+    return mat;
+}
 
 
 
@@ -313,49 +328,49 @@ function createBASICmany(materials) {
 }
 
 function createAPmany(materials) {
-    materials.matAP03 = createAPMat('tex/AP-03-diff.jpg', 2.2);
-    materials.matAP05 = createAPMat('tex/AP-05-diff.jpg', 2.4);
-    materials.matAP06 = createAPMat('tex/AP-06-diff.jpg', 1.8);
-    materials.matAP09 = createAPMat('tex/AP-09-diff.jpg', 2.8);
+    materials.matAP03 = createAPmat('tex/AP-03-diff.jpg', 2.2);
+    materials.matAP05 = createAPmat('tex/AP-05-diff.jpg', 2.4);
+    materials.matAP06 = createAPmat('tex/AP-06-diff.jpg', 1.8);
+    materials.matAP09 = createAPmat('tex/AP-09-diff.jpg', 2.8);
 }
 
 function createELmany(materials) {
-    materials.matEL01 = createELMat('tex/EL-01-diff.jpg', 'tex/EL-01-bump.jpg', -0.4);
-    materials.matEL02 = createELMat('tex/EL-02-diff.jpg', 'tex/EL-01-bump.jpg', -0.4);
-    materials.matEL03 = createELMat('tex/EL-03-diff.jpg', 'tex/EL-03-bump.jpg', 0.4);
+    materials.matEL01 = createELmat('tex/EL-01-diff.jpg', 'tex/EL-01-bump.jpg', -0.4);
+    materials.matEL02 = createELmat('tex/EL-02-diff.jpg', 'tex/EL-01-bump.jpg', -0.4);
+    materials.matEL03 = createELmat('tex/EL-03-diff.jpg', 'tex/EL-03-bump.jpg', 0.4);
 }
 
 function createLFSmany(materials) {
-    materials.matLFS01 = createLFSMat(0x202957);
-    materials.matLFS02 = createLFSMat(0x0C6C74);
-    materials.matLFS03 = createLFSMat(0xB87B98);
+    materials.matLFS01 = createLFSmat(0x202957);
+    materials.matLFS02 = createLFSmat(0x0C6C74);
+    materials.matLFS03 = createLFSmat(0xB87B98);
 }
 
 function createLGSmany(materials) {
-    materials.matLGS01 = createLGSMat(0x461533);
-    materials.matLGS02 = createLGSMat(0x2C2C2C);
-    materials.matLGS04 = createLGSMat(0x192923);
-    materials.matLGS05 = createLGSMat(0x322C34);
-    materials.matLGS06 = createLGSMat(0x300C0D);
-    materials.matLGS10 = createLGSMat(0x151F34);
-    materials.matLGS11 = createLGSMat(0x061F1F);
+    materials.matLGS01 = createLGSmat(0x461533);
+    materials.matLGS02 = createLGSmat(0x2C2C2C);
+    materials.matLGS04 = createLGSmat(0x192923);
+    materials.matLGS05 = createLGSmat(0x322C34);
+    materials.matLGS06 = createLGSmat(0x300C0D);
+    materials.matLGS10 = createLGSmat(0x151F34);
+    materials.matLGS11 = createLGSmat(0x061F1F);
 }
 
 function createLLHmany(materials) {
-    materials.matLLH01 = createLLHMat();
+    materials.matLLH01 = createLLHmat();
 }
 
 function createLSNmany(materials) {
-    materials.matLSN01 = createLSNMat('tex/LSN-01-main.jpg', 'tex/LSN-01-stencil.jpg', 2.8);
-    materials.matLSN02 = createLSNMat('tex/LSN-02-main.jpg', 'tex/LSN-01-stencil.jpg', 2.8);
-    materials.matLSN03 = createLSNMat('tex/LSN-03-main.jpg', 'tex/LSN-01-stencil.jpg', 2.8);
-    materials.matLSN04 = createLSNMat('tex/LSN-04-diffuse.jpg', 'tex/LSN-04 bump.jpg', 4.5);
-    materials.matLSN08 = createLSNMat('tex/LSN-08-DIFF.jpg', 'tex/LSN-08 bump.jpg', 4.5);
+    materials.matLSN01 = createLSNmat('tex/LSN-01-main.jpg', 'tex/LSN-01-stencil.jpg', 2.8);
+    materials.matLSN02 = createLSNmat('tex/LSN-02-main.jpg', 'tex/LSN-01-stencil.jpg', 2.8);
+    materials.matLSN03 = createLSNmat('tex/LSN-03-main.jpg', 'tex/LSN-01-stencil.jpg', 2.8);
+    materials.matLSN04 = createLSNmat('tex/LSN-04-diffuse.jpg', 'tex/LSN-04 bump.jpg', 4.5);
+    materials.matLSN08 = createLSNmat('tex/LSN-08-DIFF.jpg', 'tex/LSN-08 bump.jpg', 4.5);
 }
 
 function createLSUmany(materials) {
-    materials.matLSU01 = createLSUMat('tex/LSU-silver-diff.jpg');
-    materials.matLSU02 = createLSUMat('tex/LSU-silver-diff.jpg'); 
+    materials.matLSU01 = createLSUmat('tex/LSU-silver-diff.jpg');
+    materials.matLSU02 = createLSUmat('tex/LSU-silver-diff.jpg'); 
 }
 
 
@@ -432,3 +447,11 @@ function createPTmany(materials) {
     materials.matPT11 = createPTmat(0x008F85);
     materials.matPT12 = createPTmat(0x197A0A);
 }
+
+function createSNmany(materials) {
+    materials.matSN06 = createSNmat('tex/SN-06_diffuse.jpg', 'tex/SN-bump.jpg', 8.4, 8);
+    materials.matSN23 = createSNmat('tex/SN-23-diffuse.jpg', 'tex/SN-bump.jpg', 5, 8);
+    materials.matSN24 = createSNmat('tex/SN-24-diffuse.jpg', 'tex/SN-bump.jpg', 5, 8);
+    materials.matSN27 = createSNmat('tex/SN-27-diffuse.jpg', 'tex/SN-bump.jpg', 5, 8);
+}
+
