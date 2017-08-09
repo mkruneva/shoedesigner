@@ -36,6 +36,7 @@ var loadMaterials = function() {
     createMRmany(materials);
     createMSmany(materials);
     createLSUmany(materials);
+    createPTmany(materials);
 
     return materials;
 }
@@ -53,15 +54,15 @@ function repeatTex(mapName, repeat) {
 
 
 //Basic Mat
-function createBasicMat(matColor, matMetalness, matRoughness, matEnvMap) {
-    var basicMaterial = new THREE.MeshStandardMaterial({ 
-        color: matColor, 
-        metalness: matMetalness, 
-        roughness: matRoughness 
+function createBASICmat(color, metalness, roughness, matEnvMap) {
+    var mat = new THREE.MeshStandardMaterial({ 
+        color: color, 
+        metalness: metalness, 
+        roughness: roughness 
     });
-    basicMaterial.envMap = matEnvMap;
+    mat.envMap = matEnvMap;
 
-    return basicMaterial;
+    return mat;
 }
 
 //Animal Prints Mat
@@ -279,23 +280,38 @@ function createLSUmat() {
     return mat;
 }
 
+//Patent Mat
+function createPTmat(color) {
+    var bump = texLoader.load('tex/PT-bump.jpg');
+    repeatTex(bump, 2.5);
+    var mat = new THREE.MeshStandardMaterial({ 
+        bumpMap: bump,
+        bumpScale: -0.2,
+        color: color, 
+        envMap: background,
+        metalness: 0.01, 
+        roughness: 0.23 
+    });
 
-
-
-
-
-
-
-
-function createBASICmany(materials) {
-    materials.matGrey = createBasicMat(0x787878, 0, 0.7);
-    materials.matDarkGrey = createBasicMat(0x585858, 0, 0.7);
-    materials.matChrome = createBasicMat(0xffffff, 1, 0.4, background);
-    materials.matRed = createBasicMat(0xff0000, 0, 0.3);
+    return mat;
 }
 
 
+
+
+
+
+
+
 //CREATE MANY FUNCTIONS
+
+function createBASICmany(materials) {
+    materials.matGrey = createBASICmat(0x787878, 0, 0.7);
+    materials.matDarkGrey = createBASICmat(0x585858, 0, 0.7);
+    materials.matChrome = createBASICmat(0xffffff, 1, 0.4, background);
+    materials.matRed = createBASICmat(0xff0000, 0, 0.3);
+}
+
 function createAPmany(materials) {
     materials.matAP03 = createAPMat('tex/AP-03-diff.jpg', 2.2);
     materials.matAP05 = createAPMat('tex/AP-05-diff.jpg', 2.4);
@@ -402,4 +418,17 @@ function createMSmany(materials) {
 
 function createLSUmany(materials) {
     materials.matLSU01 = createLSUmat();
+}
+
+function createPTmany(materials) {
+    materials.matPT01 = createPTmat(0x807B73);
+    materials.matPT02 = createPTmat(0xBDBCBC);
+    materials.matPT03 = createPTmat(0xCCBA95);
+    materials.matPT05 = createPTmat(0x73593F);
+    materials.matPT06 = createPTmat(0x3B1B12);
+    materials.matPT08 = createPTmat(0xC9178C);
+    materials.matPT09 = createPTmat(0x591434);
+    materials.matPT10 = createPTmat(0x1C5061);
+    materials.matPT11 = createPTmat(0x008F85);
+    materials.matPT12 = createPTmat(0x197A0A);
 }
