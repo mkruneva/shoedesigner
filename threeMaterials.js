@@ -24,14 +24,16 @@ var texLoader = new THREE.TextureLoader(); //global
 var loadMaterials = function() {
     var materials = {};
     createBASICmany(materials);
-    createLHmany(materials);
-    createMLmany(materials);
     createAPmany(materials);
     createELmany(materials);
     createLFSmany(materials);
     createLGSmany(materials);
     createLLHmany(materials);
+    createLHmany(materials);
     createLSNmany(materials);
+    createLSUmany(materials);
+    createMLmany(materials);
+
     return materials;
 }
 
@@ -135,7 +137,7 @@ function createLGSMat(color) {
     return mat;
 }
 
-//Glitter Suede Mat
+//LLH Mat
 function createLLHMat() {
     var diff = texLoader.load('tex/LLH-01_diff.jpg');
     repeatTex(diff, 1.2);
@@ -151,12 +153,30 @@ function createLLHMat() {
     return mat;
 }
 
+
+//Leather Mat
+function createLHmat(color) {
+    var bump = texLoader.load('tex/LH-bump.jpg');
+    repeatTex(bump, 1);
+    var mat = new THREE.MeshStandardMaterial({
+        bumpMap: bump,
+        bumpScale: 0.08,
+        color: color,
+        metalness: 0.05,
+        roughness: 0.46,
+    });
+
+    return mat;
+}
+
 //LSN Mat
 function createLSNMat(diffuse, bump, repeat) {
     var diff = texLoader.load(diffuse);
     repeatTex(diff, repeat);
     var bump = texLoader.load(bump);
     repeatTex(bump, repeat);
+    var metalnessM = texLoader.load('tex/LGS-reflection.jpg');
+    repeatTex(metalnessM, 24);
     var mat = new THREE.MeshStandardMaterial({
         bumpMap: bump,
         bumpScale: -0.3,
@@ -170,16 +190,21 @@ function createLSNMat(diffuse, bump, repeat) {
     return mat;
 }
 
-//Leather Mat
-function createLHmat(color) {
-    var bump = texLoader.load('tex/LH-bump.jpg');
-    repeatTex(bump, 1);
+
+//LSN Mat
+function createLSUMat(diffuse) {
+    var diff = texLoader.load(diffuse);
+    var bump = texLoader.load('tex/LSU-metalness.jpg');
+    var roughnessM = texLoader.load('tex/LSU-roughness.jpg');
     var mat = new THREE.MeshStandardMaterial({
         bumpMap: bump,
         bumpScale: 0.08,
-        color: color,
-        metalness: 0.05,
-        roughness: 0.46,
+        color: 0x666666,
+        map: diff,
+        // metalness: 0.2,
+        // metalnessMap : metalnessM,
+        roughness: 0.65,
+        roughnessMap : roughnessM,
     });
 
     return mat;
@@ -199,6 +224,14 @@ function createMLmat(color) {
 
     return mat;
 }
+
+
+
+
+
+
+
+
 
 function createBASICmany(materials) {
     materials.matGrey = createBasicMat(0x787878, 0, 0.7);
@@ -249,6 +282,13 @@ function createLSNmany(materials) {
     materials.matLSN04 = createLSNMat('tex/LSN-04-diffuse.jpg', 'tex/LSN-04 bump.jpg', 4.5);
     materials.matLSN08 = createLSNMat('tex/LSN-08-DIFF.jpg', 'tex/LSN-08 bump.jpg', 4.5);
 }
+
+function createLSUmany(materials) {
+    materials.matLSU01 = createLSUMat('tex/LSU-silver-diff.jpg');
+    materials.matLSU02 = createLSUMat('tex/LSU-silver-diff.jpg'); 
+}
+
+
 
 function createMLmany(materials) {
     materials.matML01 = createMLmat(0x807B73);

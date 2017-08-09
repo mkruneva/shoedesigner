@@ -65,7 +65,7 @@ function init() {
         materials: materials
     };
 
-    loadObject(objPathName, materials.matGrey, materials.matDarkGrey);
+    loadObject(objPathName, materials.matLSU01, materials.matDarkGrey);
 
 
     //GEOMETRY
