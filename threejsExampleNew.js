@@ -19,7 +19,6 @@ function init() {
     scene = new THREE.Scene();
 
     // CAMERA DESCRIPTION
-    //My camera
     camera = new THREE.PerspectiveCamera(30, 4 / 3, 2, 5000);
     camera.position.z = 600;
     camera.position.y = 140;
@@ -44,17 +43,7 @@ function init() {
     var pointCamLight = createPointCameraLight(0xffffff, 1);
 
 
-    //MY MATERIALS DESCRIPTIONS
-    var chromeMaterial = createBasicStandardMat(0xffffff, 1, 0.4, background);
-    var greyMaterial = createBasicStandardMat(0xcccccc, 0.1, 0.4);
-    var redMaterial = createBasicStandardMat(0xff0000, 0, 0.3);
-
-    //Shadow catcher Material
-    var shadowMaterial = new THREE.ShadowMaterial();
-    shadowMaterial.opacity = 0.36; //change the opacity to a bit map
-
     //Materials loaded in threeMaterials.js 
-
 
 
     //RENDERER DESCRIPTION
@@ -68,48 +57,51 @@ function init() {
 
     //OBJ LOADER
 
+    var materials = loadMaterials();
+
     //Loading obj
     window.objectContainer = {
-        loadObject: loadObject
+        loadObject: loadObject,
+        materials: materials
     };
 
-    loadObject(objPathName, matLSN01);
+    loadObject(objPathName, materials.matGrey);
 
 
     //GEOMETRY
-    var plane = createPlane(3000, shadowMaterial);
+    var plane = createPlane(3000);
     scene.add(plane);
 
 
-    // //GUI
-    var gui = new dat.GUI();
-    var props = {
-        hideBars: false,
-        depthZ_Fraction: 0.015,
-        barColor: '#222222',
-        barDirection: 'Vertical'
-    };
+    // // //GUI
+    // var gui = new dat.GUI();
+    // var props = {
+    //     hideBars: false,
+    //     depthZ_Fraction: 0.015,
+    //     barColor: '#222222',
+    //     barDirection: 'Vertical'
+    // };
 
-    var sLight = gui.addFolder('spot light');
-    sLight.add(spotLightFront, 'intensity', 0, 3);
-    sLight.add(spotLightFront.position, 'x', -500, 500);
-    sLight.add(spotLightFront.position, 'y', -500, 500);
-    sLight.add(spotLightFront.position, 'z', -500, 500);
-    sLight.add(spotLightFront, 'penumbra', 0, 1);
+    // var sLight = gui.addFolder('spot light');
+    // sLight.add(spotLightFront, 'intensity', 0, 3);
+    // sLight.add(spotLightFront.position, 'x', -500, 500);
+    // sLight.add(spotLightFront.position, 'y', -500, 500);
+    // sLight.add(spotLightFront.position, 'z', -500, 500);
+    // sLight.add(spotLightFront, 'penumbra', 0, 1);
 
-    var lhMat = gui.addFolder('leather material');
-    lhMat.add(matML01, 'roughness', 0, 1);
-    lhMat.add(matML01, 'metalness', 0, 1);
-    lhColorCtrl =
-        lhMat.addColor(props, 'barColor')
-        .name('Leather Color')
-        .listen();
-    lhColorCtrl.onChange(
-        function(colorValue) {
-            colorValue = colorValue.replace('#', '0x');
-            //set the color in the object
-            matML01.color.setHex(colorValue);
-        });
+    // var lhMat = gui.addFolder('leather material');
+    // lhMat.add(matML01, 'roughness', 0, 1);
+    // lhMat.add(matML01, 'metalness', 0, 1);
+    // lhColorCtrl =
+    //     lhMat.addColor(props, 'barColor')
+    //     .name('Leather Color')
+    //     .listen();
+    // lhColorCtrl.onChange(
+    //     function(colorValue) {
+    //         colorValue = colorValue.replace('#', '0x');
+    //         //set the color in the object
+    //         matML01.color.setHex(colorValue);
+    //     });
 
 
 
@@ -199,10 +191,12 @@ function createCube(size, material) {
 }
 
 //Shadow Plane 
-function createPlane(size, material) {
+function createPlane(size) {
     var planeGeometry = new THREE.PlaneGeometry(size, size);
     planeGeometry.rotateX(-Math.PI / 2);
-    var plane = new THREE.Mesh(planeGeometry, material);
+    var shadowMaterial = new THREE.ShadowMaterial();
+    shadowMaterial.opacity = 0.36; //change the opacity to a bit map
+    var plane = new THREE.Mesh(planeGeometry, shadowMaterial);
     plane.position.y = objY + 1;
     plane.receiveShadow = true;
 

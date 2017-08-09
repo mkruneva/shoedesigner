@@ -14,29 +14,30 @@ reflectionCube.format = THREE.RGBFormat;
 background = reflectionCube;
 //scene.background = reflectionCube;
 
+var texLoader = new THREE.TextureLoader(); //global
+
 // REFRACTION CUBE
 // var refractionCube = new THREE.CubeTextureLoader().load(urls);
 // refractionCube.mapping = THREE.CubeRefractionMapping;
 // refractionCube.format = THREE.RGBFormat;
 
-
-var texLoader = new THREE.TextureLoader(); //global
-createLHmany();
-createMLmany();
-createAPmany();
-createELmany();
-createLFSmany();
-createLGSmany();
-createLLHmany();
-createLSNmany();
-
-//Basic Mat
-function createBasicStandardMat(matColor, matMetalness, matRoughness, matEnvMap) {
-    var basicMaterial = new THREE.MeshStandardMaterial({ color: matColor, metalness: matMetalness, roughness: matRoughness });
-    basicMaterial.envMap = matEnvMap;
-
-    return basicMaterial;
+var loadMaterials = function() {
+    var materials = {};
+    createBASICmany(materials);
+    createLHmany(materials);
+    createMLmany(materials);
+    createAPmany(materials);
+    createELmany(materials);
+    createLFSmany(materials);
+    createLGSmany(materials);
+    createLLHmany(materials);
+    createLSNmany(materials);
+    return materials;
 }
+
+console.log(loadMaterials());
+
+
 
 //Complex Materials
 function repeatTex(mapName, repeat) {
@@ -45,6 +46,18 @@ function repeatTex(mapName, repeat) {
     mapName.repeat.set(repeat, repeat);
 };
 
+
+//Basic Mat
+function createBasicMat(matColor, matMetalness, matRoughness, matEnvMap) {
+    var basicMaterial = new THREE.MeshStandardMaterial({ 
+        color: matColor, 
+        metalness: matMetalness, 
+        roughness: matRoughness 
+    });
+    basicMaterial.envMap = matEnvMap;
+
+    return basicMaterial;
+}
 
 //Animal Prints Mat
 function createAPMat(diffuse, repeat) {
@@ -94,7 +107,7 @@ function createLFSMat(color) {
         color: color,
         envMap: background,
         metalness: 0.5,
-        metalnessMap : metalnessM,
+        metalnessMap: metalnessM,
         normalMap: normal,
         roughness: 0.64,
     });
@@ -114,9 +127,9 @@ function createLGSMat(color) {
         color: color,
         envMap: background,
         metalness: 1,
-        metalnessMap : metalnessM,
+        metalnessMap: metalnessM,
         roughness: 0.8,
-        roughnessMap : metalnessM,
+        roughnessMap: metalnessM,
     });
 
     return mat;
@@ -187,85 +200,90 @@ function createMLmat(color) {
     return mat;
 }
 
-
-function createAPmany() {
-    matAP03 = createAPMat('tex/AP-03-diff.jpg', 2.2);
-    matAP05 = createAPMat('tex/AP-05-diff.jpg', 2.4);
-    matAP06 = createAPMat('tex/AP-06-diff.jpg', 1.8);
-    matAP09 = createAPMat('tex/AP-09-diff.jpg', 2.8);
-}
-
-function createELmany() {
-    matEL01 = createELMat('tex/EL-01-diff.jpg', 'tex/EL-01-bump.jpg', -0.4);
-    matEL02 = createELMat('tex/EL-02-diff.jpg', 'tex/EL-01-bump.jpg', -0.4);
-    matEL03 = createELMat('tex/EL-03-diff.jpg', 'tex/EL-03-bump.jpg', 0.4);
-}
-
-function createLFSmany() {
-    matLFS01 = createLFSMat(0x202957);
-    matLFS02 = createLFSMat(0x0C6C74);
-    matLFS03 = createLFSMat(0xB87B98);
-}
-
-function createLGSmany() {
-    matLGS01 = createLGSMat(0x461533);
-    matLGS02 = createLGSMat(0x2C2C2C);
-    matLGS04 = createLGSMat(0x192923);
-    matLGS05 = createLGSMat(0x322C34);
-    matLGS06 = createLGSMat(0x300C0D);
-    matLGS10 = createLGSMat(0x151F34);
-    matLGS11 = createLGSMat(0x061F1F);
-}
-
-function createLLHmany() {
-    matLLH01 = createLLHMat();
-}
-
-function createLSNmany() {
-    matLSN01 = createLSNMat('tex/LSN-01-main.jpg', 'tex/LSN-01-stencil.jpg', 2.8); 
-    matLSN02 = createLSNMat('tex/LSN-02-main.jpg', 'tex/LSN-01-stencil.jpg', 2.8);
-    matLSN03 = createLSNMat('tex/LSN-03-main.jpg', 'tex/LSN-01-stencil.jpg', 2.8);
-    matLSN04 = createLSNMat('tex/LSN-04-diffuse.jpg', 'tex/LSN-04 bump.jpg', 4.5);
-    matLSN08 = createLSNMat('tex/LSN-08-DIFF.jpg', 'tex/LSN-08 bump.jpg', 4.5);
+function createBASICmany(materials) {
+    materials.matGrey = createBasicMat(0x787878, 0, 0.7);
+    materials.matChrome = createBasicMat(0xffffff, 1, 0.4, background);
+    materials.matRed = createBasicMat(0xff0000, 0, 0.3);
 }
 
 
+//CREATE MANY FUNCTIONS
+function createAPmany(materials) {
+    materials.matAP03 = createAPMat('tex/AP-03-diff.jpg', 2.2);
+    materials.matAP05 = createAPMat('tex/AP-05-diff.jpg', 2.4);
+    materials.matAP06 = createAPMat('tex/AP-06-diff.jpg', 1.8);
+    materials.matAP09 = createAPMat('tex/AP-09-diff.jpg', 2.8);
+}
 
-function createMLmany() {
-    matML01 = createMLmat(0x807B73);
-    matML02 = createMLmat(0xBDBCBC);
-    matML03 = createMLmat(0xCCBA95);
-    matML05 = createMLmat(0x73593F);
-    matML06 = createMLmat(0x3B1B12);
-    matML08 = createMLmat(0xC9178C);
-    matML09 = createMLmat(0x591434);
-    matML10 = createMLmat(0x1C5061);
-    matML11 = createMLmat(0x008F85);
-    matML12 = createMLmat(0x197A0A);
+function createELmany(materials) {
+    materials.matEL01 = createELMat('tex/EL-01-diff.jpg', 'tex/EL-01-bump.jpg', -0.4);
+    materials.matEL02 = createELMat('tex/EL-02-diff.jpg', 'tex/EL-01-bump.jpg', -0.4);
+    materials.matEL03 = createELMat('tex/EL-03-diff.jpg', 'tex/EL-03-bump.jpg', 0.4);
+}
+
+function createLFSmany(materials) {
+    materials.matLFS01 = createLFSMat(0x202957);
+    materials.matLFS02 = createLFSMat(0x0C6C74);
+    materials.matLFS03 = createLFSMat(0xB87B98);
+}
+
+function createLGSmany(materials) {
+    materials.matLGS01 = createLGSMat(0x461533);
+    materials.matLGS02 = createLGSMat(0x2C2C2C);
+    materials.matLGS04 = createLGSMat(0x192923);
+    materials.matLGS05 = createLGSMat(0x322C34);
+    materials.matLGS06 = createLGSMat(0x300C0D);
+    materials.matLGS10 = createLGSMat(0x151F34);
+    materials.matLGS11 = createLGSMat(0x061F1F);
+}
+
+function createLLHmany(materials) {
+    materials.matLLH01 = createLLHMat();
+}
+
+function createLSNmany(materials) {
+    materials.matLSN01 = createLSNMat('tex/LSN-01-main.jpg', 'tex/LSN-01-stencil.jpg', 2.8);
+    materials.matLSN02 = createLSNMat('tex/LSN-02-main.jpg', 'tex/LSN-01-stencil.jpg', 2.8);
+    materials.matLSN03 = createLSNMat('tex/LSN-03-main.jpg', 'tex/LSN-01-stencil.jpg', 2.8);
+    materials.matLSN04 = createLSNMat('tex/LSN-04-diffuse.jpg', 'tex/LSN-04 bump.jpg', 4.5);
+    materials.matLSN08 = createLSNMat('tex/LSN-08-DIFF.jpg', 'tex/LSN-08 bump.jpg', 4.5);
+}
+
+function createMLmany(materials) {
+    materials.matML01 = createMLmat(0x807B73);
+    materials.matML02 = createMLmat(0xBDBCBC);
+    materials.matML03 = createMLmat(0xCCBA95);
+    materials.matML05 = createMLmat(0x73593F);
+    materials.matML06 = createMLmat(0x3B1B12);
+    materials.matML08 = createMLmat(0xC9178C);
+    materials.matML09 = createMLmat(0x591434);
+    materials.matML10 = createMLmat(0x1C5061);
+    materials.matML11 = createMLmat(0x008F85);
+    materials.matML12 = createMLmat(0x197A0A);
 }
 
 //create many global LH variables 
-function createLHmany() {
-    matLH01 = createLHmat(0x0222222);
-    matLH02 = createLHmat(0x3B3B3B);
-    matLH03 = createLHmat(0xD0CCCA);
-    matLH04 = createLHmat(0x9E7854);
-    matLH05 = createLHmat(0x803B1C);
-    matLH06 = createLHmat(0x33211B);
-    matLH07 = createLHmat(0x611522);
-    matLH08 = createLHmat(0x8A141A);
-    matLH09 = createLHmat(0x28223D);
-    matLH10 = createLHmat(0x4D1F40);
-    matLH12 = createLHmat(0xD74A3D);
-    matLH13 = createLHmat(0xC74828);
-    matLH16 = createLHmat(0x17212E);
-    matLH17 = createLHmat(0x008C89);
-    matLH21 = createLHmat(0xC2B3A3);
-    matLH22 = createLHmat(0xBFA093);
-    matLH23 = createLHmat(0xFA3E88);
-    matLH24 = createLHmat(0xE3C658);
-    matLH25 = createLHmat(0xA4B8BD);
-    matLH35 = createLHmat(0x2A855F);
-    matLH36 = createLHmat(0x4A8A77);
-    matLH37 = createLHmat(0x92D1C1);
+function createLHmany(materials) {
+    materials.matLH01 = createLHmat(0x0222222);
+    materials.matLH02 = createLHmat(0x3B3B3B);
+    materials.matLH03 = createLHmat(0xD0CCCA);
+    materials.matLH04 = createLHmat(0x9E7854);
+    materials.matLH05 = createLHmat(0x803B1C);
+    materials.matLH06 = createLHmat(0x33211B);
+    materials.matLH07 = createLHmat(0x611522);
+    materials.matLH08 = createLHmat(0x8A141A);
+    materials.matLH09 = createLHmat(0x28223D);
+    materials.matLH10 = createLHmat(0x4D1F40);
+    materials.matLH12 = createLHmat(0xD74A3D);
+    materials.matLH13 = createLHmat(0xC74828);
+    materials.matLH16 = createLHmat(0x17212E);
+    materials.matLH17 = createLHmat(0x008C89);
+    materials.matLH21 = createLHmat(0xC2B3A3);
+    materials.matLH22 = createLHmat(0xBFA093);
+    materials.matLH23 = createLHmat(0xFA3E88);
+    materials.matLH24 = createLHmat(0xE3C658);
+    materials.matLH25 = createLHmat(0xA4B8BD);
+    materials.matLH35 = createLHmat(0x2A855F);
+    materials.matLH36 = createLHmat(0x4A8A77);
+    materials.matLH37 = createLHmat(0x92D1C1);
 }
