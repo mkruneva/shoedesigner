@@ -202,6 +202,7 @@ function createMLmat(color) {
 
 function createBASICmany(materials) {
     materials.matGrey = createBasicMat(0x787878, 0, 0.7);
+    materials.matDarkGrey = createBasicMat(0x585858, 0, 0.7);
     materials.matChrome = createBasicMat(0xffffff, 1, 0.4, background);
     materials.matRed = createBasicMat(0xff0000, 0, 0.3);
 }

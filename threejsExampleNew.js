@@ -65,7 +65,7 @@ function init() {
         materials: materials
     };
 
-    loadObject(objPathName, materials.matGrey);
+    loadObject(objPathName, materials.matGrey, materials.matDarkGrey);
 
 
     //GEOMETRY
@@ -177,8 +177,6 @@ function createPointCameraLight(color, intensity) {
     return pointL;
 }
 
-
-
 //FUNCTIONS FOR CREATING GEO
 
 //Test Cube
@@ -204,41 +202,35 @@ function createPlane(size) {
 }
 
 
-function loadObject(objPath, material) {
-    loader.load(objPath, function(object) {
-        object.name = objPath;
 
-        //Assigning name to the object
+
+function loadObject(objPath, material1, material2) {
+    loader.load(objPath, function(object) {
+
         object.rotation.y = (270 * Math.PI) / 180;
         object.translateZ(90);
         object.translateY(objY);
 
         //Assinging material to all meshes of the object
-        // object.traverse(function(child) {
-        //     if (child instanceof THREE.Mesh) {
-        //         // all meshes except for the default ones are hidden
-        //         var startMeshes = (child.name == 'FR1') || (child.name == 'FR2') || (child.name == 'HE1') || (child.name == 'HG1') || (child.name == 'HT1') || (child.name == 'IB1') || (child.name == 'IL1') || (child.name == 'IN1') || (child.name == 'LI1') || (child.name == 'LO1') || (child.name == 'SO1') || (child.name == 'SO2') || (child.name == 'PF1') || (child.name == 'LI1') || (child.name == 'LC1') || (child.name == 'LC1LI') || (child.name == 'LC1HG') || (child.name == 'CO1') || (child.name == 'CO2') || (child.name == 'CO1LI') || (child.name == 'CO2LI');
-        //         if (startMeshes) {
-        //             child.visible = true;
-        //         } else {
-        //             child.visible = false;
-        //         }
-        //         child.castShadow = true;
-
-        //         if ((child.name == 'FR1') || (child.name == 'FR2') || (child.name == 'CO1') || (child.name == 'CO2') || (child.name == 'LC1')) {
-        //             child.material = material;
-        //         } else {
-        //             child.material = material;
-        //         }
-        //     }
-        // });
-
-
-        //add material simple
         object.traverse(function(child) {
             if (child instanceof THREE.Mesh) {
-                child.material = material;
+                // all meshes except for the default ones are hidden
+                var startMeshes = (child.name == 'FR1') || (child.name == 'FR2') || (child.name == 'HE1') ||
+                    (child.name == 'HG1') || (child.name == 'HT1') || (child.name == 'IB1') ||
+                    (child.name == 'IL1') || (child.name == 'IN1') || (child.name == 'LI1') ||
+                    (child.name == 'LO1') || (child.name == 'SO1') || (child.name == 'SO2') || (child.name == 'PF1') ||
+                    (child.name == 'LI1') || (child.name == 'LC1') || (child.name == 'LC1LI') || (child.name == 'LC1HG') ||
+                    (child.name == 'CO1') || (child.name == 'CO2') || (child.name == 'CO1LI') || (child.name == 'CO2LI');
+                child.visible = startMeshes;
                 child.castShadow = true;
+
+                var mainMeshes = (child.name == 'FR1') || (child.name == 'FR2') ||
+                    (child.name == 'CO1') || (child.name == 'CO2') || (child.name == 'LC1');
+                if (mainMeshes) {
+                    child.material = material1;
+                } else {
+                    child.material = material2;
+                }
             }
         });
 
