@@ -180,14 +180,14 @@ function init() {
 
             //animateShoe(object)
             scene.add(object);
-            window.marty.scene = scene;
-            window.marty.obj = object;
+            window.objectContainer.scene = scene;
+            window.objectContainer.obj = object;
 
             //console.log(object);
         });
     }
 
-    window.marty = {
+    window.objectContainer = {
         loadObject: loadObject
     };
 
@@ -257,7 +257,7 @@ function init() {
     };
 
     animate();
-    console.log('window is ' + window.marty);
+    console.log('window is ' + window.objectContainer);
 
 
 

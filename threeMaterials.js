@@ -42,7 +42,7 @@ var loadMaterials = function() {
     return materials;
 }
 
-console.log(loadmaterials());
+console.log(loadMaterials());
 
 
 
