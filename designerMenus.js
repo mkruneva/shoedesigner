@@ -55,7 +55,6 @@ $(document).ready(function() {
                     objCont.loadObject(objPathName, objCont.material1, objCont.material2);
                 } else {
                     objAbr = $(this).attr("abr").split(',');
-                    //console.log('objAbr is ', objAbr);
                     var object = objCont.obj;
 
                     object.traverse(function(child) {

@@ -6,7 +6,6 @@ var background;
 var loader = new THREE.OBJLoader(); //global 
 
 var objY = -65;
-var objPathName = 'obj/PC/PC300AHPLAPL.obj'; //temporary assigning path
 var cube; // has to be declared as global var 
 
 init();

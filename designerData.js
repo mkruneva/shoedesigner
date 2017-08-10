@@ -153,9 +153,9 @@ var fr_pc = [
     new ThumbObject(null, 'images/FRPC/FRPCPLA300AH.jpg', null, 'Plain', true, ba_pc, [0, 0, 0, 0, 0]),
     new ThumbObject('PT1', 'images/FRPC/FRPCPTO300AH.jpg', null, 'Pointed Toe Cap', true, ba_pc, [0, 0, 1, 0, 0]),
     new ThumbObject('TO1', 'images/FRPC/FRPCTOE300AH.jpg', null, 'Toe Cap', true, ba_pc, [0, 0, 2, 0, 0]),
-    new ThumbObject(null, 'images/FRPC/FRPCPAN300AH.jpg', null, 'Panneled', true, ba_pc, [0, 0, 3, 0, 0]),
-    new ThumbObject('PT1', 'images/FRPC/FRPCPPT300AH.jpg', null, 'Panneled Pointed Toe Cap', true, ba_pc, [0, 0, 4, 0, 0]),
-    new ThumbObject('TO1', 'images/FRPC/FRPCPTC300AH.jpg', null, 'Panneled Toe Cap', true, ba_pc, [0, 0, 5, 0, 0])
+    // new ThumbObject(null, 'images/FRPC/FRPCPAN300AH.jpg', null, 'Panneled', true, ba_pc, [0, 0, 3, 0, 0]),
+    // new ThumbObject('PT1', 'images/FRPC/FRPCPPT300AH.jpg', null, 'Panneled Pointed Toe Cap', true, ba_pc, [0, 0, 4, 0, 0]),
+    // new ThumbObject('TO1', 'images/FRPC/FRPCPTC300AH.jpg', null, 'Panneled Toe Cap', true, ba_pc, [0, 0, 5, 0, 0])
 ];
 
 var fr_ph = [
@@ -172,30 +172,30 @@ var fr_ac = [
     new ThumbObject(null, 'images/FRAC/FRACPLA300AH.jpg', null, 'Plain', true, ba_ac, [3, 0, 0, 0, 0]),
     new ThumbObject('PT1', 'images/FRAC/FRACPTO300AH.jpg', null, 'Pointed Toe Cap', true, ba_ac, [0, 0, 1, 0, 0]),
     new ThumbObject('TO1', 'images/FRAC/FRACTOE300AH.jpg', null, 'Toe Cap', true, ba_ac, [3, 0, 2, 0, 0]),
-    new ThumbObject(null, 'images/FRAC/FRACPAN300AH.jpg', null, 'Panneled', true, ba_ac, [3, 0, 3, 0, 0]),
-    new ThumbObject('PT1', 'images/FRAC/FRACPPT300AH.jpg', null, 'Panneled Pointed Toe Cap', true, ba_ac, [0, 0, 4, 0, 0]),
-    new ThumbObject('TO1', 'images/FRAC/FRACPTC300AH.jpg', null, 'Panneled Toe Cap', true, ba_ac, [3, 0, 5, 0, 0])
+    // new ThumbObject(null, 'images/FRAC/FRACPAN300AH.jpg', null, 'Panneled', true, ba_ac, [3, 0, 3, 0, 0]),
+    // new ThumbObject('PT1', 'images/FRAC/FRACPPT300AH.jpg', null, 'Panneled Pointed Toe Cap', true, ba_ac, [0, 0, 4, 0, 0]),
+    // new ThumbObject('TO1', 'images/FRAC/FRACPTC300AH.jpg', null, 'Panneled Toe Cap', true, ba_ac, [3, 0, 5, 0, 0])
 ];
 
 var fr_pe = [
     new ThumbObject(null, 'images/FRPE/FRPEPLA300AH.jpg', null, 'Plain', true, ba_pe, [4, 0, 0, 0, 0]),
-    new ThumbObject(null, 'images/FRPE/FRPEPAN300AH.jpg', null, 'Panneled', true, ba_pe, [4, 0, 1, 0, 0])
+    // new ThumbObject(null, 'images/FRPE/FRPEPAN300AH.jpg', null, 'Panneled', true, ba_pe, [4, 0, 1, 0, 0])
 ];
 
 var fr_sa = [
     new ThumbObject('ST1,ST1LI', 'images/FRSA/FRSASTR300AH.jpg', null, 'Straight', true, ba_sa, [5, 0, 0, 0, 0]),
     new ThumbObject('PS1,PS1L,PS2,PS3', 'images/FRSA/FRSAPSA300AH.jpg', null, 'Panelled Sandal', true, ba_sa, [5, 0, 1, 0, 0]),
     new ThumbObject('CO1,CO2,CO1LI,CO2LI', 'images/FRSA/FRSACOP300AH.jpg', null, 'Cross Over Peep', true, ba_sa, [5, 0, 2, 0, 0]),
-    new ThumbObject('GLA', 'images/FRSA/FRSAGLA300AH.jpg', null, 'Gl', true, ba_sa, [5, 0, 3, 0, 0])
+    // new ThumbObject('GLA', 'images/FRSA/FRSAGLA300AH.jpg', null, 'Gl', true, ba_sa, [5, 0, 3, 0, 0])
 ];
 
 var fr_fl = [
     new ThumbObject(null, 'images/FRFL/FRFLPLA.jpg', null, 'Plain', true, ba_fl, [6, 0, 0, 0, 0]),
     new ThumbObject('PT1', 'images/FRFL/FRFLPTO.jpg', null, 'Pointed Toe Cap', true, ba_fl, [6, 0, 1, 0, 0]),
     new ThumbObject('TO1', 'images/FRFL/FRFLTOE.jpg', null, 'Toe Cap', true, ba_fl, [6, 0, 2, 0, 0]),
-    new ThumbObject(null, 'images/FRFL/FRFLPAN.jpg', null, 'Panneled', true, ba_fl, [6, 0, 3, 0, 0]),
-    new ThumbObject('PT1', 'images/FRFL/FRFLPPT.jpg', null, 'Panneled Pointed Toe Cap', true, ba_fl, [6, 0, 4, 0, 0]),
-    new ThumbObject('TO1', 'images/FRFL/FRFLPTC.jpg', null, 'Panneled Toe Cap', true, ba_fl, [6, 0, 5, 0, 0])
+    // new ThumbObject(null, 'images/FRFL/FRFLPAN.jpg', null, 'Panneled', true, ba_fl, [6, 0, 3, 0, 0]),
+    // new ThumbObject('PT1', 'images/FRFL/FRFLPPT.jpg', null, 'Panneled Pointed Toe Cap', true, ba_fl, [6, 0, 4, 0, 0]),
+    // new ThumbObject('TO1', 'images/FRFL/FRFLPTC.jpg', null, 'Panneled Toe Cap', true, ba_fl, [6, 0, 5, 0, 0])
 ]
 
 
