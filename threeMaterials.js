@@ -101,7 +101,7 @@ function createELmat(diffuse, bump, intensity) {
     return mat;
 }
 
-//Fish mat
+//Fish mat //OK
 function createLFSmat(color) {
     var bump = texLoader.load('tex/LFS-bump.jpg');
     repeatTex(bump, 15);
@@ -111,9 +111,9 @@ function createLFSmat(color) {
     repeatTex(metalnessM, 15);
     var mat = new THREE.MeshStandardMaterial({
         bumpMap: bump,
-        bumpScale: 0.3,
+        bumpScale: 0.4,
         color: color,
-        envMap: background,
+        //envMap: background,
         metalness: 0.5,
         metalnessMap: metalnessM,
         normalMap: normal,
@@ -126,17 +126,17 @@ function createLFSmat(color) {
 //Glitter Suede mat
 function createLGSmat(color) {
     var bump = texLoader.load('tex/SU-bump.jpg');
-    repeatTex(bump, 24);
+    repeatTex(bump, 18);
     var metalnessM = texLoader.load('tex/LGS-reflection.jpg');
-    repeatTex(metalnessM, 24);
+    repeatTex(metalnessM, 18);
     var mat = new THREE.MeshStandardMaterial({
         bumpMap: bump,
         bumpScale: 0.3,
         color: color,
-        envMap: background,
-        metalness: 1,
+        //envMap: background,
+        metalness: 0.5,
         metalnessMap: metalnessM,
-        roughness: 0.8,
+        roughness: 1,
         roughnessMap: metalnessM,
     });
 

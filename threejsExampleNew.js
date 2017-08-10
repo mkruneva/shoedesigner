@@ -4,7 +4,7 @@ var camera, scene, renderer;
 var controls;
 var background;
 var loader = new THREE.OBJLoader(); //global 
-//var objPathName = 'obj/PC/PC300AHPLAPL.obj'; //TEMP for the example HTML
+var objPathName = 'obj/PC/PC300AHPLAPL.obj'; //TEMP for the example HTML
 
 var objY = -65;
 
@@ -36,12 +36,11 @@ function init() {
     window.objectContainer = {
         loadObject: loadObject,
         materials: materials,
-        material1: materials['matLFS03'],
-        material2: materials['matDarkGrey']
-
+        // material1: materials['matLGS02'],
+        // material2: materials['matDarkGrey']
     };
 
-    loadObject(objPathName, materials.matLFS03, materials.matDarkGrey);
+    loadObject(objPathName, materials.matLGS02, materials.matDarkGrey);
 
     //GEOMETRY
     var plane = createPlane(3000);
@@ -164,7 +163,7 @@ function createAreaLights() {
 
     //ambient Light
     var ambientLight = new THREE.AmbientLight(0xffffff); // soft white light
-    ambientLight.intensity = 0.38;
+    ambientLight.intensity = 0.44;
     scene.add(ambientLight);
 
     var shadowSpotLight = new THREE.SpotLight(0xffffff, 0);
