@@ -62,7 +62,10 @@ function init() {
     //Loading obj
     window.objectContainer = {
         loadObject: loadObject,
-        materials: materials
+        materials: materials,
+        material1: materials['matSN23'],
+        material2: materials['matDarkGrey']
+
     };
 
     loadObject(objPathName, materials.matSN23, materials.matDarkGrey);

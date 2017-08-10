@@ -46,15 +46,17 @@ $(document).ready(function() {
             var selectionArray = selection.split(',').map(function(n) { return parseInt(n); });
             redrawMenu(selectionArray);
 
-            if ($(this).attr("obj") != window.objectContainer.obj.name) {
+            var objCont = window.objectContainer;
+
+            if ($(this).attr("obj") != objCont.obj.name) {
                 if ($(this).attr("obj") !== 'null') {
                     objPathName = $(this).attr("obj");
-                    window.objectContainer.scene.remove(window.objectContainer.obj);
-                    window.objectContainer.loadObject(objPathName);
+                    objCont.scene.remove(objCont.obj);
+                    objCont.loadObject(objPathName, objCont.material1, objCont.material2);
                 } else {
                     objAbr = $(this).attr("abr").split(',');
                     console.log('objAbr is ', objAbr);
-                    var object = window.objectContainer.obj;
+                    var object = objCont.obj;
 
                     object.traverse(function(child) {
                         if (child instanceof THREE.Mesh) {
