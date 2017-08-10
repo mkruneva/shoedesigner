@@ -63,12 +63,12 @@ function init() {
     window.objectContainer = {
         loadObject: loadObject,
         materials: materials,
-        material1: materials['matSN23'],
+        material1: materials['matGrey'],
         material2: materials['matDarkGrey']
 
     };
 
-    loadObject(objPathName, materials.matSN23, materials.matDarkGrey);
+    loadObject(objPathName, materials.matGrey, materials.matDarkGrey);
 
 
     //GEOMETRY
@@ -107,9 +107,6 @@ function init() {
     //     });
 
 
-
-    // loader = new THREE.BinaryLoader();
-    // loader.load("obj/walt/WaltHead_bin.js", function(geometry) { createScene(geometry, cubeMaterial1, cubeMaterial2, cubeMaterial3) });
 
     //createScene();
 
