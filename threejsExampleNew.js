@@ -5,8 +5,7 @@ var controls;
 var background;
 var loader = new THREE.OBJLoader(); //global 
 
-var objY = -65;
-var cube; // has to be declared as global var 
+var objY = -65; 
 
 init();
 animate();
@@ -27,8 +26,8 @@ function init() {
     // //LIGHTS
     createAreaLights();
 
-
-    //MATERIALS loaded in threeMaterials.js 
+    //MATERIALS from threeMaterials.js 
+     var materials = loadMaterials();
 
     //RENDERER DESCRIPTION
     renderer = createRenderer(0xdddddd);
@@ -40,10 +39,6 @@ function init() {
 
 
     //OBJ LOADER
-
-    var materials = loadMaterials();
-
-    //Loading OBJ
     window.objectContainer = {
         loadObject: loadObject,
         materials: materials,
@@ -106,55 +101,9 @@ function createRenderer(clearColour) {
 }
 
 
-//FUNCTIONS FOR CREATING LIGHTS
-//ambient Light
-function createAmbientLight(intensity) {
-    var ambientL = new THREE.AmbientLight(0xffffff); // soft white light
-    ambientL.intensity = intensity;
 
-    return ambientL;
-}
-
-//spotLight added to the camera
-function createSpotLight(color, intensity) {
-    var spotL = new THREE.SpotLight(color, intensity);
-
-    return spotL;
-}
-
-//Shadow spotLight added to the camera
-function createShadowSpotLight(color, intensity, radius, mapsize) {
-    var shadowSpotL = new THREE.SpotLight(color, intensity);
-
-    shadowSpotL.castShadow = true;
-    shadowSpotL.shadow.radius = radius;
-    shadowSpotL.distance = 1500;
-    shadowSpotL.shadow.mapSize.width = 1024 * mapsize;
-    shadowSpotL.shadow.mapSize.height = 1024 * mapsize;
-    shadowSpotL.position.set(0, 500, 0);
-
-    return shadowSpotL;
-}
-
-//point Light attached to Camera 
-function createPointCameraLight(color, intensity) {
-    var pointL = new THREE.PointLight(color, intensity);
-    pointL.position.set(300, 200, 0);
-
-    return pointL;
-}
 
 //FUNCTIONS FOR CREATING GEO
-
-//Test Cube
-function createCube(size, material) {
-    var geometry = new THREE.BoxGeometry(size, size, size);
-    var cube = new THREE.Mesh(geometry, material);
-    cube.castShadow = true;
-
-    return cube;
-}
-
 //Shadow Plane 
 function createPlane(size) {
     var planeGeometry = new THREE.PlaneGeometry(size, size);
@@ -169,6 +118,7 @@ function createPlane(size) {
 }
 
 
+//FUNCTION LOADING OBJ< HIDING MESHES<ASSIGNING MATERIALS
 function loadObject(objPath, material1, material2) {
     loader.load(objPath, function(object) {
 
@@ -208,7 +158,7 @@ function loadObject(objPath, material1, material2) {
 
 
 
-//CREATE SCENE FUNCTIONS
+//FUNCTION FOR CREATING LIGHTS
 function createAreaLights() {
     //AREA LIGHTS
     var rectLightLeft = new THREE.RectAreaLight(0xffffff, 70000, 300, 300);
@@ -256,7 +206,7 @@ function createAreaLights() {
     ambientLight.intensity = 0.34;
     scene.add(ambientLight);
 
-    var shadowSpotLight = new THREE.SpotLight(0xffffff, 0.1);
+    var shadowSpotLight = new THREE.SpotLight(0xffffff, 0);
     shadowSpotLight.castShadow = true;
     shadowSpotLight.shadow.radius = 4;
     shadowSpotLight.distance = 1500;
