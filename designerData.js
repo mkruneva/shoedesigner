@@ -113,8 +113,8 @@ var ba_ph = [
 
 
 var ba_po = [
-    new ThumbObject('DO1,DO1HG', 'images/BA/BAOBDO.jpg', null, "D'Orsay Counter", true, st_po, [2, 0, 0, 0, 0]),
-    new ThumbObject('LC1,LC1LI,LC1HG', 'images/BA/BAOBLC.jpg', null, 'Long Counter', true, st_po, [2, 0, 0, 1, 0]),
+    new ThumbObject('LC1,LC1LI,LC1HG', 'images/BA/BAOBLC.jpg', null, 'Long Counter', true, st_po, [2, 0, 0, 0, 0]),
+    new ThumbObject('DO1,DO1HG', 'images/BA/BAOBDO.jpg', null, "D'Orsay Counter", true, st_po, [2, 0, 0, 1, 0]),
     new ThumbObject('TN1,TN1LI,TN1HG,TN1BK,TN2,TN3', 'images/BA/BAOBTN.jpg', null, 'High Back (Thin Strap)', true, st_po, [2, 0, 0, 2, 0]),
     new ThumbObject('TT1,TT2,TT3,TT4,TT5,TT1LI,TT1HG,TT1BK,TT2BK', 'images/BA/BAOBTT.jpg', null, 'High Back (Double Strap)', true, st_po, [2, 0, 0, 3, 0]),
     new ThumbObject('TK1,TK1LI,TK1HG,TK1BK,TK2,TK3', 'images/BA/BAOBTK.jpg', null, 'High Back (Thick Strap)', true, st_po, [2, 0, 0, 4, 0])
@@ -183,9 +183,10 @@ var fr_pe = [
 ];
 
 var fr_sa = [
-    new ThumbObject('ST1,ST1LI', 'images/FRSA/FRSASTR300AH.jpg', null, 'Straight', true, ba_sa, [5, 0, 0, 0, 0]),
-    new ThumbObject('PS1,PS1L,PS2,PS3', 'images/FRSA/FRSAPSA300AH.jpg', null, 'Panelled Sandal', true, ba_sa, [5, 0, 1, 0, 0]),
-    new ThumbObject('CO1,CO2,CO1LI,CO2LI', 'images/FRSA/FRSACOP300AH.jpg', null, 'Cross Over Peep', true, ba_sa, [5, 0, 2, 0, 0]),
+    new ThumbObject('CO1,CO2,CO1LI,CO2LI', 'images/FRSA/FRSACOP300AH.jpg', null, 'Cross Over Peep', true, ba_sa, [5, 0, 0, 0, 0]),
+    new ThumbObject('ST1,ST1LI', 'images/FRSA/FRSASTR300AH.jpg', null, 'Straight', true, ba_sa, [5, 0, 1, 0, 0]),
+    // new ThumbObject('PS1,PS1L,PS2,PS3', 'images/FRSA/FRSAPSA300AH.jpg', null, 'Panelled Sandal', true, ba_sa, [5, 0, 1, 0, 0]),
+    
     // new ThumbObject('GLA', 'images/FRSA/FRSAGLA300AH.jpg', null, 'Gl', true, ba_sa, [5, 0, 3, 0, 0])
 ];
 
