@@ -56,34 +56,35 @@ function repeatTex(mapName, repeat) {
 
 //Basic mat
 function createBASICmat(color, metalness, roughness, matEnvMap) {
-    var mat = new THREE.MeshStandardMaterial({ 
-        color: color, 
-        metalness: metalness, 
-        roughness: roughness 
+    var mat = new THREE.MeshStandardMaterial({
+        color: color,
+        metalness: metalness,
+        roughness: roughness
     });
     mat.envMap = matEnvMap;
 
     return mat;
 }
 
-//Animal Prints mat
+//Animal Prints mat //OK
 function createAPmat(diffuse, repeat) {
     var diff = texLoader.load(diffuse);
     repeatTex(diff, repeat);
     var bump = texLoader.load('tex/AP-bump.jpg');
     repeatTex(bump, 8);
-    var mat = new THREE.MeshStandardMaterial({
+    var mat = new THREE.MeshPhysicalMaterial({
         bumpMap: bump,
         bumpScale: 0.15,
         map: diff,
         metalness: 0,
+        reflectivity:0,
         roughness: 0.9
     });
 
     return mat;
 }
 
-//El mat
+//El mat  //OK
 function createELmat(diffuse, bump, intensity) {
     var diff = texLoader.load(diffuse);
     repeatTex(diff, 8);
@@ -94,7 +95,7 @@ function createELmat(diffuse, bump, intensity) {
         bumpScale: intensity,
         map: diff,
         metalness: 0,
-        roughness: 0.8
+        roughness: 0.84
     });
 
     return mat;
@@ -158,17 +159,17 @@ function createLLHmat() {
     return mat;
 }
 
-
 //Leather mat
 function createLHmat(color) {
     var bump = texLoader.load('tex/LH-bump.jpg');
     repeatTex(bump, 1);
-    var mat = new THREE.MeshStandardMaterial({
+    var mat = new THREE.MeshPhysicalMaterial({
         bumpMap: bump,
         bumpScale: 0.08,
         color: color,
-        metalness: 0.05,
-        roughness: 0.46,
+        metalness: 0,
+        reflectivity: 0.33,
+        roughness: 0.44,
     });
 
     return mat;
@@ -209,7 +210,7 @@ function createLSUmat(diffuse) {
         // metalness: 0.2,
         // metalnessMap : metalnessM,
         roughness: 0.65,
-        roughnessMap : roughnessM,
+        roughnessMap: roughnessM,
     });
 
     return mat;
@@ -265,7 +266,7 @@ function createMSmat(color) {
 //PSU mat
 function createLSUmat() {
     var diff = texLoader.load('tex/PSU-01-diffuse.jpg');
-    repeatTex(diff, 2.5);  
+    repeatTex(diff, 2.5);
     var bump = texLoader.load('tex/PSU-spec.jpg');
     repeatTex(bump, 2.5);
     var roughnessM = texLoader.load('tex/PSU-roughness.jpg');
@@ -275,7 +276,7 @@ function createLSUmat() {
         bumpScale: -0.2,
         map: diff,
         roughness: 0.9,
-        roughnessMap : roughnessM,
+        roughnessMap: roughnessM,
     });
 
     return mat;
@@ -285,13 +286,13 @@ function createLSUmat() {
 function createPTmat(color) {
     var bump = texLoader.load('tex/PT-bump.jpg');
     repeatTex(bump, 2.5);
-    var mat = new THREE.MeshStandardMaterial({ 
+    var mat = new THREE.MeshStandardMaterial({
         bumpMap: bump,
         bumpScale: -0.2,
-        color: color, 
+        color: color,
         envMap: background,
-        metalness: 0.01, 
-        roughness: 0.23 
+        metalness: 0.01,
+        roughness: 0.23
     });
 
     return mat;
@@ -300,7 +301,7 @@ function createPTmat(color) {
 //SN mat
 function createSNmat(diffuse, bump, repeatD, repeatB) {
     var diff = texLoader.load(diffuse);
-    repeatTex(diff, repeatD);  
+    repeatTex(diff, repeatD);
     var bump = texLoader.load(bump);
     repeatTex(bump, repeatB);
     var mat = new THREE.MeshStandardMaterial({
@@ -312,11 +313,6 @@ function createSNmat(diffuse, bump, repeatD, repeatB) {
 
     return mat;
 }
-
-
-
-
-
 
 //CREATE MANY FUNCTIONS
 
@@ -335,8 +331,8 @@ function createAPmany(materials) {
 }
 
 function createELmany(materials) {
-    materials.matEL01 = createELmat('tex/EL-01-diff.jpg', 'tex/EL-01-bump.jpg', -0.4);
-    materials.matEL02 = createELmat('tex/EL-02-diff.jpg', 'tex/EL-01-bump.jpg', -0.4);
+    materials.matEL01 = createELmat('tex/EL-01-diff.jpg', 'tex/EL-01-bump.jpg', -0.24);
+    materials.matEL02 = createELmat('tex/EL-02-diff.jpg', 'tex/EL-01-bump.jpg', -0.24);
     materials.matEL03 = createELmat('tex/EL-03-diff.jpg', 'tex/EL-03-bump.jpg', 0.4);
 }
 
@@ -370,7 +366,7 @@ function createLSNmany(materials) {
 
 function createLSUmany(materials) {
     materials.matLSU01 = createLSUmat('tex/LSU-silver-diff.jpg');
-    materials.matLSU02 = createLSUmat('tex/LSU-silver-diff.jpg'); 
+    materials.matLSU02 = createLSUmat('tex/LSU-silver-diff.jpg');
 }
 
 
@@ -454,4 +450,3 @@ function createSNmany(materials) {
     materials.matSN24 = createSNmat('tex/SN-24-diffuse.jpg', 'tex/SN-bump.jpg', 5, 8);
     materials.matSN27 = createSNmat('tex/SN-27-diffuse.jpg', 'tex/SN-bump.jpg', 5, 8);
 }
-

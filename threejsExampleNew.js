@@ -4,8 +4,9 @@ var camera, scene, renderer;
 var controls;
 var background;
 var loader = new THREE.OBJLoader(); //global 
+//var objPathName = 'obj/PC/PC300AHPLAPL.obj'; //TEMP for the example HTML
 
-var objY = -65; 
+var objY = -65;
 
 init();
 animate();
@@ -27,7 +28,24 @@ function init() {
     createAreaLights();
 
     //MATERIALS from threeMaterials.js 
-     var materials = loadMaterials();
+    var materials = loadMaterials();
+
+
+
+    //OBJ LOADER
+    window.objectContainer = {
+        loadObject: loadObject,
+        materials: materials,
+        material1: materials['matLFS03'],
+        material2: materials['matDarkGrey']
+
+    };
+
+    loadObject(objPathName, materials.matLFS03, materials.matDarkGrey);
+
+    //GEOMETRY
+    var plane = createPlane(3000);
+    scene.add(plane);
 
     //RENDERER DESCRIPTION
     renderer = createRenderer(0xdddddd);
@@ -36,58 +54,7 @@ function init() {
 
     //Controls
     controls = new THREE.OrbitControls(camera, renderer.domElement);
-
-
-    //OBJ LOADER
-    window.objectContainer = {
-        loadObject: loadObject,
-        materials: materials,
-        material1: materials['matLH02'],
-        material2: materials['matDarkGrey']
-
-    };
-
-    loadObject(objPathName, materials.matLH02, materials.matDarkGrey);
-
-
-    //GEOMETRY
-    var plane = createPlane(3000);
-    scene.add(plane);
-
-
-    // // //GUI
-    // var gui = new dat.GUI();
-    // var props = {
-    //     hideBars: false,
-    //     depthZ_Fraction: 0.015,
-    //     barColor: '#222222',
-    //     barDirection: 'Vertical'
-    // };
-
-    // var sLight = gui.addFolder('spot light');
-    // sLight.add(spotLightFront, 'intensity', 0, 3);
-    // sLight.add(spotLightFront.position, 'x', -500, 500);
-    // sLight.add(spotLightFront.position, 'y', -500, 500);
-    // sLight.add(spotLightFront.position, 'z', -500, 500);
-    // sLight.add(spotLightFront, 'penumbra', 0, 1);
-
-    // var lhMat = gui.addFolder('leather material');
-    // lhMat.add(matML01, 'roughness', 0, 1);
-    // lhMat.add(matML01, 'metalness', 0, 1);
-    // lhColorCtrl =
-    //     lhMat.addColor(props, 'barColor')
-    //     .name('Leather Color')
-    //     .listen();
-    // lhColorCtrl.onChange(
-    //     function(colorValue) {
-    //         colorValue = colorValue.replace('#', '0x');
-    //         //set the color in the object
-    //         matML01.color.setHex(colorValue);
-    //     });
-
 }
-
-
 
 //FUNCTION FOR CREATING RENDERER
 function createRenderer(clearColour) {
@@ -100,11 +67,7 @@ function createRenderer(clearColour) {
     return myRenderer;
 }
 
-
-
-
-//FUNCTIONS FOR CREATING GEO
-//Shadow Plane 
+//FUNCTIONS FOR CREATING SHADOW PLANE 
 function createPlane(size) {
     var planeGeometry = new THREE.PlaneGeometry(size, size);
     planeGeometry.rotateX(-Math.PI / 2);
@@ -156,8 +119,6 @@ function loadObject(objPath, material1, material2) {
     });
 }
 
-
-
 //FUNCTION FOR CREATING LIGHTS
 function createAreaLights() {
     //AREA LIGHTS
@@ -192,18 +153,18 @@ function createAreaLights() {
     // scene.add(rectLightHelperFront);
 
     //spotLight attached to the camera
-    var spotLight = new THREE.SpotLight(0xffffff, 0.7);
+    var spotLight = new THREE.SpotLight(0xffffff, 0.28);
     spotLight.position.set(-140, 100, -220);
     camera.add(spotLight);
 
     //point Light attached to Camera 
-    var pointCamLight = new THREE.PointLight(0xffffff, 0.7);
+    var pointCamLight = new THREE.PointLight(0xffffff, 0.36);
     pointCamLight.position.set(300, 200, 0);
     camera.add(pointCamLight);
 
     //ambient Light
     var ambientLight = new THREE.AmbientLight(0xffffff); // soft white light
-    ambientLight.intensity = 0.34;
+    ambientLight.intensity = 0.38;
     scene.add(ambientLight);
 
     var shadowSpotLight = new THREE.SpotLight(0xffffff, 0);
