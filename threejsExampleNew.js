@@ -28,22 +28,17 @@ function init() {
     var ambientLight = createAmbientLight(0.7);
     scene.add(ambientLight);
 
-    var spotLightFront = createSpotLight(0xffffff, 0.7);
-    spotLightFront.position.set(40, 100, 220);
-    scene.add(spotLightFront);
-
-    var spotLightBack = createSpotLight(0xffffff, 0.8);
-    spotLightBack.position.set(-140, 100, -220);
-    scene.add(spotLightBack);
-
-    var shadowSpotLight = createShadowSpotLight(0xffffff, 0.6, 4, 2);
+    var shadowSpotLight = createShadowSpotLight(0xffffff, 0.1, 4, 2);
     scene.add(shadowSpotLight);
 
     var pointCamLight = createPointCameraLight(0xffffff, 1);
+    //scene.add(pointCamLight);
 
 
-    //Materials loaded in threeMaterials.js 
+    // //AREA LIGHTS
+    createAreaLights();
 
+    //MATERIALS loaded in threeMaterials.js 
 
     //RENDERER DESCRIPTION
     renderer = createRenderer(0xdddddd);
@@ -58,7 +53,7 @@ function init() {
 
     var materials = loadMaterials();
 
-    //Loading obj
+    //Loading OBJ
     window.objectContainer = {
         loadObject: loadObject,
         materials: materials,
@@ -105,15 +100,11 @@ function init() {
     //         matML01.color.setHex(colorValue);
     //     });
 
-
-
-    //createScene();
-
 }
 
 
 
-//MY FUNCTIONS FOR CREATING RENDERER
+//FUNCTION FOR CREATING RENDERER
 function createRenderer(clearColour) {
     myRenderer = new THREE.WebGLRenderer({ antialias: true });
     myRenderer.shadowMap.enabled = true; //enabling shadow maps in the renderer
@@ -125,7 +116,7 @@ function createRenderer(clearColour) {
 }
 
 
-//MY FUNCTIONS FOR CREATING LIGHTS
+//FUNCTIONS FOR CREATING LIGHTS
 //ambient Light
 function createAmbientLight(intensity) {
     var ambientL = new THREE.AmbientLight(0xffffff); // soft white light
@@ -154,19 +145,6 @@ function createShadowSpotLight(color, intensity, radius, mapsize) {
 
     return shadowSpotL;
 }
-
-function createRectLightBack(argument) {
-    //areaRectLights - cannot cast shadows currently (under development)
-    var rectLight3 = new THREE.RectAreaLight(0xffffff, 90000, 300, 300);
-    rectLight3.rotation.x = (90 * Math.PI) / 180;
-    rectLight3.rotation.y = (45 * Math.PI) / 180;
-    rectLight3.position.set(-200, 100, 0);
-    scene.add(rectLight3);
-    rectLightHelper3 = new THREE.RectAreaLightHelper(rectLight3);
-    scene.add(rectLightHelper3);
-}
-
-
 
 //point Light attached to Camera 
 function createPointCameraLight(color, intensity) {
@@ -199,8 +177,6 @@ function createPlane(size) {
 
     return plane;
 }
-
-
 
 
 function loadObject(objPath, material1, material2) {
@@ -242,28 +218,39 @@ function loadObject(objPath, material1, material2) {
 
 
 
-//CREATE SCEN FUNCTION ADDING ALL GEO AND MAT
-// function createScene(geometry, m1, m2, m3) {
+//CREATE SCENE FUNCTIONS
+function createAreaLights() {
+    //AREA LIGHTS
+    var rectLightLeft = new THREE.RectAreaLight(0xffffff, 60000, 300, 300);
+    rectLightLeft.rotation.x = (45 * Math.PI) / 180;
+    rectLightLeft.position.set(0, 100, -165);
+    scene.add(rectLightLeft);
+    // rectLightHelperLeft = new THREE.RectAreaLightHelper( rectLightLeft );
+    // scene.add( rectLightHelperLeft );
 
-//     var s = 15;
+    var rectLightRight = new THREE.RectAreaLight(0xffffff, 60000, 300, 300);
+    rectLightRight.rotation.x = (135 * Math.PI) / 180;
+    rectLightRight.position.set(0, 100, 165);
+    scene.add(rectLightRight);
+    // rectLightHelperRight = new THREE.RectAreaLightHelper( rectLightRight );
+    // scene.add( rectLightHelperRight );
 
-//     var mesh = new THREE.Mesh(geometry, m1);
-//     mesh.position.z = -100;
-//     mesh.scale.x = mesh.scale.y = mesh.scale.z = s;
-//     scene.add(mesh);
+    var rectLightBack = new THREE.RectAreaLight(0xffffff, 60000, 300, 300);
+    rectLightBack.rotation.x = (90 * Math.PI) / 180;
+    rectLightBack.rotation.y = (45 * Math.PI) / 180;
+    rectLightBack.position.set(-200, 100, 0);
+    scene.add(rectLightBack);
+    // rectLightHelperBack = new THREE.RectAreaLightHelper( rectLightBack );
+    // scene.add( rectLightHelperBack );
 
-//     var mesh = new THREE.Mesh(geometry, m2);
-//     mesh.position.x = -900;
-//     mesh.position.z = -100;
-//     mesh.scale.x = mesh.scale.y = mesh.scale.z = s;
-//     scene.add(mesh);
-
-//     var mesh = new THREE.Mesh(geometry, m3);
-//     mesh.position.x = 900;
-//     mesh.position.z = -100;
-//     mesh.scale.x = mesh.scale.y = mesh.scale.z = s;
-//     scene.add(mesh);
-// }
+    var rectLightFront = new THREE.RectAreaLight(0xffffff, 60000, 300, 300);
+    rectLightFront.rotation.x = (90 * Math.PI) / 180;
+    rectLightFront.rotation.y = (-45 * Math.PI) / 180;
+    rectLightFront.position.set(200, 100, 0);
+    scene.add(rectLightFront);
+    // rectLightHelperFront = new THREE.RectAreaLightHelper(rectLightFront);
+    // scene.add(rectLightHelperFront);
+}
 
 function animate() {
 
