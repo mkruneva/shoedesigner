@@ -52,7 +52,7 @@ $(document).ready(function() {
                 if ($(this).attr("obj") !== 'null') {
                     objPathName = $(this).attr("obj");
                     objCont.scene.remove(objCont.obj);
-                    objCont.loadObject(objPathName, objCont.materials.matLGS02, objCont.materials.matDarkGrey);
+                    objCont.loadObject(objPathName, objCont.materials.matMR02, objCont.materials.matDarkGrey);
                 } else {
                     objAbr = $(this).attr("abr").split(',');
                     var object = objCont.obj;
