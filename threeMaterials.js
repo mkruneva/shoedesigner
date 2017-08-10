@@ -36,7 +36,8 @@ var loadMaterials = function() {
     createMSmany(materials);
     createPSUmany(materials);
     createPTmany(materials);
-    createSNmany(materials)
+    createSNmany(materials);
+    createSUmany(materials);
 
     return materials;
 }
@@ -297,6 +298,22 @@ function createSNmat(diffuse, bump, repeatD, repeatB) {
     return mat;
 }
 
+//Suede mat //OK
+function createSUmat(color) {
+    var bump = texLoader.load('tex/SU-bump.jpg');
+    repeatTex(bump, 2);
+    var mat = new THREE.MeshPhysicalMaterial({
+        bumpMap: bump,
+        bumpScale: 0.9,
+        color: color,
+        metalness: 0,
+        reflectivity: 0,
+        roughness: 0.9,
+    });
+
+    return mat;
+}
+
 //CREATE MANY FUNCTIONS
 
 function createBASICmany(materials) {
@@ -407,3 +424,25 @@ function createSNmany(materials) {
     materials.matSN23 = createSNmat('tex/SN-23-diffuse.jpg', 'tex/SN-bump.jpg', 5, 8);
     materials.matSN24 = createSNmat('tex/SN-24-diffuse.jpg', 'tex/SN-bump.jpg', 5, 8);
 }
+
+function createSUmany(materials) {
+    materials.matSU01 = createSUmat(0x0222222);
+    materials.matSU02 = createSUmat(0x3B3B3B);
+    materials.matSU04 = createSUmat(0x9E7854);
+    materials.matSU05 = createSUmat(0x803B1C);
+    materials.matSU07 = createSUmat(0x611522);
+    materials.matSU08 = createSUmat(0x8A141A);
+    materials.matSU09 = createSUmat(0x28223D);
+    materials.matSU10 = createSUmat(0x4D1F40);
+    materials.matSU13 = createSUmat(0xC74828); //?
+    materials.matSU16 = createSUmat(0x17212E);
+    materials.matSU17 = createSUmat(0x008C89);
+    materials.matSU21 = createSUmat(0xC2B3A3); //x?
+    materials.matSU25 = createSUmat(0x748387);
+    materials.matSU35 = createSUmat(0x2A855F);
+    materials.matSU36 = createSUmat(0x4A8A77);
+}
+
+
+
+
