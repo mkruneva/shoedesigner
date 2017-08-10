@@ -123,7 +123,7 @@ function createLFSmat(color) {
     return mat;
 }
 
-//Glitter Suede mat
+//Glitter Suede mat //Needs Improvements
 function createLGSmat(color) {
     var bump = texLoader.load('tex/SU-bump.jpg');
     repeatTex(bump, 18);
@@ -143,7 +143,7 @@ function createLGSmat(color) {
     return mat;
 }
 
-//LLH mat
+//LLH mat   //OK
 function createLLHmat() {
     var diff = texLoader.load('tex/LLH-01_diff.jpg');
     repeatTex(diff, 1.2);
@@ -159,13 +159,13 @@ function createLLHmat() {
     return mat;
 }
 
-//Leather mat
+//Leather mat //OK
 function createLHmat(color) {
     var bump = texLoader.load('tex/LH-bump.jpg');
     repeatTex(bump, 1);
     var mat = new THREE.MeshPhysicalMaterial({
         bumpMap: bump,
-        bumpScale: 0.08,
+        bumpScale: 0.1,
         color: color,
         metalness: 0,
         reflectivity: 0.33,
@@ -175,7 +175,7 @@ function createLHmat(color) {
     return mat;
 }
 
-//LSN mat
+//LSN mat //needs improvements
 function createLSNmat(diffuse, bump, repeat) {
     var diff = texLoader.load(diffuse);
     repeatTex(diff, repeat);
@@ -360,8 +360,8 @@ function createLSNmany(materials) {
     materials.matLSN01 = createLSNmat('tex/LSN-01-main.jpg', 'tex/LSN-01-stencil.jpg', 2.8);
     materials.matLSN02 = createLSNmat('tex/LSN-02-main.jpg', 'tex/LSN-01-stencil.jpg', 2.8);
     materials.matLSN03 = createLSNmat('tex/LSN-03-main.jpg', 'tex/LSN-01-stencil.jpg', 2.8);
-    materials.matLSN04 = createLSNmat('tex/LSN-04-diffuse.jpg', 'tex/LSN-04 bump.jpg', 4.5);
-    materials.matLSN08 = createLSNmat('tex/LSN-08-DIFF.jpg', 'tex/LSN-08 bump.jpg', 4.5);
+    materials.matLSN04 = createLSNmat('tex/LSN-04-diffuse.jpg', 'tex/LSN-04-bump-inv.jpg', 4.5);
+    materials.matLSN08 = createLSNmat('tex/LSN-08-DIFF.jpg', 'tex/LSN-08-bump-inv.jpg', 4.5);
 }
 
 function createLSUmany(materials) {

@@ -40,7 +40,7 @@ function init() {
         // material2: materials['matDarkGrey']
     };
 
-    loadObject(objPathName, materials.matLGS02, materials.matDarkGrey);
+    loadObject(objPathName, materials.matLSN08, materials.matDarkGrey);
 
     //GEOMETRY
     var plane = createPlane(3000);
@@ -157,13 +157,13 @@ function createAreaLights() {
     camera.add(spotLight);
 
     //point Light attached to Camera 
-    var pointCamLight = new THREE.PointLight(0xffffff, 0.36);
+    var pointCamLight = new THREE.PointLight(0xffffff, 0.32);
     pointCamLight.position.set(300, 200, 0);
     camera.add(pointCamLight);
 
     //ambient Light
     var ambientLight = new THREE.AmbientLight(0xffffff); // soft white light
-    ambientLight.intensity = 0.44;
+    ambientLight.intensity = 0.4;
     scene.add(ambientLight);
 
     var shadowSpotLight = new THREE.SpotLight(0xffffff, 0);
