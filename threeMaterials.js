@@ -215,39 +215,41 @@ function createLSUmat(color) {
     return mat;
 }
 
-//Metallic Leather mat
+//Metallic Leather mat  //OKish
 function createMLmat(color) {
     var bump = texLoader.load('tex/ML-bump.jpg');
     repeatTex(bump, 1.2);
-    var mat = new THREE.MeshStandardMaterial({
+    var mat = new THREE.MeshPhysicalMaterial({
         bumpMap: bump,
         bumpScale: 0.5,
         color: color,
-        metalness: 0.48,
-        roughness: 0.52,
+        metalness: 0.1,
+        reflectivity: 0.3,
+        roughness: 0.92,
     });
 
     return mat;
 }
 
-//MIRROR Leather mat
+//MIRROR Leather mat  //OKish
 function createMRmat(color) {
     var bump = texLoader.load('tex/ML-bump.jpg');
     repeatTex(bump, 1.2);
-    var mat = new THREE.MeshStandardMaterial({
+    var mat = new THREE.MeshPhysicalMaterial({
         bumpMap: bump,
         bumpScale: 0.1,
         color: color,
-        envMap: background,
-        metalness: 0.7,
-        roughness: 0.3,
+        //envMap: background,
+        metalness: 0.5,
+        reflectivity: 0,
+        roughness: 0.5,
     });
 
     return mat;
 }
 
 
-//Metallic Snake mat
+//Metallic Snake mat  //OK
 function createMSmat(color) {
     var bump = texLoader.load('tex/SN-bump.jpg');
     repeatTex(bump, 6);
@@ -281,16 +283,17 @@ function createPSUmat() {
     return mat;
 }
 
-//Patent mat
+//Patent mat  //OK
 function createPTmat(color) {
     var bump = texLoader.load('tex/PT-bump.jpg');
     repeatTex(bump, 2.5);
-    var mat = new THREE.MeshStandardMaterial({
+    var mat = new THREE.MeshPhysicalMaterial({
         bumpMap: bump,
         bumpScale: -0.2,
         color: color,
-        envMap: background,
-        metalness: 0.01,
+        //envMap: background,
+        metalness: 0.04,
+        reflectivity: 0.26,
         roughness: 0.23
     });
 
@@ -303,11 +306,13 @@ function createSNmat(diffuse, bump, repeatD, repeatB) {
     repeatTex(diff, repeatD);
     var bump = texLoader.load(bump);
     repeatTex(bump, repeatB);
-    var mat = new THREE.MeshStandardMaterial({
+    var mat = new THREE.MeshPhysicalMaterial({
         bumpMap: bump,
         bumpScale: 0.2,
         map: diff,
-        roughness: 0.6,
+        metalness: 0.3,
+        reflectivity: 0.2,
+        roughness: 0.8,
     });
 
     return mat;
@@ -431,11 +436,8 @@ function createPSUmany(materials) {
 
 function createPTmany(materials) {
     materials.matPT01 = createPTmat(0x807B73);
-    materials.matPT02 = createPTmat(0xBDBCBC);
-    materials.matPT03 = createPTmat(0xCCBA95);
-    materials.matPT05 = createPTmat(0x73593F);
-    materials.matPT06 = createPTmat(0x3B1B12);
-    materials.matPT08 = createPTmat(0xC9178C);
+    materials.matPT02 = createPTmat(0xa0a0a0);
+    materials.matPT08 = createPTmat(0x871460);
     materials.matPT09 = createPTmat(0x591434);
     materials.matPT10 = createPTmat(0x1C5061);
     materials.matPT11 = createPTmat(0x008F85);
@@ -446,5 +448,4 @@ function createSNmany(materials) {
     materials.matSN06 = createSNmat('tex/SN-06_diffuse.jpg', 'tex/SN-bump.jpg', 8.4, 8);
     materials.matSN23 = createSNmat('tex/SN-23-diffuse.jpg', 'tex/SN-bump.jpg', 5, 8);
     materials.matSN24 = createSNmat('tex/SN-24-diffuse.jpg', 'tex/SN-bump.jpg', 5, 8);
-    materials.matSN27 = createSNmat('tex/SN-27-diffuse.jpg', 'tex/SN-bump.jpg', 5, 8);
 }
