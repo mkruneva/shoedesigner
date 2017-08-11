@@ -132,7 +132,8 @@ $(document).ready(function() {
             object.traverse(function(child) {
                 if (child instanceof THREE.Mesh) {
                     var mainMeshes = (child.name == 'FR1') || (child.name == 'FR2') ||
-                        (child.name == 'CO1') || (child.name == 'CO2') || (child.name == 'LC1');
+                        (child.name == 'CO1') || (child.name == 'CO2') || (child.name == 'LC1') || 
+                        (child.name == 'TN1') || (child.name == 'TN2') || (child.name == 'TN3') ;
                     if (mainMeshes) {
                         child.material = objCont.materials[objMat];
                     }
