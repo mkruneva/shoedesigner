@@ -24,6 +24,32 @@ function thumbMany(thumbArray, menuText, selectedIndex) {
 // Initial obj file
 var objPathName = 'obj/PC/PC300AHPLAPL.obj';
 
+
+
+//Generate HTML function 
+var figureSwatchStart = '<figure class="col-xs-2 col-sm-3 col-md-2 shoe-thumb">';
+var figureSwatchEnd = '</figure>';
+
+function swatchSingle(object, selected) {
+    var selectedClass = '';
+    if (selected) {
+        selectedClass = 'selected';
+    }
+    var imgText = "<img src='" + object.imgSrc + "' abr = '" + object.abr + "'' matName='" + object.matName + "'>";
+    var text = figureSwatchStart + imgText + figureSwatchEnd;
+    return text;
+}
+
+function swatchMany(swatchArray, menuText) {
+    var wholeText = "<div><button type='button' class='btn btn-secondary btn-lg btn-block'>" + menuText + "</button><div class='row'><div id='swatchCsDiv' class='col-xs-12 swatch-container'>"
+    for (var i = 0; i < swatchArray.length; i++) {
+        wholeText += swatchSingle(swatchArray[i]);
+    }
+    wholeText += "</div></div></div>"
+    return wholeText;
+}
+
+
 $(document).ready(function() {
     var redrawMenu = function(selection) {
 
@@ -86,7 +112,14 @@ $(document).ready(function() {
         });
     }
 
+    var redrawSwatchMenu = function() {
+        $('#shoeMenu').append(
+            swatchMany(swatches, 'Materials'))
+    }
+
     redrawMenu([0, 0, 0, 0, 0]);
+    redrawSwatchMenu();
+
     $('.thumb-container:gt(0)').hide();
 
 });
