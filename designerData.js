@@ -9,6 +9,52 @@ function ThumbObject(abr, imgSrc, objSrc, tooltip, enabled, children, selection)
     this.selection = selection;
 }
 
+//Menu objects and arrays
+function SwatchObject(abr, imgSrc, matName) {
+    this.abr = abr;
+    this.imgSrc = imgSrc;
+    this.matName = matName;
+}
+
+// //SWATCHES
+var swatches = [
+    new SwatchObject('AP-03', 'swatches/AP-03.jpg', 'matAP03'),
+    new SwatchObject('AP-05', 'swatches/AP-05.jpg', 'matAP05'),
+    new SwatchObject('AP-06', 'swatches/AP-06.jpg', 'matAP06'),
+    new SwatchObject('AP-09', 'swatches/AP-09.jpg', 'matAP09'),
+    new SwatchObject('EL-01', 'swatches/EL-01.jpg', 'matEL01'),
+    new SwatchObject('EL-02', 'swatches/EL-02.jpg', 'matEL02'),
+    new SwatchObject('EL-03', 'swatches/EL-03.jpg', 'matEL03'),
+    new SwatchObject('LFS-01', 'swatches/LFS-01.jpg', 'matLFS01'),
+    new SwatchObject('LFS-02', 'swatches/LFS-02.jpg', 'matLFS02'),
+    new SwatchObject('LFS-03', 'swatches/LFS-03.jpg', 'matLFS03'),
+    new SwatchObject('LLH-01', 'swatches/LLH-01.jpg', 'matLLH01'),
+    new SwatchObject('LSN-02', 'swatches/LSN-02.jpg', 'matLSN02'),
+    new SwatchObject('LSN-03', 'swatches/LSN-03.jpg', 'matLSN03'),
+    new SwatchObject('LSN-04', 'swatches/LSN-04.jpg', 'matLSN04'),
+    new SwatchObject('LSN-08', 'swatches/LSN-08.jpg', 'matLSN08'),   
+    new SwatchObject('LSU-01', 'swatches/LSU-01.jpg', 'matLSU01'),
+    new SwatchObject('LSU-02', 'swatches/LSU-02.jpg', 'matLSU02'), 
+    new SwatchObject('LH-01', 'swatches/LH-01.jpg', 'matLH01'),
+    new SwatchObject('LH-02', 'swatches/LH-02.jpg', 'matLH02'),
+    new SwatchObject('LH-04', 'swatches/LH-04.jpg', 'matLH04'),
+    new SwatchObject('LH-05', 'swatches/LH-05.jpg', 'matLH05'),
+    new SwatchObject('LH-06', 'swatches/LH-06.jpg', 'matLH06'),
+    new SwatchObject('LH-07', 'swatches/LH-07.jpg', 'matLH07'),
+    new SwatchObject('LH-08', 'swatches/LH-08.jpg', 'matLH08'),
+    new SwatchObject('LH-09', 'swatches/LH-09.jpg', 'matLH09'),
+    new SwatchObject('LH-10', 'swatches/LH-10.jpg', 'matLH10'),
+    new SwatchObject('LH-13', 'swatches/LH-13.jpg', 'matLH13'),
+    new SwatchObject('LH-16', 'swatches/LH-16.jpg', 'matLH16'),
+    new SwatchObject('LH-17', 'swatches/LH-17.jpg', 'matLH17'),
+    new SwatchObject('LH-21', 'swatches/LH-21.jpg', 'matLH21'),
+    new SwatchObject('LH-25', 'swatches/LH-25.jpg', 'matLH25'),
+    new SwatchObject('LH-35', 'swatches/LH-35.jpg', 'matLH35'),
+    new SwatchObject('LH-36', 'swatches/LH-36.jpg', 'matLH36'),
+];
+
+
+
 //EMBELLISHMENTS
 var em_pc = [
     new ThumbObject(null, 'images/EM/EMNO.jpg', null, "No Embelli", true, null, [0, 0, 0, 0, 0]),
