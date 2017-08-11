@@ -123,7 +123,7 @@ $(document).ready(function() {
 
 /// Mesh hange on click 
 
-var materialMeshes = [];
+var materialMeshes = ['FR1', 'FR2', 'CO1', 'CO2', 'LC1', 'TN1', 'TN2', 'TN3'];
 
 $(document).ready(function() {
     $('#canvasButtons button.btn').click(function(event) {
@@ -131,11 +131,9 @@ $(document).ready(function() {
         switch (id) {
             case "mainFrontMat":
                 materialMeshes = ['FR1', 'FR2', 'CO1', 'CO2'];
-                console.log(materialMeshes);
                 break;
             case "mainBackMat":
                 materialMeshes = ['LC1', 'TN1', 'TN2', 'TN3', 'TT1', 'TT2', 'TT3', 'TT4', 'TT5', 'TK1', 'TK2', 'TK3'];
-                console.log(materialMeshes);
                 break;
             case "frontMat":
                 materialMeshes = ['PT1', 'TO1'];
@@ -166,12 +164,14 @@ $(document).ready(function() {
 
         var swatch = $('#swatchMenu').find('img');
         swatch.click(function() {
+            console.log(materialMeshes);
 
             var objCont = window.objectContainer;
             var object = objCont.obj;
             objMat = $(this).attr("matName");
             object.traverse(function(child) {
                 if (child instanceof THREE.Mesh) {
+                    
                     var mainMeshes = (child.name == 'FR1') || (child.name == 'FR2') ||
                         (child.name == 'CO1') || (child.name == 'CO2') || (child.name == 'LC1') ||
                         (child.name == 'TN1') || (child.name == 'TN2') || (child.name == 'TN3');
