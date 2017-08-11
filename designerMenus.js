@@ -135,15 +135,16 @@ $(document).ready(function() {
             case "mainBackMat":
                 materialMeshes = ['LC1', 'TN1', 'TN2', 'TN3', 'TT1', 'TT2', 'TT3', 'TT4', 'TT5', 'TK1', 'TK2', 'TK3'];
                 break;
+            case "heelMat":
+                materialMeshes = ['HE1'];
+                break;
             case "frontMat":
                 materialMeshes = ['PT1', 'TO1'];
                 break;
             case "backMat":
                 materialMeshes = ['SH1', 'PH1'];
                 break;
-            case "heelMat":
-                materialMeshes = ['HE1'];
-                break;
+
             case "strapsMat":
                 materialMeshes = ['LS1', 'MJ1', 'MJ2', 'TB1', 'TB2', 'BI1', 'BI2', 'BI3', 'BI4', 'TN1', 'TN2', 'TK1', 'TK2'];
                 break;
@@ -164,19 +165,15 @@ $(document).ready(function() {
 
         var swatch = $('#swatchMenu').find('img');
         swatch.click(function() {
-            console.log(materialMeshes);
-
             var objCont = window.objectContainer;
             var object = objCont.obj;
             objMat = $(this).attr("matName");
             object.traverse(function(child) {
                 if (child instanceof THREE.Mesh) {
-                    
-                    var mainMeshes = (child.name == 'FR1') || (child.name == 'FR2') ||
-                        (child.name == 'CO1') || (child.name == 'CO2') || (child.name == 'LC1') ||
-                        (child.name == 'TN1') || (child.name == 'TN2') || (child.name == 'TN3');
-                    if (mainMeshes) {
-                        child.material = objCont.materials[objMat];
+                    for (var i = 0; i < materialMeshes.length; i++) {
+                        if (child.name == materialMeshes[i]) {
+                            child.material = objCont.materials[objMat];
+                        }
                     }
                 }
             });
