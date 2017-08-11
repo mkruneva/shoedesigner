@@ -3,10 +3,10 @@ var figureStart = '<figure class="col-xs-3 col-sm-4 col-md-3 shoe-thumb">';
 var figureEnd = '</figure>';
 
 function thumbSingle(object, selected) {
-	var selectedClass = '';
-	if (selected) {
-		selectedClass = 'selected';
-	}
+    var selectedClass = '';
+    if (selected) {
+        selectedClass = 'selected';
+    }
     var imgText = "<img src='" + object.imgSrc + "' abr = '" + object.abr + "'' alt='" + object.tooltip + "' obj='" + object.objSrc + "' selection='" + object.selection + "' class='" + selectedClass + "'>";
     var text = figureStart + imgText + figureEnd;
     return text;
@@ -33,8 +33,8 @@ $(document).ready(function() {
             thumbMany(cs, 'Core Shape', selection[0]) +
             thumbMany(cs[selection[0]].children, "Heels", selection[1]) +
             thumbMany(cs[selection[0]].children[selection[1]].children, "Fronts", selection[2]) +
-            thumbMany(cs[selection[0]].children[selection[1]].children[selection[2]].children, "Backs",  selection[3]) +
-            thumbMany(cs[selection[0]].children[selection[1]].children[selection[2]].children[selection[3]].children, "Straps",  selection[4]) +
+            thumbMany(cs[selection[0]].children[selection[1]].children[selection[2]].children, "Backs", selection[3]) +
+            thumbMany(cs[selection[0]].children[selection[1]].children[selection[2]].children[selection[3]].children, "Straps", selection[4]) +
             thumbMany(cs[selection[0]].children[selection[1]].children[selection[2]].children[selection[3]].children[selection[4]].children, "Embellishments")
         );
 
@@ -65,7 +65,11 @@ $(document).ready(function() {
                                 }
                             }
                             // the previously added mesh should be removed before loading new one
+                        }
+                        if (child.visible) {
                             child.castShadow = true;
+                        } else {
+                            child.castShadow = false;
                         }
                     });
                 }
