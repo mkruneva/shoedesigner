@@ -1,3 +1,9 @@
+//Hiding the Canvas Material Buttons
+
+$('#canvasButtons').hide();
+
+
+
 //Generate HTML function 
 var figureStart = '<figure class="col-xs-3 col-sm-4 col-md-3 shoe-thumb">';
 var figureEnd = '</figure>';
@@ -41,14 +47,13 @@ function swatchSingle(object, selected) {
 }
 
 function swatchMany(swatchArray, menuText) {
-    var wholeText = "<div><button type='button' class='btn btn-secondary btn-lg btn-block'>" + menuText + "</button><div class='row'><div id='swatchCsDiv' class='col-xs-12 swatch-container'>"
+    var wholeText = "<div><button type='button' class='btn btn-secondary btn-lg btn-block'>" + menuText + "</button><div class='row'><div class='col-xs-12 swatch-container'>"
     for (var i = 0; i < swatchArray.length; i++) {
         wholeText += swatchSingle(swatchArray[i]);
     }
     wholeText += "</div></div></div>"
     return wholeText;
 }
-
 
 $(document).ready(function() {
     var redrawMenu = function(selection) {
@@ -126,6 +131,7 @@ $(document).ready(function() {
 
         var swatch = $('#swatchMenu').find('img');
         swatch.click(function() {
+
             var objCont = window.objectContainer;
             var object = objCont.obj;
             objMat = $(this).attr("matName");
@@ -149,6 +155,7 @@ $(document).ready(function() {
     //jQ anim menu
     var btn = $('#swatchMenu button.btn');
     btn.click(function() {
+        $('#canvasButtons').show(); //display the Canvas menus
         var div = $(this).parents().find('.swatch-container');
         if ((div[0]).style.display === 'none') {
             div.slideDown(600);
