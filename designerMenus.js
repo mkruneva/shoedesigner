@@ -121,10 +121,10 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     var redrawSwatchMenu = function() {
-        $('#shoeMenu').append(
+        $('#swatchMenu').append(
             swatchMany(swatches, 'Materials'))
 
-        var swatch = $('#shoeMenu').find('img');
+        var swatch = $('#swatchMenu').find('img');
         swatch.click(function() {
             var objCont = window.objectContainer;
             var object = objCont.obj;
@@ -141,5 +141,19 @@ $(document).ready(function() {
         });
 
     }
+
     redrawSwatchMenu();
+    $('.swatch-container').hide();
+
+    //jQ anim menu
+    var btn = $('#swatchMenu button.btn');
+    btn.click(function() {
+        var div = $(this).parents().find('.swatch-container');
+        if ((div[0]).style.display === 'none') {
+            div.slideDown(600);
+        } else {
+            div.slideUp(600);
+        }
+    });
+   
 });
