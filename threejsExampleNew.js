@@ -40,7 +40,7 @@ function init() {
         // material2: materials['matDarkGrey']
     };
 
-    loadObject(objPathName, materials.matSU09, materials.matDarkGrey);
+    loadObject(objPathName, materials.matSU36, materials.matDarkGrey);
 
     //GEOMETRY
     var plane = createPlane(3000);

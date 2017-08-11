@@ -66,11 +66,7 @@ $(document).ready(function() {
                             }
                             // the previously added mesh should be removed before loading new one
                         }
-                        if (child.visible) {
-                            child.castShadow = true;
-                        } else {
-                            child.castShadow = false;
-                        }
+                        child.castShadow = child.visible;
                     });
                 }
 

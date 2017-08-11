@@ -397,7 +397,7 @@ function createMSmany(materials) {
     materials.matMS02 = createMSmat(0xBDBCBC);
     materials.matMS03 = createMSmat(0xCCBA95); //can be removed
     materials.matMS05 = createMSmat(0x73593F);
-    materials.matMS06 = createMSmat(0x3B1B12); //can be removed
+    materials.matMS06 = createMSmat(0x423731); //can be removed
     materials.matMS08 = createMSmat(0x871460);
     materials.matMS09 = createMSmat(0x591434);
     materials.matMS10 = createMSmat(0x1C5061);
@@ -437,7 +437,6 @@ function createSUmany(materials) {
     materials.matSU13 = createSUmat(0xC74828); //?
     materials.matSU16 = createSUmat(0x17212E);
     materials.matSU17 = createSUmat(0x008C89);
-    materials.matSU21 = createSUmat(0xC2B3A3); //x?
     materials.matSU25 = createSUmat(0x748387);
     materials.matSU35 = createSUmat(0x2A855F);
     materials.matSU36 = createSUmat(0x4A8A77);
