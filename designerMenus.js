@@ -112,14 +112,34 @@ $(document).ready(function() {
         });
     }
 
+
+
+    redrawMenu([0, 0, 0, 0, 0]);
+    $('.thumb-container:gt(0)').hide();
+
+});
+
+$(document).ready(function() {
     var redrawSwatchMenu = function() {
         $('#shoeMenu').append(
             swatchMany(swatches, 'Materials'))
+
+        var swatch = $('#shoeMenu').find('img');
+        swatch.click(function() {
+            var objCont = window.objectContainer;
+            var object = objCont.obj;
+            objMat = $(this).attr("matName");
+            object.traverse(function(child) {
+                if (child instanceof THREE.Mesh) {
+                    var mainMeshes = (child.name == 'FR1') || (child.name == 'FR2') ||
+                        (child.name == 'CO1') || (child.name == 'CO2') || (child.name == 'LC1');
+                    if (mainMeshes) {
+                        child.material = objCont.materials[objMat];
+                    }
+                }
+            });
+        });
+
     }
-
-    redrawMenu([0, 0, 0, 0, 0]);
     redrawSwatchMenu();
-
-    $('.thumb-container:gt(0)').hide();
-
 });
