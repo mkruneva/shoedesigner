@@ -1,8 +1,5 @@
 //Hiding the Canvas Material Buttons
-
 $('#canvasButtons').hide();
-
-
 
 //Generate HTML function 
 var figureStart = '<figure class="col-xs-3 col-sm-4 col-md-3 shoe-thumb">';
@@ -124,6 +121,44 @@ $(document).ready(function() {
 
 });
 
+/// Mesh hange on click 
+
+var materialMeshes = [];
+
+$(document).ready(function() {
+    $('#canvasButtons button.btn').click(function(event) {
+        var id = this.id;
+        switch (id) {
+            case "mainFrontMat":
+                materialMeshes = ['FR1', 'FR2', 'CO1', 'CO2'];
+                console.log(materialMeshes);
+                break;
+            case "mainBackMat":
+                materialMeshes = ['LC1', 'TN1', 'TN2', 'TN3', 'TT1', 'TT2', 'TT3', 'TT4', 'TT5', 'TK1', 'TK2', 'TK3'];
+                console.log(materialMeshes);
+                break;
+            case "frontMat":
+                materialMeshes = ['PT1', 'TO1'];
+                break;
+            case "backMat":
+                materialMeshes = ['SH1', 'PH1'];
+                break;
+            case "heelMat":
+                materialMeshes = ['HE1'];
+                break;
+            case "strapsMat":
+                materialMeshes = ['LS1', 'MJ1', 'MJ2', 'TB1', 'TB2', 'BI1', 'BI2', 'BI3', 'BI4', 'TN1', 'TN2', 'TK1', 'TK2'];
+                break;
+            default:
+                materialMeshes = ['FR1', 'FR2', 'CO1', 'CO2', 'LC1', 'TN1', 'TN2', 'TN3'];
+        }
+    });
+});
+
+
+
+//Material add on click 
+
 $(document).ready(function() {
     var redrawSwatchMenu = function() {
         $('#swatchMenu').append(
@@ -138,8 +173,8 @@ $(document).ready(function() {
             object.traverse(function(child) {
                 if (child instanceof THREE.Mesh) {
                     var mainMeshes = (child.name == 'FR1') || (child.name == 'FR2') ||
-                        (child.name == 'CO1') || (child.name == 'CO2') || (child.name == 'LC1') || 
-                        (child.name == 'TN1') || (child.name == 'TN2') || (child.name == 'TN3') ;
+                        (child.name == 'CO1') || (child.name == 'CO2') || (child.name == 'LC1') ||
+                        (child.name == 'TN1') || (child.name == 'TN2') || (child.name == 'TN3');
                     if (mainMeshes) {
                         child.material = objCont.materials[objMat];
                     }
@@ -163,5 +198,5 @@ $(document).ready(function() {
             div.slideUp(600);
         }
     });
-   
+
 });
