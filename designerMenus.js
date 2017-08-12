@@ -102,17 +102,17 @@ var onThumbClick = function() {
     }
 }
 
-var redrawMenu = function(selection) {
+var redrawMenu = function(sel) {
 
     var displ = $('.thumb-container').map((i, e) => e.style.display).toArray(); //display style to be redrawn each time
 
     $('#shoeMenu').html(
-        thumbMany(cs, 'Core Shape', selection[0]) +
-        thumbMany(cs[selection[0]].children, "Heels", selection[1]) +
-        thumbMany(cs[selection[0]].children[selection[1]].children, "Fronts", selection[2]) +
-        thumbMany(cs[selection[0]].children[selection[1]].children[selection[2]].children, "Backs", selection[3]) +
-        thumbMany(cs[selection[0]].children[selection[1]].children[selection[2]].children[selection[3]].children, "Straps", selection[4]) +
-        thumbMany(cs[selection[0]].children[selection[1]].children[selection[2]].children[selection[3]].children[selection[4]].children, "Embellishments")
+        thumbMany(cs, 'Core Shape', sel[0]) +
+        thumbMany(cs[sel[0]].children, "Heels", sel[1]) +
+        thumbMany(cs[sel[0]].children[sel[1]].children, "Fronts", sel[2]) +
+        thumbMany(cs[sel[0]].children[sel[1]].children[sel[2]].children, "Backs", sel[3]) +
+        thumbMany(cs[sel[0]].children[sel[1]].children[sel[2]].children[sel[3]].children, "Straps", sel[4]) +
+        thumbMany(cs[sel[0]].children[sel[1]].children[sel[2]].children[sel[3]].children[sel[4]].children, "Embellishments")
     );
 
     $('.thumb-container').each((i, e) => e.style.display = displ[i]); //display style to be redrawn each time
