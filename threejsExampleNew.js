@@ -92,7 +92,7 @@ function loadObject(objPath, material1, material2) {
         object.traverse(function(child) {
             if (child instanceof THREE.Mesh) {
                 // all meshes except for the default ones are hidden
-                var startMeshes = (child.name == 'FR1') || (child.name == 'FR2') || (child.name == 'HE1') ||
+                var startMeshes = (child.name == 'FR1') || (child.name == 'FR2') || (child.name == 'HE1') || (child.name == 'IB1') ||
                     (child.name == 'HG1') || (child.name == 'HT1') || (child.name == 'IB1') ||
                     (child.name == 'IL1') || (child.name == 'IN1') || (child.name == 'LI1') ||
                     (child.name == 'LO1') || (child.name == 'SO1') || (child.name == 'SO2') || (child.name == 'PF1') ||

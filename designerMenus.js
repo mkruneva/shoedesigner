@@ -74,7 +74,7 @@ $(document).ready(function() {
             var selectionArray = selection.split(',').map(function(n) { return parseInt(n); });
             redrawMenu(selectionArray);
 
-            var objCont = window.objectContainer;
+            var objCont = window.objectContainer; // defined 3 times as var
 
             if ($(this).attr("obj") != objCont.obj.name) {
                 if ($(this).attr("obj") !== 'null') {
@@ -83,7 +83,7 @@ $(document).ready(function() {
                     objCont.loadObject(objPathName, objCont.materials.matMR02, objCont.materials.matDarkGrey);
                 } else {
                     objAbr = $(this).attr("abr").split(',');
-                    var object = objCont.obj;
+                    var object = objCont.obj; // defined 3 times as var
 
                     object.traverse(function(child) {
                         if (child instanceof THREE.Mesh) {
@@ -123,14 +123,14 @@ $(document).ready(function() {
 
 /// Mesh hange on click 
 
-var materialMeshes = ['FR1', 'FR2', 'CO1', 'CO2', 'LC1', 'TN1', 'TN2', 'TN3'];
+var materialMeshes = ['FR1', 'FR2', 'IB1', 'CO1', 'CO2', 'LC1', 'TN1', 'TN2', 'TN3'];
 
 $(document).ready(function() {
     $('#canvasButtons button.btn').click(function(event) {
         var id = this.id;
         switch (id) {
             case "mainFrontMat":
-                materialMeshes = ['FR1', 'FR2', 'CO1', 'CO2'];
+                materialMeshes = ['FR1', 'FR2', 'CO1', 'CO2', 'IB1'];
                 break;
             case "mainBackMat":
                 materialMeshes = ['LC1', 'TN1', 'TN2', 'TN3', 'TT1', 'TT2', 'TT3', 'TT4', 'TT5', 'TK1', 'TK2', 'TK3'];
@@ -144,12 +144,11 @@ $(document).ready(function() {
             case "backMat":
                 materialMeshes = ['SH1', 'PH1'];
                 break;
-
             case "strapsMat":
                 materialMeshes = ['LS1', 'MJ1', 'MJ2', 'TB1', 'TB2', 'BI1', 'BI2', 'BI3', 'BI4', 'TN1', 'TN2', 'TK1', 'TK2'];
                 break;
             default:
-                materialMeshes = ['FR1', 'FR2', 'CO1', 'CO2', 'LC1', 'TN1', 'TN2', 'TN3'];
+                materialMeshes = ['FR1', 'FR2', 'IB1', 'CO1', 'CO2', 'LC1', 'TN1', 'TN2', 'TN3'];
         }
     });
 });
@@ -165,8 +164,8 @@ $(document).ready(function() {
 
         var swatch = $('#swatchMenu').find('img');
         swatch.click(function() {
-            var objCont = window.objectContainer;
-            var object = objCont.obj;
+            var objCont = window.objectContainer; // defined 3 times as var
+            var object = objCont.obj; // defined 3 times as var
             objMat = $(this).attr("matName");
             object.traverse(function(child) {
                 if (child instanceof THREE.Mesh) {
@@ -187,6 +186,36 @@ $(document).ready(function() {
     //jQ anim menu
     var btn = $('#swatchMenu button.btn');
     btn.click(function() {
+        var objCont = window.objectContainer; // defined 3 times as var
+        var object = objCont.obj; // defined 3 times as var
+
+        object.traverse(function(child) { //assign initial materials 
+            if (child instanceof THREE.Mesh) {
+                var meshName = child.name;
+                switch (meshName) {
+                    case "SO1":
+                        child.material = objCont.materials.matSU04;
+                        break;
+                    case "LO1":
+                        child.material = objCont.materials.matMR02;
+                        break;
+                    case "HT1":
+                        child.material = objCont.materials.matPT01;
+                        break;
+                    case "IN1":
+                    case "LI1":
+                    case "TN1LI":
+                    case "CO1LI":
+                    case "CO2LI":
+                        child.material = objCont.materials.matLH21;
+                        break;
+                    case "HG1":
+                        child.material = objCont.materials.matSU25;
+                        break;
+                }
+            }
+        });
+
         $('#canvasButtons').show(); //display the Canvas menus
         var div = $(this).parents().find('.swatch-container');
         if ((div[0]).style.display === 'none') {
