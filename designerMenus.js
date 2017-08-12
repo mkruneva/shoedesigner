@@ -70,6 +70,7 @@ $(document).ready(function() {
 
         var thumb = $('#shoeMenu').find('img');
         thumb.click(function() {
+
             var selection = $(this).attr("selection");
             var selectionArray = selection.split(',').map(function(n) { return parseInt(n); });
             redrawMenu(selectionArray);
@@ -90,9 +91,31 @@ $(document).ready(function() {
                             for (var i = 0; i < objAbr.length; i++) {
                                 if (child.name == objAbr[i]) {
                                     child.visible ^= true;
+
+                                    // the previously added mesh should be removed before loading new one TEST
+                                    if (child.name == 'PT1') {
+                                        object.traverse(function(child) {
+                                            if (child instanceof THREE.Mesh) {
+                                                if (child.name == 'TO1') {
+                                                    child.visible = false;
+                                                }
+                                            }
+                                            child.castShadow = child.visible;
+                                        });
+                                    }
+                                    if (child.name == 'TO1') {
+                                        object.traverse(function(child) {
+                                            if (child instanceof THREE.Mesh) {
+                                                if (child.name == 'PT1') {
+                                                    child.visible = false;
+                                                }
+                                            }
+                                            child.castShadow = child.visible;
+                                        });
+                                    }
                                 }
                             }
-                            // the previously added mesh should be removed before loading new one
+                            
                         }
                         child.castShadow = child.visible;
                     });
@@ -212,7 +235,7 @@ $(document).ready(function() {
                     case "CO2LI":
                     case "LC1LI":
                     case "ST1LI":
-                    case "LS1LI": 
+                    case "LS1LI":
                     case "MJ1LI":
                     case "TB1LI":
                     case "BI1LI":

@@ -4,16 +4,13 @@ var camera, scene, renderer;
 var controls;
 var background;
 var loader = new THREE.OBJLoader(); //global 
-var objPathName = 'obj/PC/PC300AHPLAPL.obj'; //TEMP for the example HTML
 
-var objY = -65;
+var objY = -80;
 
 init();
 animate();
 
 function init() {
-
-
     // SCENE DESCRIPTION
     scene = new THREE.Scene();
 
@@ -105,8 +102,8 @@ function loadObject(objPath, material1, material2) {
                     (child.name == 'CO1') || (child.name == 'CO2') || (child.name == 'LC1') || (child.name == 'ST1') ||
                     (child.name == 'TN1BK') || (child.name == 'TK1BK') || (child.name == 'TT1BK') || (child.name == 'TT2BK') ||
                     (child.name == 'MJ1BK') || (child.name == 'TB1BK') || (child.name == 'BI1BK') || (child.name == 'BI2BK') ||
-                    (child.name == 'BB2') ||
-                    (child.name == 'TN1') || (child.name == 'TK1') || (child.name == 'TT1') || (child.name == 'HT1') || (child.name == 'LO1');
+                    (child.name == 'BB2') || (child.name == 'TN1') || (child.name == 'TK1') || (child.name == 'TT1') ||
+                    (child.name == 'HT1') || (child.name == 'LO1');
                 if (mainMeshes) {
                     child.material = material1;
                 } else {
