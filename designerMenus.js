@@ -115,7 +115,7 @@ $(document).ready(function() {
                                     }
                                 }
                             }
-                            
+
                         }
                         child.castShadow = child.visible;
                     });
@@ -137,46 +137,33 @@ $(document).ready(function() {
         });
     }
 
-
-
     redrawMenu([0, 0, 0, 0, 0]);
     $('.thumb-container:gt(0)').hide();
 
 });
 
-/// Mesh hange on click 
-
+// Mesh change on click 
 var materialMeshes = ['FR1', 'FR2', 'IB1', 'CO1', 'CO2', 'LC1', 'TN1', 'TN2', 'TN3'];
 
 $(document).ready(function() {
     $('#canvasButtons button.btn').click(function() {
         var id = this.id;
-        switch (id) {
-            case "mainFrontMat":
-                materialMeshes = ['FR1', 'FR2', 'CO1', 'CO2', 'IB1', 'ST1', 'BB2'];
-                break;
-            case "mainBackMat":
-                materialMeshes = ['LC1', 'TN1', 'TN2', 'TN3', 'TT1', 'TT2', 'TT3', 'TT4', 'TT5', 'TK1', 'TK2', 'TK3'];
-                break;
-            case "heelMat":
-                materialMeshes = ['HE1', 'PF1'];
-                break;
-            case "frontMat":
-                materialMeshes = ['PT1', 'TO1', 'BB1'];
-                break;
-            case "backMat":
-                materialMeshes = ['SH1', 'PH1'];
-                break;
-            case "strapsMat":
-                materialMeshes = ['LS1', 'MJ1', 'MJ2', 'TB1', 'TB2', 'BI1', 'BI2', 'BI3', 'BI4', 'TN1', 'TN2', 'TK1', 'TK2'];
-                break;
-            default:
-                materialMeshes = ['FR1', 'FR2', 'IB1', 'CO1', 'CO2', 'LC1', 'TN1', 'TN2', 'TN3'];
+        materialMeshes = materialMeshGroups[id];
+        if (materialMeshes==undefined) {
+            materialMeshes = materialMeshGroups.defaultMat;
         }
     });
 });
 
-
+var materialMeshGroups = {
+    mainFrontMat: ['FR1', 'FR2', 'CO1', 'CO2', 'IB1', 'ST1', 'BB2'],
+    mainBackMat: ['LC1', 'TN1', 'TN2', 'TN3', 'TT1', 'TT2', 'TT3', 'TT4', 'TT5', 'TK1', 'TK2', 'TK3'],
+    heelMat: ['HE1', 'PF1'],
+    frontMat: ['PT1', 'TO1', 'BB1'],
+    backMat: ['SH1', 'PH1'],
+    strapsMat: ['LS1', 'MJ1', 'MJ2', 'TB1', 'TB2', 'BI1', 'BI2', 'BI3', 'BI4', 'TN1', 'TN2', 'TK1', 'TK2'],
+    defaultMat: ['FR1', 'FR2', 'IB1', 'CO1', 'CO2', 'LC1', 'TN1', 'TN2', 'TN3'],
+};
 
 //Material add on click 
 
@@ -191,16 +178,11 @@ $(document).ready(function() {
             var object = objCont.obj; // defined 3 times as var
             objMat = $(this).attr("matName");
             object.traverse(function(child) {
-                if (child instanceof THREE.Mesh) {
-                    for (var i = 0; i < materialMeshes.length; i++) {
-                        if (child.name == materialMeshes[i]) {
-                            child.material = objCont.materials[objMat];
-                        }
-                    }
+                if ((child instanceof THREE.Mesh) && (materialMeshes.includes(child.name))) {
+                    child.material = objCont.materials[objMat];
                 }
             });
         });
-
     }
 
     redrawSwatchMenu();
@@ -259,7 +241,14 @@ $(document).ready(function() {
                     case "BI2BK":
                         child.material = objCont.materials.matMR01;
                         break;
-
+                    case "GC1":
+                        child.material = objCont.materials.matMR01;
+                        break;
+                    case "GE1":
+                    case "GE2":
+                    case "GE3":
+                        child.material = objCont.materials.matMR03;
+                        break;
                 }
             }
         });
