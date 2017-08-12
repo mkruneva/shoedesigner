@@ -1,6 +1,19 @@
 //Hiding the Canvas Material Buttons
 $('#canvasButtons').hide();
 
+//DATA
+var objPathName = 'obj/PC/PC300AHPLAPL.obj'; // Initial obj file
+var materialMeshes = ['FR1', 'FR2', 'IB1', 'CO1', 'CO2', 'LC1', 'TN1', 'TN2', 'TN3'];
+var materialMeshGroups = {
+    mainFrontMat: ['FR1', 'FR2', 'CO1', 'CO2', 'IB1', 'ST1', 'BB2'],
+    mainBackMat: ['LC1', 'TN1', 'TN2', 'TN3', 'TT1', 'TT2', 'TT3', 'TT4', 'TT5', 'TK1', 'TK2', 'TK3'],
+    heelMat: ['HE1', 'PF1'],
+    frontMat: ['PT1', 'TO1', 'BB1'],
+    backMat: ['SH1', 'PH1'],
+    strapsMat: ['LS1', 'MJ1', 'MJ2', 'TB1', 'TB2', 'BI1', 'BI2', 'BI3', 'BI4', 'TN1', 'TN2', 'TK1', 'TK2'],
+    defaultMat: ['FR1', 'FR2', 'IB1', 'CO1', 'CO2', 'LC1', 'TN1', 'TN2', 'TN3'],
+};
+
 //Generate HTML function 
 var figureStart = '<figure class="col-xs-3 col-sm-4 col-md-3 shoe-thumb">';
 var figureEnd = '</figure>';
@@ -10,24 +23,21 @@ function thumbSingle(object, selected) {
     if (selected) {
         selectedClass = 'selected';
     }
-    var imgText = "<img src='" + object.imgSrc + "' abr = '" + object.abr + "'' alt='" + object.tooltip + "' obj='" + object.objSrc + "' selection='" + object.selection + "' class='" + selectedClass + "'>";
+    var imgText = "<img src='" + object.imgSrc + "' abr = '" + object.abr + "'' alt='" + object.tooltip +
+                    "' obj='" + object.objSrc + "' selection='" + object.selection + "' class='" + selectedClass + "'>";
     var text = figureStart + imgText + figureEnd;
     return text;
 }
 
 function thumbMany(thumbArray, menuText, selectedIndex) {
-    var wholeText = "<div><button type='button' class='btn btn-secondary btn-lg btn-block'>" + menuText + "</button><div class='row'><div id='thumbCsDiv' class='col-xs-12 thumb-container'>"
+    var wholeText = "<div><button type='button' class='btn btn-secondary btn-lg btn-block'>" +
+                    menuText + "</button><div class='row'><div id='thumbCsDiv' class='col-xs-12 thumb-container'>"
     for (var i = 0; i < thumbArray.length; i++) {
         wholeText += thumbSingle(thumbArray[i], i === selectedIndex);
     }
     wholeText += "</div></div></div>"
     return wholeText;
 }
-
-// Initial obj file
-var objPathName = 'obj/PC/PC300AHPLAPL.obj';
-
-
 
 //Generate HTML function 
 var figureSwatchStart = '<figure class="col-xs-2 col-sm-3 col-md-2 shoe-thumb">';
@@ -52,121 +62,84 @@ function swatchMany(swatchArray, menuText) {
     return wholeText;
 }
 
-$(document).ready(function() {
-    var redrawMenu = function(selection) {
-
-        var displ = $('.thumb-container').map((i, e) => e.style.display).toArray(); //display style to be redrawn each time
-
-        $('#shoeMenu').html(
-            thumbMany(cs, 'Core Shape', selection[0]) +
-            thumbMany(cs[selection[0]].children, "Heels", selection[1]) +
-            thumbMany(cs[selection[0]].children[selection[1]].children, "Fronts", selection[2]) +
-            thumbMany(cs[selection[0]].children[selection[1]].children[selection[2]].children, "Backs", selection[3]) +
-            thumbMany(cs[selection[0]].children[selection[1]].children[selection[2]].children[selection[3]].children, "Straps", selection[4]) +
-            thumbMany(cs[selection[0]].children[selection[1]].children[selection[2]].children[selection[3]].children[selection[4]].children, "Embellishments")
-        );
-
-        $('.thumb-container').each((i, e) => e.style.display = displ[i]); //display style to be redrawn each time
-
-        var thumb = $('#shoeMenu').find('img');
-        thumb.click(function() {
-
-            var selection = $(this).attr("selection");
-            var selectionArray = selection.split(',').map(function(n) { return parseInt(n); });
-            redrawMenu(selectionArray);
-
-            var objCont = window.objectContainer; // defined 3 times as var
-
-            if ($(this).attr("obj") != objCont.obj.name) {
-                if ($(this).attr("obj") !== 'null') {
-                    objPathName = $(this).attr("obj");
-                    objCont.scene.remove(objCont.obj);
-                    objCont.loadObject(objPathName, objCont.materials.matGrey, objCont.materials.matDarkGrey);
-                } else {
-                    objAbr = $(this).attr("abr").split(',');
-                    var object = objCont.obj; // defined 3 times as var
-
-                    object.traverse(function(child) {
-                        if (child instanceof THREE.Mesh) {
-                            for (var i = 0; i < objAbr.length; i++) {
-                                if (child.name == objAbr[i]) {
-                                    child.visible ^= true;
-
-                                    // the previously added mesh should be removed before loading new one TEST
-                                    if (child.name == 'PT1') {
-                                        object.traverse(function(child) {
-                                            if (child instanceof THREE.Mesh) {
-                                                if (child.name == 'TO1') {
-                                                    child.visible = false;
-                                                }
-                                            }
-                                            child.castShadow = child.visible;
-                                        });
-                                    }
-                                    if (child.name == 'TO1') {
-                                        object.traverse(function(child) {
-                                            if (child instanceof THREE.Mesh) {
-                                                if (child.name == 'PT1') {
-                                                    child.visible = false;
-                                                }
-                                            }
-                                            child.castShadow = child.visible;
-                                        });
-                                    }
-                                }
-                            }
-
-                        }
-                        child.castShadow = child.visible;
-                    });
-                }
-
-            }
-
-        });
-
-        //jQ anim menu
-        var btns = $('#shoeMenu .btn');
-        btns.click(function() {
-            var div = $(this).parent().find('.thumb-container');
-            if ((div[0]).style.display === 'none') {
-                div.slideDown(400);
-            } else {
-                div.slideUp(400);
-            }
-        });
+var btnSlide = function() {
+    var div = $(this).parent().find('.thumb-container');
+    if ((div[0]).style.display === 'none') {
+        div.slideDown(400);
+    } else {
+        div.slideUp(400);
     }
+}
 
+var onThumbClick = function() {
+    var selection = $(this).attr("selection");
+    var selectionArray = selection.split(',').map(function(n) { return parseInt(n); });
+    redrawMenu(selectionArray);
+
+    var objCont = window.objectContainer; // defined 3 times as var
+
+    if ($(this).attr("obj") != objCont.obj.name) {
+        if ($(this).attr("obj") !== 'null') {
+            objPathName = $(this).attr("obj");
+            objCont.scene.remove(objCont.obj);
+            objCont.loadObject(objPathName, objCont.materials.matGrey, objCont.materials.matDarkGrey);
+        } else {
+            objAbr = $(this).attr("abr").split(',');
+            var object = objCont.obj; // defined 3 times as var
+
+            object.traverse(function(child) {
+                if (child instanceof THREE.Mesh) {
+                    for (var i = 0; i < objAbr.length; i++) {
+                        if (child.name == objAbr[i]) {
+                            child.visible ^= true;
+                        }
+                    }
+                }
+                child.castShadow = child.visible;
+            });
+        }
+    }
+}
+
+var redrawMenu = function(selection) {
+
+    var displ = $('.thumb-container').map((i, e) => e.style.display).toArray(); //display style to be redrawn each time
+
+    $('#shoeMenu').html(
+        thumbMany(cs, 'Core Shape', selection[0]) +
+        thumbMany(cs[selection[0]].children, "Heels", selection[1]) +
+        thumbMany(cs[selection[0]].children[selection[1]].children, "Fronts", selection[2]) +
+        thumbMany(cs[selection[0]].children[selection[1]].children[selection[2]].children, "Backs", selection[3]) +
+        thumbMany(cs[selection[0]].children[selection[1]].children[selection[2]].children[selection[3]].children, "Straps", selection[4]) +
+        thumbMany(cs[selection[0]].children[selection[1]].children[selection[2]].children[selection[3]].children[selection[4]].children, "Embellishments")
+    );
+
+    $('.thumb-container').each((i, e) => e.style.display = displ[i]); //display style to be redrawn each time
+
+    var thumb = $('#shoeMenu').find('img');
+    thumb.click(onThumbClick);
+
+    //jQ anim menu
+    var btns = $('#shoeMenu .btn');
+    btns.click(btnSlide);
+}
+
+$(document).ready(function() {
     redrawMenu([0, 0, 0, 0, 0]);
     $('.thumb-container:gt(0)').hide();
 
-});
-
-// Mesh change on click 
-var materialMeshes = ['FR1', 'FR2', 'IB1', 'CO1', 'CO2', 'LC1', 'TN1', 'TN2', 'TN3'];
-
-$(document).ready(function() {
+    // Mesh change on click 
     $('#canvasButtons button.btn').click(function() {
         var id = this.id;
         materialMeshes = materialMeshGroups[id];
-        if (materialMeshes==undefined) {
+        if (materialMeshes == undefined) {
             materialMeshes = materialMeshGroups.defaultMat;
         }
-    });
+    })
+
 });
 
-var materialMeshGroups = {
-    mainFrontMat: ['FR1', 'FR2', 'CO1', 'CO2', 'IB1', 'ST1', 'BB2'],
-    mainBackMat: ['LC1', 'TN1', 'TN2', 'TN3', 'TT1', 'TT2', 'TT3', 'TT4', 'TT5', 'TK1', 'TK2', 'TK3'],
-    heelMat: ['HE1', 'PF1'],
-    frontMat: ['PT1', 'TO1', 'BB1'],
-    backMat: ['SH1', 'PH1'],
-    strapsMat: ['LS1', 'MJ1', 'MJ2', 'TB1', 'TB2', 'BI1', 'BI2', 'BI3', 'BI4', 'TN1', 'TN2', 'TK1', 'TK2'],
-    defaultMat: ['FR1', 'FR2', 'IB1', 'CO1', 'CO2', 'LC1', 'TN1', 'TN2', 'TN3'],
-};
-
 //Material add on click 
-
 $(document).ready(function() {
     var redrawSwatchMenu = function() {
         $('#swatchMenu').append(
