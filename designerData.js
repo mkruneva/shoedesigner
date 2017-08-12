@@ -230,9 +230,9 @@ var ba_sa = [
 ];
 
 var ba_fl = [
-    new ThumbObject(null, 'images/BA/BAFLPL.jpg', null, 'Plain Back', true, st_fl, [, 0, 0, 0, 0]),
-    new ThumbObject('PH1', 'images/BA/BAFLPH.jpg', null, 'Pointed Heel Counter', true, st_fl, [, 0, 0, 1, 0]),
-    new ThumbObject('SH1', 'images/BA/BAFLSH.jpg', null, 'Strip Heel Counter', true, st_fl, [, 0, 0, 2, 0])
+    new ThumbObject(null, 'images/BA/BAFLPL.jpg', null, 'Plain Back', true, st_fl, [6, 0, 0, 0, 0]),
+    new ThumbObject('PH1', 'images/BA/BAFLPH.jpg', null, 'Pointed Heel Counter', true, st_fl, [6, 0, 0, 1, 0]),
+    new ThumbObject('SH1', 'images/BA/BAFLSH.jpg', null, 'Strip Heel Counter', true, st_fl, [6, 0, 0, 2, 0])
 ];
 
 
