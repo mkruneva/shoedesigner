@@ -54,7 +54,8 @@ function swatchSingle(object, selected) {
 }
 
 function swatchMany(swatchArray, menuText) {
-    var wholeText = "<div><button type='button' class='btn btn-secondary btn-lg btn-block'>" + menuText + "</button><div class='row'><div class='col-xs-12 swatch-container'>"
+    var wholeText = "<div><button type='button' class='btn btn-secondary btn-lg btn-block'>" +
+                    menuText + "</button><div class='row'><div class='col-xs-12 swatch-container'>"
     for (var i = 0; i < swatchArray.length; i++) {
         wholeText += swatchSingle(swatchArray[i]);
     }
@@ -136,7 +137,6 @@ $(document).ready(function() {
             materialMeshes = materialMeshGroups.defaultMat;
         }
     })
-
 });
 
 //Material add on click 
