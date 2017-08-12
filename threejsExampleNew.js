@@ -77,37 +77,34 @@ function createPlane(size) {
 }
 
 
-//FUNCTION LOADING OBJ< HIDING MESHES<ASSIGNING MATERIALS
+//FUNCTION LOADING OBJ > HIDING MESHES > ASSIGNING MATERIALS
 function loadObject(objPath, material1, material2) {
     loader.load(objPath, function(object) {
+
+        var defaultMeshes = ['FR1', 'FR2', 'HE1', 'IB1', 'HG1', 'HT1', 'IB1', 'IL1', 'IN1', 'LI1', 'LO1', 'SO1', 'SO2', 'PF1', 'LI1', 'LC1', 'LC1LI', 'LC1HG', 'CO1', 'CO2', 'CO1LI', 'CO2LI'];
+        var material1Meshes = ['FR1', 'FR2', 'IB1', 'IL1', 'CO1', 'CO2', 'LC1', 'ST1', 'TN1BK', 'TK1BK', 'TT1BK', 'TT2BK', 'MJ1BK', 'TB1BK', 'BI1BK', 'BI2BK', 'BB2', 'TN1', 'TK1', 'TT1', 'HT1', 'LO1'];
 
         object.rotation.y = (270 * Math.PI) / 180;
         object.translateZ(90);
         object.translateY(objY);
 
-        //Assinging material to all meshes of the object
         object.traverse(function(child) {
             if (child instanceof THREE.Mesh) {
-                // all meshes except for the default ones are hidden
-                var startMeshes = (child.name == 'FR1') || (child.name == 'FR2') || (child.name == 'HE1') || (child.name == 'IB1') ||
-                    (child.name == 'HG1') || (child.name == 'HT1') || (child.name == 'IB1') ||
-                    (child.name == 'IL1') || (child.name == 'IN1') || (child.name == 'LI1') ||
-                    (child.name == 'LO1') || (child.name == 'SO1') || (child.name == 'SO2') || (child.name == 'PF1') ||
-                    (child.name == 'LI1') || (child.name == 'LC1') || (child.name == 'LC1LI') || (child.name == 'LC1HG') ||
-                    (child.name == 'CO1') || (child.name == 'CO2') || (child.name == 'CO1LI') || (child.name == 'CO2LI');
-                child.visible = startMeshes;
-                child.castShadow = true;
 
-                var mainMeshes = (child.name == 'FR1') || (child.name == 'FR2') || (child.name == 'IB1') || (child.name == 'IL1') ||
-                    (child.name == 'CO1') || (child.name == 'CO2') || (child.name == 'LC1') || (child.name == 'ST1') ||
-                    (child.name == 'TN1BK') || (child.name == 'TK1BK') || (child.name == 'TT1BK') || (child.name == 'TT2BK') ||
-                    (child.name == 'MJ1BK') || (child.name == 'TB1BK') || (child.name == 'BI1BK') || (child.name == 'BI2BK') ||
-                    (child.name == 'BB2') || (child.name == 'TN1') || (child.name == 'TK1') || (child.name == 'TT1') ||
-                    (child.name == 'HT1') || (child.name == 'LO1');
-                if (mainMeshes) {
-                    child.material = material1;
-                } else {
-                    child.material = material2;
+                child.visible = false;
+                child.material = material2;
+
+                for (var i = 0; i < defaultMeshes.length; i++) {
+                    if (child.name == defaultMeshes[i]) {
+                        child.visible = true;
+                        child.castShadow = true;
+                    }
+                }
+
+                for (var i = 0; i < material1Meshes.length; i++) {
+                    if (child.name == material1Meshes[i]) {
+                        child.material = material1;
+                    }
                 }
             }
         });
