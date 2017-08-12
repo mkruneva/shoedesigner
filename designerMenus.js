@@ -80,7 +80,7 @@ $(document).ready(function() {
                 if ($(this).attr("obj") !== 'null') {
                     objPathName = $(this).attr("obj");
                     objCont.scene.remove(objCont.obj);
-                    objCont.loadObject(objPathName, objCont.materials.matMR02, objCont.materials.matDarkGrey);
+                    objCont.loadObject(objPathName, objCont.materials.matGrey, objCont.materials.matDarkGrey);
                 } else {
                     objAbr = $(this).attr("abr").split(',');
                     var object = objCont.obj; // defined 3 times as var
@@ -126,20 +126,20 @@ $(document).ready(function() {
 var materialMeshes = ['FR1', 'FR2', 'IB1', 'CO1', 'CO2', 'LC1', 'TN1', 'TN2', 'TN3'];
 
 $(document).ready(function() {
-    $('#canvasButtons button.btn').click(function(event) {
+    $('#canvasButtons button.btn').click(function() {
         var id = this.id;
         switch (id) {
             case "mainFrontMat":
-                materialMeshes = ['FR1', 'FR2', 'CO1', 'CO2', 'IB1'];
+                materialMeshes = ['FR1', 'FR2', 'CO1', 'CO2', 'IB1', 'ST1', 'BB2'];
                 break;
             case "mainBackMat":
                 materialMeshes = ['LC1', 'TN1', 'TN2', 'TN3', 'TT1', 'TT2', 'TT3', 'TT4', 'TT5', 'TK1', 'TK2', 'TK3'];
                 break;
             case "heelMat":
-                materialMeshes = ['HE1'];
+                materialMeshes = ['HE1', 'PF1'];
                 break;
             case "frontMat":
-                materialMeshes = ['PT1', 'TO1'];
+                materialMeshes = ['PT1', 'TO1', 'BB1'];
                 break;
             case "backMat":
                 materialMeshes = ['SH1', 'PH1'];
@@ -200,18 +200,43 @@ $(document).ready(function() {
                         child.material = objCont.materials.matMR02;
                         break;
                     case "HT1":
-                        child.material = objCont.materials.matPT01;
+                        child.material = objCont.materials.matLH01;
                         break;
                     case "IN1":
                     case "LI1":
                     case "TN1LI":
+                    case "TN2LI":
+                    case "TK1LI":
+                    case "TK2LI":
                     case "CO1LI":
                     case "CO2LI":
+                    case "LC1LI":
+                    case "ST1LI":
+                    case "LS1LI": 
+                    case "MJ1LI":
+                    case "TB1LI":
+                    case "BI1LI":
+                    case "BI2LI":
                         child.material = objCont.materials.matLH21;
                         break;
                     case "HG1":
+                    case "LC1HG":
                         child.material = objCont.materials.matSU25;
                         break;
+                    case "IL1":
+                        child.material = objCont.materials.matMR03;
+                        break;
+                    case "TN1BK":
+                    case "TK1BK":
+                    case "TT1BK":
+                    case "TT2BK":
+                    case "MJ1BK":
+                    case "TB1BK":
+                    case "BI1BK":
+                    case "BI2BK":
+                        child.material = objCont.materials.matMR01;
+                        break;
+
                 }
             }
         });

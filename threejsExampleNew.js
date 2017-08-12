@@ -40,7 +40,7 @@ function init() {
         // material2: materials['matDarkGrey']
     };
 
-    loadObject(objPathName, materials.matSU36, materials.matDarkGrey);
+    loadObject(objPathName, materials.matGrey, materials.matDarkGrey);
 
     //GEOMETRY
     var plane = createPlane(3000);
@@ -101,8 +101,12 @@ function loadObject(objPath, material1, material2) {
                 child.visible = startMeshes;
                 child.castShadow = true;
 
-                var mainMeshes = (child.name == 'FR1') || (child.name == 'FR2') ||
-                    (child.name == 'CO1') || (child.name == 'CO2') || (child.name == 'LC1');
+                var mainMeshes = (child.name == 'FR1') || (child.name == 'FR2') || (child.name == 'IB1') || (child.name == 'IL1') ||
+                    (child.name == 'CO1') || (child.name == 'CO2') || (child.name == 'LC1') || (child.name == 'ST1') ||
+                    (child.name == 'TN1BK') || (child.name == 'TK1BK') || (child.name == 'TT1BK') || (child.name == 'TT2BK') ||
+                    (child.name == 'MJ1BK') || (child.name == 'TB1BK') || (child.name == 'BI1BK') || (child.name == 'BI2BK') ||
+                    (child.name == 'BB2') ||
+                    (child.name == 'TN1') || (child.name == 'TK1') || (child.name == 'TT1') || (child.name == 'HT1') || (child.name == 'LO1');
                 if (mainMeshes) {
                     child.material = material1;
                 } else {
