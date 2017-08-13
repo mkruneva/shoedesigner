@@ -13,6 +13,17 @@ var materialMeshGroups = {
     strapsMat: ['LS1', 'MJ1', 'MJ2', 'TB1', 'TB2', 'BI1', 'BI2', 'BI3', 'BI4', 'TN1', 'TN2', 'TK1', 'TK2'],
     defaultMat: ['FR1', 'FR2', 'IB1', 'CO1', 'CO2', 'LC1', 'TN1', 'TN2', 'TN3'],
 };
+var defaultMatMeshGroups = {
+    sole: ["SO1"],
+    logo: ["LO1"],
+    insoleLogo: ["IL1"],
+    heelTip: ["HT1"],
+    lining: ["IN1", "LI1", "TN1LI", "TN2LI", "TK1LI", "TK2LI", "CO1LI", "CO2LI", "LC1LI", "ST1LI", "LS1LI", "MJ1LI", "TB1LI", "BI1LI", "BI2LI"],
+    heelGrip: ["HG1", "LC1HG"],
+    buckles: ["TN1BK", "TK1BK", "TT1BK", "TT2BK", "MJ1BK", "TB1BK", "BI1BK", "BI2BK"],
+    gemSilver: ["GC1"],
+    gemDiamonds: ["GE1", "GE2", "GE3"],
+};
 
 //Generate HTML function 
 var figureStart = '<figure class="col-xs-3 col-sm-4 col-md-3 shoe-thumb">';
@@ -139,7 +150,6 @@ $(document).ready(function() {
             materialMeshes = materialMeshGroups.defaultMat;
         }
     })
-
 });
 
 //Material add on click 
