@@ -24,14 +24,14 @@ function thumbSingle(object, selected) {
         selectedClass = 'selected';
     }
     var imgText = "<img src='" + object.imgSrc + "' abr = '" + object.abr + "'' alt='" + object.tooltip +
-                    "' obj='" + object.objSrc + "' selection='" + object.selection + "' class='" + selectedClass + "'>";
+        "' obj='" + object.objSrc + "' selection='" + object.selection + "' class='" + selectedClass + "'>";
     var text = figureStart + imgText + figureEnd;
     return text;
 }
 
 function thumbMany(thumbArray, menuText, selectedIndex) {
     var wholeText = "<div><button type='button' class='btn btn-secondary btn-lg btn-block'>" +
-                    menuText + "</button><div class='row'><div id='thumbCsDiv' class='col-xs-12 thumb-container'>"
+        menuText + "</button><div class='row'><div id='thumbCsDiv' class='col-xs-12 thumb-container'>"
     for (var i = 0; i < thumbArray.length; i++) {
         wholeText += thumbSingle(thumbArray[i], i === selectedIndex);
     }
@@ -55,7 +55,7 @@ function swatchSingle(object, selected) {
 
 function swatchMany(swatchArray, menuText) {
     var wholeText = "<div><button type='button' class='btn btn-secondary btn-lg btn-block'>" +
-                    menuText + "</button><div class='row'><div class='col-xs-12 swatch-container'>"
+        menuText + "</button><div class='row'><div class='col-xs-12 swatch-container'>"
     for (var i = 0; i < swatchArray.length; i++) {
         wholeText += swatchSingle(swatchArray[i]);
     }
@@ -63,12 +63,14 @@ function swatchMany(swatchArray, menuText) {
     return wholeText;
 }
 
-var btnSlide = function() {
-    var div = $(this).parent().find('.thumb-container');
-    if ((div[0]).style.display === 'none') {
-        div.slideDown(400);
-    } else {
-        div.slideUp(400);
+var btnSlide = function(duration, divClass) {
+    return function() {
+        var div = $(this).parent().find(divClass);
+        if ((div[0]).style.display === 'none') {
+            div.slideDown(duration);
+        } else {
+            div.slideUp(duration);
+        }
     }
 }
 
@@ -122,7 +124,7 @@ var redrawMenu = function(sel) {
 
     //jQ anim menu
     var btns = $('#shoeMenu .btn');
-    btns.click(btnSlide);
+    btns.click(btnSlide(400, '.thumb-container'));
 }
 
 $(document).ready(function() {
@@ -137,6 +139,7 @@ $(document).ready(function() {
             materialMeshes = materialMeshGroups.defaultMat;
         }
     })
+
 });
 
 //Material add on click 
@@ -163,7 +166,11 @@ $(document).ready(function() {
 
     //jQ anim menu
     var btn = $('#swatchMenu button.btn');
+    btn.click(btnSlide(800, '.swatch-container'));
     btn.click(function() {
+
+        $('#canvasButtons').show(); //display the Canvas menus
+
         var objCont = window.objectContainer; // defined 3 times as var
         var object = objCont.obj; // defined 3 times as var
 
@@ -225,14 +232,5 @@ $(document).ready(function() {
                 }
             }
         });
-
-        $('#canvasButtons').show(); //display the Canvas menus
-        var div = $(this).parents().find('.swatch-container');
-        if ((div[0]).style.display === 'none') {
-            div.slideDown(600);
-        } else {
-            div.slideUp(600);
-        }
     });
-
 });
