@@ -152,6 +152,7 @@ var defaultMatAssign = function() {
                 var matName = materialsArray[i];
                 child.material = objCont.materials[matName];
                 console.log('Mesh ', child.name, ' has material ', matName);
+                console.log('Mesh ', child.name, ' real material is', child.material.name);
             }
         });
     }

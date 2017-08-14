@@ -344,46 +344,46 @@ function createLFSmany(materials) {
 
 
 function createLLHmany(materials) {
-    materials.matLLH01 = createLLHmat();
+    materials.matLLH01 = createLLHmat(); materials.matLLH01.name = 'matLLH01';
 }
 
 function createLSNmany(materials) {
-    materials.matLSN01 = createLSNmat('tex/LSN-01-main.jpg', 'tex/LSN-01-stencil.jpg', 2.8);
-    materials.matLSN02 = createLSNmat('tex/LSN-02-main.jpg', 'tex/LSN-01-stencil.jpg', 2.8);
-    materials.matLSN03 = createLSNmat('tex/LSN-03-main.jpg', 'tex/LSN-01-stencil.jpg', 2.8);
-    materials.matLSN04 = createLSNmat('tex/LSN-04-diffuse.jpg', 'tex/LSN-04-bump-inv.jpg', 4.5);
-    materials.matLSN08 = createLSNmat('tex/LSN-08-DIFF.jpg', 'tex/LSN-08-bump-inv.jpg', 4.5);
+    materials.matLSN01 = createLSNmat('tex/LSN-01-main.jpg', 'tex/LSN-01-stencil.jpg', 2.8); materials.matLSN01.name = 'matLSN01';
+    materials.matLSN02 = createLSNmat('tex/LSN-02-main.jpg', 'tex/LSN-01-stencil.jpg', 2.8); materials.matLSN02.name = 'matLSN02';
+    materials.matLSN03 = createLSNmat('tex/LSN-03-main.jpg', 'tex/LSN-01-stencil.jpg', 2.8); materials.matLSN03.name = 'matLSN03';
+    materials.matLSN04 = createLSNmat('tex/LSN-04-diffuse.jpg', 'tex/LSN-04-bump-inv.jpg', 4.5); materials.matLSN04.name = 'matLSN04';
+    materials.matLSN08 = createLSNmat('tex/LSN-08-DIFF.jpg', 'tex/LSN-08-bump-inv.jpg', 4.5); materials.matLSN08.name = 'matLSN08';
 }
 
 function createLSUmany(materials) {
-    materials.matLSU01 = createLSUmat(0xC9C9C9);
-    materials.matLSU02 = createLSUmat(0xeadd99);
+    materials.matLSU01 = createLSUmat(0xC9C9C9); materials.matLSU01.name = 'matLSU01'; 
+    materials.matLSU02 = createLSUmat(0xeadd99); materials.matLSU02.name = 'matLSU02'; 
 }
 
 function createLHmany(materials) {
-    materials.matLH01 = createLHmat(0x0222222);
-    materials.matLH02 = createLHmat(0x3B3B3B);
-    materials.matLH04 = createLHmat(0x9E7854);
-    materials.matLH05 = createLHmat(0x803B1C);
-    materials.matLH06 = createLHmat(0x33211B);
-    materials.matLH07 = createLHmat(0x611522);
-    materials.matLH08 = createLHmat(0x8A141A);
-    materials.matLH09 = createLHmat(0x28223D);
-    materials.matLH10 = createLHmat(0x4D1F40);
-    materials.matLH13 = createLHmat(0xC74828); //?
-    materials.matLH16 = createLHmat(0x17212E);
-    materials.matLH17 = createLHmat(0x008C89);
-    materials.matLH21 = createLHmat(0xC2B3A3); //x?
-    materials.matLH25 = createLHmat(0x748387);
-    materials.matLH35 = createLHmat(0x2A855F);
-    materials.matLH36 = createLHmat(0x4A8A77);
+    materials.matLH01 = createLHmat(0x0222222); materials.matLH01.name = 'matLH01';
+    materials.matLH02 = createLHmat(0x3B3B3B); materials.matLH02.name = 'matLH02';  
+    materials.matLH04 = createLHmat(0x9E7854); materials.matLH04.name = 'matLH04'; 
+    materials.matLH05 = createLHmat(0x803B1C); materials.matLH05.name = 'matLH05';
+    materials.matLH06 = createLHmat(0x33211B); materials.matLH06.name = 'matLH06';
+    materials.matLH07 = createLHmat(0x611522); materials.matLH07.name = 'matLH07';
+    materials.matLH08 = createLHmat(0x8A141A); materials.matLH08.name = 'matLH08';
+    materials.matLH09 = createLHmat(0x28223D); materials.matLH09.name = 'matLH09';
+    materials.matLH10 = createLHmat(0x4D1F40); materials.matLH10.name = 'matLH10';
+    materials.matLH13 = createLHmat(0xC74828); materials.matLH13.name = 'matLH13'; //?
+    materials.matLH16 = createLHmat(0x17212E); materials.matLH16.name = 'matLH16';
+    materials.matLH17 = createLHmat(0x008C89); materials.matLH17.name = 'matLH17';
+    materials.matLH21 = createLHmat(0xC2B3A3); materials.matLH21.name = 'matLH21'; //x?
+    materials.matLH25 = createLHmat(0x748387); materials.matLH25.name = 'matLH25';
+    materials.matLH35 = createLHmat(0x2A855F); materials.matLH35.name = 'matLH35';
+    materials.matLH36 = createLHmat(0x4A8A77); materials.matLH36.name = 'matLH36';
 }
 
 function createMLmany(materials) {
-    materials.matML09 = createMLmat(0x591434);
-    materials.matML10 = createMLmat(0x1C5061);
-    materials.matML11 = createMLmat(0x008F85);
-    materials.matML12 = createMLmat(0x197A0A);
+    materials.matML09 = createMLmat(0x591434); materials.matML09.name = 'matML09'; 
+    materials.matML10 = createMLmat(0x1C5061); materials.matML10.name = 'matML10';
+    materials.matML11 = createMLmat(0x008F85); materials.matML11.name = 'matML11';
+    materials.matML12 = createMLmat(0x197A0A); materials.matML12.name = 'matML12';
 }
 
 function createMRmany(materials) {
