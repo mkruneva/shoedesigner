@@ -95,6 +95,8 @@ var onThumbClick = function() {
 
     if ($(this).attr("obj") != objCont.obj.name) {
         if ($(this).attr("obj") !== 'null') {
+            $('.swatch-container').hide(); //hides material menu on object reload
+
             objPathName = $(this).attr("obj");
             objCont.scene.remove(objCont.obj);
             objCont.loadObject(objPathName, objCont.materials.matGrey, objCont.materials.matDarkGrey);
@@ -103,7 +105,7 @@ var onThumbClick = function() {
             objAbr = $(this).attr("abr").split(',');
             object.traverse(function(child) {
                 if ((child instanceof THREE.Mesh) && (objAbr.includes(child.name))) {
-                        child.visible ^= true;
+                    child.visible ^= true;
                 }
                 child.castShadow = child.visible;
             });
@@ -131,12 +133,35 @@ var redrawMenu = function(sel) {
 
     //jQ anim menu
     var btns = $('#shoeMenu .btn');
-    btns.click(btnSlide(400, '.thumb-container'));
+    btns.click(btnSlide(400, '.thumb-container')); 
+}
+
+var redrawSwatchMenu = function() {
+    $('#swatchMenu').append(
+        swatchMany(swatches, 'Materials'))
+
+    var swatch = $('#swatchMenu').find('img');
+    swatch.click(function() {
+        var objCont = window.objectContainer; 
+        var object = objCont.obj; 
+        objMat = $(this).attr("matName");
+        object.traverse(function(child) {
+            if ((child instanceof THREE.Mesh) && (materialMeshes.includes(child.name))) {
+                child.material = objCont.materials[objMat];
+            }
+        });
+    });
+
+    var btn = $('#swatchMenu button.btn');
+    btn.click(btnSlide(800, '.swatch-container')); 
 }
 
 $(document).ready(function() {
     redrawMenu([0, 0, 0, 0, 0]);
+    redrawSwatchMenu();
+
     $('.thumb-container:gt(0)').hide();
+    $('.swatch-container').hide();
 
     // Mesh change on click 
     $('#canvasButtons button.btn').click(function() {
@@ -150,29 +175,13 @@ $(document).ready(function() {
 
 //Material add on click 
 $(document).ready(function() {
-    var redrawSwatchMenu = function() {
-        $('#swatchMenu').append(
-            swatchMany(swatches, 'Materials'))
 
-        var swatch = $('#swatchMenu').find('img');
-        swatch.click(function() {
-            var objCont = window.objectContainer; // defined 3 times as var
-            var object = objCont.obj; // defined 3 times as var
-            objMat = $(this).attr("matName");
-            object.traverse(function(child) {
-                if ((child instanceof THREE.Mesh) && (materialMeshes.includes(child.name))) {
-                    child.material = objCont.materials[objMat];
-                }
-            });
-        });
-    }
 
-    redrawSwatchMenu();
-    $('.swatch-container').hide();
+    
 
     //jQ anim menu
     var btn = $('#swatchMenu button.btn');
-    btn.click(btnSlide(800, '.swatch-container'));
+    //btn.click(btnSlide(800, '.swatch-container'));
     btn.click(function() {
 
         $('#canvasButtons').show(); //display the Canvas menus
