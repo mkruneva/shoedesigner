@@ -117,6 +117,7 @@ var onThumbClick = function() {
     if ($(this).attr("obj") != objCont.obj.name) {
         if ($(this).attr("obj") !== 'null') {
             $('.swatch-container').hide(); //hides material menu on object reload
+            $('#canvasButtons').hide(); //hides canvas menu on object reload
 
             objPathName = $(this).attr("obj");
             objCont.scene.remove(objCont.obj);
@@ -161,10 +162,6 @@ var defaultMatAssign = function() {
 
     var objCont = window.objectContainer;
     var object = objCont.obj;
-
-    var materialsArray = Object.keys(defaultMatMeshGroups);
-    var meshesArray = Object.values(defaultMatMeshGroups);
-    console.log('meshesArray is', meshesArray);
 
     // defaultMeshMaterials
     object.traverse(function(child) {
