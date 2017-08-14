@@ -1,5 +1,6 @@
 //DATA
 var objPathName = 'obj/PC/PC300AHPLAPL.obj'; // Initial obj file
+
 var materialMeshes = ['FR1', 'FR2', 'IB1', 'CO1', 'CO2', 'LC1', 'TN1', 'TN2', 'TN3'];
 var materialMeshGroups = {
     mainFrontMat: ['FR1', 'FR2', 'CO1', 'CO2', 'IB1', 'ST1', 'BB2'],
@@ -11,16 +12,18 @@ var materialMeshGroups = {
     defaultMat: ['FR1', 'FR2', 'IB1', 'CO1', 'CO2', 'LC1', 'TN1', 'TN2', 'TN3'],
 };
 var defaultMatMeshGroups = {
-    sole: ["SO1"],
-    logo: ["LO1"],
-    insoleLogo: ["IL1"],
-    heelTip: ["HT1"],
-    lining: ["IN1", "LI1", "TN1LI", "TN2LI", "TK1LI", "TK2LI", "CO1LI", 
-             "CO2LI", "LC1LI", "ST1LI", "LS1LI", "MJ1LI", "TB1LI", "BI1LI", "BI2LI"],
-    heelGrip: ["HG1", "LC1HG"],
-    buckles: ["TN1BK", "TK1BK", "TT1BK", "TT2BK", "MJ1BK", "TB1BK", "BI1BK", "BI2BK"],
-    gemSilver: ["GC1"],
-    gemDiamonds: ["GE1", "GE2", "GE3"],
+    matSU04: ["SO1"], //sole
+    matMR02: ["LO1"], //logo
+    matML09: ["IL1"], //insoleLogo
+    matLH01: ["HT1"], //heelTip
+    matLH21: ["HG1"], //heelGrip
+    matSU25: ["IN1", "LI1", "TN1LI", "TN2LI", "TK1LI", "TK2LI", "CO1LI",
+        "CO2LI", "LC1LI", "ST1LI", "LS1LI", "MJ1LI", "TB1LI", "BI1LI", "BI2LI"
+    ], // lining
+    matMR03: ["HG1", "LC1HG"], //    heelGrip
+    matMR01: ["TN1BK", "TK1BK", "TT1BK", "TT2BK", "MJ1BK", "TB1BK", "BI1BK", "BI2BK"], //   buckles
+    matML10: ["GC1"], //  gemSilver
+    matML11: ["GE1", "GE2", "GE3"], // gemDiamonds
 };
 
 //Generate HTML function 
@@ -127,17 +130,38 @@ var redrawMenu = function(sel) {
     $('.thumb-container').each((i, e) => e.style.display = displ[i]); //display style to be redrawn each time
 
     var thumb = $('#shoeMenu').find('img'); // ? can this be outside of the function ?
-    thumb.click(onThumbClick);   
+    thumb.click(onThumbClick);
 
-    var btns = $('#shoeMenu .btn');  //anim
+    var btns = $('#shoeMenu .btn'); //anim
     btns.click(btnSlide(400, '.thumb-container'));
+}
+
+var defaultMatAssign = function() {
+    $('#canvasButtons').show(); //display the Canvas menus
+
+    var objCont = window.objectContainer;
+    var object = objCont.obj;
+
+    var materialsArray = Object.keys(defaultMatMeshGroups);
+    var meshesArray = Object.values(defaultMatMeshGroups);
+    console.log('meshesArray is', meshesArray);
+
+    for (var i = 0; i < meshesArray.length; i++) { //materials not assigned in order 
+        object.traverse(function(child) {
+            if (meshesArray[i].includes(child.name)) {
+                var matName = materialsArray[i];
+                child.material = objCont.materials[matName];
+                console.log('Mesh ', child.name, ' has material ', matName);
+            }
+        });
+    }
 }
 
 var redrawSwatchMenu = function() {
     $('#swatchMenu').append(
         swatchMany(swatches, 'Materials'))
 
-    var swatch = $('#swatchMenu').find('img');  // ? can this be outside of the function ?
+    var swatch = $('#swatchMenu').find('img'); // ? can this be outside of the function ?
     swatch.click(function() {
         var objCont = window.objectContainer;
         var object = objCont.obj;
@@ -151,9 +175,8 @@ var redrawSwatchMenu = function() {
 
     var btn = $('#swatchMenu button.btn'); //anim
     btn.click(btnSlide(800, '.swatch-container'));
+    //btn.click(defaultMatAssign); // ? defaultMatAssign function inside or not . now in doc ready
 }
-
-//To do
 
 $('#canvasButtons').hide();
 
@@ -174,71 +197,6 @@ $(document).ready(function() {
         }
     })
 
-    //assigning default materials wg=hen clicking on materials button
-    $('#swatchMenu button.btn').click(function() {
-        $('#canvasButtons').show(); //display the Canvas menus
-        // $('.thumb-container').slideUp(400); //hiding shoe des menues
+    $('#swatchMenu button.btn').click(defaultMatAssign); // defaultMatAssign in the main doc ready 
 
-        var objCont = window.objectContainer; 
-        var object = objCont.obj; 
-
-        object.traverse(function(child) { 
-            if (child instanceof THREE.Mesh) {
-                var meshName = child.name;
-                switch (meshName) {
-                    case "SO1":
-                        child.material = objCont.materials.matSU04;
-                        break;
-                    case "LO1":
-                        child.material = objCont.materials.matMR02;
-                        break;
-                    case "HT1":
-                        child.material = objCont.materials.matLH01;
-                        break;
-                    case "IN1":
-                    case "LI1":
-                    case "TN1LI":
-                    case "TN2LI":
-                    case "TK1LI":
-                    case "TK2LI":
-                    case "CO1LI":
-                    case "CO2LI":
-                    case "LC1LI":
-                    case "ST1LI":
-                    case "LS1LI":
-                    case "MJ1LI":
-                    case "TB1LI":
-                    case "BI1LI":
-                    case "BI2LI":
-                        child.material = objCont.materials.matLH21;
-                        break;
-                    case "HG1":
-                    case "LC1HG":
-                        child.material = objCont.materials.matSU25;
-                        break;
-                    case "IL1":
-                        child.material = objCont.materials.matMR03;
-                        break;
-                    case "TN1BK":
-                    case "TK1BK":
-                    case "TT1BK":
-                    case "TT2BK":
-                    case "MJ1BK":
-                    case "TB1BK":
-                    case "BI1BK":
-                    case "BI2BK":
-                        child.material = objCont.materials.matMR01;
-                        break;
-                    case "GC1":
-                        child.material = objCont.materials.matMR01;
-                        break;
-                    case "GE1":
-                    case "GE2":
-                    case "GE3":
-                        child.material = objCont.materials.matMR03;
-                        break;
-                }
-            }
-        });
-    });
 });
