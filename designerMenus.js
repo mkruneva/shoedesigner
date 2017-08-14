@@ -1,6 +1,3 @@
-//Hiding the Canvas Material Buttons
-$('#canvasButtons').hide();
-
 //DATA
 var objPathName = 'obj/PC/PC300AHPLAPL.obj'; // Initial obj file
 var materialMeshes = ['FR1', 'FR2', 'IB1', 'CO1', 'CO2', 'LC1', 'TN1', 'TN2', 'TN3'];
@@ -18,7 +15,8 @@ var defaultMatMeshGroups = {
     logo: ["LO1"],
     insoleLogo: ["IL1"],
     heelTip: ["HT1"],
-    lining: ["IN1", "LI1", "TN1LI", "TN2LI", "TK1LI", "TK2LI", "CO1LI", "CO2LI", "LC1LI", "ST1LI", "LS1LI", "MJ1LI", "TB1LI", "BI1LI", "BI2LI"],
+    lining: ["IN1", "LI1", "TN1LI", "TN2LI", "TK1LI", "TK2LI", "CO1LI", 
+             "CO2LI", "LC1LI", "ST1LI", "LS1LI", "MJ1LI", "TB1LI", "BI1LI", "BI2LI"],
     heelGrip: ["HG1", "LC1HG"],
     buckles: ["TN1BK", "TK1BK", "TT1BK", "TT2BK", "MJ1BK", "TB1BK", "BI1BK", "BI2BK"],
     gemSilver: ["GC1"],
@@ -128,22 +126,21 @@ var redrawMenu = function(sel) {
 
     $('.thumb-container').each((i, e) => e.style.display = displ[i]); //display style to be redrawn each time
 
-    var thumb = $('#shoeMenu').find('img');
-    thumb.click(onThumbClick);
+    var thumb = $('#shoeMenu').find('img'); // ? can this be outside of the function ?
+    thumb.click(onThumbClick);   
 
-    //jQ anim menu
-    var btns = $('#shoeMenu .btn');
-    btns.click(btnSlide(400, '.thumb-container')); 
+    var btns = $('#shoeMenu .btn');  //anim
+    btns.click(btnSlide(400, '.thumb-container'));
 }
 
 var redrawSwatchMenu = function() {
     $('#swatchMenu').append(
         swatchMany(swatches, 'Materials'))
 
-    var swatch = $('#swatchMenu').find('img');
+    var swatch = $('#swatchMenu').find('img');  // ? can this be outside of the function ?
     swatch.click(function() {
-        var objCont = window.objectContainer; 
-        var object = objCont.obj; 
+        var objCont = window.objectContainer;
+        var object = objCont.obj;
         objMat = $(this).attr("matName");
         object.traverse(function(child) {
             if ((child instanceof THREE.Mesh) && (materialMeshes.includes(child.name))) {
@@ -152,18 +149,23 @@ var redrawSwatchMenu = function() {
         });
     });
 
-    var btn = $('#swatchMenu button.btn');
-    btn.click(btnSlide(800, '.swatch-container')); 
+    var btn = $('#swatchMenu button.btn'); //anim
+    btn.click(btnSlide(800, '.swatch-container'));
 }
 
+//To do
+
+$('#canvasButtons').hide();
+
 $(document).ready(function() {
+    //redrawing swatch and thumbs menu
     redrawMenu([0, 0, 0, 0, 0]);
     redrawSwatchMenu();
 
     $('.thumb-container:gt(0)').hide();
     $('.swatch-container').hide();
 
-    // Mesh change on click 
+    //changing meshes by clicking on canvas button
     $('#canvasButtons button.btn').click(function() {
         var id = this.id;
         materialMeshes = materialMeshGroups[id];
@@ -171,25 +173,16 @@ $(document).ready(function() {
             materialMeshes = materialMeshGroups.defaultMat;
         }
     })
-});
 
-//Material add on click 
-$(document).ready(function() {
-
-
-    
-
-    //jQ anim menu
-    var btn = $('#swatchMenu button.btn');
-    //btn.click(btnSlide(800, '.swatch-container'));
-    btn.click(function() {
-
+    //assigning default materials wg=hen clicking on materials button
+    $('#swatchMenu button.btn').click(function() {
         $('#canvasButtons').show(); //display the Canvas menus
+        // $('.thumb-container').slideUp(400); //hiding shoe des menues
 
-        var objCont = window.objectContainer; // defined 3 times as var
-        var object = objCont.obj; // defined 3 times as var
+        var objCont = window.objectContainer; 
+        var object = objCont.obj; 
 
-        object.traverse(function(child) { //assign initial materials 
+        object.traverse(function(child) { 
             if (child instanceof THREE.Mesh) {
                 var meshName = child.name;
                 switch (meshName) {
