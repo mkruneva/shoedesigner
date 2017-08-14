@@ -11,17 +11,39 @@ var materialMeshGroups = {
     strapsMat: ['LS1', 'MJ1', 'MJ2', 'TB1', 'TB2', 'BI1', 'BI2', 'BI3', 'BI4', 'TN1', 'TN2', 'TK1', 'TK2'],
     defaultMat: ['FR1', 'FR2', 'IB1', 'CO1', 'CO2', 'LC1', 'TN1', 'TN2', 'TN3'],
 };
-var defaultMatMeshGroups = {
-    matSO01: ["SO1"], //sole
-    matLO01: ["LO1"], //logo
-    matIL01: ["IL1"], //insoleLogo
-    matHT01: ["HT1"], //heelTip
-    matLI01: ["IN1", "LI1", "TN1LI", "TN2LI", "TK1LI", "TK2LI", "CO1LI",
-        "CO2LI", "LC1LI", "ST1LI", "LS1LI", "MJ1LI", "TB1LI", "BI1LI", "BI2LI"
-    ], // lining
-    matHG01: ["HG1", "LC1HG"], //    heelGrip
-    matBK01: ["TN1BK", "TK1BK", "TT1BK", "TT2BK", "MJ1BK", "TB1BK", "BI1BK", "BI2BK", "GC1"], //   buckles
-    matGE01: ["GE1", "GE2", "GE3"], // gemDiamonds
+var defaultMeshMaterials = {
+    'SO1': 'matSO01',
+    'LO1': 'matLO01',
+    'IL1': 'matIL01',
+    'HT1': 'matHT01',
+    'IN1': 'matLI01',
+    'LI1': 'matLI01',
+    'TN1LI': 'matLI01',
+    'TN2LI': 'matLI01',
+    'TK1LI': 'matLI01',
+    'TK2LI': 'matLI01',
+    'CO1LI': 'matLI01',
+    'CO2LI': 'matLI01',
+    'LC1LI': 'matLI01',
+    'LS1LI': 'matLI01',
+    'MJ1LI': 'matLI01',
+    'TB1LI': 'matLI01',
+    'BI1LI': 'matLI01',
+    'BI2LI': 'matLI01',
+    'HG1': 'matHG01',
+    'LC1HG': 'matHG01',
+    'TN1BK': 'matBK01', 
+    'TK1BK': 'matBK01', 
+    'TT1BK': 'matBK01', 
+    'TT2BK': 'matBK01', 
+    'MJ1BK': 'matBK01', 
+    'TB1BK': 'matBK01', 
+    'BI1BK': 'matBK01', 
+    'BI2BK': 'matBK01', 
+    'GC1': 'matBK01',
+    'GE1': 'matGE01', 
+    'GE2': 'matGE01', 
+    'GE3': 'matGE01'
 };
 
 //Generate HTML function 
@@ -144,16 +166,13 @@ var defaultMatAssign = function() {
     var meshesArray = Object.values(defaultMatMeshGroups);
     console.log('meshesArray is', meshesArray);
 
-    for (var i = 0; i < meshesArray.length; i++) { //materials not assigned in order 
-        object.traverse(function(child) {
-            if (meshesArray[i].includes(child.name)) {
-                var matName = materialsArray[i];
-                child.material = objCont.materials[matName];
-                console.log('Mesh ', child.name, ' has material ', matName);
-                console.log('Mesh ', child.name, ' real material is', child.material.name);
-            }
-        });
-    }
+    // defaultMeshMaterials
+    object.traverse(function(child) {
+        if (defaultMeshMaterials[child.name]) {
+            var matName = defaultMeshMaterials[child.name];
+            child.material = objCont.materials[matName];
+        }
+    });
 }
 
 var redrawSwatchMenu = function() {
