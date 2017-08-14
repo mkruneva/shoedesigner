@@ -321,6 +321,15 @@ function createBASICmany(materials) {
     materials.matDarkGrey = createBASICmat(0x585858, 0, 0.7);
     materials.matChrome = createBASICmat(0xffffff, 1, 0.5);
     materials.matRed = createBASICmat(0xff0000, 0, 0.3);
+
+    materials.matSO01 = createSUmat(0xf5e9dc); materials.matSO01.name = 'matSO01';
+    materials.matLI01 = createMLmat(0xf5e9dc); materials.matLI01.name = 'matLI01';
+    materials.matHG01 = createLHmat(0xf5e9dc); materials.matHG01.name = 'matHG01';
+    materials.matHT01 = createPTmat(0x0222222); materials.matHT01.name = 'matHT01';
+    materials.matIL01 = createMRmat(0xf4b196); materials.matIL01.name = 'matIL01';
+    materials.matLO01 = createMRmat(0xf4b196); materials.matLO01.name = 'matLO01';
+    materials.matBK01 = createMRmat(0xf4b196); materials.matBK01.name = 'matBK01';
+    materials.matGE01 = createMRmat(0xf4b196); materials.matGE01.name = 'matGE01';
 }
 
 function createAPmany(materials) {
@@ -440,10 +449,6 @@ function createSUmany(materials) {
     materials.matSU25 = createSUmat(0x748387); materials.matSU25.name = 'matSU25';
     materials.matSU35 = createSUmat(0x2A855F); materials.matSU35.name = 'matSU35';
     materials.matSU36 = createSUmat(0x4A8A77); materials.matSU36.name = 'matSU36';
-}
-
-function createDEFAULTmany(materials) {
-    // body...
 }
 
 

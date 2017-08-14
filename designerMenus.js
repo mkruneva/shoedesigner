@@ -12,18 +12,16 @@ var materialMeshGroups = {
     defaultMat: ['FR1', 'FR2', 'IB1', 'CO1', 'CO2', 'LC1', 'TN1', 'TN2', 'TN3'],
 };
 var defaultMatMeshGroups = {
-    matSU04: ["SO1"], //sole
-    matMR02: ["LO1"], //logo
-    matML09: ["IL1"], //insoleLogo
-    matLH01: ["HT1"], //heelTip
-    matLH21: ["HG1"], //heelGrip
-    matSU25: ["IN1", "LI1", "TN1LI", "TN2LI", "TK1LI", "TK2LI", "CO1LI",
+    matSO01: ["SO1"], //sole
+    matLO01: ["LO1"], //logo
+    matIL01: ["IL1"], //insoleLogo
+    matHT01: ["HT1"], //heelTip
+    matLI01: ["IN1", "LI1", "TN1LI", "TN2LI", "TK1LI", "TK2LI", "CO1LI",
         "CO2LI", "LC1LI", "ST1LI", "LS1LI", "MJ1LI", "TB1LI", "BI1LI", "BI2LI"
     ], // lining
-    matMR03: ["HG1", "LC1HG"], //    heelGrip
-    matMR01: ["TN1BK", "TK1BK", "TT1BK", "TT2BK", "MJ1BK", "TB1BK", "BI1BK", "BI2BK"], //   buckles
-    matML10: ["GC1"], //  gemSilver
-    matML11: ["GE1", "GE2", "GE3"], // gemDiamonds
+    matHG01: ["HG1", "LC1HG"], //    heelGrip
+    matBK01: ["TN1BK", "TK1BK", "TT1BK", "TT2BK", "MJ1BK", "TB1BK", "BI1BK", "BI2BK", "GC1"], //   buckles
+    matGE01: ["GE1", "GE2", "GE3"], // gemDiamonds
 };
 
 //Generate HTML function 
