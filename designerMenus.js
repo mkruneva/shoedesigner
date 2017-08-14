@@ -90,7 +90,8 @@ var onThumbClick = function() {
     var selectionArray = selection.split(',').map(function(n) { return parseInt(n); });
     redrawMenu(selectionArray);
 
-    var objCont = window.objectContainer; // defined 3 times as var
+    var objCont = window.objectContainer;
+    var object = objCont.obj;
 
     if ($(this).attr("obj") != objCont.obj.name) {
         if ($(this).attr("obj") !== 'null') {
@@ -98,16 +99,11 @@ var onThumbClick = function() {
             objCont.scene.remove(objCont.obj);
             objCont.loadObject(objPathName, objCont.materials.matGrey, objCont.materials.matDarkGrey);
         } else {
+            // materialMeshes.includes(child.name))
             objAbr = $(this).attr("abr").split(',');
-            var object = objCont.obj; // defined 3 times as var
-
             object.traverse(function(child) {
-                if (child instanceof THREE.Mesh) {
-                    for (var i = 0; i < objAbr.length; i++) {
-                        if (child.name == objAbr[i]) {
-                            child.visible ^= true;
-                        }
-                    }
+                if ((child instanceof THREE.Mesh) && (objAbr.includes(child.name))) {
+                        child.visible ^= true;
                 }
                 child.castShadow = child.visible;
             });
