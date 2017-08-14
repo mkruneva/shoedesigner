@@ -80,6 +80,7 @@ function createPlane(size) {
 //FUNCTION LOADING OBJ > HIDING MESHES > ASSIGNING MATERIALS
 function loadObject(objPath, material1, material2) {
     loader.load(objPath, function(object) {
+        object.name = objPath;
 
         var defaultMeshes = ['FR1', 'FR2', 'HE1', 'IB1', 'HG1', 'HT1', 'IB1', 'IL1', 'IN1', 'LI1', 'LO1', 'SO1', 'SO2', 'PF1', 'LI1', 'LC1', 'LC1LI', 'LC1HG', 'CO1', 'CO2', 'CO1LI', 'CO2LI'];
         var material1Meshes = ['FR1', 'FR2', 'IB1', 'IL1', 'CO1', 'CO2', 'LC1', 'ST1', 'TN1BK', 'TK1BK', 'TT1BK', 'TT2BK', 'MJ1BK', 'TB1BK', 'BI1BK', 'BI2BK', 'BB2', 'TN1', 'TK1', 'TT1', 'HT1', 'LO1'];
