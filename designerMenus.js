@@ -1,15 +1,15 @@
 //DATA
 var objPathName = 'obj/PC/PC300AHPLAPL.obj'; // Initial obj file
 
-var materialMeshes = ['FR1', 'FR2', 'IB1', 'CO1', 'CO2', 'LC1', 'TN1', 'TN2', 'TN3'];
+var materialMeshes = ['FR1', 'FR2', 'IB1', 'CO1', 'CO2', 'LC1', 'TN1', 'TK1', 'TT1'];
 var materialMeshGroups = {
     mainFrontMat: ['FR1', 'FR2', 'CO1', 'CO2', 'IB1', 'ST1', 'BB2'],
-    mainBackMat: ['LC1', 'TN1', 'TN2', 'TN3', 'TT1', 'TT2', 'TT3', 'TT4', 'TT5', 'TK1', 'TK2', 'TK3'],
+    mainBackMat: ['LC1', 'TN1', 'TT1', 'TK1'],
     heelMat: ['HE1', 'PF1'],
     frontMat: ['PT1', 'TO1', 'BB1'],
     backMat: ['SH1', 'PH1'],
-    strapsMat: ['LS1', 'MJ1', 'MJ2', 'TB1', 'TB2', 'BI1', 'BI2', 'BI3', 'BI4', 'TN1', 'TN2', 'TK1', 'TK2'],
-    defaultMat: ['FR1', 'FR2', 'IB1', 'CO1', 'CO2', 'LC1', 'TN1', 'TN2', 'TN3'],
+    strapsMat: ['LS1', 'MJ1', 'MJ2', 'TB1', 'TB2', 'BI1', 'BI2', 'BI3', 'BI4', 'TN2', 'TK2', 'TK3', 'TT2', 'TT3', 'TT4', 'TT5'],
+    defaultMat: ['FR1', 'FR2', 'IB1', 'CO1', 'CO2', 'LC1', 'TN1', 'TK1', 'TT1'],
 };
 var defaultMeshMaterials = {
     'SO1': 'matSO01',
@@ -23,6 +23,8 @@ var defaultMeshMaterials = {
     'TN2LI': 'matLI01',
     'TK1LI': 'matLI01',
     'TK2LI': 'matLI01',
+    'TT1LI': 'matLI01',
+    'TT2LI': 'matLI01',
     'CO1LI': 'matLI01',
     'CO2LI': 'matLI01',
     'LC1LI': 'matLI01',
@@ -33,6 +35,9 @@ var defaultMeshMaterials = {
     'BI2LI': 'matLI01',
     'HG1': 'matHG01',
     'LC1HG': 'matHG01',
+    'TN1HG': 'matHG01',
+    'TK1HG': 'matHG01',
+    'TT1HG': 'matHG01',
     'TN1BK': 'matBK01', 
     'TK1BK': 'matBK01', 
     'TT1BK': 'matBK01', 
