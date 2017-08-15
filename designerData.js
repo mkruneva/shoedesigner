@@ -270,7 +270,6 @@ var fr_fl = [
     new ThumbObject('TO1', 'images/FRFL/FRFLTOE.jpg', null, 'Toe Cap', true, ba_fl, [6, 0, 2, 0, 0]),
 ]
 
-
 //HEELS
 var he_pc = [
     new ThumbObject('225KI', 'images/HEPC/HEPCPLA225KI.jpg', 'obj/PC/PC225KIPLAPL.obj', '2.25&quot; Kitten Heel', true, fr_pc, [0, 0, 0, 0, 0]),
