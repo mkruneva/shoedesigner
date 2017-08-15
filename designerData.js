@@ -29,6 +29,7 @@ var swatches = [
     new SwatchObject('LFS-02', 'swatches/LFS-02.jpg', 'matLFS02'),
     new SwatchObject('LFS-03', 'swatches/LFS-03.jpg', 'matLFS03'),
     new SwatchObject('LLH-01', 'swatches/LLH-01.jpg', 'matLLH01'),
+    new SwatchObject('LSN-01', 'swatches/LSN-01.jpg', 'matLSN01'),
     new SwatchObject('LSN-02', 'swatches/LSN-02.jpg', 'matLSN02'),
     new SwatchObject('LSN-03', 'swatches/LSN-03.jpg', 'matLSN03'),
     new SwatchObject('LSN-04', 'swatches/LSN-04.jpg', 'matLSN04'),

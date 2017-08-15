@@ -13,6 +13,7 @@ var materialMeshGroups = {
 };
 var defaultMeshMaterials = {
     'SO1': 'matSO01',
+    'SO2': 'matSO01',
     'LO1': 'matLO01',
     'IL1': 'matIL01',
     'HT1': 'matHT01',

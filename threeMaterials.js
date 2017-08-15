@@ -161,16 +161,18 @@ function createLSNmat(diffuse, bump, repeat) {
     repeatTex(diff, repeat);
     var bump = texLoader.load(bump);
     repeatTex(bump, repeat);
-    var metalnessM = texLoader.load('tex/LGS-reflection.jpg');
-    repeatTex(metalnessM, 24);
+    var metalnessM = texLoader.load('tex/LSN-metalness.jpg');
+    repeatTex(metalnessM, repeat);
+    var roughtnessM = texLoader.load('tex/LSN-roughness.jpg');
+    repeatTex(roughtnessM, repeat);
     var mat = new THREE.MeshStandardMaterial({
         bumpMap: bump,
-        bumpScale: -0.3,
+        bumpScale: -0.16,
         map: diff,
-        // metalness: 0.5,
-        // metalnessMap : bump,
-        // roughness: 0.8,
-        // roughnessMap : bump,
+        metalness: 0.1,
+        metalnessMap : metalnessM,
+        roughness: 0.9,
+        roughnessMap : roughtnessM,
     });
 
     return mat;
@@ -357,9 +359,9 @@ function createLLHmany(materials) {
 }
 
 function createLSNmany(materials) {
-    materials.matLSN01 = createLSNmat('tex/LSN-01-main.jpg', 'tex/LSN-01-stencil.jpg', 2.8); materials.matLSN01.name = 'matLSN01';
-    materials.matLSN02 = createLSNmat('tex/LSN-02-main.jpg', 'tex/LSN-01-stencil.jpg', 2.8); materials.matLSN02.name = 'matLSN02';
-    materials.matLSN03 = createLSNmat('tex/LSN-03-main.jpg', 'tex/LSN-01-stencil.jpg', 2.8); materials.matLSN03.name = 'matLSN03';
+    materials.matLSN01 = createLSNmat('tex/LSN-01-diff.jpg', 'tex/LSN-01-stencil.jpg', 2.8); materials.matLSN01.name = 'matLSN01';
+    materials.matLSN02 = createLSNmat('tex/LSN-02-diff.jpg', 'tex/LSN-01-stencil.jpg', 2.8); materials.matLSN02.name = 'matLSN02';
+    materials.matLSN03 = createLSNmat('tex/LSN-03-diff.jpg', 'tex/LSN-01-stencil.jpg', 2.8); materials.matLSN03.name = 'matLSN03';
     materials.matLSN04 = createLSNmat('tex/LSN-04-diffuse.jpg', 'tex/LSN-04-bump-inv.jpg', 4.5); materials.matLSN04.name = 'matLSN04';
     materials.matLSN08 = createLSNmat('tex/LSN-08-DIFF.jpg', 'tex/LSN-08-bump-inv.jpg', 4.5); materials.matLSN08.name = 'matLSN08';
 }
