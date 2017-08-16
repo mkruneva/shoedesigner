@@ -322,11 +322,10 @@ function createBASICmany(materials) {
     materials.matGrey = createBASICmat(0x787878, 0, 0.7);
     materials.matDarkGrey = createBASICmat(0x585858, 0, 0.7);
     materials.matChrome = createBASICmat(0xffffff, 1, 0.5);
-    materials.matRed = createBASICmat(0xff0000, 0, 0.3);
 
-    materials.matSO01 = createSUmat(0xf5e9dc); materials.matSO01.name = 'matSO01';
-    materials.matLI01 = createMLmat(0xf5e9dc); materials.matLI01.name = 'matLI01';
-    materials.matHG01 = createLHmat(0xf5e9dc); materials.matHG01.name = 'matHG01';
+    materials.matSO01 = createSUmat(0xc4bab0); materials.matSO01.name = 'matSO01';
+    materials.matLI01 = createMLmat(0xc4bab0); materials.matLI01.name = 'matLI01';
+    materials.matHG01 = createLHmat(0xc4bab0); materials.matHG01.name = 'matHG01';
     materials.matHT01 = createPTmat(0x0222222); materials.matHT01.name = 'matHT01';
     materials.matIL01 = createMRmat(0xf4b196); materials.matIL01.name = 'matIL01';
     materials.matLO01 = createMRmat(0xf4b196); materials.matLO01.name = 'matLO01';
