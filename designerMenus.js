@@ -129,11 +129,20 @@ var onThumbClick = function() {
             objCont.scene.remove(objCont.obj);
             objCont.loadObject(objPathName, objCont.materials.matGrey, objCont.materials.matDarkGrey);
         } else {
-            // materialMeshes.includes(child.name))
-            objAbr = $(this).attr("abr").split(',');
+            var objAbr = $(this).attr("abr").split(',');
+            var allAbr = [];
+            $(this).parent().parent().find('img').each(function(i, s) {
+                allAbr = allAbr.concat($(s).attr('abr').split(','));
+            });
+            var removeAbr = jQuery.grep(allAbr, function(e, i) { 
+                return !objAbr.includes(e); 
+            });
             object.traverse(function(child) {
                 if ((child instanceof THREE.Mesh) && (objAbr.includes(child.name))) {
-                    child.visible ^= true;
+                    child.visible = true;
+                }
+                if ((child instanceof THREE.Mesh) && (removeAbr.includes(child.name))) {
+                    child.visible = false;
                 }
                 child.castShadow = child.visible;
             });
