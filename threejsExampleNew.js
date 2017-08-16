@@ -5,7 +5,7 @@ var controls;
 var background;
 var loader = new THREE.OBJLoader(); //global 
 
-var objY = -80;
+var objY = -70;
 
 init();
 animate();
@@ -26,8 +26,6 @@ function init() {
 
     //MATERIALS from threeMaterials.js 
     var materials = loadMaterials();
-
-
 
     //OBJ LOADER
     window.objectContainer = {

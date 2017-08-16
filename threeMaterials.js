@@ -171,7 +171,7 @@ function createLSNmat(diffuse, bump, repeat) {
         map: diff,
         metalness: 0.1,
         metalnessMap : metalnessM,
-        roughness: 0.9,
+        roughness: 0.7,
         roughnessMap : roughtnessM,
     });
 
