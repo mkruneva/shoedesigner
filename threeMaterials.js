@@ -31,7 +31,6 @@ var loadMaterials = function() {
     createLHmany(materials);
     createLSNmany(materials);
     createLSUmany(materials);
-    createMLmany(materials);
     createMRmany(materials);
     createMSmany(materials);
     createPSUmany(materials);
@@ -358,9 +357,6 @@ function createLLHmany(materials) {
 }
 
 function createLSNmany(materials) {
-    materials.matLSN01 = createLSNmat('tex/LSN-01-diff.jpg', 'tex/LSN-01-stencil.jpg', 2.8); materials.matLSN01.name = 'matLSN01';
-    materials.matLSN02 = createLSNmat('tex/LSN-02-diff.jpg', 'tex/LSN-01-stencil.jpg', 2.8); materials.matLSN02.name = 'matLSN02';
-    materials.matLSN03 = createLSNmat('tex/LSN-03-diff.jpg', 'tex/LSN-01-stencil.jpg', 2.8); materials.matLSN03.name = 'matLSN03';
     materials.matLSN04 = createLSNmat('tex/LSN-04-diffuse.jpg', 'tex/LSN-04-bump-inv.jpg', 4.5); materials.matLSN04.name = 'matLSN04';
     materials.matLSN08 = createLSNmat('tex/LSN-08-DIFF.jpg', 'tex/LSN-08-bump-inv.jpg', 4.5); materials.matLSN08.name = 'matLSN08';
 }
@@ -387,13 +383,6 @@ function createLHmany(materials) {
     materials.matLH25 = createLHmat(0x748387); materials.matLH25.name = 'matLH25';
     materials.matLH35 = createLHmat(0x2A855F); materials.matLH35.name = 'matLH35';
     materials.matLH36 = createLHmat(0x4A8A77); materials.matLH36.name = 'matLH36';
-}
-
-function createMLmany(materials) {
-    materials.matML09 = createMLmat(0x591434); materials.matML09.name = 'matML09'; 
-    materials.matML10 = createMLmat(0x1C5061); materials.matML10.name = 'matML10';
-    materials.matML11 = createMLmat(0x008F85); materials.matML11.name = 'matML11';
-    materials.matML12 = createMLmat(0x197A0A); materials.matML12.name = 'matML12';
 }
 
 function createMRmany(materials) {

@@ -31,8 +31,6 @@ function init() {
     window.objectContainer = {
         loadObject: loadObject,
         materials: materials,
-        // material1: materials['matLGS02'],
-        // material2: materials['matDarkGrey']
     };
 
     loadObject(objPathName, materials.matGrey, materials.matDarkGrey);
@@ -114,37 +112,36 @@ function loadObject(objPath, material1, material2) {
 function createAreaLights() {
     //AREA LIGHTS
     var rectLightLeft = new THREE.RectAreaLight(0xffffff, 70000, 300, 300);
-    rectLightLeft.rotation.x = (45 * Math.PI) / 180;
-    rectLightLeft.position.set(0, 100, -165);
+    rectLightLeft.position.set(0, 0, -165);
     scene.add(rectLightLeft);
     // rectLightHelperLeft = new THREE.RectAreaLightHelper( rectLightLeft );
     // scene.add( rectLightHelperLeft );
 
     var rectLightRight = new THREE.RectAreaLight(0xffffff, 70000, 300, 300);
-    rectLightRight.rotation.x = (135 * Math.PI) / 180;
-    rectLightRight.position.set(0, 100, 165);
+    rectLightRight.rotation.x = (180 * Math.PI) / 180;
+    rectLightRight.position.set(0, 0, 165);
     scene.add(rectLightRight);
     // rectLightHelperRight = new THREE.RectAreaLightHelper( rectLightRight );
     // scene.add( rectLightHelperRight );
 
     var rectLightBack = new THREE.RectAreaLight(0xffffff, 70000, 300, 300);
     rectLightBack.rotation.x = (90 * Math.PI) / 180;
-    rectLightBack.rotation.y = (45 * Math.PI) / 180;
-    rectLightBack.position.set(-200, 100, 0);
+    rectLightBack.rotation.y = (90 * Math.PI) / 180;
+    rectLightBack.position.set(-200, 0, 0);
     scene.add(rectLightBack);
     // rectLightHelperBack = new THREE.RectAreaLightHelper( rectLightBack );
     // scene.add( rectLightHelperBack );
 
-    var rectLightFront = new THREE.RectAreaLight(0xffffff, 50000, 300, 300);
+    var rectLightFront = new THREE.RectAreaLight(0xffffff, 70000, 300, 300);
     rectLightFront.rotation.x = (90 * Math.PI) / 180;
-    rectLightFront.rotation.y = (-45 * Math.PI) / 180;
+    rectLightFront.rotation.y = (-60 * Math.PI) / 180;
     rectLightFront.position.set(200, 100, 0);
     scene.add(rectLightFront);
     // rectLightHelperFront = new THREE.RectAreaLightHelper(rectLightFront);
     // scene.add(rectLightHelperFront);
 
     //spotLight attached to the camera
-    var spotLight = new THREE.SpotLight(0xffffff, 0.28);
+    var spotLight = new THREE.SpotLight(0xffffff, 0.22);
     spotLight.position.set(-140, 100, -220);
     camera.add(spotLight);
 
@@ -155,7 +152,7 @@ function createAreaLights() {
 
     //ambient Light
     var ambientLight = new THREE.AmbientLight(0xffffff); // soft white light
-    ambientLight.intensity = 0.4;
+    ambientLight.intensity = 0.3;
     scene.add(ambientLight);
 
     var shadowSpotLight = new THREE.SpotLight(0xffffff, 0);
