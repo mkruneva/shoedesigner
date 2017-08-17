@@ -8,7 +8,7 @@ var materialMeshGroups = {
     heelMat: ['HE1', 'PF1'],
     capsMat: ['PT1', 'TO1', 'BB1', 'SH1', 'PH1'],
     strapsMat: ['LS1', 'MJ1', 'MJ2', 'TB1', 'TB2', 'BI1', 'BI2', 'BI3', 'BI4', 'TN2', 'TK2', 'TK3', 'TT2', 'TT3', 'TT4', 'TT5'],
-    defaultMat: ['FR1', 'FR2', 'IB1', 'CO1', 'CO2', 'LC1', 'TN1', 'TK1', 'TT1'],
+    defaultMat: ['FR1', 'FR2', 'IB1', 'CO1', 'CO2', 'LC1', 'TN1', 'TK1', 'TT1', 'BB2'],
 };
 var defaultMeshMaterials = {
     'SO1': 'matSO01',

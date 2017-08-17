@@ -337,6 +337,18 @@ function createSUmat(color) {
     return mat;
 }
 
+function createGEmat(color) {
+    var alpha = texLoader.load('tex/GE-01.jpg');
+    var mat = new THREE.MeshStandardMaterial({
+        alphaMap: alpha,
+        map: alpha,
+        metalness: 0.48,
+        refractionRatio: 0.5,
+        roughness: 0.4,
+    });
+    return mat;
+}
+
 //CREATE MANY FUNCTIONS
 
 function createBASICmany(materials) {
@@ -350,8 +362,8 @@ function createBASICmany(materials) {
     materials.matHT01 = createPTmat(0x0222222); materials.matHT01.name = 'matHT01';
     materials.matIL01 = createILmat(); materials.matIL01.name = 'matIL01';
     materials.matLO01 = createBKmat(0xf4b196); materials.matLO01.name = 'matLO01';
-    materials.matBK01 = createBKmat(0xbcb191); materials.matBK01.name = 'matBK01';
-    materials.matGE01 = createMRmat(0xf4b196); materials.matGE01.name = 'matGE01';
+    materials.matBK01 = createBKmat(0xc1b48d); materials.matBK01.name = 'matBK01';
+    materials.matGE01 = createGEmat(0xf4b196); materials.matGE01.name = 'matGE01';
 }
 
 function createAPmany(materials) {
