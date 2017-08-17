@@ -112,7 +112,6 @@ function createLFSmat(color) {
         bumpMap: bump,
         bumpScale: 0.4,
         color: color,
-        //envMap: background,
         metalness: 0.5,
         metalnessMap: metalnessM,
         normalMap: normal,
@@ -125,11 +124,10 @@ function createLFSmat(color) {
 //LLH mat   //OK
 function createLLHmat() {
     var diff = texLoader.load('tex/LLH-01_diff.jpg');
-    repeatTex(diff, 1.2);
+    repeatTex(diff, 1.4);
     var mat = new THREE.MeshStandardMaterial({
         bumpMap: diff,
         bumpScale: 0.3,
-        //envMap: background,
         map: diff,
         metalness: 0,
         roughness: 0.8
@@ -160,18 +158,13 @@ function createLSNmat(diffuse, bump, repeat) {
     repeatTex(diff, repeat);
     var bump = texLoader.load(bump);
     repeatTex(bump, repeat);
-    var metalnessM = texLoader.load('tex/LSN-metalness.jpg');
-    repeatTex(metalnessM, repeat);
-    var roughtnessM = texLoader.load('tex/LSN-roughness.jpg');
-    repeatTex(roughtnessM, repeat);
+
     var mat = new THREE.MeshStandardMaterial({
         bumpMap: bump,
         bumpScale: -0.16,
         map: diff,
         metalness: 0.1,
-        metalnessMap : metalnessM,
         roughness: 0.7,
-        roughnessMap : roughtnessM,
     });
 
     return mat;
@@ -199,31 +192,47 @@ function createLSUmat(color) {
 //Metallic Leather mat  //OKish
 function createMLmat(color) {
     var bump = texLoader.load('tex/ML-bump.jpg');
-    repeatTex(bump, 1.2);
+    repeatTex(bump, 1.4);
     var mat = new THREE.MeshPhysicalMaterial({
         bumpMap: bump,
-        bumpScale: 0.5,
+        bumpScale: 0.24,
         color: color,
-        metalness: 0.1,
-        reflectivity: 0.3,
-        roughness: 0.92,
+        metalness: 0,
+        reflectivity: 0.24,
+        roughness: 1,
     });
 
     return mat;
 }
 
-//MIRROR Leather mat  //OKish
+//MIRROR Leather mat 
 function createMRmat(color) {
-    var bump = texLoader.load('tex/ML-bump.jpg');
-    repeatTex(bump, 1.2);
-    var mat = new THREE.MeshPhysicalMaterial({
+    var bump = texLoader.load('tex/MR-metal-bump.jpg');
+    repeatTex(bump, 4);
+    var normal = texLoader.load('tex/MR-normal.jpg');
+    repeatTex(normal, 4);
+    var mat = new THREE.MeshStandardMaterial({
+        bumpMap: bump,
+        bumpScale: 0.4,
+        color: color,
+        metalness: 0.48,
+        normalMap: normal,
+        roughness: 0.54,
+    });
+
+    return mat;
+}
+
+//BUCKLES  mat  
+function createBKmat(color) {
+    var bump = texLoader.load('tex/MR-metal-bump.jpg');
+    repeatTex(bump, 4);
+    var mat = new THREE.MeshStandardMaterial({
         bumpMap: bump,
         bumpScale: 0.1,
         color: color,
-        //envMap: background,
-        metalness: 0.5,
-        reflectivity: 0,
-        roughness: 0.5,
+        metalness: 0.48,
+        roughness: 0.54,
     });
 
     return mat;
@@ -238,6 +247,20 @@ function createMSmat(color) {
         bumpMap: bump,
         bumpScale: 0.3,
         color: color,
+        metalness: 0.48,
+        roughness: 0.52,
+    });
+
+    return mat;
+}
+
+function createILmat() {
+    var diff = texLoader.load('tex/IL-01.jpg');
+    var bump = texLoader.load('tex/IL-01_bump.jpg');
+    var mat = new THREE.MeshStandardMaterial({
+        // bumpMap: bump,
+        // bumpScale: 0.3,
+        map: diff,
         metalness: 0.48,
         roughness: 0.52,
     });
@@ -272,7 +295,6 @@ function createPTmat(color) {
         bumpMap: bump,
         bumpScale: -0.2,
         color: color,
-        //envMap: background,
         metalness: 0.04,
         reflectivity: 0.26,
         roughness: 0.23
@@ -322,13 +344,13 @@ function createBASICmany(materials) {
     materials.matDarkGrey = createBASICmat(0x585858, 0, 0.7);
     materials.matChrome = createBASICmat(0xffffff, 1, 0.5);
 
-    materials.matSO01 = createSUmat(0xc4bab0); materials.matSO01.name = 'matSO01';
-    materials.matLI01 = createMLmat(0xc4bab0); materials.matLI01.name = 'matLI01';
-    materials.matHG01 = createLHmat(0xc4bab0); materials.matHG01.name = 'matHG01';
+    materials.matSO01 = createSUmat(0xb0a79e); materials.matSO01.name = 'matSO01';
+    materials.matLI01 = createMLmat(0xbab2a1); materials.matLI01.name = 'matLI01';
+    materials.matHG01 = createMLmat(0xc4bab0); materials.matHG01.name = 'matHG01';
     materials.matHT01 = createPTmat(0x0222222); materials.matHT01.name = 'matHT01';
-    materials.matIL01 = createMRmat(0xf4b196); materials.matIL01.name = 'matIL01';
-    materials.matLO01 = createMRmat(0xf4b196); materials.matLO01.name = 'matLO01';
-    materials.matBK01 = createMRmat(0xf4b196); materials.matBK01.name = 'matBK01';
+    materials.matIL01 = createILmat(); materials.matIL01.name = 'matIL01';
+    materials.matLO01 = createBKmat(0xf4b196); materials.matLO01.name = 'matLO01';
+    materials.matBK01 = createBKmat(0xbcb191); materials.matBK01.name = 'matBK01';
     materials.matGE01 = createMRmat(0xf4b196); materials.matGE01.name = 'matGE01';
 }
 
