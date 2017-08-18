@@ -91,15 +91,11 @@ img.selected:active {
     z-index: 2;
 }
 
-#canvasButtons>button {
+#canvasButtons button {
     border: 1px solid #ccc;
     background-color: rgba(221, 221, 221, 0.5);
     border-radius: 0;
 }
-
-
-
-
 
 /* Landscape phones and portrait tablets */
 
