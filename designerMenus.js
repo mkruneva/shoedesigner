@@ -92,7 +92,8 @@ function swatchSingle(object, selected) {
 
 function swatchMany(swatchArray, menuText) {
     var wholeText = "<div><button type='button' class='btn btn-secondary btn-lg btn-block'>" +
-        menuText + "</button><div class='row'><div class='col-xs-12 swatch-container'>"
+        menuText + "</button><div class='row'><div class='col-xs-12 swatch-container'>" + 
+        "<div>Pick a shoe part from the 3D designer to add material</div>"
     for (var i = 0; i < swatchArray.length; i++) {
         wholeText += swatchSingle(swatchArray[i]);
     }
