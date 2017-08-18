@@ -195,6 +195,13 @@ var st_pc = [
     new ThumbObject('BI1,BI1BK,BI1LI,BI2,BI2BK,BI2LI,BI3,BI4', 'images/STHI/STBI.jpg', 'none', "Bib", true, em_pc, [0, 1, 0, 0, 4]), 
 ];
 
+var st_pc_ki = [
+    new ThumbObject('none', 'images/STHI/STNO.jpg', 'none', "No strap", true, em_pc, [0, 0, 0, 0, 0]),
+    new ThumbObject('LS1,LS1LI', 'images/STHI/STLS.jpg', 'none', "Low Strap", true, em_pc, [0, 0, 0, 0, 1]),
+    new ThumbObject('MJ1,MJ1LI,MJ1BK,MJ2', 'images/STHI/STMJ.jpg', 'none', "Mary Jane", true, em_pc, [0, 0, 0, 0, 2]),
+    new ThumbObject('TB1,TB1LI,TB1BK,TB2', 'images/STHI/STTB.jpg', 'none', "T bar", true, em_pc, [0, 0, 0, 0, 3]),
+];
+
 var st_ph = [
     new ThumbObject('none', 'images/STHI/STNO.jpg', 'none', "No strap", true, em_ph, [1, 1, 0, 0, 0]),
     new ThumbObject('LS1,LS1LI', 'images/STHI/STLS.jpg', 'none', "Low Strap", true, em_ph, [1, 1, 0, 0, 1])
@@ -211,6 +218,13 @@ var st_ac = [
     new ThumbObject('MJ1,MJ1LI,MJ1BK,MJ2', 'images/STHI/STMJ.jpg', 'none', "Mary Jane", true, em_ac, [3, 1, 0, 0, 2]),
     new ThumbObject('TB1,TB1LI,TB1BK,TB2', 'images/STHI/STTB.jpg', 'none', "T bar", true, em_ac, [3, 1, 0, 0, 3]),
     new ThumbObject('BI1,BI1BK,BI1LI,BI2,BI2BK,BI2LI,BI3,BI4', 'images/STHI/STBI.jpg', 'none', "Bib", true, em_ac, [3, 1, 0, 0, 4]),
+];
+
+var st_ac_ki = [
+    new ThumbObject('none', 'images/STHI/STNO.jpg', 'none', "No strap", true, em_ac, [3, 0, 0, 0, 0]),
+    new ThumbObject('LS1,LS1LI', 'images/STHI/STLS.jpg', 'none', "Low Strap", true, em_ac, [3, 0, 0, 0, 1]),
+    new ThumbObject('MJ1,MJ1LI,MJ1BK,MJ2', 'images/STHI/STMJ.jpg', 'none', "Mary Jane", true, em_ac, [3, 0, 0, 0, 2]),
+    new ThumbObject('TB1,TB1LI,TB1BK,TB2', 'images/STHI/STTB.jpg', 'none', "T bar", true, em_ac, [3, 0, 0, 0, 3]),
 ];
 
 var st_pe = [
@@ -233,8 +247,13 @@ var st_fl = [
 var ba_pc = [
     new ThumbObject('none', 'images/BA/BACBPL.jpg', 'none', 'Plain Back', true, st_pc, [0, 1, 0, 0, 0]),
     new ThumbObject('SH1', 'images/BA/BACBSH.jpg', 'none', 'Strip Heel Counter', true, st_pc, [0, 1, 0, 1, 0]),
-    new ThumbObject('PH1', 'images/BA/BACBPH.jpg', 'none', 'Pointed Heel Counter', true, st_pc, [0, 1, 0, 2, 0]),
-    
+    new ThumbObject('PH1', 'images/BA/BACBPH.jpg', 'none', 'Pointed Heel Counter', true, st_pc, [0, 1, 0, 2, 0]), 
+];
+
+var ba_pc_ki = [
+    new ThumbObject('none', 'images/BA/BACBPL.jpg', 'none', 'Plain Back', true, st_pc_ki, [0, 0, 0, 0, 0]),
+    new ThumbObject('SH1', 'images/BA/BACBSH.jpg', 'none', 'Strip Heel Counter', true, st_pc_ki, [0, 0, 0, 1, 0]),
+    new ThumbObject('PH1', 'images/BA/BACBPH.jpg', 'none', 'Pointed Heel Counter', true, st_pc_ki, [0, 0, 0, 2, 0]), 
 ];
 
 var ba_ph = [
@@ -260,11 +279,16 @@ var ba_ac = [
     new ThumbObject('PH1', 'images/BA/BACBPH.jpg', 'none', 'Pointed Heel Counter', true, st_ac, [3, 1, 0, 2, 0]),   
 ];
 
+var ba_ac_ki = [
+    new ThumbObject('none', 'images/BA/BACBPL.jpg', 'none', 'Plain Back', true, st_ac_ki, [3, 0, 0, 0, 0]),
+    new ThumbObject('SH1', 'images/BA/BACBSH.jpg', 'none', 'Strip Heel Counter', true, st_ac_ki, [3, 0, 0, 1, 0]),
+    new ThumbObject('PH1', 'images/BA/BACBPH.jpg', 'none', 'Pointed Heel Counter', true, st_ac_ki, [3, 0, 0, 2, 0]),   
+];
+
 var ba_pe = [
     new ThumbObject('none', 'images/BA/BACBPL.jpg', 'none', 'Plain Back', true, st_pe, [4, 1, 0, 0, 0]),
     new ThumbObject('SH1', 'images/BA/BACBSH.jpg', 'none', 'Strip Heel Counter', true, st_pe, [4, 1, 0, 1, 0]),
-    new ThumbObject('PH1', 'images/BA/BACBPH.jpg', 'none', 'Pointed Heel Counter', true, st_pe, [4, 1, 0, 2, 0]),
-    
+    new ThumbObject('PH1', 'images/BA/BACBPH.jpg', 'none', 'Pointed Heel Counter', true, st_pe, [4, 1, 0, 2, 0]),  
 ];
 
 var ba_sa = [
@@ -292,6 +316,12 @@ var fr_pc = [
     new ThumbObject('TO1', 'images/FRPC/FRPCTOE300AH.jpg', 'none', 'Toe Cap', true, ba_pc, [0, 1, 2, 0, 0]),
 ];
 
+var fr_pc_ki = [
+    new ThumbObject('none', 'images/FRPC/FRPCPLA300AH.jpg', 'none', 'Plain', true, ba_pc_ki, [0, 0, 0, 0, 0]),
+    new ThumbObject('PT1', 'images/FRPC/FRPCPTO300AH.jpg', 'none', 'Pointed Toe Cap', true, ba_pc_ki, [0, 0, 1, 0, 0]),
+    new ThumbObject('TO1', 'images/FRPC/FRPCTOE300AH.jpg', 'none', 'Toe Cap', true, ba_pc_ki, [0, 0, 2, 0, 0]),
+];
+
 var fr_ph = [
     new ThumbObject('none', 'images/FRPH/FRPHPLA300AH.jpg', 'none', 'Plain', true, ba_ph, [1, 1, 0, 0, 0]),
     new ThumbObject('PT1', 'images/FRPH/FRPHPTO300AH.jpg', 'none', 'Pointed Toe Cap', true, ba_ph, [1, 1, 1, 0, 0]),
@@ -310,6 +340,12 @@ var fr_ac = [
     new ThumbObject('none', 'images/FRAC/FRACPLA300AH.jpg', 'none', 'Plain', true, ba_ac, [3, 1, 0, 0, 0]),
     new ThumbObject('PT1', 'images/FRAC/FRACPTO300AH.jpg', 'none', 'Pointed Toe Cap', true, ba_ac, [0, 1, 1, 0, 0]),
     new ThumbObject('TO1', 'images/FRAC/FRACTOE300AH.jpg', 'none', 'Toe Cap', true, ba_ac, [3, 1, 2, 0, 0]),
+];
+
+var fr_ac_ki = [
+    new ThumbObject('none', 'images/FRAC/FRACPLA300AH.jpg', 'none', 'Plain', true, ba_ac_ki, [3, 0, 0, 0, 0]),
+    new ThumbObject('PT1', 'images/FRAC/FRACPTO300AH.jpg', 'none', 'Pointed Toe Cap', true, ba_ac_ki, [0, 0, 1, 0, 0]),
+    new ThumbObject('TO1', 'images/FRAC/FRACTOE300AH.jpg', 'none', 'Toe Cap', true, ba_ac_ki, [3, 0, 2, 0, 0]),
 ];
 
 var fr_pe = [
@@ -334,7 +370,7 @@ var fr_fl = [
 
 //HEELS
 var he_pc = [
-    new ThumbObject('225KI', 'images/HEPC/HEPCPLA225KI.jpg', 'obj/PC/PC225KIPLAPL.obj', '2.25&quot; Kitten Heel', true, fr_pc, [0, 0, 0, 0, 0]),
+    new ThumbObject('225KI', 'images/HEPC/HEPCPLA225KI.jpg', 'obj/PC/PC225KIPLAPL.obj', '2.25&quot; Kitten Heel', true, fr_pc_ki, [0, 0, 0, 0, 0]),
     new ThumbObject('300AH', 'images/HEPC/HEPCPLA300AH.jpg', 'obj/PC/PC300AHPLAPL.obj', '3&quot; Stiletto Heel', true, fr_pc, [0, 1, 0, 0, 0]),
     new ThumbObject('300CO', 'images/HEPC/HEPCPLA300CO.jpg', 'obj/PC/PC300COPLAPL.obj', '3&quot; Cone Heel', true, fr_pc, [0, 2, 0, 0, 0]),
     new ThumbObject('375AH', 'images/HEPC/HEPCPLA375AH.jpg', 'obj/PC/PC375AHPLAPL.obj', '3.75&quot; Stiletto Heel', true, fr_pc, [0, 3, 0, 0, 0]),
@@ -358,7 +394,7 @@ var he_po = [
 ];
 
 var he_ac = [
-    new ThumbObject('225KI', 'images/HEAC/HEACPLA225KI.jpg', 'obj/AC/AC225KIPLAPL.obj', '2.25&quot; Kitten Heel', true, fr_ac, [3, 0, 0, 0, 0]),
+    new ThumbObject('225KI', 'images/HEAC/HEACPLA225KI.jpg', 'obj/AC/AC225KIPLAPL.obj', '2.25&quot; Kitten Heel', true, fr_ac_ki, [3, 0, 0, 0, 0]),
     new ThumbObject('300AH', 'images/HEAC/HEACPLA300AH.jpg', 'obj/AC/AC300AHPLAPL.obj', '3&quot; Stiletto Heel', true, fr_ac, [3, 1, 0, 0, 0]),
     new ThumbObject('300CO', 'images/HEAC/HEACPLA300CO.jpg', 'obj/AC/AC300COPLAPL.obj', '3&quot; Cone Heel', true, fr_ac, [3, 2, 0, 0, 0]),
     new ThumbObject('350AH', 'images/HEAC/HEACPLA350AH.jpg', 'obj/AC/AC350AHPLAPL.obj', '3.5&quot; Platform Stiletto Heel', true, fr_ac, [3, 3, 0, 0, 0]),
