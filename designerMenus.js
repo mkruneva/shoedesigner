@@ -201,20 +201,22 @@ var redrawSwatchMenu = function() {
             }
         });
     });
-
-    var btn = $('#swatchMenu button.btn'); //anim
-    btn.click(btnSlide(800, '.swatch-container'));
 }
 
 $('#canvasButtons').hide();
 
 $(document).ready(function() {
+
     //redrawing swatch and thumbs menu
     redrawMenu([0, 1, 0, 0, 0]);
     redrawSwatchMenu();
 
     $('.thumb-container:gt(0)').hide();
     $('.swatch-container').hide();
+
+    var btn = $('#swatchMenu button.btn'); //anim
+    btn.click(btnSlide(800, '.swatch-container'));
+    btn.click(defaultMatAssign);
 
     //changing meshes by clicking on canvas button
     $('#canvasButtons button.btn').click(function() {
@@ -223,7 +225,5 @@ $(document).ready(function() {
         if (materialMeshes == undefined) {
             materialMeshes = materialMeshGroups.defaultMat;
         }
-    })
-
-    $('#swatchMenu button.btn').click(defaultMatAssign); // defaultMatAssign in the main doc ready 
+    }) 
 });

@@ -261,7 +261,6 @@ var ba_ph = [
     new ThumbObject('SH1', 'images/BA/BACBSH.jpg', 'none', 'Strip Heel Counter', true, st_ph, [1, 1, 0, 1, 0])  
 ];
 
-
 var ba_po = [
     new ThumbObject('LC1,LC1LI,LC1HG', 'images/BA/BAOBLC.jpg', 'none', 'Long Counter', true, st_po, [2, 1, 0, 0, 0]),
     new ThumbObject('TN1,TN1LI,TN1HG,TN1BK,TN2,TN3', 'images/BA/BAOBTN.jpg', 'none', 'High Back (Thin Strap)', true, st_po, [2, 1, 0, 1, 0]),

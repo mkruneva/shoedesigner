@@ -1,84 +1,111 @@
 body {
-	background-color: #eee;
+    background-color: #eee;
 }
+
 .some-padding {
-	padding: 10px 40px;
+    padding: 2%;
 }
+
 .left {
-	background-color: #ddd;
-	border: 1px solid #ccc;
-	margin-bottom: 15px;
+    background-color: #ddd;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
 }
+
 .btn-block {
-	border: 1px solid #ccc;
-	border-radius: 0;
-	margin-top: 3px;
-	margin-bottom: 3px;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    margin-top: 3px;
+    margin-bottom: 3px;
 }
+
 .btn-block:first-child {
-	margin-top: 0px;
+    margin-top: 0px;
 }
+
 .shoe-thumb {
-	box-sizing: border-box;
-	padding: 5px 5px 0px 0px;
-
-}
-.shoe-thumb > img {
-	box-sizing: border-box;
-	display: block;
-	width: 100%;
-	margin: auto;
+    box-sizing: border-box;
+    padding: 5px 5px 0px 0px;
 }
 
-.shoe-thumb > img:hover {
-	cursor:pointer;
-	border: 1px solid #ccc;
+.shoe-thumb>img {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    margin: auto;
 }
 
-.shoe-thumb > img:visited, .shoe-thumb > img:active {
-	border: 2px solid #aaa;
+.shoe-thumb>img:hover {
+    cursor: pointer;
+    border: 1px solid #ccc;
 }
 
-.shoe-thumb > img.off{
-	opacity: 0.2;
+.shoe-thumb>img:visited,
+.shoe-thumb>img:active {
+    border: 2px solid #aaa;
 }
-img.selected  {
-	outline: 5px auto -webkit-focus-ring-color;
-  	outline-offset: -2px;
+
+.shoe-thumb>img.off {
+    opacity: 0.2;
 }
-img.selected:hover, img.selected:active {
-	outline: 5px auto -webkit-focus-ring-color;
-  	outline-offset: -2px;
+
+img.selected {
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+}
+
+img.selected:hover,
+img.selected:active {
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
 }
 
 .thumb-container {
-	padding-top: 2px;
-	padding-bottom: 7px;
-	padding-right: 10px;
+    padding-top: 2px;
+    padding-bottom: 7px;
+    padding-right: 10px;
 }
+
 #canvasContainer {
-   position: relative;
-   width: 100%;
-   padding-top: 75%; /* 4:3 Aspect Ratio */
+    position: relative;
+    width: 100%;
+    padding-top: 75%;
+    /* 4:3 Aspect Ratio */
 }
+
 #canvasContainer>canvas {
-	position:  absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	width: 100% !important;
-	height: 100% !important;
-	z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 1;
 }
+
 #canvasButtons {
-	position:  absolute;
-	top: 1%;
-	left: 1%;
-	z-index: 2;
+    position: absolute;
+    top: 1%;
+    left: 1%;
+    z-index: 2;
 }
+
 #canvasButtons>button {
-	border: 1px solid #ccc;
-	background-color: rgba(221, 221, 221, 0.5);
-	border-radius: 0;
+    border: 1px solid #ccc;
+    background-color: rgba(221, 221, 221, 0.5);
+    border-radius: 0;
+}
+
+
+
+
+
+/* Landscape phones and portrait tablets */
+
+@media (max-width: 767px) {
+    .no-padding-sm {
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
