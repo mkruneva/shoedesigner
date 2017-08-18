@@ -146,15 +146,15 @@ var swatches = [
 
 //EMBELLISHMENTS
 var em_pc = [
-    new ThumbObject('none', 'images/EM/EMNO.jpg', 'none', "No Embelli", true, 'none', [0, , 0, 0, 0]),
-    new ThumbObject('GE1,GE2,GE3,GC1', 'images/EM/EMGE.jpg', 'none', "Gem", true, 'none', [0, , 0, 0, 0]),
-    new ThumbObject('BB1,BB2', 'images/EM/EMBB.jpg', 'none', "Big Bow", true, 'none', [0, , 0, 0, 0])  
+    new ThumbObject('none', 'images/EM/EMNO.jpg', 'none', "No Embelli", true, 'none', [0, 1, 0, 0, 0]),
+    new ThumbObject('GE1,GE2,GE3,GC1', 'images/EM/EMGE.jpg', 'none', "Gem", true, 'none', [0, 1, 0, 0, 0]),
+    new ThumbObject('BB1,BB2', 'images/EM/EMBB.jpg', 'none', "Big Bow", true, 'none', [0, 1, 0, 0, 0])  
 ];
 
 var em_ph = [
-    new ThumbObject('none', 'images/EM/EMNO.jpg', 'none', "No Embelli", true, 'none', [1, , 0, 0, 0]),
-    new ThumbObject('GE1,GE2,GE3,GC1', 'images/EM/EMGE.jpg', 'none', "Gem", true, 'none', [1, , 0, 0, 0]),
-    new ThumbObject('BB1,BB2', 'images/EM/EMBB.jpg', 'none', "Big Bow", true, 'none', [1, , 0, 0, 0])  
+    new ThumbObject('none', 'images/EM/EMNO.jpg', 'none', "No Embelli", true, 'none', [1, 1, 0, 0, 0]),
+    new ThumbObject('GE1,GE2,GE3,GC1', 'images/EM/EMGE.jpg', 'none', "Gem", true, 'none', [1, 1, 0, 0, 0]),
+    new ThumbObject('BB1,BB2', 'images/EM/EMBB.jpg', 'none', "Big Bow", true, 'none', [1, 1, 0, 0, 0])  
 ];
 
 var em_po = [

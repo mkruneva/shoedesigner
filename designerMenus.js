@@ -151,7 +151,6 @@ var onThumbClick = function() {
 }
 
 var redrawMenu = function(sel) {
-
     var displ = $('.thumb-container').map((i, e) => e.style.display).toArray(); //display style to be redrawn each time
 
     $('#shoeMenu').html(
@@ -218,6 +217,8 @@ $(document).ready(function() {
     var btn = $('#swatchMenu button.btn'); //anim
     btn.click(btnSlide(800, '.swatch-container'));
     btn.click(defaultMatAssign);
+    //btn.click($('.thumb-container').hide());
+    
 
     //changing meshes by clicking on canvas button
     $('#canvasButtons button.btn').click(function() {
