@@ -206,6 +206,7 @@ var redrawSwatchMenu = function() {
 $('#canvasButtons').hide();
 
 $(document).ready(function() {
+
     //redrawing swatch and thumbs menu
     redrawMenu([0, 1, 0, 0, 0]);
     redrawSwatchMenu();
