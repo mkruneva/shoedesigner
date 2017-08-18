@@ -37,17 +37,17 @@ var defaultMeshMaterials = {
     'TN1HG': 'matHG01',
     'TK1HG': 'matHG01',
     'TT1HG': 'matHG01',
-    'TN1BK': 'matBK01', 
-    'TK1BK': 'matBK01', 
-    'TT1BK': 'matBK01', 
-    'TT2BK': 'matBK01', 
-    'MJ1BK': 'matBK01', 
-    'TB1BK': 'matBK01', 
-    'BI1BK': 'matBK01', 
-    'BI2BK': 'matBK01', 
+    'TN1BK': 'matBK01',
+    'TK1BK': 'matBK01',
+    'TT1BK': 'matBK01',
+    'TT2BK': 'matBK01',
+    'MJ1BK': 'matBK01',
+    'TB1BK': 'matBK01',
+    'BI1BK': 'matBK01',
+    'BI2BK': 'matBK01',
     'GC1': 'matBK01',
-    'GE1': 'matGE01', 
-    'GE2': 'matGE01', 
+    'GE1': 'matGE01',
+    'GE2': 'matGE01',
     'GE3': 'matGE01'
 };
 
@@ -92,7 +92,7 @@ function swatchSingle(object, selected) {
 
 function swatchMany(swatchArray, menuText) {
     var wholeText = "<div><button type='button' class='btn btn-secondary btn-lg btn-block'>" +
-        menuText + "</button><div class='row'><div class='col-xs-12 swatch-container'>" + 
+        menuText + "</button><div class='row'><div class='col-xs-12 swatch-container'>" +
         "<div>Pick a shoe part from the 3D designer to add material</div>"
     for (var i = 0; i < swatchArray.length; i++) {
         wholeText += swatchSingle(swatchArray[i]);
@@ -128,14 +128,14 @@ var onThumbClick = function() {
             objPathName = $(this).attr("obj");
             objCont.scene.remove(objCont.obj);
             objCont.loadObject(objPathName, objCont.materials.matGrey, objCont.materials.matDarkGrey);
-        } else if ($(this).attr("obj") == 'none'){
+        } else if ($(this).attr("obj") == 'none') {
             var objAbr = $(this).attr("abr").split(',');
             var allAbr = [];
             $(this).parent().parent().find('img').each(function(i, s) {
                 allAbr = allAbr.concat($(s).attr('abr').split(','));
             });
-            var removeAbr = jQuery.grep(allAbr, function(e, i) { 
-                return !objAbr.includes(e); 
+            var removeAbr = jQuery.grep(allAbr, function(e, i) {
+                return !objAbr.includes(e);
             });
             object.traverse(function(child) {
                 if ((child instanceof THREE.Mesh) && (objAbr.includes(child.name))) {
@@ -226,5 +226,5 @@ $(document).ready(function() {
         if (materialMeshes == undefined) {
             materialMeshes = materialMeshGroups.defaultMat;
         }
-    }) 
+    })
 });

@@ -49,16 +49,12 @@ function init() {
 }
 
 //LOADER
-
-THREE.DefaultLoadingManager.onStart = function ( item, loaded, total ) {
-    console.log( 'Loading started' );
-    var loaderDiv = document.getElementById("loader");
+var loaderDiv = document.getElementById("loader");
+THREE.DefaultLoadingManager.onStart = function(item, loaded, total) {
     loaderDiv.style.display = 'block';
 };
 
-THREE.DefaultLoadingManager.onLoad = function ( item, loaded, total ) {
-    console.log( 'loading done');
-    var loaderDiv = document.getElementById("loader");
+THREE.DefaultLoadingManager.onLoad = function(item, loaded, total) {
     loaderDiv.style.display = 'none';
 };
 
