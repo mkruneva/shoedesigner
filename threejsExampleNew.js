@@ -48,6 +48,20 @@ function init() {
     controls = new THREE.OrbitControls(camera, renderer.domElement);
 }
 
+//LOADER
+
+THREE.DefaultLoadingManager.onStart = function ( item, loaded, total ) {
+    console.log( 'Loading started' );
+    var loaderDiv = document.getElementById("loader");
+    loaderDiv.style.display = 'block';
+};
+
+THREE.DefaultLoadingManager.onLoad = function ( item, loaded, total ) {
+    console.log( 'loading done');
+    var loaderDiv = document.getElementById("loader");
+    loaderDiv.style.display = 'none';
+};
+
 //FUNCTION FOR CREATING RENDERER
 function createRenderer(clearColour) {
     myRenderer = new THREE.WebGLRenderer({ antialias: true });
