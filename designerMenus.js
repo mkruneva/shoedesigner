@@ -1,55 +1,3 @@
-//DATA
-var objPathName = 'obj/PC/PC300AHPLAPL.obj'; // Initial obj file
-
-var materialMeshes = ['FR1', 'FR2', 'IB1', 'CO1', 'CO2', 'LC1', 'TN1', 'TK1', 'TT1'];
-var materialMeshGroups = {
-    mainFrontMat: ['FR1', 'FR2', 'CO1', 'CO2', 'IB1', 'ST1', 'BB2'],
-    mainBackMat: ['LC1', 'TN1', 'TT1', 'TK1'],
-    heelMat: ['HE1', 'PF1'],
-    capsMat: ['PT1', 'TO1', 'BB1', 'SH1', 'PH1'],
-    strapsMat: ['LS1', 'MJ1', 'MJ2', 'TB1', 'TB2', 'BI1', 'BI2', 'BI3', 'BI4', 'TN2', 'TK2', 'TK3', 'TT2', 'TT3', 'TT4', 'TT5'],
-    defaultMat: ['FR1', 'FR2', 'IB1', 'CO1', 'CO2', 'LC1', 'TN1', 'TK1', 'TT1'],
-};
-var defaultMeshMaterials = {
-    'SO1': 'matSO01',
-    'SO2': 'matSO01',
-    'LO1': 'matLO01',
-    'IL1': 'matIL01',
-    'HT1': 'matHT01',
-    'IN1': 'matLI01',
-    'LI1': 'matLI01',
-    'TN1LI': 'matLI01',
-    'TN2LI': 'matLI01',
-    'TK1LI': 'matLI01',
-    'TK2LI': 'matLI01',
-    'TT1LI': 'matLI01',
-    'TT2LI': 'matLI01',
-    'CO1LI': 'matLI01',
-    'CO2LI': 'matLI01',
-    'LC1LI': 'matLI01',
-    'LS1LI': 'matLI01',
-    'MJ1LI': 'matLI01',
-    'TB1LI': 'matLI01',
-    'BI1LI': 'matLI01',
-    'BI2LI': 'matLI01',
-    'HG1': 'matHG01',
-    'LC1HG': 'matHG01',
-    'TN1HG': 'matHG01',
-    'TK1HG': 'matHG01',
-    'TT1HG': 'matHG01',
-    'TN1BK': 'matBK01', 
-    'TK1BK': 'matBK01', 
-    'TT1BK': 'matBK01', 
-    'TT2BK': 'matBK01', 
-    'MJ1BK': 'matBK01', 
-    'TB1BK': 'matBK01', 
-    'BI1BK': 'matBK01', 
-    'BI2BK': 'matBK01', 
-    'GC1': 'matBK01',
-    'GE1': 'matGE01', 
-    'GE2': 'matGE01', 
-    'GE3': 'matGE01'
-};
 
 //Generate HTML function 
 var figureStart = '<figure class="col-xs-3 col-sm-4 col-md-3 shoe-thumb">';
@@ -120,14 +68,14 @@ var onThumbClick = function() {
     var object = objCont.obj;
 
     if ($(this).attr("obj") != objCont.obj.name) {
-        if ($(this).attr("obj") !== 'null') {
+        if ($(this).attr("obj") != 'none') {
             $('.swatch-container').hide(); //hides material menu on object reload
             $('#canvasButtons').hide(); //hides canvas menu on object reload
 
             objPathName = $(this).attr("obj");
             objCont.scene.remove(objCont.obj);
             objCont.loadObject(objPathName, objCont.materials.matGrey, objCont.materials.matDarkGrey);
-        } else {
+        } else if ($(this).attr("obj") == 'none'){
             var objAbr = $(this).attr("abr").split(',');
             var allAbr = [];
             $(this).parent().parent().find('img').each(function(i, s) {
@@ -210,7 +158,7 @@ $('#canvasButtons').hide();
 
 $(document).ready(function() {
     //redrawing swatch and thumbs menu
-    redrawMenu([0, 0, 0, 0, 0]);
+    redrawMenu([0, 1, 0, 0, 0]);
     redrawSwatchMenu();
 
     $('.thumb-container:gt(0)').hide();
