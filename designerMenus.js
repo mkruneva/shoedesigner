@@ -120,14 +120,14 @@ var onThumbClick = function() {
     var object = objCont.obj;
 
     if ($(this).attr("obj") != objCont.obj.name) {
-        if ($(this).attr("obj") !== 'null') {
+        if ($(this).attr("obj") != 'none') {
             $('.swatch-container').hide(); //hides material menu on object reload
             $('#canvasButtons').hide(); //hides canvas menu on object reload
 
             objPathName = $(this).attr("obj");
             objCont.scene.remove(objCont.obj);
             objCont.loadObject(objPathName, objCont.materials.matGrey, objCont.materials.matDarkGrey);
-        } else {
+        } else if ($(this).attr("obj") == 'none'){
             var objAbr = $(this).attr("abr").split(',');
             var allAbr = [];
             $(this).parent().parent().find('img').each(function(i, s) {
@@ -210,7 +210,7 @@ $('#canvasButtons').hide();
 
 $(document).ready(function() {
     //redrawing swatch and thumbs menu
-    redrawMenu([0, 0, 0, 0, 0]);
+    redrawMenu([0, 1, 0, 0, 0]);
     redrawSwatchMenu();
 
     $('.thumb-container:gt(0)').hide();
