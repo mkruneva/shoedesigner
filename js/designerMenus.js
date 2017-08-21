@@ -151,7 +151,9 @@ var onThumbClick = function() {
 }
 
 var redrawMenu = function(sel) {
-    var displ = $('.thumb-container').map((i, e) => e.style.display).toArray(); //display style to be redrawn each time
+
+    //var displ = $('.thumb-container').map((i, e) => e.style.display).toArray(); //display style to be redrawn each time
+    var displ = $('.thumb-container').map(function(i, e){return e.style.display;}).toArray();
 
     $('#shoeMenu').html(
         thumbMany(cs, 'Core Shape', sel[0]) +
@@ -162,7 +164,10 @@ var redrawMenu = function(sel) {
         thumbMany(cs[sel[0]].children[sel[1]].children[sel[2]].children[sel[3]].children[sel[4]].children, "Embellishments")
     );
 
-    $('.thumb-container').each((i, e) => e.style.display = displ[i]); //display style to be redrawn each time
+    //$('.thumb-container').each((i, e) => e.style.display = displ[i]); //display style to be redrawn each time
+    $('.thumb-container').each(function(i, e){
+        e.style.display = displ[i];
+    });
 
     var thumb = $('#shoeMenu').find('img'); // ? can this be outside of the function ?
     thumb.click(onThumbClick);
@@ -218,7 +223,7 @@ $(document).ready(function() {
     btn.click(btnSlide(800, '.swatch-container'));
     btn.click(defaultMatAssign);
     //btn.click($('.thumb-container').hide());
-    
+
 
     //changing meshes by clicking on canvas button
     $('#canvasButtons button.btn').click(function() {
